@@ -1,0 +1,22 @@
+{
+  "name": "comptox-impact",
+  "version": "1.0.0",
+  "description": "Showcase metrics and impact of NCCT research and tools.",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@bitbucket.zn.epa.gov:7999/icd/impact.git"
+  },
+  "keywords": [
+    "rails",
+    "react",
+    "webpack"
+  ],
+  "author": "Victor H. Ruelas-Rivera",
+  "license": "ISC"
+}
