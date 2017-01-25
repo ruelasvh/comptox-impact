@@ -4,6 +4,15 @@
   <title>ComptoxImpact</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <script charset="utf-8">
+    <% if ENV["RAILS_ENV"] == "production" %>
+    var script = "/webpack_bundle.js";
+    <% else %>
+    console.warn("Development mode. Make sure to start 'node devServer.js'");
+    var script = "http://" + (location.host || 'localhost').split(':')[0] + ":4000/webpack_bundle.js"
+    <% end %>
+    document.write('<script src="' + script + '"></' + 'script>');
+  </script>
   <%= csrf_meta_tags %>
 </head>
 <body>
