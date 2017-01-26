@@ -11,13 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170126135000) do
+ActiveRecord::Schema.define(version: 20170126142553) do
 
   create_table "homes", force: :cascade do |t|
-    t.string   "title",      limit: 255
-    t.string   "intro",      limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "title",                limit: 255
+    t.string   "intro",                limit: 255
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.string   "scientists_img_url",   limit: 255
+    t.string   "publications_img_url", limit: 255
+    t.string   "datatools_img_url",    limit: 255
+    t.string   "impact_img_url",       limit: 255
   end
 
 end
