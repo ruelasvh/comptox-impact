@@ -3,7 +3,7 @@
 */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import HelloWorld from './features/HelloWorld/HelloWorld';
+import HelloWorld from './features/helloworld/HelloWorld';
 
 
 /**

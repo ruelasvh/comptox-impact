@@ -33,8 +33,8 @@ var config = {
     devtool: "cheap-module-eval-source-map",
     module: {
         loaders: [
+            // Process JS with Babel and the hot module loader
             {
-                // Process JS with Babel
                 test: /\.js?$/,
                 exclude: /(node_modules)/,
                 loaders: [
@@ -43,9 +43,9 @@ var config = {
                 ],
                 include: SRC_PATH
             },
-            // Process css files
+            // Process css and scss files
             {
-                test: /\.scss$/,
+                test: /\.?css$/,
                 exclude: /(node_modules)/,
                 loader: 'style!css!sass'
             },
@@ -60,6 +60,7 @@ var config = {
             }
         ]
     },
+    // This is so that when importing modules file extensions can be left out
     resolve: {
         extensions: ['', '.js', '.jsx']
     },
