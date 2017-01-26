@@ -65,4 +65,17 @@ const HomeIndex = ( { data } ) => (
         </Grid>
     </div>);
 
+HomeIndex.propTypes = {
+    data: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        intro: PropTypes.string.isRequired,
+        created_at: PropTypes.string,
+        updated_at: PropTypes.string,
+        scientists_img_url: PropTypes.string.isRequired,
+        publications_img_url: PropTypes.string.isRequired,
+        datatools_img_url: PropTypes.string.isRequired,
+        impact_img_url: PropTypes.string.isRequired
+    })
+};
+
 export default HomeIndex;
