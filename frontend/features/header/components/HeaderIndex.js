@@ -4,10 +4,11 @@
  */
 import React, { PropTypes } from 'react';
 import { Navbar, Nav, NavDropdown, MenuItem } from 'react-bootstrap';
+import ToolBar from './ToolBar';
 import logo from '../img/epa_logo.png';
 import '../styles/HeaderIndex.css';
 
-const HeaderIndex = () => (
+const HeaderIndex = ( { currentUri } ) => (
     <div>
         <Navbar id="primary-navbar" className="navbar-fixed-top" fluid className="navbar-fixed-top" role="navigation" >
             <Navbar.Header>
@@ -26,7 +27,12 @@ const HeaderIndex = () => (
                 </div>
             </Navbar.Collapse>
         </Navbar>
+        <ToolBar currentUri={currentUri}/>
     </div>
 );
+
+HeaderIndex.propTypes = {
+    currentUri: React.PropTypes.string
+};
 
 export default HeaderIndex;

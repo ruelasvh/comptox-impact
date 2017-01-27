@@ -5,6 +5,7 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
   <script charset="utf-8">
     <% if ENV["RAILS_ENV"] == "production" %>
     var script = "/webpack_bundle.js";
@@ -18,7 +19,7 @@
 </head>
 <body>
 
-<%= react_component(:Header, {}) %>
+<%= react_component(:Header, { currentUri: request.env['PATH_INFO'] }) %>
 <%= yield %>
 <%= react_component(:Footer, {}) %>
 

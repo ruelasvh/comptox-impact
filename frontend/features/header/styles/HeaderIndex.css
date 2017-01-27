@@ -16,14 +16,6 @@ body {
     background-color: #0e6993;
 }
 
-.navbar-static-top {
-    background-color: #E8F6FD;
-}
-
-.navbar-static-top-share-dropdown {
-    padding-right: 15px;
-}
-
 .navbar-fixed-top-links {
     list-style-type: none;
 }
