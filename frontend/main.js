@@ -5,6 +5,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import HelloWorld from './features/helloworld/HelloWorld';
 import HomeIndex from './features/home/components/HomeIndex';
+import Header from './features/header/components/HeaderIndex';
 
 
 /**
@@ -17,7 +18,8 @@ import HomeIndex from './features/home/components/HomeIndex';
     //TODO: move features to features directory
     const components = {
         'HelloWorld': HelloWorld,
-        'HomeIndex': HomeIndex
+        'HomeIndex': HomeIndex,
+        'Header': Header
     };
     //TODO: Create Registrar class for registering components when they are defined
     // const components = Registrar.releaseComponents();
