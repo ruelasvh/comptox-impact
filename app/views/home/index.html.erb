@@ -3,4 +3,4 @@
 
 <% @home = Home.order("created_at").last %>
 
-<%= react_component(:HomeIndex, {data: @home}) %>
+<%= react_component(:Home, {data: @home}) %>
