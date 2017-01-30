@@ -1,6 +1,4 @@
 <!--<h1>Home#index</h1>-->
 <!--<p>Find me in app/views/home/index.html.erb</p>-->
 
-<% @home = Home.order("created_at").last %>
-
-<%= react_component(:Home, {data: @home}) %>
+<%= react_component(:Home, {data: @current_home_rev}) %>
