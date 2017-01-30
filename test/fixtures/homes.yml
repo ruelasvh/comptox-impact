@@ -7,3 +7,11 @@ one:
 two:
   title: MyString
   intro: MyString
+
+rev_three:
+  title: Impact Title
+  intro: Impact showcases NCCT wide metrics
+  scientists_img_url: scientists.png
+  publications_img_url: publications.gif
+  datatools_img_url: datatools.jpg
+  impact_img_url: http://a.b.c/x/impact.gif
