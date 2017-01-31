@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170126155957) do
+ActiveRecord::Schema.define(version: 20170131192931) do
 
   create_table "homes", force: :cascade do |t|
     t.string   "title",                limit: 255
@@ -22,6 +22,31 @@ ActiveRecord::Schema.define(version: 20170126155957) do
     t.string   "publications_img_url", limit: 255
     t.string   "datatools_img_url",    limit: 255
     t.string   "impact_img_url",       limit: 255
+  end
+
+  create_table "scientists", id: false, force: :cascade do |t|
+    t.integer  "scientistId",   limit: 4
+    t.string   "firstName",     limit: 255,   null: false
+    t.string   "lastName",      limit: 255,   null: false
+    t.string   "title",         limit: 255,   null: false
+    t.string   "email",         limit: 255
+    t.string   "photoUrl",      limit: 255
+    t.string   "orcid",         limit: 255
+    t.string   "researchGate",  limit: 255
+    t.string   "googleScholar", limit: 255
+    t.string   "linkedIn",      limit: 255
+    t.string   "plumx",         limit: 255
+    t.string   "publons",       limit: 255
+    t.string   "europePmc",     limit: 255
+    t.text     "bio",           limit: 65535
+    t.string   "createdBy",     limit: 255
+    t.string   "updatedBy",     limit: 255
+    t.string   "publications",  limit: 255
+    t.string   "presentations", limit: 255
+    t.string   "projects",      limit: 255
+    t.string   "selfUrl",       limit: 255
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
 end

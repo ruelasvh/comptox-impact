@@ -1,0 +1,51 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  scientistId: 
+  firstName: MyString
+  lastName: MyString
+  title: MyString
+  email: MyString
+  photoUrl: MyString
+  orcid: MyString
+  researchGate: MyString
+  googleScholar: MyString
+  linkedIn: MyString
+  plumx: MyString
+  publons: MyString
+  europePmc: MyString
+  string: MyString
+  bio: MyText
+  createdDate: 2017-01-31 14:29:31
+  createdBy: MyString
+  modifiedDate: 2017-01-31 14:29:31
+  modifiedBy: MyString
+  publications: MyString
+  presentations: MyString
+  projects: MyString
+  selfUrl: MyString
+
+two:
+  scientistId: 
+  firstName: MyString
+  lastName: MyString
+  title: MyString
+  email: MyString
+  photoUrl: MyString
+  orcid: MyString
+  researchGate: MyString
+  googleScholar: MyString
+  linkedIn: MyString
+  plumx: MyString
+  publons: MyString
+  europePmc: MyString
+  string: MyString
+  bio: MyText
+  createdDate: 2017-01-31 14:29:31
+  createdBy: MyString
+  modifiedDate: 2017-01-31 14:29:31
+  modifiedBy: MyString
+  publications: MyString
+  presentations: MyString
+  projects: MyString
+  selfUrl: MyString
