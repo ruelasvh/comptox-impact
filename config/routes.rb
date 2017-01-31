@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'scientists' => 'scientists#index' #, as: link_to_scientists_index
+
   get 'home/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
