@@ -7,6 +7,7 @@ import HelloWorld from './features/helloworld/HelloWorld';
 import Home from './features/home/components/HomeIndex';
 import Header from './features/header/components/HeaderIndex';
 import Footer from './features/footer/components/FooterIndex';
+import ScientistsIndex from './features/scientistindex/components/ScientistsIndex';
 
 
 /**
@@ -21,7 +22,8 @@ import Footer from './features/footer/components/FooterIndex';
         'HelloWorld': HelloWorld,
         'Home': Home,
         'Header': Header,
-        'Footer': Footer
+        'Footer': Footer,
+        'ScientistsIndex': ScientistsIndex
     };
     //TODO: Create Registrar class for registering components when they are defined
     // const components = Registrar.releaseComponents();

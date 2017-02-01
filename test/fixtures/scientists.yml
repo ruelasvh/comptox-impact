@@ -14,12 +14,9 @@ one:
   plumx: MyString
   publons: MyString
   europePmc: MyString
-  string: MyString
   bio: MyText
-  createdDate: 2017-01-31 14:29:31
   createdBy: MyString
-  modifiedDate: 2017-01-31 14:29:31
-  modifiedBy: MyString
+  updatedBy: MyString
   publications: MyString
   presentations: MyString
   projects: MyString
@@ -39,12 +36,9 @@ two:
   plumx: MyString
   publons: MyString
   europePmc: MyString
-  string: MyString
   bio: MyText
-  createdDate: 2017-01-31 14:29:31
   createdBy: MyString
-  modifiedDate: 2017-01-31 14:29:31
-  modifiedBy: MyString
+  updatedBy: MyString
   publications: MyString
   presentations: MyString
   projects: MyString
