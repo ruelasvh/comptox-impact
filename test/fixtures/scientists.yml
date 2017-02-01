@@ -43,3 +43,12 @@ two:
   presentations: MyString
   projects: MyString
   selfUrl: MyString
+
+ann:
+  scientistId: 1
+  firstName: Ann
+  lastName: Richard
+  title: Research Chemist
+  email: richard.ann@epa.gov
+  photoUrl: richard_ann.jpg
+  orcid: 0000-0003-2116-2300
