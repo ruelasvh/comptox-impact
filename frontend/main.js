@@ -7,7 +7,7 @@ import HelloWorld from './features/helloworld/HelloWorld';
 import Home from './features/home/components/HomeIndex';
 import Header from './features/header/components/HeaderIndex';
 import Footer from './features/footer/components/FooterIndex';
-import ScientistsIndex from './features/scientistindex/components/ScientistsIndex';
+import ScientistsIndex from './features/scientistsindex/components/ScientistsIndex';
 
 
 /**
