@@ -62,7 +62,11 @@ var config = {
     },
     // This is so that when importing modules file extensions can be left out
     resolve: {
-        extensions: ['', '.js', '.jsx']
+        extensions: ['', '.js', '.jsx'],
+        alias: {
+            'masonry': 'masonry-layout',
+            'isotope': 'isotope-layout'
+        }
     },
     plugins: [
         NODE_ENV_PLUGIN,
