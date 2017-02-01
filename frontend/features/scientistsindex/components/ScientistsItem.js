@@ -45,7 +45,7 @@ Scientist.propTypes = {
         // selfUrl: PropTypes.string.isRequired,
         // created_at: PropTypes.string.isRequired,
         // updated_at: PropTypes.string.isRequired
-    }),
+    }).isRequired,
     scientists_path: PropTypes.string.isRequired,
     i: PropTypes.number.isRequired
 };
