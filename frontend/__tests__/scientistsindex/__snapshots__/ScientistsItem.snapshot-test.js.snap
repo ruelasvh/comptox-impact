@@ -1,0 +1,24 @@
+exports[`test ScientistsItem renders correctly 1`] = `
+<div
+  className="scientists-item"
+  last-name="Perez">
+  <a
+    href="/scientists/1">
+    <div
+      className="thumbnail">
+      <img
+        alt="Scientist_Image"
+        src="test-file-stub" />
+      <div
+        className="caption">
+        <h4>
+          Juan Perez
+        </h4>
+        <p>
+          Rocket Scientist
+        </p>
+      </div>
+    </div>
+  </a>
+</div>
+`;
