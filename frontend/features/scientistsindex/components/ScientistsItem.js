@@ -12,8 +12,8 @@ const Scientist = ({ scientist, scientists_path, i }) => (
          key={"scientist-component-" + i}>
         <a href={scientists_path + "/" + scientist.scientistId}>
             <Thumbnail
-                src={require('../img/' + scientist.photoUrl)}
-                alt="Scientist Image">
+                src={scientist.photoUrl ? require('../img/' + scientist.photoUrl) : ''}
+                alt="Scientist_Image">
                 <h4>{scientist.firstName + ' ' + scientist.lastName}</h4>
                 <p>{scientist.title}</p>
             </Thumbnail>
