@@ -23,8 +23,8 @@ describe('<ScientistsItem />', () => {
         const wrapper = mount(<Scientist scientist={seed} scientists_path="/" i={1}/>);
         expect(wrapper.find(Thumbnail).length).toBe(1);
     });
-    it('has a div with prop last-name', () => {
+    it('has sorting class .last-name', () => {
         const wrapper = shallow(<Scientist scientist={seed} scientists_path="/" i={1}/>);
-        expect(wrapper.find('div[last-name="Perez"]').length).toBe(1);
+        expect(wrapper.find('span.last-name').text()).toEqual('Perez');
     });
 });

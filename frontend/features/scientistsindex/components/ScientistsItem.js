@@ -6,15 +6,13 @@ import React, { PropTypes } from 'react';
 import { Thumbnail } from 'react-bootstrap';
 import '../styles/ScientistsIndex.css';
 
-const Scientist = ({ scientist, scientists_path, i }) => (
-    <div className="scientists-item"
-         last-name={scientist.lastName}
-         key={"scientist-component-" + i}>
+const Scientist = ({ scientist, scientists_path }) => (
+    <div className="scientists-item">
         <a href={scientists_path + "/" + scientist.scientistId}>
             <Thumbnail
                 src={scientist.photoUrl ? require('../img/' + scientist.photoUrl) : ''}
                 alt="Scientist_Image">
-                <h4>{scientist.firstName + ' ' + scientist.lastName}</h4>
+                <h4>{scientist.firstName + ' '}<span className="last-name">{scientist.lastName}</span></h4>
                 <p>{scientist.title}</p>
             </Thumbnail>
         </a>
@@ -46,8 +44,7 @@ Scientist.propTypes = {
         // created_at: PropTypes.string.isRequired,
         // updated_at: PropTypes.string.isRequired
     }).isRequired,
-    scientists_path: PropTypes.string.isRequired,
-    i: PropTypes.number.isRequired
+    scientists_path: PropTypes.string.isRequired
 };
 
 export default Scientist;

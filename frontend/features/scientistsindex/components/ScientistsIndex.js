@@ -36,7 +36,9 @@ class ScientistsIndex extends React.Component {
                         columnWidth: 210
                     },
                     getSortData: {
-                        name: '[last-name]'
+                        // name: '[last-name]'
+                        name: '.last-name'
+
                     }
                 })
             });
@@ -63,8 +65,8 @@ class ScientistsIndex extends React.Component {
             ScientistsList = (
                 scientists.map(function (scientist, i) {
                     return (
-                        <div className="scientists-grid-item">
-                            <Scientist scientist={scientist} scientists_path={scientists_path} i={i}/>
+                        <div className="scientists-grid-item" key={"scientist-component-" + i}>
+                            <Scientist scientist={scientist} scientists_path={scientists_path}/>
                         </div>
                     );
                 })

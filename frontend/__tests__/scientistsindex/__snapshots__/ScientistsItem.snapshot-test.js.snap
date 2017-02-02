@@ -1,7 +1,6 @@
 exports[`test ScientistsItem renders correctly 1`] = `
 <div
-  className="scientists-item"
-  last-name="Perez">
+  className="scientists-item">
   <a
     href="/scientists/1">
     <div
@@ -12,7 +11,11 @@ exports[`test ScientistsItem renders correctly 1`] = `
       <div
         className="caption">
         <h4>
-          Juan Perez
+          Juan 
+          <span
+            className="last-name">
+            Perez
+          </span>
         </h4>
         <p>
           Rocket Scientist

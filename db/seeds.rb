@@ -297,7 +297,7 @@ Scientist.create!(
 Scientist.create!(
     scientistId: 20,
     firstName: "Thomas",
-    lastName: " Knudsen",
+    lastName: "Knudsen",
     email: "knudsed.thomas@epa.gov",
     title: "Developmental Systems Biologist",
     photoUrl: "knudsen_thomas.jpg",
