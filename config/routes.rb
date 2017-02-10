@@ -1,13 +1,18 @@
 Rails.application.routes.draw do
-  get 'scientists' => 'scientists#index' #, as: link_to_scientists_index
+  scope '/api' do
+    get :home, to: 'home#index'
+    get :scientists, to: 'scientists#index'
+    get 'scientists/:scientistId' => 'scientists#show'
+  end
+#  get 'scientists' => 'scientists#index' #, as: link_to_scientists_index
 
-  get 'home/index'
+#  get 'home/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'home#index', as: 'home'
+#  root 'home#index', as: 'home'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
