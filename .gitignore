@@ -25,4 +25,4 @@
 .idea
 
 # Ignore node packages
-/node_modules
+node_modules/

@@ -7,21 +7,19 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
   <script charset="utf-8">
-    <% if ENV["RAILS_ENV"] == "production" %>
-    var script = "/webpack_bundle.js";
-    <% else %>
-    console.warn("Development mode. Make sure to start 'node devServer.js'");
-    var script = "http://" + (location.host || 'localhost').split(':')[0] + ":4000/webpack_bundle.js"
-    <% end %>
-    document.write('<script src="' + script + '"></' + 'script>');
+      <% if ENV["RAILS_ENV"] == "development" %>
+      console.warn("Development mode. Make sure to start 'node devServer.js'");
+      var script = "http://" + (location.host || 'localhost').split(':')[0] + ":4000/client-app.js";
+      document.write('<script src="' + script + '"></' + 'script>');
+      <% end %>
   </script>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class='<%= controller.controller_name %>'>
 
-<%= react_component(:Header, { currentUri: request.env['PATH_INFO'] }) %>
-<%= yield %>
-<%= react_component(:Footer, {}) %>
+  <div id="main">
+    <%= yield %>
+  </div>
 
 </body>
 </html>

@@ -4,6 +4,10 @@ Rails.application.routes.draw do
     get :scientists, to: 'scientists#index'
     get 'scientists/:scientistId' => 'scientists#show'
   end
+
+  root 'application#index'
+  get '*path', to: 'application#index'
+
 #  get 'scientists' => 'scientists#index' #, as: link_to_scientists_index
 
 #  get 'home/index'
