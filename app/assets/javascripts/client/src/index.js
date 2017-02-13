@@ -11,8 +11,8 @@ import App from './App';
  * {@link https://github.com/reactjs/react-rails/tree/master/lib/assets/javascripts GitHub}
  */
 document.addEventListener('DOMContentLoaded', function () {
-    let componentEntry = document.getElementById('main');
-    if (componentEntry) {
+    let appEntry = document.getElementById('main');
+    if (appEntry) {
         ReactDOM.render(React.createElement(App), document.getElementById('main'));
     }
 });
