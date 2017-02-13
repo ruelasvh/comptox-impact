@@ -1,0 +1,16 @@
+.LandingMain-container {
+    font-family: "Helvetica Neue", "Arial", sans-serif;
+    padding: 5% 5%;
+}
+
+.LandingMain-button-text {
+    text-align: center;
+}
+
+.LandingMain-text-button-space {
+    height: 70px;
+}
+
+.LandingMain-header-text-space {
+    height: 15px;
+}

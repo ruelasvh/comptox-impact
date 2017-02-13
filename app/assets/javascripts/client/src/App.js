@@ -3,10 +3,18 @@
  * US EPA National Center for Computational Toxicology
  */
 import React, { Component } from 'react';
-import Header from './features/header/components/HeaderIndex';
-import Footer from './features/footer/components/FooterIndex';
+import { Router, Route, IndexRoute, browserHistory, Link } from 'react-router';
 
-class App extends Component {
+// components
+import Header from './header/HeaderIndex';
+import Footer from './footer/FooterIndex';
+import Home from './home/HomeIndex';
+import ScientistsIndex from './scientists/ScientistsIndex';
+
+// const Header = () => (<div><Link to={`/header`}>Header</Link></div>);
+// const Footer = () => (<div><Link to={`/footer`}>Footer</Link></div>);
+
+export class App extends Component {
     render() {
         return (
             <div>
@@ -18,4 +26,17 @@ class App extends Component {
     }
 }
 
-export default App;
+const routes = {
+    path: '/',
+    component: App,
+    indexRoute: { component: Home },
+    childRoutes: [
+        { path: 'scientists', component: ScientistsIndex }
+    ]
+};
+
+const Routes = () => (
+    <Router history={browserHistory} routes={routes}/>
+);
+
+export default Routes;

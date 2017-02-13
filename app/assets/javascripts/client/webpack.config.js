@@ -9,7 +9,7 @@ const os = require("os");
 const PUBLIC_DEV_SERVER = `http://${os.hostname()}:4000/`;
 // Initial point where Webpack will start bundling;
 // All React components must be included in this file.
-const ENTRY = __dirname + "/src/reactDriver.js";
+const ENTRY = __dirname + "/src/index.js";
 // Where webpack Babel transpiler and Webpack's react-hot-loader
 // will search for files.
 const SRC_PATH = __dirname + "/src";
