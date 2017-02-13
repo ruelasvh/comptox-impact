@@ -26,3 +26,6 @@
 
 # Ignore node packages
 node_modules/
+
+# Ignore build of client app
+/app/assets/javascripts/client/build/*
