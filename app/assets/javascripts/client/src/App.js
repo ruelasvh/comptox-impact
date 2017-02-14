@@ -33,6 +33,7 @@ const routes = {
     indexRoute: { component: Home },
     childRoutes: [
         { path: 'scientists', component: ScientistsIndex },
+        { path: '/scientists/:scientistId', component: Home },
         { path: '*', component: NotFound }
 
     ]

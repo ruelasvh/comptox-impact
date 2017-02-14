@@ -8,7 +8,7 @@ import { Link } from 'react-router';
 import Isotope from 'isotope-layout';
 
 // components
-import Scientist from './ScientistsItem';
+import Scientist from './ScientistsIndexItem';
 import './ScientistsIndex.css';
 
 // http client
