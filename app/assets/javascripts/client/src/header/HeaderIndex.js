@@ -4,6 +4,7 @@
  */
 import React, { PropTypes } from 'react';
 import { Navbar, Nav, NavDropdown, MenuItem } from 'react-bootstrap';
+import { Link } from 'react-router';
 import ToolBar from './ToolBar';
 import logo from './img/epa_logo.png';
 import './HeaderIndex.css';
@@ -23,7 +24,7 @@ const HeaderIndex = ( { currentUri } ) => (
                 <div className="navbar-fixed-top-links">
                     <li><a href="#contact">Contact Us</a></li>
                     <li><a href="https://epa.gov/comptox" target="_blank">About Us</a></li>
-                    <li><a href="/">Home</a></li>
+                    <li><Link to="/">Home</Link></li>
                 </div>
             </Navbar.Collapse>
         </Navbar>

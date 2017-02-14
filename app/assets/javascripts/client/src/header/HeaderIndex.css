@@ -32,11 +32,11 @@ body {
     text-decoration: none;
 }
 
-.navbar-fixed-top-links > li a:hover:not(.active) {
+.navbar-fixed-top-links > li a:hover:not(.active-nav-links) {
     background-color: #0c5d83;
 }
 
-.active {
+.active-nav-links {
     background-color: #0b5375;
     text-decoration: underline;
 }

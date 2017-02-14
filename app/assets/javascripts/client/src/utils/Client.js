@@ -4,7 +4,7 @@
  */
 /* eslint-disable no-undef */
 function searchHome(callback) {
-    return fetch(`api/home`, {
+    return fetch(`/api/home`, {
         accept: 'application/json',
     }).then(checkStatus)
         .then(parseJSON)
@@ -12,11 +12,19 @@ function searchHome(callback) {
 }
 
 function searchScientists(callback) {
-    return fetch(`api/scientists`, {
+    return fetch(`/api/scientists`, {
         accept: 'application/json',
     }).then(checkStatus)
         .then(parseJSON)
         .then(callback);
+}
+
+function searchScientist(id, callback) {
+    return fetch(`/api/scientists/${id}`, {
+        accept: 'application/json',
+    }).then(checkStatus)
+        .then(parseJSON)
+        .then(callback)
 }
 
 function checkStatus(response) {
@@ -35,5 +43,5 @@ function parseJSON(response) {
     return response.json();
 }
 
-const Client = { searchHome, searchScientists };
+const Client = { searchHome, searchScientists, searchScientist };
 export default Client;

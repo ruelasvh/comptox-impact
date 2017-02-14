@@ -1,0 +1,121 @@
+
+.scientist-container {
+    font-family: "Helvetica Neue", "Arial", sans-serif;
+    padding-top: 1em;
+    margin-bottom: 3em;
+    max-width: 100%;
+    min-height: 100%;
+    position: relative;
+    /* Firefox */
+    min-height: -moz-calc(100% - 30px);
+    /* WebKit */
+    min-height: -webkit-calc(100% - 30px);
+    /* Standard */
+    min-height: calc(100% - 30px);
+}
+
+.scientist-links {
+    text-align: center;
+    float: left;
+}
+
+.scientist-links img {
+    height: 100%;
+    width: 100%;
+}
+
+.scientist-links-button {
+    position: relative;
+    display: inline-block;
+    width: 45px;
+    padding: 8px;
+}
+
+.scientist-links-button-disabled {
+    pointer-events: none;
+    cursor: default;
+    opacity: 0.4;
+}
+
+.scientist-links-button-disabled img {
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+
+/*Edit this to change tooltip properties in Tooltip*/
+.tooltip {
+    /*width: 120px;*/
+    /*background-color: #fff;*/
+    /*color: black;*/
+    /*text-align: center;*/
+    /*border-radius: 6px;*/
+    /*padding: 5px 0;*/
+    /*position: absolute;*/
+    /*z-index: 1;*/
+    /*bottom: 150%;*/
+    /*left: 50%;*/
+    /*margin-left: -60px;*/
+}
+
+.scientist-grid {
+    max-width: 800px;
+}
+
+.scientist-share {
+    text-align: right;
+    padding: 10px;
+}
+
+.scientist-photo {
+    width: 90%;
+    border: 3px solid #333;
+}
+
+.scientist-divider {
+    border:2px solid #d0d0d0;
+}
+
+.scientist-bio {
+    text-align: left;
+}
+
+.scientist-bio-body {
+    padding-left: 15px;
+}
+
+.scientist-bio-header {
+
+}
+
+.headline {
+    line-height: 2em;
+}
+
+.headline:after {
+    content:' ';
+    display:block;
+    border:2px solid #d0d0d0;
+    /*border:2px solid #2c2c2c;*/
+    border-radius:4px;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    box-shadow:inset 0 1px 1px rgba(0, 0, 0, .05);
+    -webkit-box-shadow:inset 0 1px 1px rgba(0, 0, 0, .05);
+    -moz-box-shadow:inset 0 1px 1px rgba(0, 0, 0, .05);
+}
+
+#bio-aoe {
+    font-weight: bold;
+}
+
+#bio-edu {
+    font-weight: bold;
+
+}
+
+#bio-pe {
+    font-weight: bold;
+
+}

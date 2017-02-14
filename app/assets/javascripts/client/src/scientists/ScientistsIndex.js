@@ -3,13 +3,13 @@
  * US EPA National Center for Computational Toxicology
  */
 import React, { PropTypes } from 'react';
-import { Button, Glyphicon, Thumbnail, Grid } from 'react-bootstrap';
+import { Button, Glyphicon, Thumbnail, Grid, Breadcrumb } from 'react-bootstrap';
 import { Link } from 'react-router';
 import Isotope from 'isotope-layout';
 
 // components
 import Scientist from './ScientistsIndexItem';
-import './ScientistsIndex.css';
+import './scientistsindex.css';
 
 // http client
 import Client from '../utils/Client';
@@ -43,7 +43,7 @@ class ScientistsIndex extends React.Component {
                     itemSelector: '.scientists-grid-item',
                     layoutMode: 'masonry',
                     masonry: {
-                        columnWidth: 210
+                        columnWidth: 228
                     },
                     getSortData: {
                         name: '.last-name'
@@ -104,22 +104,28 @@ class ScientistsIndex extends React.Component {
 
         return (
             <div className="scientists-container">
-                <div>
-                    <Grid>
-                        {/*<a href="/" style={{textDecoration: 'underline'}}>Home</a> / Our Scientists*/}
-                        <Link to="/" style={{textDecoration: 'underline'}}>Home</Link> / Our Scientists
-                    </Grid>
-                </div>
+                {/*<div>*/}
+                    {/*<Grid>*/}
+                        {/*<Link to="/" style={{textDecoration: 'underline'}}>Home</Link> / Scientists*/}
+                    {/*</Grid>*/}
+                {/*</div>*/}
 
-                <div style={{paddingBottom: '20px'}}></div>
+                {/*<div style={{paddingBottom: '20px'}}></div>*/}
 
-                <div className="scientists-header">
-                    <Grid>
-                        <h1 style={{fontWeight: '1000', verticalAlign: 'middle', lineHeight: '60px'}}>Our Scientists</h1>
-                    </Grid>
-                </div>
-
+                {/*<div className="scientists-header">*/}
+                    {/*<Grid>*/}
+                        {/*<h1 style={{fontWeight: '1000', verticalAlign: 'middle', lineHeight: '60px'}}>Our Scientists</h1>*/}
+                    {/*</Grid>*/}
+                {/*</div>*/}
                 <Grid>
+                    <Breadcrumb>
+                        <Breadcrumb.Item>
+                            <Link to="/">Home</Link>
+                        </Breadcrumb.Item>
+                        <Breadcrumb.Item active>
+                            Scientists
+                        </Breadcrumb.Item>
+                    </Breadcrumb>
                     <div className="scientists-sort-button" style={{paddingBottom: '10px'}}>
                         <h4>
                             <span style={{color: 'grey'}}></span><Button

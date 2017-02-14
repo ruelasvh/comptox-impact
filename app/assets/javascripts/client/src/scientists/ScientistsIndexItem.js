@@ -5,11 +5,11 @@
 import React, { PropTypes } from 'react';
 import { Thumbnail } from 'react-bootstrap';
 import { Link } from 'react-router';
-import './ScientistsIndex.css';
+import './scientistsindex.css';
 
 const Scientist = ({ scientist }) => (
     <div className="scientists-item">
-        <Link to={'/scientists/' + scientist.scientistId}>
+        <Link to={`/scientists/${scientist.scientistId}`}>
             <Thumbnail
                 src={scientist.photoUrl ? require('./img/' + scientist.photoUrl) : ''}
                 alt="Scientist_Image">
