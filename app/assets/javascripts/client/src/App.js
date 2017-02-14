@@ -14,7 +14,7 @@ import ScientistsIndex from './scientists/ScientistsIndex';
 // const Header = () => (<div><Link to={`/header`}>Header</Link></div>);
 // const Footer = () => (<div><Link to={`/footer`}>Footer</Link></div>);
 
-export class App extends Component {
+export class Root extends Component {
     render() {
         return (
             <div>
@@ -28,15 +28,16 @@ export class App extends Component {
 
 const routes = {
     path: '/',
-    component: App,
+    component: Root,
     indexRoute: { component: Home },
     childRoutes: [
-        { path: 'scientists', component: ScientistsIndex }
+        { path: 'scientists', component: ScientistsIndex },
+
     ]
 };
 
-const Routes = () => (
+const App = () => (
     <Router history={browserHistory} routes={routes}/>
 );
 
-export default Routes;
+export default App;

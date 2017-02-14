@@ -4,23 +4,33 @@
  */
 import React, { PropTypes } from 'react';
 import { Button, Glyphicon, Thumbnail, Grid } from 'react-bootstrap';
+import { Link } from 'react-router';
 import Isotope from 'isotope-layout';
+
+// components
 import Scientist from './ScientistsItem';
 import './ScientistsIndex.css';
+
+// http client
+import Client from '../utils/Client';
 
 class ScientistsIndex extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             isotope: null,
-            sortValue: true
-        }
+            sortValue: true,
+            scientists: []
+        };
+
         // Bind event handlers
-        this.handleClick = this.handleClick.bind(this);
+        this.handleClickSort = this.handleClickSort.bind(this);
         this.handleIsotope = this.handleIsotope.bind(this);
+        this.handleSearchScientists = this.handleSearchScientists.bind(this);
+        this.handleCancelScientists = this.handleCancelScientists.bind(this);
     }
 
-    handleClick() {
+    handleClickSort() {
         this.setState({ sortValue: !this.state.sortValue });
     }
 
@@ -36,7 +46,6 @@ class ScientistsIndex extends React.Component {
                         columnWidth: 210
                     },
                     getSortData: {
-                        // name: '[last-name]'
                         name: '.last-name'
 
                     }
@@ -49,13 +58,31 @@ class ScientistsIndex extends React.Component {
         }
     }
 
+    handleSearchScientists( isotopeSetupCallBack ) {
+        Client.searchScientists( scientists => {
+            // this.setState({ scientists: scientists }, isotopeSetupCallBack);
+            // Changed to below code for logging data to the console
+            this.setState({ scientists: scientists },
+                () => {
+                    console.log(this.state.scientists);
+                    isotopeSetupCallBack();
+                }
+            );
+        });
+    }
+
+    handleCancelScientists() {
+        this.setState({
+            scientists: []
+        })
+    }
+
     componentDidMount() {
-        this.handleIsotope();
+        this.handleSearchScientists( this.handleIsotope );
     }
 
     render() {
-        const scientists = this.props.scientists;
-        const scientists_path = this.props.scientists_path;
+        const scientists = this.state.scientists;
         // Sorting icon
         const sortGlyph = !this.state.sortValue ? 'glyphicon glyphicon-sort-by-alphabet' : 'glyphicon glyphicon-sort-by-alphabet-alt';
 
@@ -66,7 +93,7 @@ class ScientistsIndex extends React.Component {
                 scientists.map(function (scientist, i) {
                     return (
                         <div className="scientists-grid-item" key={"scientist-component-" + i}>
-                            <Scientist scientist={scientist} scientists_path={scientists_path}/>
+                            <Scientist scientist={scientist}/>
                         </div>
                     );
                 })
@@ -79,8 +106,8 @@ class ScientistsIndex extends React.Component {
             <div className="scientists-container">
                 <div>
                     <Grid>
-                        <a href="/" style={{textDecoration: 'underline'}}>Home</a> / Our Scientists
-                        {/*<Link to="/" style={{textDecoration: 'underline'}}>Home</Link> / Our Scientists*/}
+                        {/*<a href="/" style={{textDecoration: 'underline'}}>Home</a> / Our Scientists*/}
+                        <Link to="/" style={{textDecoration: 'underline'}}>Home</Link> / Our Scientists
                     </Grid>
                 </div>
 
@@ -97,7 +124,7 @@ class ScientistsIndex extends React.Component {
                         <h4>
                             <span style={{color: 'grey'}}></span><Button
                             bsStyle="primary"
-                            onClick={this.handleClick}>
+                            onClick={this.handleClickSort}>
                             <Glyphicon glyph={sortGlyph} /> Sort By Last Name
                         </Button>
                         </h4>
@@ -120,10 +147,5 @@ class ScientistsIndex extends React.Component {
         }
     }
 }
-
-ScientistsIndex.propTypes = {
-    scientists: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
-    scientists_path: PropTypes.string.isRequired
-};
 
 export default ScientistsIndex;

@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   scope '/api' do
     get :home, to: 'home#index'
-    # get :scientists, to: 'scientists#index'
-    # get 'scientists/:scientistId' => 'scientists#show'
+    get :scientists, to: 'scientists#index'
+    get 'scientists/:scientistId' => 'scientists#show'
   end
 
   get '*path', to: 'application#index'

@@ -26,10 +26,8 @@ export default class HomeIndex extends React.Component {
     }
 
     handleFetchData() {
-        Client.search(data => {
-            this.setState({
-                data: data
-            });
+        Client.searchHome(data => {
+            this.setState({ data: data }, () => console.log(this.state.data));
         });
     }
 
@@ -45,7 +43,6 @@ export default class HomeIndex extends React.Component {
 
     render() {
         let data = this.state.data;
-        console.log(data);
 
         return (
             <div className="LandingMain-container">
