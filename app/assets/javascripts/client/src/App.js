@@ -10,6 +10,7 @@ import Header from './header/HeaderIndex';
 import Footer from './footer/FooterIndex';
 import Home from './home/HomeIndex';
 import ScientistsIndex from './scientists/ScientistsIndex';
+import NotFound from './notfound/NotFound';
 
 // const Header = () => (<div><Link to={`/header`}>Header</Link></div>);
 // const Footer = () => (<div><Link to={`/footer`}>Footer</Link></div>);
@@ -32,6 +33,7 @@ const routes = {
     indexRoute: { component: Home },
     childRoutes: [
         { path: 'scientists', component: ScientistsIndex },
+        { path: '*', component: NotFound }
 
     ]
 };
