@@ -3,7 +3,7 @@
  * US EPA National Center for Computational Toxicology
  */
 import React, { PropTypes } from 'react';
-import { Button, Glyphicon, Thumbnail, Grid, Breadcrumb } from 'react-bootstrap';
+import { Button, Pager, Glyphicon, Thumbnail, Grid, Breadcrumb } from 'react-bootstrap';
 import { Link } from 'react-router';
 import Isotope from 'isotope-layout';
 
@@ -104,19 +104,6 @@ class ScientistsIndex extends React.Component {
 
         return (
             <div className="scientists-container">
-                {/*<div>*/}
-                    {/*<Grid>*/}
-                        {/*<Link to="/" style={{textDecoration: 'underline'}}>Home</Link> / Scientists*/}
-                    {/*</Grid>*/}
-                {/*</div>*/}
-
-                {/*<div style={{paddingBottom: '20px'}}></div>*/}
-
-                {/*<div className="scientists-header">*/}
-                    {/*<Grid>*/}
-                        {/*<h1 style={{fontWeight: '1000', verticalAlign: 'middle', lineHeight: '60px'}}>Our Scientists</h1>*/}
-                    {/*</Grid>*/}
-                {/*</div>*/}
                 <Grid>
                     <Breadcrumb>
                         <Breadcrumb.Item>
@@ -126,14 +113,13 @@ class ScientistsIndex extends React.Component {
                             Scientists
                         </Breadcrumb.Item>
                     </Breadcrumb>
-                    <div className="scientists-sort-button" style={{paddingBottom: '10px'}}>
-                        <h4>
-                            <span style={{color: 'grey'}}></span><Button
+                    <div className="scientists-sort-button">
+                        <Button
                             bsStyle="primary"
+                            bsClass="scientists-sort-button-style"
                             onClick={this.handleClickSort}>
                             <Glyphicon glyph={sortGlyph} /> Sort By Last Name
                         </Button>
-                        </h4>
                     </div>
 
                     <div className="scientists-grid">

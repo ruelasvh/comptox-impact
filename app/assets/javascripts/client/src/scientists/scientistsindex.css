@@ -71,5 +71,23 @@
 }
 
 .scientists-sort-button {
-    padding-top: 10px;
+    padding-top: 1em;
+    padding-bottom: 2em;
+    text-align: center;
+}
+
+.scientists-sort-button-style {
+    border-radius: 75px;
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 5px 14px;
+    color: #337ab7;
+}
+
+.scientists-sort-button-style:hover {
+    background-color: #F5F5F5;
+}
+
+.scientists-sort-button-style:focus {
+    outline: 0;
 }
