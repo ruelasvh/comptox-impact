@@ -19,8 +19,7 @@ class ScientistProfile extends React.Component {
 
         this.state = {
             scientistDetails: [],
-            publications: dummyPublicationsData,
-            presentations: dummyPresentationsData
+            publications: dummyPublicationsData
         };
 
         // Bind functions
@@ -93,7 +92,8 @@ class ScientistProfile extends React.Component {
                             <Row>
                                 <ScientistProfileTabs
                                     publicationsData={this.state.publications}
-                                    presentationsData={this.state.presentations}/>
+                                    presentationsData={this.state.presentations}
+                                    scientistDetails={scientistDetails}/>
                             </Row>
                         </Grid>
                     </div>
@@ -131,38 +131,3 @@ const dummyPublicationsData = [{
     "projectLink":"<a href=\"https://www.epa.gov/comptox/expocast\" target=\"_blank\">Rapid Exposure and Dose</a>",
     "citation":"Rager, J.E., M. Strynar , S. Liang, R.L. McMahen, <a href=\"http://comptox.ag.epa.gov/impact/scientists/1\">A. Richard</a> , C.M. Grukle, <a href=\"http://comptox.ag.epa.gov/impact/scientists/12\">J. Wambaugh</a> , K. Isaacs , <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">R. Judson</a>, A. Williams , and J. Sobus. Linking high resolution mass spectrometry data with exposure and toxicity forecasts to advance high-throughput environmental monitoring.   ENVIRONMENT INTERNATIONAL. Elsevier Science Ltd, New York, NY, USA, 88: 269-280, (2016)."
 }];
-
-const dummyPresentationsData = [
-    {
-        id: "325150",
-        auth: "Williams, A., K. Mansouri, T. Martin, Chris Grulke, J. Wambaugh, R. Judson, G. Patlewicz, I. Shah, AND A. Richard",
-        title: "Delivering The Benefits of Chemical-Biological Integration in Computational Toxicology at the EPA (ACS Fall meeting)",
-        location: "ACS Fall Meeting, Phildelphia, PA",
-        year: "August 21 - 25, 2016",
-        abstract: "Researchers at the EPA’s National Center for Computational Toxicology integrate advances in biology, chemistry, and computer science to examine the toxicity of chemicals and help prioritize chemicals for further research based on potential human health risks"
-    },
-    {
-        id: "310870",
-        auth: "Richard, A., C. Grulke, I. Thillainadarajah, K. Mansouri, J. Kancherla, R. Judson, AND A. Williams",
-        title: "EPAs DSSTox Chemical Database: A Resource for the Non-Targeted Testing Community (EPA NTA workshop)",
-        location: "Advancing Non-targeted Analyses of Xenobiotics in Environmental and Biological Media, RTP, NC",
-        year: "August 18 - 19, 2015",
-        abstract: "EPA’s DSSTox database project, which includes coverage of the ToxCast and Tox21 high-throughput testing inventories, provides high-quality chemical-structure files for inventories of toxicological and environmental relevance. A feature of the DSSTox project"
-    },
-    {
-        id: "327050",
-        auth: "Williams, A., K. Mansouri, T. Martin, Christopher M. Grulke, John F. Wambaugh, R. Judson, A. Richard, G. Patlewicz, AND I. Shah",
-        title: "Data Aggregation, Curation and Modeling Approaches to Deliver Prediction Models to Support Computational Toxicology at the EPA (ACS Fall meeting)",
-        location: "ACS Fall Meeting, Phildelphia, PA",
-        year: "August 21 - 25, 2016",
-        abstract: "The U.S. Environmental Protection Agency (EPA) Computational Toxicology Program develops and utilizes QSAR modeling approaches across a broad range of applications. In terms of physical chemistry we have a particular interest in the prediction of "
-    },
-    {
-        id: "311656",
-        auth: "Richard, A., C. Grulke, I. Thillainadarajah, A. Williams, D. Lyons, AND J. Edwards",
-        title: "Expansion of DSSTox: Leveraging public data to create a semantic cheminformatics resource with quality annotations for support of U.S. EPA applications. (American Chemical Society)",
-        location: "ACS Spring Meeting, San Diego, CA",
-        year: "March 13 - 17, 2016",
-        abstract: "The expansion of chemical-bioassay data in the public domain is a boon to science; however, the difficulty in establishing accurate linkages from CAS registry number (CASRN) to structure, or for properly annotating names and synonyms for a particular structure is "
-    }
-];

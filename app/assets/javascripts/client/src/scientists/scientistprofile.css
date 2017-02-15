@@ -119,3 +119,22 @@
     font-weight: bold;
 
 }
+
+/** Profile Tabs styles **/
+.linked-profile-tab-link {
+    list-style: none;
+}
+
+.linked-profile-tab-link div{
+    display: inline-block;
+}
+
+.linked-profile-tab-link-thumbnail {
+    height: 15px;
+    width: 15px;
+}
+
+.linked-profile-tab-link-thumbnail img {
+    width: 100%;
+    height: 100%;
+}
