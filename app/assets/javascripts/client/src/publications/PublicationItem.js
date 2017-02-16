@@ -1,7 +1,7 @@
 /**
  * Created by vruelasr on 9/28/16.
  */
-import React from 'react';
+import React, { PropTypes } from 'react';
 import $ from 'jquery';
 import AltmetricWidget from './AltmetricWidget';
 import PlumxWidget from './PlumxWidget';
@@ -9,7 +9,7 @@ import KudosWidget from './KudosWidget';
 import { Glyphicon, Badge, Row, Col} from 'react-bootstrap';
 import './styles/publicationitem.css';
 
-export default class PublicationItem extends React.Component {
+class PublicationItem extends React.Component {
     constructor() {
         super();
         this.state = {
@@ -67,7 +67,7 @@ export default class PublicationItem extends React.Component {
     render() {
         // console.log(this.state.metrics);
         const centerWide = this.props.centerWide;
-        const publication = this.props.pub;
+        const publication = this.props.publication;
         const metrics = this.state.metrics;
         const id = this.props.id;
 
@@ -132,7 +132,14 @@ export default class PublicationItem extends React.Component {
     }
 }
 
+PublicationItem.propTypes = {
+    publication: PropTypes.object.isRequired,
+    centerWide: PropTypes.bool.isRequired
+};
+
 // Return element from XPath
 function getElementByXpath(path) {
     return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
 }
+
+export default PublicationItem;

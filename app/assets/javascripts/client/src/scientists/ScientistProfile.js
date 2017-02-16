@@ -2,7 +2,7 @@
  * Created by Victor H. Ruelas-Rivera on 2/14/17.
  * US EPA National Center for Computational Toxicology
  */
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Grid, Row, Col, Image, Breadcrumb } from 'react-bootstrap';
 import { Link } from 'react-router';
 
@@ -18,7 +18,7 @@ class ScientistProfile extends React.Component {
         super(props);
 
         this.state = {
-            scientistDetails: [],
+            scientistDetails: {},
             publications: dummyPublicationsData
         };
 
@@ -85,14 +85,13 @@ class ScientistProfile extends React.Component {
                                     </Row>
                                 </Col>
                                 <Col md={9}>
-                                    <ScientistProfileBio scientistDetails={scientistDetails}/>
+                                    <ScientistProfileBio scientistBio={scientistDetails.bio}/>
                                 </Col>
                             </Row>
                             <br/><br/><br/>
                             <Row>
                                 <ScientistProfileTabs
                                     publicationsData={this.state.publications}
-                                    presentationsData={this.state.presentations}
                                     scientistDetails={scientistDetails}/>
                             </Row>
                         </Grid>
@@ -102,6 +101,10 @@ class ScientistProfile extends React.Component {
         );
     }
 }
+
+ScientistProfile.propTypes = {
+    params: PropTypes.object.isRequired
+};
 
 export default ScientistProfile;
 

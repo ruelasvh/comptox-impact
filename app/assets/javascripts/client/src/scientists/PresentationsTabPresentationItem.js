@@ -2,10 +2,10 @@
  * Created by Victor H. Ruelas-Rivera on 2/16/17.
  * US EPA National Center for Computational Toxicology
  */
-import React from 'react';
+import React, { PropTypes } from 'react';
 import './styles/scientistprofile.css';
 
-const PresentationsTabPresentationItem = ( {slideShareUrl} ) => (
+const PresentationsTabPresentationItem = ( {userUrl} ) => (
     <div className="slide-share-item">
         <iframe
             src="https://www.slideshare.net/AntonyWilliams/slideshelf"
@@ -21,5 +21,9 @@ const PresentationsTabPresentationItem = ( {slideShareUrl} ) => (
             mozallowfullscreen/>
     </div>
 );
+
+PresentationsTabPresentationItem.propTypes = {
+    userUrl: PropTypes.string.isRequired
+};
 
 export default PresentationsTabPresentationItem;

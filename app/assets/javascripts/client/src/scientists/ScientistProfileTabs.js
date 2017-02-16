@@ -2,11 +2,11 @@
  * Created by Victor H. Ruelas-Rivera on 2/14/17.
  * US EPA National Center for Computational Toxicology
  */
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Tabs, Tab, Row } from 'react-bootstrap';
 
 // components
-import PublicationItem from '../publications/PublicationItemv3';
+import PublicationItem from '../publications/PublicationItem';
 import OrcidLink from './LinkedProfilesTabLink';
 import PlumxLink from './LinkedProfilesTabLink';
 import LinkedInLink from './LinkedProfilesTabLink';
@@ -76,7 +76,7 @@ class ScientistProfileTabs extends React.Component {
                     {this.props.publicationsData.map(function (object, i) {
                         return (
                             <div id={i} key={'pub-item-' + i}>
-                                <PublicationItem pub={object} centerWide={false}/>
+                                <PublicationItem publication={object} centerWide={false}/>
                             </div>
                         );
                     })}
@@ -129,7 +129,7 @@ class ScientistProfileTabs extends React.Component {
                 </Tab>
                 <Tab eventKey={2} title="Presentations">
                     <div className="tab-frame">
-                        <SlideShare/>
+                        <SlideShare userUrl="empty for now"/>
                     </div>
                 </Tab>
                 <Tab eventKey={3} title="Linked Profiles">
@@ -146,5 +146,10 @@ class ScientistProfileTabs extends React.Component {
         );
     }
 }
+
+ScientistProfileTabs.propTypes = {
+    publicationsData: PropTypes.array.isRequired,
+    scientistDetails: PropTypes.object.isRequired
+};
 
 export default ScientistProfileTabs;
