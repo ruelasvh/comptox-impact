@@ -3,7 +3,7 @@
  * US EPA National Center for Computational Toxicology
  */
 import React from 'react';
-import './notfound.css';
+import './styles/notfound.css';
 
 const NotFound = () => (
     <div className="not-found-container">

@@ -11,7 +11,7 @@ import Client from '../utils/Client';
 import ScientistProfileLinks from './ScientistProfileLinks';
 import ScientistProfileBio from './ScientistProfileBio';
 import ScientistProfileTabs from './ScientistProfileTabs';
-import './scientistprofile.css';
+import './styles/scientistprofile.css';
 
 class ScientistProfile extends React.Component {
     constructor(props) {

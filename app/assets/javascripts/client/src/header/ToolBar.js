@@ -4,7 +4,7 @@
  */
 import React, { PropTypes } from 'react';
 import { Navbar, Nav, NavDropdown, MenuItem } from 'react-bootstrap';
-import './ToolBar.css';
+import './styles/toolbar.css';
 
 const ToolBar = ( { currentUri } ) => (
     <Navbar id="secondary-navbar" className="navbar-static-top" fluid >

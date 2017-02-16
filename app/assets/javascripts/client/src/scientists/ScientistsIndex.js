@@ -9,7 +9,7 @@ import Isotope from 'isotope-layout';
 
 // components
 import Scientist from './ScientistsIndexItem';
-import './scientistsindex.css';
+import './styles/scientistsindex.css';
 
 // http client
 import Client from '../utils/Client';

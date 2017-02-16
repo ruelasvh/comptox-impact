@@ -5,7 +5,7 @@
 import React, { PropTypes } from 'react';
 import { Thumbnail } from 'react-bootstrap';
 import { Link } from 'react-router';
-import './scientistsindex.css';
+import './styles/scientistsindex.css';
 
 const Scientist = ({ scientist }) => (
     <div className="scientists-item">

@@ -11,7 +11,7 @@ import scientists from './img/NCCT_Staff.jpg';
 import publications from './img/Publications.jpg';
 import data_tools from './img/Data_Tools.jpg';
 import impact from './img/Impact.jpg';
-import './HomeIndex.css';
+import './styles/homeindex.css';
 
 export default class HomeIndex extends React.Component {
     constructor(props) {

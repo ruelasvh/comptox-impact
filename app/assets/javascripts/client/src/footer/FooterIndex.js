@@ -9,7 +9,7 @@ import twitter from './img/socmed_twitter_2.png';
 import facebook from './img/socmed_facebook_2.png';
 import youtube from './img/socmed_youtube_2.png';
 import news from './img/socmed_news.png';
-import './FooterIndex.css';
+import './styles/footerindex.css';
 
 const FooterIndex = () => (
     <footer className="footer">

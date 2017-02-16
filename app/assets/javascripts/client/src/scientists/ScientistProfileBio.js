@@ -4,7 +4,7 @@
  */
 import React from 'react';
 import { Row, Col } from 'react-bootstrap';
-import './scientistprofile.css';
+import './styles/scientistprofile.css';
 
 
 export default function ( { scientistDetails } ) {

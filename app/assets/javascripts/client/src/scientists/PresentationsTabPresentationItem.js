@@ -3,7 +3,7 @@
  * US EPA National Center for Computational Toxicology
  */
 import React from 'react';
-import './scientistprofile.css';
+import './styles/scientistprofile.css';
 
 const PresentationsTabPresentationItem = ( {slideShareUrl} ) => (
     <div className="slide-share-item">

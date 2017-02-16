@@ -7,7 +7,7 @@ import { Navbar, Nav, NavDropdown, MenuItem } from 'react-bootstrap';
 import { Link } from 'react-router';
 import ToolBar from './ToolBar';
 import logo from './img/epa_logo.png';
-import './HeaderIndex.css';
+import './styles/headerindex.css';
 
 const HeaderIndex = ( { currentUri } ) => (
     <div>

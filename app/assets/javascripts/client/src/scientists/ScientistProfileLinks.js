@@ -9,7 +9,7 @@ import plumx from './img/plumx.png';
 import linkedin from './img/linkedIn.png';
 import researchgate from './img/researchgate.png';
 import googlescholar from './img/googlescholar.png';
-import './scientistprofile.css';
+import './styles/scientistprofile.css';
 
 export default function ( { scientistDetails, linkIdPrefix } ) {
 
