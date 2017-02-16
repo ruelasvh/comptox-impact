@@ -120,7 +120,17 @@
 
 }
 
-/** Profile Tabs styles **/
+/** Tabs general styles **/
+.tab-frame {
+    padding: 2em 0.5em;
+}
+
+/** Presentation Tab styles **/
+.slide-share-item {
+    text-align: center;
+}
+
+/** Linked Profile Tab styles **/
 .linked-profile-tab-link {
     list-style: none;
 }

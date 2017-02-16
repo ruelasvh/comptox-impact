@@ -12,6 +12,7 @@ import PlumxLink from './LinkedProfilesTabLink';
 import LinkedInLink from './LinkedProfilesTabLink';
 import ResearchGateLink from './LinkedProfilesTabLink';
 import GoogleScholarLink from './LinkedProfilesTabLink';
+import SlideShare from './PresentationsTabPresentationItem';
 import orcidThumbnail from './img/ocrid.gif';
 import plumxThumbnail from './img/plumx.png';
 import linkedinThumbnail from './img/linkedIn.png';
@@ -122,17 +123,25 @@ class ScientistProfileTabs extends React.Component {
         return (
             <Tabs activeKey={this.state.key} onSelect={this.handleSelect} id="controlled-tabs">
                 <Tab eventKey={1} title="Publications">
-                    <div style={{padding: '2em 0.5em'}}>
+                    <div className="tab-frame">
                         {publications}
                     </div>
                 </Tab>
-                <Tab eventKey={2} title="Presentations"></Tab>
+                <Tab eventKey={2} title="Presentations">
+                    <div className="tab-frame">
+                        <SlideShare/>
+                    </div>
+                </Tab>
                 <Tab eventKey={3} title="Linked Profiles">
-                    <div style={{padding: '2em 0.5em'}}>
+                    <div className="tab-frame">
                         {LinkedProfilesTabLinks}
                     </div>
                 </Tab>
-                <Tab eventKey={4} title="Projects">Projects content</Tab>
+                <Tab eventKey={4} title="Projects">
+                    <div className="tab-frame">
+                        Projects content
+                    </div>
+                </Tab>
             </Tabs>
         );
     }
