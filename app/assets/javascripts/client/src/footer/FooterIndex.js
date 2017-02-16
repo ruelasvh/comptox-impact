@@ -3,7 +3,7 @@
  * US EPA National Center for Computational Toxicology
  */
 import React from 'react';
-import seal from './img/epa_logo_round.svg';
+import seal from './img/epa_logo_round.gif';
 import blog from './img/socmed_blog.png';
 import twitter from './img/socmed_twitter_2.png';
 import facebook from './img/socmed_facebook_2.png';

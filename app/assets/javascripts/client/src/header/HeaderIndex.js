@@ -11,7 +11,7 @@ import './styles/headerindex.css';
 
 const HeaderIndex = ( { currentUri } ) => (
     <div>
-        <Navbar id="primary-navbar" className="navbar-fixed-top" role="navigation" fluid>
+        <Navbar id="primary-navbar" fixedTop bsStyle="navbar-fixed-top" role="navigation" fluid>
             <Navbar.Header>
                 <Navbar.Brand>
                     <a className="navbar-logo" href="https://epa.gov" target="_blank">
