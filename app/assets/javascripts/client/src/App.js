@@ -20,7 +20,7 @@ export class Root extends Component {
     render() {
         return (
             <div>
-                <Header/>
+                <Header currentUri={this.props.location.pathname}/>
                 {this.props.children}
                 <Footer/>
             </div>
