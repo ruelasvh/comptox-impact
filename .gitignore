@@ -26,6 +26,3 @@
 
 # Ignore node packages
 node_modules/
-
-# Ignore build of client app
-build/

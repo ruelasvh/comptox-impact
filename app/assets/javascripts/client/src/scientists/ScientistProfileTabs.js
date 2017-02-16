@@ -123,7 +123,7 @@ class ScientistProfileTabs extends React.Component {
         return (
             <Tabs activeKey={this.state.key} onSelect={this.handleSelect} id="controlled-tabs">
                 <Tab eventKey={1} title="Publications">
-                    <div className="tab-frame">
+                    <div className="tab-frame" style={{marginBottom: '8em'}}>
                         {publications}
                     </div>
                 </Tab>
@@ -133,7 +133,7 @@ class ScientistProfileTabs extends React.Component {
                     </div>
                 </Tab>
                 <Tab eventKey={3} title="Linked Profiles">
-                    <div className="tab-frame">
+                    <div className="tab-frame" style={{marginBottom: '8em'}}>
                         {LinkedProfilesTabLinks}
                     </div>
                 </Tab>
