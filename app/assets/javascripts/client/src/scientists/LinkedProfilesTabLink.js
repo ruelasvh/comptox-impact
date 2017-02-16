@@ -7,6 +7,7 @@ import './scientistprofile.css';
 
 export default function ( {url, title, thumbnail, linkIdPrefix }) {
     return (
+        <div>
             <a className="linked-profile-tab-link" href={url} target="_blank">
                 <div className="linked-profile-tab-link-thumbnail">
                     <img src={thumbnail} alt={linkIdPrefix}/>
@@ -14,5 +15,6 @@ export default function ( {url, title, thumbnail, linkIdPrefix }) {
                 {' '}
                 <div>{title}</div>
             </a>
+        </div>
     );
 }
