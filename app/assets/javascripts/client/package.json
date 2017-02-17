@@ -1,6 +1,5 @@
 {
   "name": "comptox-impact",
-  "homepage": "http://comptox.ag.epa.gov/impact",
   "version": "1.0.0",
   "description": "Showcase metrics and impact of NCCT research and tools.",
   "directories": {
@@ -9,7 +8,7 @@
   "scripts": {
     "test": "jest",
     "start": "node devServer.js",
-    "build": "NODE_ENV='production' webpack -p"
+    "build": "NODE_ENV=production webpack --config ./webpack.config.js --progress --colors"
   },
   "repository": {
     "type": "git",

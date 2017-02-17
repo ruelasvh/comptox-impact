@@ -6,6 +6,7 @@ var webpack = require("webpack");
 // This must be the public address where the hot reload bundle is loaded in the
 // browser.
 const os = require("os");
+var url = require('url');
 const PUBLIC_DEV_SERVER = `http://${os.hostname()}:4000/`;
 // Initial point where Webpack will start bundling;
 // All React components must be included in this file.
@@ -14,7 +15,7 @@ const ENTRY = __dirname + "/src/index.js";
 // will search for files.
 const SRC_PATH = __dirname + "/src";
 // If this is changed, change app/views/layouts/application.html.erb respectively
-const OUT_PATH = __dirname + "/build";
+const OUT_PATH = __dirname + "/build/";
 // Find out which environment we are in
 var NODE_ENV_PLUGIN = new webpack.DefinePlugin({
     "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV)

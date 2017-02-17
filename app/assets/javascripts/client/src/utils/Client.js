@@ -3,8 +3,10 @@
  * US EPA National Center for Computational Toxicology
  */
 /* eslint-disable no-undef */
+import { relativePath } from '../App';
+
 function searchHome(callback) {
-    return fetch(`/api/home`, {
+    return fetch(`${relativePath}/api/home`, {
         accept: 'application/json',
     }).then(checkStatus)
         .then(parseJSON)
@@ -12,7 +14,7 @@ function searchHome(callback) {
 }
 
 function searchScientists(callback) {
-    return fetch(`/api/scientists`, {
+    return fetch(`${relativePath}/api/scientists`, {
         accept: 'application/json',
     }).then(checkStatus)
         .then(parseJSON)
@@ -20,7 +22,7 @@ function searchScientists(callback) {
 }
 
 function searchScientist(id, callback) {
-    return fetch(`/api/scientists/${id}`, {
+    return fetch(`${relativePath}/api/scientists/${id}`, {
         accept: 'application/json',
     }).then(checkStatus)
         .then(parseJSON)

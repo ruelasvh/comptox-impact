@@ -3,7 +3,8 @@
  * US EPA National Center for Computational Toxicology
  */
 import React, { Component } from 'react';
-import { Router, Route, IndexRoute, browserHistory, Link } from 'react-router';
+import { Router, IndexRoute } from 'react-router';
+import { createHistory, useBasename } from 'history';
 
 // components
 import Header from './header/HeaderIndex';
@@ -12,9 +13,6 @@ import Home from './home/HomeIndex';
 import ScientistsIndex from './scientists/ScientistsIndex';
 import ScientistProfile from './scientists/ScientistProfile';
 import NotFound from './notfound/NotFound';
-
-// const Header = () => (<div><Link to={`/header`}>Header</Link></div>);
-// const Footer = () => (<div><Link to={`/footer`}>Footer</Link></div>);
 
 export class Root extends Component {
     render() {
@@ -28,13 +26,19 @@ export class Root extends Component {
     }
 }
 
+export const relativePath = "/impact";
+
+const browserHistory = useBasename(createHistory)({
+    basename: relativePath
+});
+
 const routes = {
     path: '/',
     component: Root,
     indexRoute: { component: Home },
     childRoutes: [
         { path: 'scientists', component: ScientistsIndex },
-        { path: '/scientists/:scientistId', component: ScientistProfile },
+        { path: 'scientists/:scientistId', component: ScientistProfile },
         { path: '*', component: NotFound }
 
     ]
