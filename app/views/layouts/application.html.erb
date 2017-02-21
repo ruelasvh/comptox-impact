@@ -6,6 +6,13 @@
   <%= javascript_include_tag 'application' %>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+  <script charset="utf-8">
+      <% if ENV["RAILS_ENV"] == "development" %>
+      console.warn("Development mode. Make sure to start 'node devServer.js'");
+      var script = "http://" + (location.host || 'localhost').split(':')[0] + ":4000/client-app.js";
+      document.write('<script src="' + script + '"></' + 'script>');
+      <% end %>
+  </script>
   <%= csrf_meta_tags %>
 </head>
 <body class='<%= controller.controller_name %>'>

@@ -11,7 +11,7 @@ import Header from './header/HeaderIndex';
 import Footer from './footer/FooterIndex';
 import Home from './home/HomeIndex';
 import ScientistsIndex from './scientists/ScientistsIndex';
-import ScientistProfile from './scientists/ScientistProfile';
+import ScientistProfile from './scientist/ScientistProfile';
 import NotFound from './notfound/NotFound';
 
 export class Root extends Component {
@@ -26,7 +26,7 @@ export class Root extends Component {
     }
 }
 
-export const relativePath = "/impact";
+export const relativePath = "/vruelasr-i";
 
 const browserHistory = useBasename(createHistory)({
     basename: relativePath
