@@ -8,7 +8,7 @@
   "scripts": {
     "test": "jest",
     "start": "node devServer.js",
-    "build": "NODE_ENV=production webpack --config ./webpack.config.js --progress --colors"
+    "build": "node deployment.js"
   },
   "repository": {
     "type": "git",

@@ -26,7 +26,9 @@ export class Root extends Component {
     }
 }
 
-export const relativePath = "/vruelasr-i";
+// Change to whichever subdomain this project will be deployed from, i.e.,
+// comptox.ag.epa.gov/impact -- relativePath = "/impact"
+export const relativePath = "";
 
 const browserHistory = useBasename(createHistory)({
     basename: relativePath
