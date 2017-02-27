@@ -3,12 +3,9 @@
  * US EPA National Center for Computational Toxicology
  */
 import { INVALIDATE_HOME, REQUEST_HOME, RECEIVE_HOME} from './actions';
+import Model from './model';
 
-const initialState = {
-    isFetching: false,
-    didInvalidate: false,
-    data: {}
-};
+const initialState = Model;
 
 export default function home(state = initialState, action) {
     switch (action.type) {
