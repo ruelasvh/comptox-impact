@@ -12,12 +12,14 @@ import PlumxLink from './LinkedProfilesTabLink';
 import LinkedInLink from './LinkedProfilesTabLink';
 import ResearchGateLink from './LinkedProfilesTabLink';
 import GoogleScholarLink from './LinkedProfilesTabLink';
+import EuropePMCLink from './LinkedProfilesTabLink';
 import SlideShare from './PresentationsTabPresentationItem';
 import orcidThumbnail from './img/ocrid.gif';
 import plumxThumbnail from './img/plumx.png';
 import linkedinThumbnail from './img/linkedIn.png';
 import researchgateThumbnail from './img/researchgate.png';
 import googlescholarThumbnail from './img/googlescholar.png';
+import europepmcThumbnail from './img/europepmc.png';
 
 class ScientistProfileTabs extends React.Component {
     constructor(props) {
@@ -93,30 +95,31 @@ class ScientistProfileTabs extends React.Component {
                     title="ORCiD"
                     thumbnail={orcidThumbnail}
                     linkIdPrefix="linked-profile-tab-link-orcid"/>
-                <br/>
                 <PlumxLink
                     url={this.props.scientistDetails.plumx}
                     title="PlumX"
                     thumbnail={plumxThumbnail}
                     linkIdPrefix="linked-profile-tab-link-plumx"/>
-                <br/>
                 <LinkedInLink
                     url={this.props.scientistDetails.linkedIn}
                     title="LinkedIn"
                     thumbnail={linkedinThumbnail}
                     linkIdPrefix="linked-profile-tab-link-linkedIn"/>
-                <br/>
                 <ResearchGateLink
                     url={this.props.scientistDetails.researchGate}
                     title="ResearchGate"
                     thumbnail={researchgateThumbnail}
                     linkIdPrefix="linked-profile-tab-link-researchGate"/>
-                <br/>
                 <GoogleScholarLink
                     url={this.props.scientistDetails.googleScholar}
                     title="Google Scholar"
                     thumbnail={googlescholarThumbnail}
                     linkIdPrefix="linked-profile-tab-link-googleScholar"/>
+                <EuropePMCLink
+                    url={`http://europepmc.org/authors/${this.props.scientistDetails.orcid}`}
+                    title="PMC Europe"
+                    thumbnail={europepmcThumbnail}
+                    linkIdPrefix="linked-profile-tab-link-europepmc"/>
             </div>
         );
 

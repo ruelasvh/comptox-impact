@@ -7,13 +7,16 @@ import './styles/scientistprofile.css';
 
 const LinkedProfilesTabLink = ( { url, title, thumbnail, linkIdPrefix }) => (
     <div>
-        <a className="linked-profile-tab-link" href={url} target="_blank">
-            <div className="linked-profile-tab-link-thumbnail">
-                <img src={thumbnail} alt={linkIdPrefix}/>
-            </div>
-            {' '}
-            <div>{title}</div>
-        </a>
+        <div>
+            <a className="linked-profile-tab-link" href={url} target="_blank">
+                <div className="linked-profile-tab-link-thumbnail">
+                    <img src={thumbnail} alt={linkIdPrefix}/>
+                </div>
+                {' '}
+                <div>{title}</div>
+            </a>
+        </div>
+        <br/>
     </div>
 );
 
