@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170131192931) do
+ActiveRecord::Schema.define(version: 20170227192842) do
 
   create_table "homes", force: :cascade do |t|
     t.string   "title",                limit: 255
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20170131192931) do
     t.string   "linkedIn",      limit: 255
     t.string   "plumx",         limit: 255
     t.string   "publons",       limit: 255
-    t.string   "europePmc",     limit: 255
+    t.string   "vivo",          limit: 255
     t.text     "bio",           limit: 65535
     t.string   "createdBy",     limit: 255
     t.string   "updatedBy",     limit: 255

@@ -13,6 +13,7 @@ import LinkedInLink from './LinkedProfilesTabLink';
 import ResearchGateLink from './LinkedProfilesTabLink';
 import GoogleScholarLink from './LinkedProfilesTabLink';
 import EuropePMCLink from './LinkedProfilesTabLink';
+import VivoLink from './LinkedProfilesTabLink';
 import SlideShare from './PresentationsTabPresentationItem';
 import orcidThumbnail from './img/ocrid.gif';
 import plumxThumbnail from './img/plumx.png';
@@ -20,6 +21,7 @@ import linkedinThumbnail from './img/linkedIn.png';
 import researchgateThumbnail from './img/researchgate.png';
 import googlescholarThumbnail from './img/googlescholar.png';
 import europepmcThumbnail from './img/europepmc.png';
+import vivoThumbnail from './img/vivo.png';
 
 class ScientistProfileTabs extends React.Component {
     constructor(props) {
@@ -90,36 +92,41 @@ class ScientistProfileTabs extends React.Component {
 
         const LinkedProfilesTabLinks = (
             <div>
-                <OrcidLink
+                {this.props.scientistDetails.orcid ? <OrcidLink
                     url={"http://orcid.org/" + this.props.scientistDetails.orcid}
                     title="ORCiD"
                     thumbnail={orcidThumbnail}
-                    linkIdPrefix="linked-profile-tab-link-orcid"/>
-                <PlumxLink
+                    linkIdPrefix="linked-profile-tab-link-orcid"/> : ''}
+                {this.props.scientistDetails.plumx ? <PlumxLink
                     url={this.props.scientistDetails.plumx}
                     title="PlumX"
                     thumbnail={plumxThumbnail}
-                    linkIdPrefix="linked-profile-tab-link-plumx"/>
-                <LinkedInLink
+                    linkIdPrefix="linked-profile-tab-link-plumx"/> : ''}
+                {this.props.scientistDetails.linkedIn ? <LinkedInLink
                     url={this.props.scientistDetails.linkedIn}
                     title="LinkedIn"
                     thumbnail={linkedinThumbnail}
-                    linkIdPrefix="linked-profile-tab-link-linkedIn"/>
-                <ResearchGateLink
+                    linkIdPrefix="linked-profile-tab-link-linkedIn"/> : ''}
+                {this.props.scientistDetails.researchGate ? <ResearchGateLink
                     url={this.props.scientistDetails.researchGate}
                     title="ResearchGate"
                     thumbnail={researchgateThumbnail}
-                    linkIdPrefix="linked-profile-tab-link-researchGate"/>
-                <GoogleScholarLink
+                    linkIdPrefix="linked-profile-tab-link-researchGate"/> : ''}
+                {this.props.scientistDetails.googleScholar ? <GoogleScholarLink
                     url={this.props.scientistDetails.googleScholar}
                     title="Google Scholar"
                     thumbnail={googlescholarThumbnail}
-                    linkIdPrefix="linked-profile-tab-link-googleScholar"/>
-                <EuropePMCLink
+                    linkIdPrefix="linked-profile-tab-link-googleScholar"/> : ''}
+                {this.props.scientistDetails.orcid ? <EuropePMCLink
                     url={`http://europepmc.org/authors/${this.props.scientistDetails.orcid}`}
                     title="PMC Europe"
                     thumbnail={europepmcThumbnail}
-                    linkIdPrefix="linked-profile-tab-link-europepmc"/>
+                    linkIdPrefix="linked-profile-tab-link-europepmc"/> : ''}
+                {this.props.scientistDetails.vivo ? <VivoLink
+                    url={this.props.scientistDetails.vivo}
+                    title="VIVO"
+                    thumbnail={vivoThumbnail}
+                    linkIdPrefix="linked_profile-tab-link-vivo"/> : ''}
             </div>
         );
 
