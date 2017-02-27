@@ -26,7 +26,7 @@ export default class HomeIndex extends React.Component {
     }
 
     handleFetchData() {
-        Client.searchHome(data => {
+        Client.fetchHome(data => {
             this.setState({ data: data }, () => console.log(this.state.data));
         });
     }

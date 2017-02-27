@@ -13,6 +13,10 @@ import Home from './home/HomeIndex';
 import ScientistsIndex from './scientists/ScientistsIndex';
 import ScientistProfile from './scientist/ScientistProfile';
 import NotFound from './notfound/NotFound';
+import { Provider } from 'react-redux';
+import configureStore from './configureStore';
+
+const store = configureStore();
 
 export class Root extends Component {
     render() {
@@ -47,7 +51,9 @@ const routes = {
 };
 
 const App = () => (
-    <Router history={browserHistory} routes={routes}/>
+    <Provider store={store}>
+        <Router history={browserHistory} routes={routes}/>
+    </Provider>
 );
 
 export default App;

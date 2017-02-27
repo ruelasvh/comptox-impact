@@ -5,7 +5,7 @@
 /* eslint-disable no-undef */
 import { relativePath } from '../App';
 
-function searchHome(callback) {
+function fetchHome(callback) {
     return fetch(`${relativePath}/api/home`, {
         accept: 'application/json',
     }).then(checkStatus)
@@ -45,5 +45,5 @@ function parseJSON(response) {
     return response.json();
 }
 
-const Client = { searchHome, searchScientists, searchScientist };
+const Client = { fetchHome, searchScientists, searchScientist };
 export default Client;
