@@ -14,7 +14,7 @@ import './styles/footerindex.css';
 const FooterIndex = () => (
     <footer className="footer">
         <div className="footer-logo">
-            <a href="https://epa.gov">
+            <a href="https://epa.gov" target="_blank">
                 <img src={seal} alt="EPA_Seal"/>
             </a>
         </div>
