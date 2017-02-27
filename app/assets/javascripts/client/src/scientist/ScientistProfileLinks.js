@@ -9,6 +9,7 @@ import plumx from './img/plumx.png';
 import linkedin from './img/linkedIn.png';
 import researchgate from './img/researchgate.png';
 import googlescholar from './img/googlescholar.png';
+import publons from './img/publons.png';
 import './styles/scientistprofile.css';
 
 const ScientistProfileLinks = ( { scientistDetails, linkIdPrefix } ) => (
@@ -36,6 +37,11 @@ const ScientistProfileLinks = ( { scientistDetails, linkIdPrefix } ) => (
         <OverlayTrigger placement="top" overlay={<Tooltip id={linkIdPrefix + 'googlescolar'}>Google Scholar</Tooltip>}>
             <a className={"scientist-links-button " + (scientistDetails.googleScholar ? '' : 'scientist-links-button-disabled')} href={scientistDetails.googleScholar} target="_blank">
                 <img src={googlescholar} alt="GoogleScholar"/>
+            </a>
+        </OverlayTrigger>
+        <OverlayTrigger placement="top" overlay={<Tooltip id={linkIdPrefix + 'publons'}>Publons</Tooltip>}>
+            <a className={"scientist-links-button " + (scientistDetails.publons ? '' : 'scientist-links-button-disabled')} href={scientistDetails.publons} target="_blank">
+                <img src={publons} alt="Publons"/>
             </a>
         </OverlayTrigger>
     </div>

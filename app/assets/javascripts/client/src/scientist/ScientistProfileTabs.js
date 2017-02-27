@@ -14,6 +14,7 @@ import ResearchGateLink from './LinkedProfilesTabLink';
 import GoogleScholarLink from './LinkedProfilesTabLink';
 import EuropePMCLink from './LinkedProfilesTabLink';
 import VivoLink from './LinkedProfilesTabLink';
+import PublonsLink from './LinkedProfilesTabLink';
 import SlideShare from './PresentationsTabPresentationItem';
 import orcidThumbnail from './img/ocrid.gif';
 import plumxThumbnail from './img/plumx.png';
@@ -22,6 +23,7 @@ import researchgateThumbnail from './img/researchgate.png';
 import googlescholarThumbnail from './img/googlescholar.png';
 import europepmcThumbnail from './img/europepmc.png';
 import vivoThumbnail from './img/vivo.png';
+import publonsThumbnail from './img/publons.png';
 
 class ScientistProfileTabs extends React.Component {
     constructor(props) {
@@ -126,7 +128,12 @@ class ScientistProfileTabs extends React.Component {
                     url={this.props.scientistDetails.vivo}
                     title="VIVO"
                     thumbnail={vivoThumbnail}
-                    linkIdPrefix="linked_profile-tab-link-vivo"/> : ''}
+                    linkIdPrefix="linked-profile-tab-link-vivo"/> : ''}
+                {this.props.scientistDetails.publons ? <PublonsLink
+                    url={this.props.scientistDetails.publons}
+                    title="Publons"
+                    thumbnail={publonsThumbnail}
+                    linkIdPrefix="linked-profile-tab-link-publons"/> : ''}
             </div>
         );
 
