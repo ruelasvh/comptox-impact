@@ -48,9 +48,10 @@ class ScientistProfileTabs extends React.Component {
                 <div>
                     {this.props.publicationsData.map(function (object, i) {
                         return (
-                            <div id={'pub-item-' + i.toString()} key={'pub-item-' + i.toString()}>
-                                <PublicationItem id={'pub-item-' + i.toString()} publication={object} centerWide={false}/>
-                            </div>
+                            <PublicationItem
+                                id={'pub-item-' + i.toString()}
+                                key={'pub-item-' + i.toString()}
+                                publication={object} centerWide={false}/>
                         );
                     })}
                 </div>
