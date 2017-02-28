@@ -4,7 +4,7 @@
 import React, { PropTypes } from 'react';
 import kudos from './img/kudos_butterfly_large.png';
 
-const Kudos = ( doi ) => (
+const Kudos = ( { doi } ) => (
      <a
          href={"https://www.growkudos.com/publications/" + encodeURIComponent(encodeURIComponent(doi))}
          target="_blank">

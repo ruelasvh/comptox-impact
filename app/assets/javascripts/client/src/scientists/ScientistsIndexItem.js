@@ -9,7 +9,7 @@ import './styles/scientistsindex.css';
 
 const Scientist = ({ scientist }) => (
     <div className="scientists-item">
-        <Link to={`/scientists/${scientist.scientistId}`}>
+        <Link to={{ pathname: `/scientists/${scientist.scientistId}`, state: { scientist }}}>
             <Thumbnail
                 src={scientist.photoUrl ? require('./img/' + scientist.photoUrl) : ''}
                 alt="Scientist_Image">

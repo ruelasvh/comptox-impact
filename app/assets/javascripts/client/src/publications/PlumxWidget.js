@@ -3,9 +3,9 @@
  */
 import React, { PropTypes } from 'react';
 
-const PlumxWidget = ( doi ) => (
+const PlumxWidget = ( { doi } ) => (
     <a
-        href={"https://plu.mx/plum/a/?doi=" + encodeURI(doi)}
+        href={`https://plu.mx/plum/a/?doi=${encodeURI(doi)}`}
         className="plumx-plum-print-popup"
         data-hide-when-empty="false"
         data-popup="left"

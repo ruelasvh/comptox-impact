@@ -41,39 +41,6 @@ class ScientistProfileTabs extends React.Component {
         this.setState({ key: key });
     }
 
-    appendPlumxScript() {
-        if (document.getElementById('plumx-script')) {
-            if (window.__plumX) {
-                window.__plumX.widgets.popup.wireUp();
-            }
-            return;
-        }
-        const plumxScript = document.createElement("script");
-        plumxScript.id = 'plumx-script';
-        plumxScript.src = "//d39af2mgp1pqhg.cloudfront.net/widget-popup.js";
-        plumxScript.async = true;
-        document.body.appendChild(plumxScript);
-    }
-
-    appendAltmetricScript() {
-        if (document.getElementById('altmetric-script')) {
-            if (window._altmetric) {
-                window._altmetric.embed_init();
-            }
-            return;
-        }
-        const altMetricScript = document.createElement("script");
-        altMetricScript.id = 'altmetric-script';
-        altMetricScript.src = "//d1bxh8uas1mnw7.cloudfront.net/assets/embed.js";
-        altMetricScript.async = true;
-        document.body.appendChild(altMetricScript);
-    }
-
-    componentDidMount() {
-        this.appendPlumxScript();
-        this.appendAltmetricScript();
-    }
-
     render() {
         let publications;
         if (this.props.publicationsData) {
@@ -81,8 +48,8 @@ class ScientistProfileTabs extends React.Component {
                 <div>
                     {this.props.publicationsData.map(function (object, i) {
                         return (
-                            <div id={i} key={'pub-item-' + i}>
-                                <PublicationItem publication={object} centerWide={false}/>
+                            <div id={'pub-item-' + i.toString()} key={'pub-item-' + i.toString()}>
+                                <PublicationItem id={'pub-item-' + i.toString()} publication={object} centerWide={false}/>
                             </div>
                         );
                     })}
