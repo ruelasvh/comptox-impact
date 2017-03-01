@@ -10,10 +10,11 @@ import './styles/scientistprofile.css';
 const ScientistProfileBio = ( { scientistBio } ) => (
     <div className="scientist-bio">
         <br/><br/><br/><br/><br/><br/><br/>
+        {scientistBio ?
         <Col>
             <h4 className="headline"><strong>Bio</strong></h4>
             <div dangerouslySetInnerHTML={{__html: scientistBio}}/>
-        </Col>
+        </Col> : ''}
     </div>
 );
 

@@ -29,8 +29,16 @@ class ScientistProfileTabs extends React.Component {
     constructor(props) {
         super(props);
 
+        const publicationsTab = 1;
+        const presentationsTab = 2;
+        const linkedProfilesTab = 3;
+        const projectsTab = 4;
+
+        const initialTabSelected = this.props.scientistDetails.other_details == "isPrincipalInvestigator" ?
+            publicationsTab : linkedProfilesTab;
+
         this.state = {
-            key: 1
+            key: initialTabSelected
         };
 
         // Bind functions
@@ -107,12 +115,12 @@ class ScientistProfileTabs extends React.Component {
 
         return (
             <Tabs activeKey={this.state.key} onSelect={this.handleSelect} id="controlled-tabs">
-                <Tab eventKey={1} title="Publications">
+                <Tab eventKey={1} title="Publications" disabled={!(this.props.scientistDetails.other_details == "isPrincipalInvestigator")}>
                     <div className="tab-frame" style={{marginBottom: '8em'}}>
                         {publications}
                     </div>
                 </Tab>
-                <Tab eventKey={2} title="Presentations">
+                <Tab eventKey={2} title="Presentations" disabled={!(this.props.scientistDetails.other_details == "isPrincipalInvestigator")}>
                     <div className="tab-frame">
                         <SlideShare userUrl="empty for now"/>
                     </div>
@@ -122,7 +130,7 @@ class ScientistProfileTabs extends React.Component {
                         {LinkedProfilesTabLinks}
                     </div>
                 </Tab>
-                <Tab eventKey={4} title="Projects">
+                <Tab eventKey={4} title="Projects" disabled={!(this.props.scientistDetails.other_details == "isPrincipalInvestigator")}>
                     <div className="tab-frame">
                         Projects content
                     </div>

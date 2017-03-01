@@ -11,7 +11,7 @@ const Scientist = ({ scientist }) => (
     <div className="scientists-item">
         <Link to={{ pathname: `/scientists/${scientist.scientistId}`, state: { scientist }}}>
             <Thumbnail
-                src={scientist.photoUrl ? require('./img/' + scientist.photoUrl) : ''}
+                src={scientist.photoUrl ? require('./img/' + scientist.photoUrl) : require('./img/person_thumbnail.jpg')}
                 alt="Scientist_Image">
                 <h4>{scientist.firstName + ' '}<span className="last-name">{scientist.lastName}</span></h4>
                 <p>{scientist.title}</p>

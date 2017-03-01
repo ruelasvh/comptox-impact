@@ -1,6 +1,6 @@
 class Scientist < ActiveRecord::Base
   self.primary_key = "scientistId"
-  validates :scientistId, :firstName, :lastName, :title, presence: true
+  validates :scientistId, :firstName, :lastName, presence: true
   validates :scientistId, uniqueness: true
   validates :photoUrl, allow_blank: true, format: {
       with: %r{\.(gif|jpg|png)\Z}i,

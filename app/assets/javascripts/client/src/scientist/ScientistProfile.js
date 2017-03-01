@@ -115,7 +115,9 @@ class ScientistProfile extends React.Component {
                                         <br/><br/>
                                         <Image
                                             className="scientist-photo"
-                                            src={scientistDetails.photoUrl ? require('../scientists/img/' + scientistDetails.photoUrl) : ''}
+                                            src={scientistDetails.photoUrl ?
+                                                require('../scientists/img/' + scientistDetails.photoUrl) :
+                                                require('../scientists/img/person_thumbnail.jpg')}
                                             thumbnail/>
                                     </Row>
                                     <Row>
