@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     get 'home' => 'home#index'
     get 'scientists' => 'scientists#index'
     get 'scientists/:scientistId' => 'scientists#show'
+    get 'scientists/:scientistId/photo' => 'scientists#show_photo'
   end
 
   get '*path', to: 'application#index'

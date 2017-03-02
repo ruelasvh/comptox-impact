@@ -20,4 +20,9 @@ class ScientistsController < ApplicationController
     )
     end
   end
+
+  def show_photo
+    scientistId = params[:scientistId] + '.jpg'
+    send_file Rails.root.join('app', 'assets', 'images', 'api', 'staff', scientistId), :type => 'image/jpeg', :disposition => 'inline'
+  end
 end
