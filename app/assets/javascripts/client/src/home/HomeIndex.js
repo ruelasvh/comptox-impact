@@ -74,25 +74,25 @@ export default class HomeIndex extends React.Component {
                                 </Link>
                             </Col>
                             <Col xs={12} md={3}>
-                                <a href="/publications">
+                                <Link to="/publications">
                                     <Thumbnail src={publications} alt="Publications">
                                         <h3>Publications</h3>
                                     </Thumbnail>
-                                </a>
+                                </Link>
                             </Col>
                             <Col xs={12} md={3}>
-                                <a href="/data-tools">
+                                <Link to="/data-tools">
                                     <Thumbnail src={data_tools} alt="Data_Tools">
                                         <h3>Data & Tools</h3>
                                     </Thumbnail>
-                                </a>
+                                </Link>
                             </Col>
                             <Col xs={12} md={3}>
-                                <a href="/impact">
+                                <Link to="/impact">
                                     <Thumbnail src={impact} alt="Impact">
                                         <h3>Impact</h3>
                                     </Thumbnail>
-                                </a>
+                                </Link>
                             </Col>
                         </Row>
                     </div>

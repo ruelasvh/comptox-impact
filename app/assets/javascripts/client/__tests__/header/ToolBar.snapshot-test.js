@@ -3,12 +3,12 @@
  * US EPA National Center for Computational Toxicology
  */
 import React from 'react';
-import FooterHeader from '../../features/footer/components/FooterIndex';
+import ToolBar from '../../src/header/ToolBar';
 import renderer from 'react-test-renderer';
 
-test('FooterIndex renders correctly', () => {
+test('ToolBar renders correctly', () => {
     const component = renderer.create(
-        <FooterHeader />
+        <ToolBar currentUri="/"/>
     );
     let tree = component.toJSON();
     expect(tree).toMatchSnapshot();

@@ -4,8 +4,9 @@
  */
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import HeaderIndex from '../../features/header/components/HeaderIndex';
-import ToolBar from '../../features/header/components/ToolBar';
+import HeaderIndex from '../../src/header/HeaderIndex';
+import ToolBar from '../../src/header/ToolBar';
+import { Link } from 'react-router';
 
 describe('<HeaderIndex />', () => {
     it('should exist', () => {
@@ -14,20 +15,20 @@ describe('<HeaderIndex />', () => {
     });
     it('should be static', () => {
         const wrapper = mount(<HeaderIndex />);
-        expect(wrapper.find('nav').get(0).getAttribute('class')).toEqual('navbar-fixed-top navbar navbar-default');
+        expect(wrapper.find('nav').get(0).getAttribute('class')).toEqual('navbar navbar-navbar-fixed-top navbar-fixed-top');
     });
     it('should render EPA\'s logo', () => {
         const wrapper = mount(<HeaderIndex />);
         expect(wrapper.find('img').get(0).getAttribute('alt')).toEqual('EPA_Logo');
         expect(wrapper.find('.navbar-logo').get(0).getAttribute('href')).toEqual('https://epa.gov');
     });
-    it('renders three navigational items', () => {
+    it('renders two navigational items', () => {
         const wrapper = shallow(<HeaderIndex />);
-        expect(wrapper.find('.navbar-fixed-top-links a').length).toBe(3);
+        expect(wrapper.find('.navbar-fixed-top-links a').length).toBe(2);
     });
-    it('link goes back to home', () => {
+    it('A link that goes back to home', () => {
         const wrapper = mount(<HeaderIndex />);
-        expect(wrapper.find('.navbar-fixed-top-links a').get(2).getAttribute('href')).toEqual('/');
+        expect(wrapper.find(Link).length).toBe(1);
     });
     it('renders <ToolBar /> component', () => {
         const wrapper = shallow(<HeaderIndex />);

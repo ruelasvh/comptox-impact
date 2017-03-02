@@ -4,7 +4,7 @@
  */
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import FooterIndex from '../../features/footer/components/FooterIndex';
+import FooterIndex from '../../src/footer/FooterIndex';
 
 describe('<FooterIndex />', () => {
     it('should exist', () => {

@@ -4,7 +4,8 @@ exports[`test FooterIndex renders correctly 1`] = `
   <div
     className="footer-logo">
     <a
-      href="https://epa.gov">
+      href="https://epa.gov"
+      target="_blank">
       <img
         alt="EPA_Seal"
         src="test-file-stub" />
@@ -101,7 +102,7 @@ exports[`test FooterIndex renders correctly 1`] = `
           }
         }>
         Last Updated on 
-        01/31/2017 12:12:11
+        03/02/2017 08:59:49
       </p>
     </li>
   </ul>

@@ -4,8 +4,9 @@
  */
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import HomeIndex from '../../features/home/components/HomeIndex';
+import HomeIndex from '../../src/home/HomeIndex';
 import seed from '../../mocks/homeMock';
+import { Link } from 'react-router';
 
 describe('<HomeIndex />', () => {
     it('should exist', () => {
@@ -20,24 +21,24 @@ describe('<HomeIndex />', () => {
         const wrapper = shallow(<HomeIndex data={seed}/>);
         expect(wrapper.find('p').length).toBe(1);
     });
-    it('should render 4 "a"', () => {
+    it('should render 4 Links for different site sections', () => {
         const wrapper = shallow(<HomeIndex data={seed}/>);
-        expect(wrapper.find('a').length).toBe(4);
+        expect(wrapper.find(Link).length).toBe(4);
     });
-    it('should render 1 "a" with href /scientists', () => {
+    it('should render 1 Link to /scientists', () => {
         const wrapper = mount(<HomeIndex data={seed}/>);
-        expect(wrapper.find('a').get(0).getAttribute('href')).toEqual('/scientists');
+        expect(wrapper.find(Link).get(0).props.to).toEqual('/scientists');
     });
-    it('should render 1 "a" with href /publications', () => {
+    it('should render 1 Link to /publications', () => {
         const wrapper = mount(<HomeIndex data={seed}/>);
-        expect(wrapper.find('a').get(1).getAttribute('href')).toEqual('/publications');
+        expect(wrapper.find(Link).get(1).props.to).toEqual('/publications');
     });
-    it('should render 1 "a" with href /data-tools', () => {
+    it('should render 1 Link to /data-tools', () => {
         const wrapper = mount(<HomeIndex data={seed}/>);
-        expect(wrapper.find('a').get(2).getAttribute('href')).toEqual('/data-tools');
+        expect(wrapper.find(Link).get(2).props.to).toEqual('/data-tools');
     });
-    it('should render 1 "a" with href /impact', () => {
+    it('should render 1 Link to /impact', () => {
         const wrapper = mount(<HomeIndex data={seed}/>);
-        expect(wrapper.find('a').get(3).getAttribute('href')).toEqual('/impact');
+        expect(wrapper.find(Link).get(3).props.to).toEqual('/impact');
     });
 });

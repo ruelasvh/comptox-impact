@@ -3,7 +3,7 @@
  * US EPA National Center for Computational Toxicology
  */
 import React from 'react';
-import HomeIndex from '../../features/home/components/HomeIndex';
+import HomeIndex from '../../src/home/HomeIndex';
 import renderer from 'react-test-renderer';
 import seed from '../../mocks/homeMock';
 

@@ -2,7 +2,8 @@ exports[`test ScientistsItem renders correctly 1`] = `
 <div
   className="scientists-item">
   <a
-    href="/scientists/1">
+    onClick={[Function]}
+    style={Object {}}>
     <div
       className="thumbnail">
       <img

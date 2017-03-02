@@ -3,7 +3,7 @@
  * US EPA National Center for Computational Toxicology
  */
 import React from 'react';
-import HeaderIndex from '../../features/header/components/HeaderIndex';
+import HeaderIndex from '../../src/header/HeaderIndex';
 import renderer from 'react-test-renderer';
 
 test('HeaderIndex renders correctly', () => {

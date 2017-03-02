@@ -1,7 +1,7 @@
 exports[`test HeaderIndex renders correctly 1`] = `
 <div>
   <nav
-    className="navbar-fixed-top navbar navbar-default"
+    className="navbar navbar-navbar-fixed-top navbar-fixed-top"
     id="primary-navbar"
     role="navigation">
     <div
@@ -52,7 +52,8 @@ exports[`test HeaderIndex renders correctly 1`] = `
           </li>
           <li>
             <a
-              href="/">
+              onClick={[Function]}
+              style={Object {}}>
               Home
             </a>
           </li>
@@ -61,8 +62,13 @@ exports[`test HeaderIndex renders correctly 1`] = `
     </div>
   </nav>
   <nav
-    className="navbar-static-top navbar navbar-default"
-    id="secondary-navbar">
+    className="navbar navbar-default"
+    id="secondary-navbar"
+    style={
+      Object {
+        "backgroundColor": "#E8F6FD",
+      }
+    }>
     <div
       className="container-fluid">
       <div

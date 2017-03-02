@@ -12,9 +12,7 @@ exports[`test HomeIndex initial snapshot test 1`] = `
             Object {
               "textAlign": "center",
             }
-          }>
-          CompTox Impact Title
-        </h1>
+          } />
       </div>
     </div>
     <div
@@ -29,9 +27,7 @@ exports[`test HomeIndex initial snapshot test 1`] = `
               "fontSize": "large",
               "textAlign": "justify",
             }
-          }>
-          CompTox Impact showcases NCCT research metrics.
-        </p>
+          } />
       </div>
     </div>
     <div
@@ -43,7 +39,8 @@ exports[`test HomeIndex initial snapshot test 1`] = `
         <div
           className="col-md-3 col-xs-12">
           <a
-            href="/scientists">
+            onClick={[Function]}
+            style={Object {}}>
             <div
               className="thumbnail">
               <img
@@ -61,7 +58,8 @@ exports[`test HomeIndex initial snapshot test 1`] = `
         <div
           className="col-md-3 col-xs-12">
           <a
-            href="/publications">
+            onClick={[Function]}
+            style={Object {}}>
             <div
               className="thumbnail">
               <img
@@ -79,7 +77,8 @@ exports[`test HomeIndex initial snapshot test 1`] = `
         <div
           className="col-md-3 col-xs-12">
           <a
-            href="/data-tools">
+            onClick={[Function]}
+            style={Object {}}>
             <div
               className="thumbnail">
               <img
@@ -97,7 +96,8 @@ exports[`test HomeIndex initial snapshot test 1`] = `
         <div
           className="col-md-3 col-xs-12">
           <a
-            href="/impact">
+            onClick={[Function]}
+            style={Object {}}>
             <div
               className="thumbnail">
               <img

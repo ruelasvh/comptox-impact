@@ -1,7 +1,12 @@
 exports[`test ToolBar renders correctly 1`] = `
 <nav
-  className="navbar-static-top navbar navbar-default"
-  id="secondary-navbar">
+  className="navbar navbar-default"
+  id="secondary-navbar"
+  style={
+    Object {
+      "backgroundColor": "#E8F6FD",
+    }
+  }>
   <div
     className="container-fluid">
     <div
