@@ -9,6 +9,7 @@ import Isotope from 'isotope-layout';
 
 // components
 import Scientist from './ScientistsIndexItem';
+import Loader from 'react-loader';
 import './styles/scientistsindex.css';
 
 // http client
@@ -20,7 +21,8 @@ class ScientistsIndex extends React.Component {
         this.state = {
             isotope: null,
             sortValue: true,
-            scientists: []
+            scientists: [],
+            loaded: false
         };
 
         // Bind event handlers
@@ -62,9 +64,9 @@ class ScientistsIndex extends React.Component {
         Client.searchScientists( scientists => {
             // this.setState({ scientists: scientists }, isotopeSetupCallBack);
             // Changed to below code for logging data to the console
-            this.setState({ scientists: scientists },
+            this.setState({ scientists: scientists, loaded: true },
                 () => {
-                    console.log(this.state.scientists);
+                    console.log(this.state);
                     isotopeSetupCallBack();
                 }
             );
@@ -123,7 +125,9 @@ class ScientistsIndex extends React.Component {
                     </div>
 
                     <div className="scientists-grid">
-                        {ScientistsList}
+                        <Loader loaded={this.state.loaded} top="%100">
+                            {ScientistsList}
+                        </Loader>
                     </div>
                 </Grid>
             </div>

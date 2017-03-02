@@ -39,7 +39,7 @@ function fetchHome() {
 function shouldFetchHome(state) {
     if (!state) {
         return true;
-    } else if (state.isFetching) {
+    } else if (state.loaded) {
         return false;
     } else {
         return state.didInvalidate;
