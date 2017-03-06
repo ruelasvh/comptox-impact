@@ -97,7 +97,7 @@ class ScientistProfileTabs extends React.Component {
                     linkIdPrefix="linked-profile-tab-link-googleScholar"/> : ''}
                 {this.props.scientistDetails.orcid ? <EuropePMCLink
                     url={`http://europepmc.org/authors/${this.props.scientistDetails.orcid}`}
-                    title="PMC Europe"
+                    title="Europe PMC"
                     thumbnail={europepmcThumbnail}
                     linkIdPrefix="linked-profile-tab-link-europepmc"/> : ''}
                 {this.props.scientistDetails.vivo ? <VivoLink
