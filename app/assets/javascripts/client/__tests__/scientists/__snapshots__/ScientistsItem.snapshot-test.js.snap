@@ -8,7 +8,7 @@ exports[`test ScientistsItem renders correctly 1`] = `
       className="thumbnail">
       <img
         alt="Scientist_Image"
-        src="test-file-stub" />
+        src="/api/scientists/1/photo/1.jpg" />
       <div
         className="caption">
         <h4>
