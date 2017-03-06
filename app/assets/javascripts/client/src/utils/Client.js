@@ -29,6 +29,16 @@ function searchScientist(id, callback) {
         .then(callback)
 }
 
+function searchScientistPhoto(imageURL, callback) {
+    return fetch(imageURL)
+        .then(function (response) {
+            checkStatus(response);
+            return response.blob();
+        })
+        .then(parseImage)
+        .then(callback)
+}
+
 function checkStatus(response) {
     if (response.status >= 200 && response.status < 300) {
         return response;
@@ -41,9 +51,12 @@ function checkStatus(response) {
     }
 }
 
+function parseImage(imageBlob) {
+    return URL.createObjectURL(imageBlob);
+}
 function parseJSON(response) {
     return response.json();
 }
 
-const Client = { fetchHome, searchScientists, searchScientist };
+const Client = { fetchHome, searchScientists, searchScientist, searchScientistPhoto };
 export default Client;

@@ -5,20 +5,29 @@
 import React, { PropTypes } from 'react';
 import { Thumbnail } from 'react-bootstrap';
 import { Link } from 'react-router';
+import defaultScientistPhoto from '../../../../images/api/staff/person_thumbnail.jpg';
 import './styles/scientistsindex.css';
 
-const Scientist = ({ scientist }) => (
+const Scientist = ({ scientist }) => {
+    let scientistPhotoURL = "";
+    if (process.env.NODE_ENV === "production") {
+        scientistPhotoURL = scientist.photoUrl ? scientist.photoUrl : defaultScientistPhoto;
+    } else {
+        scientistPhotoURL = scientist.photoUrl ? `/api/scientists/${scientist.scientistId}/photo/${scientist.scientistId}.jpg` : defaultScientistPhoto;
+    }
+
+    return (
     <div className="scientists-item">
         <Link to={{ pathname: `/scientists/${scientist.scientistId}`, state: { scientist }}}>
             <Thumbnail
-                src={scientist.photoUrl ? require('./img/' + scientist.photoUrl) : require('./img/person_thumbnail.jpg')}
+                src={scientistPhotoURL}
                 alt="Scientist_Image">
                 <h4>{scientist.firstName + ' '}<span className="last-name">{scientist.lastName}</span></h4>
                 <p>{scientist.title}</p>
             </Thumbnail>
         </Link>
     </div>
-);
+)};
 
 Scientist.propTypes = {
     scientist: PropTypes.shape({

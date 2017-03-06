@@ -11,6 +11,7 @@ import Client from '../utils/Client';
 import ScientistProfileLinks from './ScientistProfileLinks';
 import ScientistProfileBio from './ScientistProfileBio';
 import ScientistProfileTabs from './ScientistProfileTabs';
+import defaultScientistPhoto from '../../../../images/api/staff/person_thumbnail.jpg';
 import './styles/scientistprofile.css';
 
 class ScientistProfile extends React.Component {
@@ -25,6 +26,7 @@ class ScientistProfile extends React.Component {
 
         this.state = {
             scientistDetails: initialScientistDetails,
+            // scientistPhoto: defaultScientistPhoto,
             publications: dummyPublicationsData
         };
 
@@ -35,11 +37,20 @@ class ScientistProfile extends React.Component {
 
     handleFetchScientist() {
         const scientistId = this.props.params.scientistId;
+        // var photoURL = `/api/scientists/${scientistId}/photo/${scientistId}.jpg`;
+        // if (process.env.NODE_ENV === "production") {
+        //     photoURL = this.state.scientistDetails.photoUrl;
+        // }
 
         Client.searchScientist(scientistId, (scientistDetails) => {
             this.setState({ scientistDetails: scientistDetails },
-                () => console.log(this.state.scientistDetails));
+                () => console.log(this.state.scientistDetails))
         });
+        //
+        // Client.searchScientistPhoto(photoURL, (scientistPhotoURL) => {
+        //     this.setState({ scientistPhoto: scientistPhotoURL },
+        //         () => console.log(this.state.scientistPhoto))
+        // })
     }
 
     handleCancelScientist() {
@@ -88,6 +99,13 @@ class ScientistProfile extends React.Component {
 
     render() {
         let scientistDetails = this.state.scientistDetails;
+        let scientistPhotoURL = "";
+        if (process.env.NODE_ENV === "production") {
+            scientistPhotoURL = this.state.scientistDetails.photoUrl ? this.state.scientistDetails.photoUrl : defaultScientistPhoto;
+        } else {
+            scientistPhotoURL = this.state.scientistDetails.photoUrl ? `/api/scientists/${scientistDetails.scientistId}/photo/${scientistDetails.scientistId}.jpg` : defaultScientistPhoto;
+        }
+
 
         return (
             <div className="scientist-container">
@@ -115,9 +133,7 @@ class ScientistProfile extends React.Component {
                                         <br/><br/>
                                         <Image
                                             className="scientist-photo"
-                                            src={scientistDetails.photoUrl ?
-                                                require('../scientists/img/' + scientistDetails.photoUrl) :
-                                                require('../scientists/img/person_thumbnail.jpg')}
+                                            src={scientistPhotoURL}
                                             thumbnail/>
                                     </Row>
                                     <Row>
