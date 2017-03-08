@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170306210523) do
+ActiveRecord::Schema.define(version: 20170308145911) do
 
   create_table "homes", force: :cascade do |t|
     t.string   "title",                limit: 255
@@ -27,12 +27,12 @@ ActiveRecord::Schema.define(version: 20170306210523) do
   create_table "publication_types", primary_key: "publication_type_id", force: :cascade do |t|
     t.string   "name",              limit: 64
     t.string   "label",             limit: 64
-    t.string   "short_description", limit: 1024
-    t.string   "long_description",  limit: 2048
-    t.string   "created_by",        limit: 256,  default: "System", null: false
+    t.text     "short_description", limit: 65535
+    t.text     "long_description",  limit: 65535
+    t.string   "created_by",        limit: 256,   default: "System", null: false
     t.string   "updated_by",        limit: 256
-    t.datetime "created_at",                                        null: false
-    t.datetime "updated_at",                                        null: false
+    t.datetime "created_at",                                         null: false
+    t.datetime "updated_at",                                         null: false
   end
 
   create_table "scientists", id: false, force: :cascade do |t|
