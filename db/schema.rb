@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170306210523) do
+ActiveRecord::Schema.define(version: 20170308190414) do
 
   create_table "homes", force: :cascade do |t|
     t.string   "title",                limit: 255
@@ -34,6 +34,23 @@ ActiveRecord::Schema.define(version: 20170306210523) do
     t.datetime "created_at",                                        null: false
     t.datetime "updated_at",                                        null: false
   end
+
+  create_table "publications", primary_key: "publication_id", force: :cascade do |t|
+    t.string   "title",               limit: 2048
+    t.string   "doi",                 limit: 128
+    t.date     "published_date"
+    t.text     "citation",            limit: 65535
+    t.text     "abstract",            limit: 65535
+    t.integer  "publication_type_id", limit: 4
+    t.string   "publication_url",     limit: 2048
+    t.string   "external_url",        limit: 2048
+    t.string   "created_by",          limit: 256,   default: "System", null: false
+    t.string   "updated_by",          limit: 256
+    t.datetime "created_at",                                           null: false
+    t.datetime "updated_at",                                           null: false
+  end
+
+  add_index "publications", ["publication_type_id"], name: "fk_PubPubTypes", using: :btree
 
   create_table "scientists", id: false, force: :cascade do |t|
     t.integer  "scientistId",   limit: 4
@@ -61,4 +78,5 @@ ActiveRecord::Schema.define(version: 20170306210523) do
     t.string   "other_details", limit: 255
   end
 
+  add_foreign_key "publications", "publication_types", primary_key: "publication_type_id", name: "fk_PubPubTypes", on_update: :cascade, on_delete: :nullify
 end
