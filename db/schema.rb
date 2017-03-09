@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170308190414) do
+ActiveRecord::Schema.define(version: 20170309204535) do
 
   create_table "homes", force: :cascade do |t|
     t.string   "title",                limit: 255
@@ -52,8 +52,18 @@ ActiveRecord::Schema.define(version: 20170308190414) do
 
   add_index "publications", ["publication_type_id"], name: "fk_PubPubTypes", using: :btree
 
-  create_table "scientists", id: false, force: :cascade do |t|
-    t.integer  "scientistId",   limit: 4
+  create_table "scientist_publications", primary_key: "scientist_publication_id", force: :cascade do |t|
+    t.integer  "scientist_id",      limit: 4
+    t.integer  "publication_id",    limit: 4
+    t.boolean  "is_primary_author", limit: 1
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
+  add_index "scientist_publications", ["publication_id"], name: "fk_rails_4bee69e443", using: :btree
+  add_index "scientist_publications", ["scientist_id", "publication_id"], name: "index_scientist_publications_on_scientist_id_and_publication_id", unique: true, using: :btree
+
+  create_table "scientists", primary_key: "scientistId", force: :cascade do |t|
     t.string   "firstName",     limit: 255,   null: false
     t.string   "lastName",      limit: 255,   null: false
     t.string   "title",         limit: 255,   null: false
@@ -79,4 +89,6 @@ ActiveRecord::Schema.define(version: 20170308190414) do
   end
 
   add_foreign_key "publications", "publication_types", primary_key: "publication_type_id", name: "fk_PubPubTypes", on_update: :cascade, on_delete: :nullify
+  add_foreign_key "scientist_publications", "publications", primary_key: "publication_id", on_update: :cascade, on_delete: :nullify
+  add_foreign_key "scientist_publications", "scientists", primary_key: "scientistId", on_update: :cascade, on_delete: :nullify
 end
