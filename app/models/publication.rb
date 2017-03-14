@@ -1,6 +1,8 @@
 class Publication < ActiveRecord::Base
   self.primary_key = "publication_id"
   belongs_to :publication_type
+  has_many :scientist_publications
+  has_many :scientists, through: :scientist_publications
   validates :title, :published_date, :citation, :publication_url, presence: true
   validates_length_of :title, maximum: 2048, message: "title too long"
   validates_length_of :doi, maximum: 128, allow_blank: true

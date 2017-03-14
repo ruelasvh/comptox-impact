@@ -6,6 +6,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 Scientist.delete_all
+PublicationType.delete_all
+Publication.delete_all
+ScientistPublication.delete_all
 
 Scientist.create!(
     scientistId: 1,
@@ -463,44 +466,6 @@ Scientist.create!(
 
 Scientist.create!(
     scientistId: 27,
-    firstName: "Jeremy",
-    lastName: "Dunne",
-    email: "",
-    title: "",
-    photoUrl: "",
-    orcid: "",
-    plumx: "",
-    researchGate: "",
-    googleScholar: "",
-    linkedIn: "",
-    vivo: "http://vivo.epa.gov/vivo/individual/person2136061166",
-    publons: "",
-    bio: "",
-    createdBy: "System",
-    selfUrl: "http://comptox.ag.epa.gov/impact/api/scientists/27"
-)
-
-Scientist.create!(
-    scientistId: 28,
-    firstName: "Jeffery",
-    lastName: "Edwards",
-    email: "",
-    title: "",
-    photoUrl: "",
-    orcid: "",
-    plumx: "",
-    researchGate: "",
-    googleScholar: "",
-    linkedIn: "",
-    vivo: "http://vivo.epa.gov/vivo/individual/person195101007",
-    publons: "",
-    bio: "",
-    createdBy: "System",
-    selfUrl: "http://comptox.ag.epa.gov/impact/api/scientists/28"
-)
-
-Scientist.create!(
-    scientistId: 29,
     firstName: "Derik",
     lastName: "Haggard",
     email: "",
@@ -515,11 +480,11 @@ Scientist.create!(
     publons: "",
     bio: "",
     createdBy: "System",
-    selfUrl: "http://comptox.ag.epa.gov/impact/api/scientists/29"
+    selfUrl: "http://comptox.ag.epa.gov/impact/api/scientists/27"
 )
 
 Scientist.create!(
-    scientistId: 30,
+    scientistId: 28,
     firstName: "Jason",
     lastName: "Harris",
     email: "",
@@ -534,49 +499,11 @@ Scientist.create!(
     publons: "",
     bio: "",
     createdBy: "System",
-    selfUrl: "http://comptox.ag.epa.gov/impact/api/scientists/30"
+    selfUrl: "http://comptox.ag.epa.gov/impact/api/scientists/28"
 )
 
 Scientist.create!(
-    scientistId: 31,
-    firstName: "Temberly",
-    lastName: "James",
-    email: "",
-    title: "",
-    photoUrl: "",
-    orcid: "",
-    plumx: "",
-    researchGate: "",
-    googleScholar: "",
-    linkedIn: "",
-    vivo: "http://vivo.epa.gov/vivo/individual/person1612811869",
-    publons: "",
-    bio: "",
-    createdBy: "System",
-    selfUrl: "http://comptox.ag.epa.gov/impact/api/scientists/31"
-)
-
-Scientist.create!(
-    scientistId: 32,
-    firstName: "Rebecca",
-    lastName: "Jolley",
-    email: "",
-    title: "",
-    photoUrl: "",
-    orcid: "",
-    plumx: "",
-    researchGate: "",
-    googleScholar: "",
-    linkedIn: "",
-    vivo: "http://vivo.epa.gov/vivo/individual/person333538320",
-    publons: "",
-    bio: "",
-    createdBy: "System",
-    selfUrl: "http://comptox.ag.epa.gov/impact/api/scientists/32"
-)
-
-Scientist.create!(
-    scientistId: 33,
+    scientistId: 29,
     firstName: "Kamel",
     lastName: "Mansouri",
     email: "",
@@ -591,12 +518,12 @@ Scientist.create!(
     publons: "",
     bio: "",
     createdBy: "System",
-    selfUrl: "http://comptox.ag.epa.gov/impact/api/scientists/33"
+    selfUrl: "http://comptox.ag.epa.gov/impact/api/scientists/29"
 )
 
 
 Scientist.create!(
-    scientistId: 34,
+    scientistId: 30,
     firstName: "Andrew",
     lastName: "Mceachran",
     email: "",
@@ -611,30 +538,11 @@ Scientist.create!(
     publons: "",
     bio: "",
     createdBy: "System",
-    selfUrl: "http://comptox.ag.epa.gov/impact/api/scientists/34"
+    selfUrl: "http://comptox.ag.epa.gov/impact/api/scientists/30"
 )
 
 Scientist.create!(
-    scientistId: 35,
-    firstName: "David",
-    lastName: "Murphy",
-    email: "",
-    title: "",
-    photoUrl: "",
-    orcid: "",
-    plumx: "",
-    researchGate: "",
-    googleScholar: "",
-    linkedIn: "",
-    vivo: "http://vivo.epa.gov/vivo/individual/person1452255388",
-    publons: "",
-    bio: "",
-    createdBy: "System",
-    selfUrl: "http://comptox.ag.epa.gov/impact/api/scientists/35"
-)
-
-Scientist.create!(
-    scientistId: 36,
+    scientistId: 31,
     firstName: "Lyly",
     lastName: "Pham",
     email: "",
@@ -649,11 +557,11 @@ Scientist.create!(
     publons: "",
     bio: "",
     createdBy: "System",
-    selfUrl: "http://comptox.ag.epa.gov/impact/api/scientists/36"
+    selfUrl: "http://comptox.ag.epa.gov/impact/api/scientists/31"
 )
 
 Scientist.create!(
-    scientistId: 37,
+    scientistId: 32,
     firstName: "Prachi",
     lastName: "Pradeep",
     email: "",
@@ -668,43 +576,245 @@ Scientist.create!(
     publons: "",
     bio: "",
     createdBy: "System",
-    selfUrl: "http://comptox.ag.epa.gov/impact/api/scientists/37"
+    selfUrl: "http://comptox.ag.epa.gov/impact/api/scientists/32"
 )
 
-Scientist.create!(
-    scientistId: 38,
-    firstName: "Sandra",
-    lastName: "Roberts",
-    email: "",
-    title: "",
-    photoUrl: "",
-    orcid: "",
-    plumx: "",
-    researchGate: "",
-    googleScholar: "",
-    linkedIn: "",
-    vivo: "http://vivo.epa.gov/vivo/individual/person2503",
-    publons: "",
-    bio: "",
-    createdBy: "System",
-    selfUrl: "http://comptox.ag.epa.gov/impact/api/scientists/38"
+PublicationType.create!(
+    publication_type_id: 1,
+    name: "publication",
+    label: "published-article",
+    short_description: "Published Research Paper"
 )
 
-Scientist.create!(
-    scientistId: 39,
-    firstName: "Eric",
-    lastName: "Watt",
-    email: "",
-    title: "",
-    photoUrl: "",
-    orcid: "",
-    plumx: "",
-    researchGate: "",
-    googleScholar: "",
-    linkedIn: "",
-    vivo: "http://vivo.epa.gov/vivo/individual/person607489694",
-    publons: "",
-    bio: "",
-    createdBy: "System",
-    selfUrl: "http://comptox.ag.epa.gov/impact/api/scientists/39"
+PublicationType.create!(
+    publication_type_id: 2,
+    name: "presentation",
+    label: "professional-presentation",
+    short_description: "Poster or Slides Presentation"
+)
+
+########################################################################################################################
+#
+# Publications
+#
+########################################################################################################################
+
+Publication.create!(
+    publication_id: 1,
+    title: "A C. elegans screening platform for the rapid assessment of chemical disruption of germline function.",
+    doi: "10.1289/ehp.1206301",
+    published_date: "2013-01-01",
+    citation: "Allard, P., Kleinstreuer, N. C., <a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, T. B.</a>, &amp; Colaiacovo, M. P. (2013). A C. elegans screening platform for the rapid assessment of chemical disruption of germline function. Environ Health Perspect, 121(6), 717-724.",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/1"
+)
+
+ScientistPublication.create!(
+    scientist_id: "20",
+    publication_id: "1",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 2,
+    title: "Endocrine disrupting chemicals in fish: developing exposure indicators and predictive models of effects based on mechanism of action.",
+    doi: "10.1016/j.aquatox.2009.01.013",
+    published_date: "2009-01-01",
+    citation: "Ankley, G. T., Bencic, D. C., Breen, M. S., Collette, T. W., Conolly, R. B., Denslow, N. D., . . . Watanabe, K. H. (2009). Endocrine disrupting chemicals in fish: developing exposure indicators and predictive models of effects based on mechanism of action. Aquat Toxicol, 92(3), 168-178.",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/2"
+)
+
+Publication.create!(
+    publication_id: 3,
+    title: "Developmental Neurotoxicology: History and Outline of Developmental Neurotoxicity Study Guidelines.",
+    doi: "10.14252/foodsafetyfscj.2015012",
+    published_date: "2015-01-01",
+    citation: "Aoyama, H., Takahashi, N., Shutoh, Y., Motomura, A., &amp; <a href=\"http://comptox.ag.epa.gov/impact/scientists/14\">Crofton, K. M.</a> (2015). Developmental Neurotoxicology: History and Outline of Developmental Neurotoxicity Study Guidelines. Food Safety, 2(2), 48-61.",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/3"
+)
+
+ScientistPublication.create!(
+    scientist_id: "14",
+    publication_id: "3",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 4,
+    title: "The Tox21 robotic platform for the assessment of environmental chemicals - from vision to reality.",
+    doi: "10.1016/j.drudis.2013.05.015",
+    published_date: "2013-01-01",
+    citation: "Attene-Ramos, M. S., Miller, N., Huang, R., Michael, S., Itkin, M., Kavlock, R. J., . . . Xia, M. (2013). The Tox21 robotic platform for the assessment of environmental chemicals - from vision to reality. Drug Discov Today, 18(15-16), 716-723.",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/4"
+)
+
+Publication.create!(
+    publication_id: 5,
+    title: "Biomonitoring Equivalents (BE) dossier for toluene (CAS No. 108-88-3).",
+    doi: "10.1016/j.yrtph.2008.05.009",
+    published_date: "2008-01-01",
+    citation: "Aylward, L. L., Barton, H. A., &amp; Hays, S. M. (2008). Biomonitoring Equivalents (BE) dossier for toluene (CAS No. 108-88-3). Regul Toxicol Pharmacol, 51(3 Suppl), S27-36.",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/5"
+)
+
+Publication.create!(
+    publication_id: 6,
+    title: "Drug Side Effect Profiles as Molecular Descriptors for Predictive Modeling of Target Bioactivity.",
+    doi: "10.1002/minf.201400134",
+    published_date: "2015-01-01",
+    citation: "Baker, N. C., Fourches, D., &amp; Tropsha, A. (2015). Drug Side Effect Profiles as Molecular Descriptors for Predictive Modeling of Target Bioactivity. Molecular Informatics, 34(2-3), 160-170.",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/6"
+)
+
+Publication.create!(
+    publication_id: 7,
+    title: "Toward Good Read-Across Practice (GRAP) guidance.",
+    doi: "10.14573/altex.1601251",
+    published_date: "2016-01-01",
+    citation: "Ball, N., Cronin, M. T., Shen, J., Blackburn, K., Booth, E. D., Bouhifd, M., . . . Hartung, T. (2016). Toward Good Read-Across Practice (GRAP) guidance. ALTEX.",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/7"
+)
+
+Publication.create!(
+    publication_id: 8,
+    title: "International STakeholder NETwork (ISTNET): creating a developmental neurotoxicity (DNT) testing road map for regulatory purposes.",
+    doi: "10.1007/s00204-015-1464-2",
+    published_date: "2015-01-01",
+    citation: "Bal-Price, A., <a href=\"http://comptox.ag.epa.gov/impact/scientists/14\">Crofton, K. M.</a>, Leist, M., Allen, S., Arand, M., Buetler, T., . . . Fritsche, E. (2015). International STakeholder NETwork (ISTNET): creating a developmental neurotoxicity (DNT) testing road map for regulatory purposes. Arch Toxicol, 89(2), 269-287.",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/8"
+)
+
+ScientistPublication.create!(
+    scientist_id: "14",
+    publication_id: "8",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 9,
+    title: "Putative adverse outcome pathways relevant to neurotoxicity.",
+    doi: "10.3109/10408444.2014.981331",
+    published_date: "2015-01-01",
+    citation: "Bal-Price, A., <a href=\"http://comptox.ag.epa.gov/impact/scientists/14\">Crofton, K. M.</a>, Sachana, M., Shafer, T. J., Behl, M., Forsby, A., . . . Fritsche, E. (2015). Putative adverse outcome pathways relevant to neurotoxicity. Crit Rev Toxicol, 45(1), 83-91.",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/9"
+)
+
+ScientistPublication.create!(
+    scientist_id: "14",
+    publication_id: "9",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 10,
+    title: "Advancing the science of developmental neurotoxicity (DNT): testing for better safety evaluation.",
+    doi: nil,
+    external_url: "http://www.ncbi.nlm.nih.gov/pubmed/22892558",
+    published_date: "2012-01-01",
+    citation: "Bal-Price, A. K., Coecke, S., Costa, L., <a href=\"http://comptox.ag.epa.gov/impact/scientists/14\">Crofton, K. M.</a>, Fritsche, E., Goldberg, A., . . . Kreysa, J. (2012). Advancing the science of developmental neurotoxicity (DNT): testing for better safety evaluation. ALTEX, 29(2), 202-215.",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/10"
+)
+
+ScientistPublication.create!(
+    scientist_id: "14",
+    publication_id: "10",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 11,
+    title: "Mouse embryonic stem cell adherent cell differentiation and cytotoxicity assay.",
+    doi: "10.1007/978-1-61779-867-2_11",
+    published_date: "2012-01-01",
+    citation: "Barrier, M., Chandler, K., Jeffay, S., Hoopes, M., <a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, T.</a>, &amp; Hunter, S. (2012). Mouse embryonic stem cell adherent cell differentiation and cytotoxicity assay. Methods Mol Biol, 889, 181-195.",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/11"
+)
+
+ScientistPublication.create!(
+    scientist_id: "20",
+    publication_id: "11",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 12,
+    title: "Inducible 70 kDa heat shock proteins protect embryos from teratogen-induced exencephaly: Analysis using Hspa1a/a1b knockout mice.",
+    doi: "10.1002/bdra.20610",
+    published_date: "2009-01-01",
+    citation: "Barrier, M., Dix, D. J., &amp; Mirkes, P. E. (2009). Inducible 70 kDa heat shock proteins protect embryos from teratogen-induced exencephaly: Analysis using Hspa1a/a1b knockout mice. Birth Defects Res A Clin Mol Teratol, 85(8), 732-740.",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/12"
+)
+
+Publication.create!(
+    publication_id: 13,
+    title: "Characterizing uncertainty and variability in physiologically based pharmacokinetic models: state of the science and needs for research and implementation.",
+    doi: "10.1093/toxsci/kfm100",
+    published_date: "2007-01-01",
+    citation: "Barton, H. A., Chiu, W. A., <a href=\"http://comptox.ag.epa.gov/impact/scientists/21\">Woodrow Setzer, R.</a>, Andersen, M. E., Bailer, A. J., Bois, F. Y., . . . Tan, Y. M. (2007). Characterizing uncertainty and variability in physiologically based pharmacokinetic models: state of the science and needs for research and implementation. Toxicol Sci, 99(2), 395-402.",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/13"
+)
+
+ScientistPublication.create!(
+    scientist_id: "21",
+    publication_id: "13",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 14,
+    title: "Characterizing uncertainty and variability in physiologically based pharmacokinetic models: state of the science and needs for research and implementation.",
+    doi: "10.1093/toxsci/kfm100",
+    published_date: "2007-01-01",
+    citation: "Barton, H. A., Chiu, W. A., <a href=\"http://comptox.ag.epa.gov/impact/scientists/21\">Woodrow Setzer, R.</a>, Andersen, M. E., Bailer, A. J., Bois, F. Y., . . . Tan, Y. M. (2007). Characterizing uncertainty and variability in physiologically based pharmacokinetic models: state of the science and needs for research and implementation. Toxicol Sci, 99(2), 395-402.",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/14"
+)
+
+ScientistPublication.create!(
+    scientist_id: "21",
+    publication_id: "14",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 15,
+    title: "A roadmap for the development of alternative (non-animal) methods for systemic toxicity testing - t4 report*.",
+    doi: nil,
+    external_url: "http://www.ncbi.nlm.nih.gov/pubmed/22307314",
+    published_date: "2012-01-01",
+    citation: "Basketter, D. A., Clewell, H., Kimber, I., Rossi, A., Blaauboer, B., Burrier, R., . . . Hartung, T. (2012). A roadmap for the development of alternative (non-animal) methods for systemic toxicity testing - t4 report*. ALTEX, 29(1), 3-91.",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/15"
+)
+
+Publication.create!(
+    publication_id: 16,
+    title: "Predictive models for carcinogenicity and mutagenicity: frameworks, state-of-the-art, and perspectives.",
+    doi: "10.1080/10590500902885593",
+    published_date: "2009-01-01",
+    citation: "Benfenati, E., Benigni, R., Demarini, D. M., Helma, C., Kirkland, D., Martin, T. M., . . . Yang, C. (2009). Predictive models for carcinogenicity and mutagenicity: frameworks, state-of-the-art, and perspectives. J Environ Sci Health C Environ Carcinog Ecotoxicol Rev, 27(2), 57-90.",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/16"
+)
+
+Publication.create!(
+    publication_id: 17,
+    title: "Application of the Margin of Exposure (MOE) approach to substances in food that are genotoxic and carcinogenic.",
+    doi: "10.1016/j.fct.2009.11.003",
+    published_date: "2010-01-01",
+    citation: "Benford, D., Bolger, P. M., Carthew, P., Coulet, M., DiNovi, M., Leblanc, J. C., . . . Wildemann, T. (2010). Application of the Margin of Exposure (MOE) approach to substances in food that are genotoxic and carcinogenic. Food Chem Toxicol, 48 Suppl 1, S2-24.",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/17"
 )

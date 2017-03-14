@@ -1,5 +1,6 @@
 class PublicationType < ActiveRecord::Base
   self.primary_key = "publication_type_id"
+  has_many :publications
   validates :name, :label, :short_description, presence: true
   validates_length_of :name, maximum: 64
   validates_length_of :label, maximum: 64
