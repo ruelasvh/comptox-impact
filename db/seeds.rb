@@ -774,47 +774,31 @@ ScientistPublication.create!(
 
 Publication.create!(
     publication_id: 14,
-    title: "Characterizing uncertainty and variability in physiologically based pharmacokinetic models: state of the science and needs for research and implementation.",
-    doi: "10.1093/toxsci/kfm100",
-    published_date: "2007-01-01",
-    citation: "Barton, H. A., Chiu, W. A., <a href=\"http://comptox.ag.epa.gov/impact/scientists/21\">Woodrow Setzer, R.</a>, Andersen, M. E., Bailer, A. J., Bois, F. Y., . . . Tan, Y. M. (2007). Characterizing uncertainty and variability in physiologically based pharmacokinetic models: state of the science and needs for research and implementation. Toxicol Sci, 99(2), 395-402.",
-    publication_type_id: 1,
-    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/14"
-)
-
-ScientistPublication.create!(
-    scientist_id: "21",
-    publication_id: "14",
-    is_primary_author: false
-)
-
-Publication.create!(
-    publication_id: 15,
     title: "A roadmap for the development of alternative (non-animal) methods for systemic toxicity testing - t4 report*.",
     doi: nil,
     external_url: "http://www.ncbi.nlm.nih.gov/pubmed/22307314",
     published_date: "2012-01-01",
     citation: "Basketter, D. A., Clewell, H., Kimber, I., Rossi, A., Blaauboer, B., Burrier, R., . . . Hartung, T. (2012). A roadmap for the development of alternative (non-animal) methods for systemic toxicity testing - t4 report*. ALTEX, 29(1), 3-91.",
     publication_type_id: 1,
-    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/15"
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/14"
 )
 
 Publication.create!(
-    publication_id: 16,
+    publication_id: 15,
     title: "Predictive models for carcinogenicity and mutagenicity: frameworks, state-of-the-art, and perspectives.",
     doi: "10.1080/10590500902885593",
     published_date: "2009-01-01",
     citation: "Benfenati, E., Benigni, R., Demarini, D. M., Helma, C., Kirkland, D., Martin, T. M., . . . Yang, C. (2009). Predictive models for carcinogenicity and mutagenicity: frameworks, state-of-the-art, and perspectives. J Environ Sci Health C Environ Carcinog Ecotoxicol Rev, 27(2), 57-90.",
     publication_type_id: 1,
-    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/16"
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/15"
 )
 
 Publication.create!(
-    publication_id: 17,
+    publication_id: 16,
     title: "Application of the Margin of Exposure (MOE) approach to substances in food that are genotoxic and carcinogenic.",
     doi: "10.1016/j.fct.2009.11.003",
     published_date: "2010-01-01",
     citation: "Benford, D., Bolger, P. M., Carthew, P., Coulet, M., DiNovi, M., Leblanc, J. C., . . . Wildemann, T. (2010). Application of the Margin of Exposure (MOE) approach to substances in food that are genotoxic and carcinogenic. Food Chem Toxicol, 48 Suppl 1, S2-24.",
     publication_type_id: 1,
-    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/17"
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/16"
 )
