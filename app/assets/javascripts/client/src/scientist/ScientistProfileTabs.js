@@ -7,23 +7,9 @@ import { Tabs, Tab, Row } from 'react-bootstrap';
 
 // components
 import PublicationItem from '../publications/PublicationItem';
-import OrcidLink from './LinkedProfilesTabLink';
-import PlumxLink from './LinkedProfilesTabLink';
-import LinkedInLink from './LinkedProfilesTabLink';
-import ResearchGateLink from './LinkedProfilesTabLink';
-import GoogleScholarLink from './LinkedProfilesTabLink';
-import EuropePMCLink from './LinkedProfilesTabLink';
-import VivoLink from './LinkedProfilesTabLink';
-import PublonsLink from './LinkedProfilesTabLink';
+import Link from './LinkedProfilesTabLink';
+import { linkTypes } from './LinkedProfilesTabLink';
 import SlideShare from './PresentationsTabPresentationItem';
-import orcidThumbnail from './img/ocrid.gif';
-import plumxThumbnail from './img/plumx.png';
-import linkedinThumbnail from './img/linkedIn.png';
-import researchgateThumbnail from './img/researchgate.png';
-import googlescholarThumbnail from './img/googlescholar.png';
-import europepmcThumbnail from './img/europepmc.png';
-import vivoThumbnail from './img/vivo.png';
-import publonsThumbnail from './img/publons.png';
 
 class ScientistProfileTabs extends React.Component {
     constructor(props) {
@@ -70,46 +56,30 @@ class ScientistProfileTabs extends React.Component {
 
         const LinkedProfilesTabLinks = (
             <div>
-                {this.props.scientistDetails.orcid ? <OrcidLink
+                {this.props.scientistDetails.orcid ? <Link
                     url={"http://orcid.org/" + this.props.scientistDetails.orcid}
-                    title="ORCiD"
-                    thumbnail={orcidThumbnail}
-                    linkIdPrefix="linked-profile-tab-link-orcid"/> : ''}
-                {this.props.scientistDetails.plumx ? <PlumxLink
+                    label={linkTypes.ORCID} /> : ''}
+                {this.props.scientistDetails.plumx ? <Link
                     url={this.props.scientistDetails.plumx}
-                    title="PlumX"
-                    thumbnail={plumxThumbnail}
-                    linkIdPrefix="linked-profile-tab-link-plumx"/> : ''}
-                {this.props.scientistDetails.linkedIn ? <LinkedInLink
+                    label={linkTypes.PLUMX}/> : ''}
+                {this.props.scientistDetails.linkedIn ? <Link
                     url={this.props.scientistDetails.linkedIn}
-                    title="LinkedIn"
-                    thumbnail={linkedinThumbnail}
-                    linkIdPrefix="linked-profile-tab-link-linkedIn"/> : ''}
-                {this.props.scientistDetails.researchGate ? <ResearchGateLink
+                    label={linkTypes.LINKEDIN}/> : ''}
+                {this.props.scientistDetails.researchGate ? <Link
                     url={this.props.scientistDetails.researchGate}
-                    title="ResearchGate"
-                    thumbnail={researchgateThumbnail}
-                    linkIdPrefix="linked-profile-tab-link-researchGate"/> : ''}
-                {this.props.scientistDetails.googleScholar ? <GoogleScholarLink
+                    label={linkTypes.RESEARCHGATE}/> : ''}
+                {this.props.scientistDetails.googleScholar ? <Link
                     url={this.props.scientistDetails.googleScholar}
-                    title="Google Scholar"
-                    thumbnail={googlescholarThumbnail}
-                    linkIdPrefix="linked-profile-tab-link-googleScholar"/> : ''}
-                {this.props.scientistDetails.orcid ? <EuropePMCLink
+                    label={linkTypes.GOOGLE_SCHOLAR}/> : ''}
+                {this.props.scientistDetails.orcid ? <Link
                     url={`http://europepmc.org/authors/${this.props.scientistDetails.orcid}`}
-                    title="Europe PMC"
-                    thumbnail={europepmcThumbnail}
-                    linkIdPrefix="linked-profile-tab-link-europepmc"/> : ''}
-                {this.props.scientistDetails.vivo ? <VivoLink
+                    label={linkTypes.EUROPE_PMC}/> : ''}
+                {this.props.scientistDetails.vivo ? <Link
                     url={this.props.scientistDetails.vivo}
-                    title="VIVO"
-                    thumbnail={vivoThumbnail}
-                    linkIdPrefix="linked-profile-tab-link-vivo"/> : ''}
-                {this.props.scientistDetails.publons ? <PublonsLink
+                    label={linkTypes.VIVO}/> : ''}
+                {this.props.scientistDetails.publons ? <Link
                     url={this.props.scientistDetails.publons}
-                    title="Publons"
-                    thumbnail={publonsThumbnail}
-                    linkIdPrefix="linked-profile-tab-link-publons"/> : ''}
+                    label={linkTypes.PUBLONS}/> : ''}
             </div>
         );
 

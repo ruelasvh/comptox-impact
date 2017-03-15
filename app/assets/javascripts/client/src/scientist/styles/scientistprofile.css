@@ -132,11 +132,18 @@
 
 /** Linked Profile Tab styles **/
 .linked-profile-tab-link {
+    padding-bottom: 4px;
     list-style: none;
 }
 
-.linked-profile-tab-link div{
+.linked-profile-tab-link div {
     display: inline-block;
+}
+
+.linked-profile-tab-link p {
+    padding-top: 2px;
+    font-size: 12px;
+    color: #666666;
 }
 
 .linked-profile-tab-link-thumbnail {
