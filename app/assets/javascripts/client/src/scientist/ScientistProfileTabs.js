@@ -6,10 +6,10 @@ import React, { PropTypes } from 'react';
 import { Tabs, Tab, Row } from 'react-bootstrap';
 
 // components
-import PublicationItem from '../publications/PublicationItem';
 import Link from './LinkedProfilesTabLink';
 import { linkTypes } from './LinkedProfilesTabLink';
 import SlideShare from './PresentationsTabPresentationItem';
+import Publications from './PublicationsTabContent';
 
 class ScientistProfileTabs extends React.Component {
     constructor(props) {
@@ -36,24 +36,6 @@ class ScientistProfileTabs extends React.Component {
     }
 
     render() {
-        let publications;
-        if (this.props.publicationsData) {
-            publications = (
-                <div>
-                    {this.props.publicationsData.map(function (object, i) {
-                        return (
-                            <PublicationItem
-                                id={'pub-item-' + i.toString()}
-                                key={'pub-item-' + i.toString()}
-                                publication={object} centerWide={false}/>
-                        );
-                    })}
-                </div>
-            );
-        } else {
-            publications = null;
-        }
-
         const LinkedProfilesTabLinks = (
             <div>
                 {this.props.scientistDetails.orcid ? <Link
@@ -87,7 +69,8 @@ class ScientistProfileTabs extends React.Component {
             <Tabs activeKey={this.state.key} onSelect={this.handleSelect} id="controlled-tabs">
                 <Tab eventKey={1} title="Publications" disabled={!(this.props.scientistDetails.other_details == "isPrincipalInvestigator")}>
                     <div className="tab-frame" style={{marginBottom: '8em'}}>
-                        {publications}
+                        {/*{publications}*/}
+                        <Publications/>
                     </div>
                 </Tab>
                 <Tab eventKey={2} title="Presentations" disabled={!(this.props.scientistDetails.other_details == "isPrincipalInvestigator")}>

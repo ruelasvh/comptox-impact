@@ -15,4 +15,25 @@ class PublicationsController < ApplicationController
         json: Publication.find(params[:publication_id])
     )
   end
+
+  # GET /api/publications?limit=5&offset=0
+  def query
+    @offset = 0
+    @limit = 5
+
+    if params.has_key?(:offset)
+      @offset = params[:offset]
+    end
+    if params.has_key?(:limit)
+      @limit = params[:limit]
+    end
+
+    @publications = Publication.where(:publication_id => @offset..@limit)
+
+    render(
+        status: 200,
+        json: @publications
+    )
+  end
+
 end

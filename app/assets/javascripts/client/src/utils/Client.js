@@ -39,6 +39,14 @@ function searchScientistPhoto(imageURL, callback) {
         .then(callback)
 }
 
+function searchPublications(limit, offset, callback) {
+    return fetch(`${relativePath}/api/publications?limit=${limit}&offset=${offset}`, {
+        accept: 'application/json',
+    }).then(checkStatus)
+        .then(parseJSON)
+        .then(callback)
+}
+
 function checkStatus(response) {
     if (response.status >= 200 && response.status < 300) {
         return response;
@@ -54,9 +62,17 @@ function checkStatus(response) {
 function parseImage(imageBlob) {
     return URL.createObjectURL(imageBlob);
 }
+
 function parseJSON(response) {
     return response.json();
 }
 
-const Client = { fetchHome, searchScientists, searchScientist, searchScientistPhoto };
+const Client = {
+    fetchHome,
+    searchScientists,
+    searchScientist,
+    searchScientistPhoto,
+    searchPublications
+};
+
 export default Client;

@@ -6,7 +6,6 @@ import React, { PropTypes } from 'react';
 const AltmetricWidget = ( { doi } ) => (
     <div
         className="altmetric-embed"
-        data-hide-less-than="1"
         data-badge-popover="left"
         data-badge-type="donut"
         data-doi={doi}>

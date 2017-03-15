@@ -1,14 +1,22 @@
 Rails.application.routes.draw do
   scope '/api' do
-    get 'home' => 'home#index'
+    # landing page data
+    scope '/home' do
+      get '/' => 'home#index'
+    end
     # scientists
-    get 'scientists' => 'scientists#index'
-    get 'scientists/:scientistId' => 'scientists#show'
-    get 'scientists/:scientistId/photo/:scientistId(.:format)' => 'scientists#show_photo'
+    scope '/scientists' do
+      get '/' => 'scientists#index'
+      get ':scientistId' => 'scientists#show'
+      get ':scientistId/photo/:scientistId(.:format)' => 'scientists#show_photo'
+      get ':scientistId/publications' => 'scientists#show_publications'
+    end
     # publications
-    get 'publications' => 'publications#index'
-    get 'publications/:publication_id' => 'publications#show'
-    get 'scientists/:scientistId/publications' => 'scientists#show_publications'
+    scope '/publications' do
+      #get '/' => 'publications#index'
+      get '/' => 'publications#query'
+      get ':publication_id' => 'publications#show'
+    end
   end
 
   get '*path', to: 'application#index'

@@ -59,7 +59,39 @@ class PublicationItem extends React.Component {
         });
     }
 
+    appendPlumxScript() {
+        if (document.getElementById('plumx-script')) {
+            console.log('Appended Plumx script 1st level');
+            if (window.__plumX) {
+                window.__plumX.widgets.popup.wireUp();
+                console.log('Appended Plumx script 2nd level');
+            }
+            return;
+        }
+        const plumxScript = document.createElement("script");
+        plumxScript.id = 'plumx-script';
+        plumxScript.src = "//d39af2mgp1pqhg.cloudfront.net/widget-popup.js";
+        plumxScript.async = true;
+        document.head.appendChild(plumxScript);
+    }
+
+    appendAltmetricScript() {
+        if (document.getElementById('altmetric-script')) {
+            if (window._altmetric) {
+                window._altmetric.embed_init();
+            }
+            return;
+        }
+        const altMetricScript = document.createElement("script");
+        altMetricScript.id = 'altmetric-script';
+        altMetricScript.src = "//d1bxh8uas1mnw7.cloudfront.net/assets/embed.js";
+        altMetricScript.async = true;
+        document.head.appendChild(altMetricScript);
+    }
+
     componentDidMount() {
+        this.appendPlumxScript();
+        this.appendAltmetricScript();
         /* Get metrics */
         this.handleMetrics(this);
     }
@@ -88,7 +120,16 @@ class PublicationItem extends React.Component {
         );
 
         const Citation = () => (
-            <div dangerouslySetInnerHTML={{__html: publication.citation}} />
+            <div>
+                <span dangerouslySetInnerHTML={{__html: publication.citation}} />
+                <span>
+                    {publication.doi ?
+                        <a href={`https://doi.org/${publication.doi}`} target="_blank"> doi:{publication.doi}</a> :
+                        <span> Retrieved from <a href={publication.external_url}>{publication.external_url}</a></span>
+                    }
+                    </span>
+                <br/><br/>
+            </div>
         );
 
         const Project = () => (
@@ -99,7 +140,7 @@ class PublicationItem extends React.Component {
             <div className="publication-item">
                 <Row>
                     <Col md={centerWide ? 7 : 9}>
-                        <div>
+                        <div className="publication-item-citation">
                             <Citation />
                         </div>
                         <div className={centerWide ? 'publication-item-show-counts' : 'publication-item-no-show-counts'}>
@@ -133,6 +174,8 @@ class PublicationItem extends React.Component {
 }
 
 PublicationItem.propTypes = {
+    id: PropTypes.string.isRequired,
+    key: PropTypes.string.isRequired,
     publication: PropTypes.object.isRequired,
     centerWide: PropTypes.bool.isRequired
 };
