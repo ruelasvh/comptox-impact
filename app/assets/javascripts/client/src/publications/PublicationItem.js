@@ -175,7 +175,6 @@ class PublicationItem extends React.Component {
 
 PublicationItem.propTypes = {
     id: PropTypes.string.isRequired,
-    key: PropTypes.string.isRequired,
     publication: PropTypes.object.isRequired,
     centerWide: PropTypes.bool.isRequired
 };

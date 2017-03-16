@@ -8,7 +8,7 @@ import { Tabs, Tab, Row } from 'react-bootstrap';
 // components
 import Link from './LinkedProfilesTabLink';
 import { linkTypes } from './LinkedProfilesTabLink';
-import SlideShare from './PresentationsTabPresentationItem';
+import SlideShare from './PresentationsTabContent';
 import Publications from './PublicationsTabContent';
 
 class ScientistProfileTabs extends React.Component {
