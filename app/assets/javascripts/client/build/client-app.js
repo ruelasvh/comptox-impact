@@ -20261,13 +20261,13 @@
 	
 	var _ScientistProfile2 = _interopRequireDefault(_ScientistProfile);
 	
-	var _NotFound = __webpack_require__(544);
+	var _NotFound = __webpack_require__(554);
 	
 	var _NotFound2 = _interopRequireDefault(_NotFound);
 	
-	var _reactRedux = __webpack_require__(547);
+	var _reactRedux = __webpack_require__(557);
 	
-	var _configureStore = __webpack_require__(583);
+	var _configureStore = __webpack_require__(593);
 	
 	var _configureStore2 = _interopRequireDefault(_configureStore);
 	
@@ -45296,6 +45296,12 @@
 	    }).then(parseImage).then(callback);
 	}
 	
+	function searchPublications(limit, offset, callback) {
+	    return fetch(_App.relativePath + '/api/publications?limit=' + limit + '&offset=' + offset, {
+	        accept: 'application/json'
+	    }).then(checkStatus).then(parseJSON).then(callback);
+	}
+	
 	function checkStatus(response) {
 	    if (response.status >= 200 && response.status < 300) {
 	        return response;
@@ -45311,11 +45317,19 @@
 	function parseImage(imageBlob) {
 	    return URL.createObjectURL(imageBlob);
 	}
+	
 	function parseJSON(response) {
 	    return response.json();
 	}
 	
-	var Client = { fetchHome: fetchHome, searchScientists: searchScientists, searchScientist: searchScientist, searchScientistPhoto: searchScientistPhoto };
+	var Client = {
+	    fetchHome: fetchHome,
+	    searchScientists: searchScientists,
+	    searchScientist: searchScientist,
+	    searchScientistPhoto: searchScientistPhoto,
+	    searchPublications: searchPublications
+	};
+	
 	exports.default = Client;
 	
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/localdisk/vruelasr/dev/comptox-impact/app/assets/javascripts/client/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "Client.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
@@ -49725,6 +49739,10 @@
 	
 	// http client
 	
+	// components
+	
+	// styles
+	
 	
 	var ScientistProfile = function (_React$Component) {
 	    _inherits(ScientistProfile, _React$Component);
@@ -49740,9 +49758,7 @@
 	        }
 	
 	        _this.state = {
-	            scientistDetails: initialScientistDetails,
-	            // scientistPhoto: defaultScientistPhoto,
-	            publications: dummyPublicationsData
+	            scientistDetails: initialScientistDetails
 	        };
 	
 	        // Bind functions
@@ -49781,43 +49797,8 @@
 	            });
 	        }
 	    }, {
-	        key: 'appendPlumxScript',
-	        value: function appendPlumxScript() {
-	            if (document.getElementById('plumx-script')) {
-	                console.log('Appended Plumx script 1st level');
-	                if (window.__plumX) {
-	                    window.__plumX.widgets.popup.wireUp();
-	                    console.log('Appended Plumx script 2nd level');
-	                }
-	                return;
-	            }
-	            var plumxScript = document.createElement("script");
-	            plumxScript.id = 'plumx-script';
-	            plumxScript.src = "//d39af2mgp1pqhg.cloudfront.net/widget-popup.js";
-	            plumxScript.async = true;
-	            document.head.appendChild(plumxScript);
-	        }
-	    }, {
-	        key: 'appendAltmetricScript',
-	        value: function appendAltmetricScript() {
-	            if (document.getElementById('altmetric-script')) {
-	                if (window._altmetric) {
-	                    window._altmetric.embed_init();
-	                }
-	                return;
-	            }
-	            var altMetricScript = document.createElement("script");
-	            altMetricScript.id = 'altmetric-script';
-	            altMetricScript.src = "//d1bxh8uas1mnw7.cloudfront.net/assets/embed.js";
-	            altMetricScript.async = true;
-	            document.head.appendChild(altMetricScript);
-	        }
-	    }, {
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
-	            // console.log('<ScientistProfile /> componentDidMount executed');
-	            this.appendPlumxScript();
-	            this.appendAltmetricScript();
 	            this.handleFetchScientist();
 	        }
 	    }, {
@@ -49945,34 +49926,6 @@
 	};
 	
 	exports.default = ScientistProfile;
-	
-	// Remove when api is setup
-	
-	var dummyPublicationsData = [{
-	    "doi": "10.1016/j.envint.2015.12.008",
-	    "publishedDate": "2016-01-25",
-	    "projectName": "Rapid Exposure and Dose",
-	    "projectLink": "<a href=\"https://www.epa.gov/comptox/expocast\" target=\"_blank\">Rapid Exposure and Dose</a>",
-	    "citation": "Rager, J.E., M. Strynar , S. Liang, R.L. McMahen, <a href=\"http://comptox.ag.epa.gov/impact/scientists/1\">A. Richard</a> , C.M. Grukle, <a href=\"http://comptox.ag.epa.gov/impact/scientists/12\">J. Wambaugh</a> , K. Isaacs , <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">R. Judson</a>, A. Williams , and J. Sobus. Linking high resolution mass spectrometry data with exposure and toxicity forecasts to advance high-throughput environmental monitoring.   ENVIRONMENT INTERNATIONAL. Elsevier Science Ltd, New York, NY, USA, 88: 269-280, (2016)."
-	}, {
-	    "doi": "10.1080/1062936X.2016.1253611",
-	    "publishedDate": null,
-	    "projectName": "Sustainable Chemistry",
-	    "projectLink": "<a href=\"https://www.epa.gov/chemical-research/research-evaluating-risk-across-life-cycle-manufactured-chemicals-materials\" target=\"_blank\">Sustainable Chemistry</a>",
-	    "citation": "Mansouri, K., <a href=\"http://comptox.ag.epa.gov/impact/scientists/4\">C. Grulke</a>, <a href=\"http://comptox.ag.epa.gov/impact/scientists/1\">A. Richard</a>, <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">R. Judson</a>, and A. Williams. (SAR AND QSAR IN ENVIRONMENTAL RESEARCH) An automated curation procedure for addressing chemical errors and inconsistencies in public datasets used in QSAR modeling.   SAR AND QSAR IN ENVIRONMENTAL RESEARCH. Taylor &amp; Francis, Inc., Philadelphia, PA, USA,"
-	}, {
-	    "doi": "10.1021/acs.chemrestox.6b00135",
-	    "publishedDate": "2016-07-07",
-	    "projectName": "High-throughput Tox Testing",
-	    "projectLink": "<a href=\"https://www.epa.gov/comptox/toxcast\" target=\"_blank\">High-throughput Tox Testing</a>",
-	    "citation": "<a href=\"http://comptox.ag.epa.gov/impact/scientists/1\">Richard, A.</a>, <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">R. Judson</a>, <a href=\"http://comptox.ag.epa.gov/impact/scientists/13\">K. Houck</a>, <a href=\"http://comptox.ag.epa.gov/impact/scientists/4\">C. M. Grulke</a>, P. Volarath, I. Thillainadarajah, C. Yang, J. Rathman, <a href=\"http://comptox.ag.epa.gov/impact/scientists/13\">M. Martin</a>, <a href=\"http://comptox.ag.epa.gov/impact/scientists/12\">J. Wambaugh</a>, <a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">T. Knudsen</a>, K. Mansouri, J. Kancherla, G. Tier, A. Williams, <a href=\"http://comptox.ag.epa.gov/impact/scientists/18\">S. Little</a>, <a href=\"http://comptox.ag.epa.gov/impact/scientists/14\">K. Crofton</a>, and <a href=\"http://comptox.ag.epa.gov/impact/scientists/17\">R. Thomas</a>. (Chemical Research in Toxicology) The ToxCast Chemical Landscape - Paving the Road to 21st Century Toxicology.   CHEMICAL RESEARCH IN TOXICOLOGY. American Chemical Society, Washington, DC, USA,  1-78, (2016)."
-	}, {
-	    "doi": "10.1007/s00216-016-0139-z",
-	    "publishedDate": "2016-12-16",
-	    "projectName": null,
-	    "projectLink": null,
-	    "citation": "McEachran, A.D., Sobus, J.R. & Williams, A.J. Anal Bioanal Chem (2016). Identifying known unknowns using the US EPA’s CompTox Chemistry Dashboard. doi: 10.1007/s00216-016-0139-z."
-	}];
 	
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/localdisk/vruelasr/dev/comptox-impact/app/assets/javascripts/client/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "ScientistProfile.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
@@ -50205,7 +50158,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".scientist-container {\n  font-family: \"Helvetica Neue\", \"Arial\", sans-serif;\n  padding-top: 1em;\n  margin-bottom: 3em;\n  max-width: 100%;\n  min-height: 100%;\n  position: relative;\n  /* Firefox */\n  min-height: -moz-calc(100% - 30px);\n  /* WebKit */\n  min-height: -webkit-calc(100% - 30px);\n  /* Standard */\n  min-height: calc(100% - 30px); }\n\n.scientist-links {\n  text-align: center;\n  float: left; }\n\n.scientist-links img {\n  height: 100%;\n  width: 100%; }\n\n.scientist-links-button {\n  position: relative;\n  display: inline-block;\n  width: 44px;\n  padding: 8px; }\n\n.scientist-links-button-disabled {\n  pointer-events: none;\n  cursor: default;\n  opacity: 0.4; }\n\n.scientist-links-button-disabled img {\n  -webkit-filter: grayscale(100%);\n  -moz-filter: grayscale(100%);\n  -o-filter: grayscale(100%);\n  filter: grayscale(100%); }\n\n/*Edit this to change tooltip properties in Tooltip*/\n.tooltip {\n  /*width: 120px;*/\n  /*background-color: #fff;*/\n  /*color: black;*/\n  /*text-align: center;*/\n  /*border-radius: 6px;*/\n  /*padding: 5px 0;*/\n  /*position: absolute;*/\n  /*z-index: 1;*/\n  /*bottom: 150%;*/\n  /*left: 50%;*/\n  /*margin-left: -60px;*/ }\n\n.scientist-grid {\n  max-width: 800px; }\n\n.scientist-share {\n  text-align: right;\n  padding: 10px; }\n\n.scientist-photo {\n  width: 90%;\n  /*border: 3px solid #333;*/ }\n\n.scientist-divider {\n  border: 2px solid #d0d0d0; }\n\n.scientist-bio {\n  text-align: left; }\n\n.scientist-bio-body {\n  padding-left: 15px; }\n\n.headline {\n  line-height: 2em; }\n\n.headline:after {\n  content: ' ';\n  display: block;\n  border: 2px solid #d0d0d0;\n  /*border:2px solid #2c2c2c;*/\n  border-radius: 4px;\n  -webkit-border-radius: 4px;\n  -moz-border-radius: 4px;\n  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);\n  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);\n  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05); }\n\n#bio-aoe {\n  font-weight: bold; }\n\n#bio-edu {\n  font-weight: bold; }\n\n#bio-pe {\n  font-weight: bold; }\n\n/** Tabs general styles **/\n.tab-frame {\n  padding: 2em 0.5em; }\n\n/** Presentation Tab styles **/\n.slide-share-item {\n  text-align: center; }\n\n/** Linked Profile Tab styles **/\n.linked-profile-tab-link {\n  list-style: none; }\n\n.linked-profile-tab-link div {\n  display: inline-block; }\n\n.linked-profile-tab-link-thumbnail {\n  height: 15px;\n  width: 15px; }\n\n.linked-profile-tab-link-thumbnail img {\n  width: 100%;\n  height: 100%; }\n", ""]);
+	exports.push([module.id, ".scientist-container {\n  font-family: \"Helvetica Neue\", \"Arial\", sans-serif;\n  padding-top: 1em;\n  margin-bottom: 3em;\n  max-width: 100%;\n  min-height: 100%;\n  position: relative;\n  /* Firefox */\n  min-height: -moz-calc(100% - 30px);\n  /* WebKit */\n  min-height: -webkit-calc(100% - 30px);\n  /* Standard */\n  min-height: calc(100% - 30px); }\n\n.scientist-links {\n  text-align: center;\n  float: left; }\n\n.scientist-links img {\n  height: 100%;\n  width: 100%; }\n\n.scientist-links-button {\n  position: relative;\n  display: inline-block;\n  width: 44px;\n  padding: 8px; }\n\n.scientist-links-button-disabled {\n  pointer-events: none;\n  cursor: default;\n  opacity: 0.4; }\n\n.scientist-links-button-disabled img {\n  -webkit-filter: grayscale(100%);\n  -moz-filter: grayscale(100%);\n  -o-filter: grayscale(100%);\n  filter: grayscale(100%); }\n\n/*Edit this to change tooltip properties in Tooltip*/\n.tooltip {\n  /*width: 120px;*/\n  /*background-color: #fff;*/\n  /*color: black;*/\n  /*text-align: center;*/\n  /*border-radius: 6px;*/\n  /*padding: 5px 0;*/\n  /*position: absolute;*/\n  /*z-index: 1;*/\n  /*bottom: 150%;*/\n  /*left: 50%;*/\n  /*margin-left: -60px;*/ }\n\n.scientist-grid {\n  max-width: 800px; }\n\n.scientist-share {\n  text-align: right;\n  padding: 10px; }\n\n.scientist-photo {\n  width: 90%;\n  /*border: 3px solid #333;*/ }\n\n.scientist-divider {\n  border: 2px solid #d0d0d0; }\n\n.scientist-bio {\n  text-align: left; }\n\n.scientist-bio-body {\n  padding-left: 15px; }\n\n.headline {\n  line-height: 2em; }\n\n.headline:after {\n  content: ' ';\n  display: block;\n  border: 2px solid #d0d0d0;\n  /*border:2px solid #2c2c2c;*/\n  border-radius: 4px;\n  -webkit-border-radius: 4px;\n  -moz-border-radius: 4px;\n  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);\n  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);\n  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05); }\n\n#bio-aoe {\n  font-weight: bold; }\n\n#bio-edu {\n  font-weight: bold; }\n\n#bio-pe {\n  font-weight: bold; }\n\n/** Tabs general styles **/\n.tab-frame {\n  padding: 2em 0.5em; }\n\n/** Presentation Tab styles **/\n.slide-share-item {\n  text-align: center; }\n\n/** Linked Profile Tab styles **/\n.linked-profile-tab-link {\n  padding-bottom: 4px;\n  list-style: none; }\n\n.linked-profile-tab-link div {\n  display: inline-block; }\n\n.linked-profile-tab-link p {\n  padding-top: 2px;\n  font-size: 12px;\n  color: #666666; }\n\n.linked-profile-tab-link-thumbnail {\n  height: 15px;\n  width: 15px; }\n\n.linked-profile-tab-link-thumbnail img {\n  width: 100%;\n  height: 100%; }\n", ""]);
 	
 	// exports
 
@@ -50293,49 +50246,17 @@
 	
 	var _reactBootstrap = __webpack_require__(225);
 	
-	var _PublicationItem = __webpack_require__(532);
-	
-	var _PublicationItem2 = _interopRequireDefault(_PublicationItem);
-	
-	var _LinkedProfilesTabLink = __webpack_require__(540);
+	var _LinkedProfilesTabLink = __webpack_require__(532);
 	
 	var _LinkedProfilesTabLink2 = _interopRequireDefault(_LinkedProfilesTabLink);
 	
-	var _PresentationsTabPresentationItem = __webpack_require__(541);
+	var _PresentationsTabContent = __webpack_require__(535);
 	
-	var _PresentationsTabPresentationItem2 = _interopRequireDefault(_PresentationsTabPresentationItem);
+	var _PresentationsTabContent2 = _interopRequireDefault(_PresentationsTabContent);
 	
-	var _ocrid = __webpack_require__(522);
+	var _PublicationsTabContent = __webpack_require__(536);
 	
-	var _ocrid2 = _interopRequireDefault(_ocrid);
-	
-	var _plumx = __webpack_require__(523);
-	
-	var _plumx2 = _interopRequireDefault(_plumx);
-	
-	var _linkedIn = __webpack_require__(524);
-	
-	var _linkedIn2 = _interopRequireDefault(_linkedIn);
-	
-	var _researchgate = __webpack_require__(525);
-	
-	var _researchgate2 = _interopRequireDefault(_researchgate);
-	
-	var _googlescholar = __webpack_require__(526);
-	
-	var _googlescholar2 = _interopRequireDefault(_googlescholar);
-	
-	var _europepmc = __webpack_require__(542);
-	
-	var _europepmc2 = _interopRequireDefault(_europepmc);
-	
-	var _vivo = __webpack_require__(543);
-	
-	var _vivo2 = _interopRequireDefault(_vivo);
-	
-	var _publons = __webpack_require__(527);
-	
-	var _publons2 = _interopRequireDefault(_publons);
+	var _PublicationsTabContent2 = _interopRequireDefault(_PublicationsTabContent);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -50384,65 +50305,33 @@
 	    }, {
 	        key: 'render',
 	        value: function render() {
-	            var publications = void 0;
-	            if (this.props.publicationsData) {
-	                publications = _react2.default.createElement(
-	                    'div',
-	                    null,
-	                    this.props.publicationsData.map(function (object, i) {
-	                        return _react2.default.createElement(_PublicationItem2.default, {
-	                            id: 'pub-item-' + i.toString(),
-	                            key: 'pub-item-' + i.toString(),
-	                            publication: object, centerWide: false });
-	                    })
-	                );
-	            } else {
-	                publications = null;
-	            }
-	
 	            var LinkedProfilesTabLinks = _react2.default.createElement(
 	                'div',
 	                null,
 	                this.props.scientistDetails.orcid ? _react2.default.createElement(_LinkedProfilesTabLink2.default, {
 	                    url: "http://orcid.org/" + this.props.scientistDetails.orcid,
-	                    title: 'ORCiD',
-	                    thumbnail: _ocrid2.default,
-	                    linkIdPrefix: 'linked-profile-tab-link-orcid' }) : '',
+	                    label: _LinkedProfilesTabLink.linkTypes.ORCID }) : '',
 	                this.props.scientistDetails.plumx ? _react2.default.createElement(_LinkedProfilesTabLink2.default, {
 	                    url: this.props.scientistDetails.plumx,
-	                    title: 'PlumX',
-	                    thumbnail: _plumx2.default,
-	                    linkIdPrefix: 'linked-profile-tab-link-plumx' }) : '',
+	                    label: _LinkedProfilesTabLink.linkTypes.PLUMX }) : '',
 	                this.props.scientistDetails.linkedIn ? _react2.default.createElement(_LinkedProfilesTabLink2.default, {
 	                    url: this.props.scientistDetails.linkedIn,
-	                    title: 'LinkedIn',
-	                    thumbnail: _linkedIn2.default,
-	                    linkIdPrefix: 'linked-profile-tab-link-linkedIn' }) : '',
+	                    label: _LinkedProfilesTabLink.linkTypes.LINKEDIN }) : '',
 	                this.props.scientistDetails.researchGate ? _react2.default.createElement(_LinkedProfilesTabLink2.default, {
 	                    url: this.props.scientistDetails.researchGate,
-	                    title: 'ResearchGate',
-	                    thumbnail: _researchgate2.default,
-	                    linkIdPrefix: 'linked-profile-tab-link-researchGate' }) : '',
+	                    label: _LinkedProfilesTabLink.linkTypes.RESEARCHGATE }) : '',
 	                this.props.scientistDetails.googleScholar ? _react2.default.createElement(_LinkedProfilesTabLink2.default, {
 	                    url: this.props.scientistDetails.googleScholar,
-	                    title: 'Google Scholar',
-	                    thumbnail: _googlescholar2.default,
-	                    linkIdPrefix: 'linked-profile-tab-link-googleScholar' }) : '',
+	                    label: _LinkedProfilesTabLink.linkTypes.GOOGLE_SCHOLAR }) : '',
 	                this.props.scientistDetails.orcid ? _react2.default.createElement(_LinkedProfilesTabLink2.default, {
 	                    url: 'http://europepmc.org/authors/' + this.props.scientistDetails.orcid,
-	                    title: 'Europe PMC',
-	                    thumbnail: _europepmc2.default,
-	                    linkIdPrefix: 'linked-profile-tab-link-europepmc' }) : '',
+	                    label: _LinkedProfilesTabLink.linkTypes.EUROPE_PMC }) : '',
 	                this.props.scientistDetails.vivo ? _react2.default.createElement(_LinkedProfilesTabLink2.default, {
 	                    url: this.props.scientistDetails.vivo,
-	                    title: 'VIVO',
-	                    thumbnail: _vivo2.default,
-	                    linkIdPrefix: 'linked-profile-tab-link-vivo' }) : '',
+	                    label: _LinkedProfilesTabLink.linkTypes.VIVO }) : '',
 	                this.props.scientistDetails.publons ? _react2.default.createElement(_LinkedProfilesTabLink2.default, {
 	                    url: this.props.scientistDetails.publons,
-	                    title: 'Publons',
-	                    thumbnail: _publons2.default,
-	                    linkIdPrefix: 'linked-profile-tab-link-publons' }) : ''
+	                    label: _LinkedProfilesTabLink.linkTypes.PUBLONS }) : ''
 	            );
 	
 	            return _react2.default.createElement(
@@ -50454,7 +50343,7 @@
 	                    _react2.default.createElement(
 	                        'div',
 	                        { className: 'tab-frame', style: { marginBottom: '8em' } },
-	                        publications
+	                        _react2.default.createElement(_PublicationsTabContent2.default, null)
 	                    )
 	                ),
 	                _react2.default.createElement(
@@ -50463,7 +50352,7 @@
 	                    _react2.default.createElement(
 	                        'div',
 	                        { className: 'tab-frame' },
-	                        _react2.default.createElement(_PresentationsTabPresentationItem2.default, { userUrl: 'empty for now' })
+	                        _react2.default.createElement(_PresentationsTabContent2.default, { userUrl: 'empty for now' })
 	                    )
 	                ),
 	                _react2.default.createElement(
@@ -50511,6 +50400,213 @@
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
+	exports.linkTypes = undefined;
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _ocrid = __webpack_require__(522);
+	
+	var _ocrid2 = _interopRequireDefault(_ocrid);
+	
+	var _plumx = __webpack_require__(523);
+	
+	var _plumx2 = _interopRequireDefault(_plumx);
+	
+	var _linkedIn = __webpack_require__(524);
+	
+	var _linkedIn2 = _interopRequireDefault(_linkedIn);
+	
+	var _researchgate = __webpack_require__(525);
+	
+	var _researchgate2 = _interopRequireDefault(_researchgate);
+	
+	var _googlescholar = __webpack_require__(526);
+	
+	var _googlescholar2 = _interopRequireDefault(_googlescholar);
+	
+	var _europepmc = __webpack_require__(533);
+	
+	var _europepmc2 = _interopRequireDefault(_europepmc);
+	
+	var _vivo = __webpack_require__(534);
+	
+	var _vivo2 = _interopRequireDefault(_vivo);
+	
+	var _publons = __webpack_require__(527);
+	
+	var _publons2 = _interopRequireDefault(_publons);
+	
+	__webpack_require__(528);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	/**
+	 * Created by Victor H. Ruelas-Rivera on 2/15/17.
+	 * US EPA National Center for Computational Toxicology
+	 */
+	var linkTypes = exports.linkTypes = {
+	    "ORCID": "ORCiD",
+	    "PLUMX": "PlumX",
+	    "LINKEDIN": "LinkedIn",
+	    "RESEARCHGATE": "ResearchGate",
+	    "GOOGLE_SCHOLAR": "Google Scholar",
+	    "EUROPE_PMC": "Europe PMC",
+	    "VIVO": "VIVO",
+	    "PUBLONS": "Publons",
+	    "MICROSOFT_ACADEMIC": "MicrosoftAcademic"
+	};
+	
+	var linkDescriptions = {
+	    "ORCID": "ORCID works to ensure that people who participate in research, scholarship and innovation are uniquely identified and connected to their contributions and affiliations, across disciplines, borders, and time.",
+	    "PLUMX": "Plum Analytics uses data exhaust from social media, usage logs, blog and media mentions, and online bookmarking sites to build a leading indicator of who and what research will be influential.",
+	    "LINKEDIN": "LinkedIn is a business and employment-oriented social networking service.",
+	    "RESEARCHGATE": "ResearchGate is a social networking site for scientists and researchers to share papers, ask and answer questions, and find collaborators.",
+	    "GOOGLE_SCHOLAR": "Google Scholar is a freely accessible web search engine that indexes the full text or metadata of scholarly literature across an array of publishing formats and disciplines.",
+	    "EUROPE_PMC": "Europe PMC is a repository, providing access to worldwide life sciences articles, books, patents and clinical guidelines. Europe PMC also offers a tool for authors to claim articles to their ORCID record.",
+	    "VIVO": "VIVO-ORD Research and Expertise is ORD's expertise location tool, which integrates information about ORD federal researchers and cooperators from authoritative sources as well as direct user input.",
+	    "PUBLONS": "Publons is a website and free service for researchers to share, discuss and receive credit for peer review and editing of academic publications.",
+	    "MICROSOFT_ACADEMIC": "Microsoft Academic is a free public search engine for academic publications and literature, developed by Microsoft Research."
+	};
+	
+	function getExtraAttributeValues(linkType) {
+	    if (linkType == linkTypes.ORCID) {
+	        return { "description": linkDescriptions.ORCID, "thumbnail": _ocrid2.default };
+	    } else if (linkType == linkTypes.PLUMX) {
+	        return { "description": linkDescriptions.PLUMX, "thumbnail": _plumx2.default };
+	    } else if (linkType == linkTypes.LINKEDIN) {
+	        return { "description": linkDescriptions.LINKEDIN, "thumbnail": _linkedIn2.default };
+	    } else if (linkType == linkTypes.RESEARCHGATE) {
+	        return { "description": linkDescriptions.RESEARCHGATE, "thumbnail": _researchgate2.default };
+	    } else if (linkType == linkTypes.GOOGLE_SCHOLAR) {
+	        return { "description": linkDescriptions.GOOGLE_SCHOLAR, "thumbnail": _googlescholar2.default };
+	    } else if (linkType == linkTypes.EUROPE_PMC) {
+	        return { "description": linkDescriptions.EUROPE_PMC, "thumbnail": _europepmc2.default };
+	    } else if (linkType == linkTypes.VIVO) {
+	        return { "description": linkDescriptions.VIVO, "thumbnail": _vivo2.default };
+	    } else if (linkType == linkTypes.PUBLONS) {
+	        return { "description": linkDescriptions.PUBLONS, "thumbnail": _publons2.default };
+	    } else {
+	        return {};
+	    }
+	}
+	
+	// stop here
+	
+	var LinkedProfilesTabLink = function LinkedProfilesTabLink(_ref) {
+	    var url = _ref.url,
+	        label = _ref.label;
+	    return _react2.default.createElement(
+	        'div',
+	        { className: 'linked-profile-tab-link' },
+	        _react2.default.createElement(
+	            'a',
+	            { href: url, target: '_blank' },
+	            _react2.default.createElement(
+	                'div',
+	                { className: 'linked-profile-tab-link-thumbnail' },
+	                _react2.default.createElement('img', { src: getExtraAttributeValues(label).thumbnail, alt: label })
+	            ),
+	            ' ',
+	            _react2.default.createElement(
+	                'div',
+	                null,
+	                label
+	            )
+	        ),
+	        _react2.default.createElement(
+	            'p',
+	            null,
+	            getExtraAttributeValues(label).description
+	        )
+	    );
+	};
+	
+	LinkedProfilesTabLink.propTypes = {
+	    url: _react.PropTypes.string.isRequired,
+	    label: _react.PropTypes.string.isRequired
+	};
+	
+	exports.default = LinkedProfilesTabLink;
+	
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/localdisk/vruelasr/dev/comptox-impact/app/assets/javascripts/client/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "LinkedProfilesTabLink.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 533 */
+/***/ function(module, exports) {
+
+	module.exports = "data:image/png;base64,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"
+
+/***/ },
+/* 534 */
+/***/ function(module, exports) {
+
+	module.exports = "data:image/png;base64,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"
+
+/***/ },
+/* 535 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/localdisk/vruelasr/dev/comptox-impact/app/assets/javascripts/client/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/localdisk/vruelasr/dev/comptox-impact/app/assets/javascripts/client/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+	
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	__webpack_require__(528);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	/**
+	 * Created by Victor H. Ruelas-Rivera on 2/16/17.
+	 * US EPA National Center for Computational Toxicology
+	 */
+	var PresentationsTabPresentationItem = function PresentationsTabPresentationItem(_ref) {
+	    var userUrl = _ref.userUrl;
+	    return _react2.default.createElement(
+	        'div',
+	        { className: 'slide-share-item' },
+	        _react2.default.createElement('iframe', {
+	            src: 'https://www.slideshare.net/AntonyWilliams/slideshelf',
+	            width: '760px',
+	            height: '570px',
+	            frameBorder: '0',
+	            marginWidth: '0',
+	            marginHeight: '0',
+	            scrolling: 'no',
+	            style: { border: 'none' },
+	            allowFullScreen: true,
+	            webkitallowfullscreen: true,
+	            mozallowfullscreen: true })
+	    );
+	};
+	
+	PresentationsTabPresentationItem.propTypes = {
+	    userUrl: _react.PropTypes.string.isRequired
+	};
+	
+	exports.default = PresentationsTabPresentationItem;
+	
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/localdisk/vruelasr/dev/comptox-impact/app/assets/javascripts/client/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "PresentationsTabContent.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 536 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/localdisk/vruelasr/dev/comptox-impact/app/assets/javascripts/client/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/localdisk/vruelasr/dev/comptox-impact/app/assets/javascripts/client/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+	
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
@@ -50518,25 +50614,979 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _jquery = __webpack_require__(533);
+	var _reactWaypoint = __webpack_require__(537);
+	
+	var _reactWaypoint2 = _interopRequireDefault(_reactWaypoint);
+	
+	var _Client = __webpack_require__(493);
+	
+	var _Client2 = _interopRequireDefault(_Client);
+	
+	var _PublicationItem = __webpack_require__(544);
+	
+	var _PublicationItem2 = _interopRequireDefault(_PublicationItem);
+	
+	__webpack_require__(552);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created by Victor H. Ruelas-Rivera on 3/15/17.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * US EPA National Center for Computational Toxicology
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	
+	
+	// http client
+	
+	// components
+	
+	// styles
+	
+	
+	var PublicationsTabContent = function (_React$Component) {
+	    _inherits(PublicationsTabContent, _React$Component);
+	
+	    function PublicationsTabContent(props) {
+	        _classCallCheck(this, PublicationsTabContent);
+	
+	        var _this = _possibleConstructorReturn(this, (PublicationsTabContent.__proto__ || Object.getPrototypeOf(PublicationsTabContent)).call(this, props));
+	
+	        _this.state = {
+	            publications: [],
+	            limit: 0,
+	            offset: 1,
+	            isLoading: false
+	        };
+	
+	        // Bind functions
+	        _this.handleFetchPublications = _this.handleFetchPublications.bind(_this);
+	        return _this;
+	    }
+	
+	    _createClass(PublicationsTabContent, [{
+	        key: 'handleFetchPublications',
+	        value: function handleFetchPublications() {
+	            var _this2 = this;
+	
+	            var step = 8;
+	            var curLimit = this.state.limit + step;
+	            var curOffset = this.state.offset;
+	
+	            _Client2.default.searchPublications(curLimit, curOffset, function (data) {
+	                // add data
+	                var currPublications = _this2.state.publications;
+	                var updatedPublications = currPublications.concat(data);
+	
+	                _this2.setState({
+	                    publications: updatedPublications,
+	                    limit: curLimit + curOffset,
+	                    offset: curOffset + curLimit,
+	                    isLoading: false
+	                }, function () {
+	                    return console.log('<PublicationsTab/> :', _this2.state);
+	                });
+	            });
+	        }
+	    }, {
+	        key: 'renderPublications',
+	        value: function renderPublications() {
+	            return _react2.default.createElement(
+	                'div',
+	                null,
+	                this.state.publications.map(function (publication, index) {
+	                    return _react2.default.createElement(_PublicationItem2.default, {
+	                        id: 'pub-item-' + index.toString(),
+	                        key: 'pub-item-' + index.toString(),
+	                        publication: publication,
+	                        centerWide: false });
+	                })
+	            );
+	        }
+	    }, {
+	        key: 'renderWaypoint',
+	        value: function renderWaypoint() {
+	            if (!this.state.isLoading) {
+	                return _react2.default.createElement(_reactWaypoint2.default, {
+	                    onEnter: this.handleFetchPublications
+	                });
+	            }
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'infinite-scroll-example' },
+	                _react2.default.createElement(
+	                    'p',
+	                    { className: 'infinite-scroll-example__count' },
+	                    'Items Loaded: ',
+	                    this.state.publications.length
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'infinite-scroll-example__scrollable-parent' },
+	                    this.renderPublications(),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'infinite-scroll-example__waypoint' },
+	                        this.renderWaypoint()
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return PublicationsTabContent;
+	}(_react2.default.Component);
+	
+	PublicationsTabContent.propTypes = {
+	    onEnter: _react.PropTypes.func, // function called when waypoint enters viewport
+	    onLeave: _react.PropTypes.func };
+	
+	exports.default = PublicationsTabContent;
+	
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/localdisk/vruelasr/dev/comptox-impact/app/assets/javascripts/client/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "PublicationsTabContent.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 537 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _consolidatedEvents = __webpack_require__(538);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var POSITIONS = {
+	  above: 'above',
+	  inside: 'inside',
+	  below: 'below',
+	  invisible: 'invisible'
+	};
+	
+	var defaultProps = {
+	  topOffset: '0px',
+	  bottomOffset: '0px',
+	  horizontal: false,
+	  onEnter: function onEnter() {},
+	  onLeave: function onLeave() {},
+	  onPositionChange: function onPositionChange() {},
+	
+	  fireOnRapidScroll: true
+	};
+	
+	function debugLog() {
+	  console.log(arguments); // eslint-disable-line no-console
+	}
+	
+	/**
+	 * @param {object} bounds An object with bounds data for the waypoint and
+	 *   scrollable parent
+	 * @return {string} The current position of the waypoint in relation to the
+	 *   visible portion of the scrollable parent. One of `POSITIONS.above`,
+	 *   `POSITIONS.below`, or `POSITIONS.inside`.
+	 */
+	function getCurrentPosition(bounds) {
+	  if (bounds.viewportBottom - bounds.viewportTop === 0) {
+	    return POSITIONS.invisible;
+	  }
+	
+	  // top is within the viewport
+	  if (bounds.viewportTop <= bounds.waypointTop && bounds.waypointTop <= bounds.viewportBottom) {
+	    return POSITIONS.inside;
+	  }
+	
+	  // bottom is within the viewport
+	  if (bounds.viewportTop <= bounds.waypointBottom && bounds.waypointBottom <= bounds.viewportBottom) {
+	    return POSITIONS.inside;
+	  }
+	
+	  // top is above the viewport and bottom is below the viewport
+	  if (bounds.waypointTop <= bounds.viewportTop && bounds.viewportBottom <= bounds.waypointBottom) {
+	    return POSITIONS.inside;
+	  }
+	
+	  if (bounds.viewportBottom < bounds.waypointTop) {
+	    return POSITIONS.below;
+	  }
+	
+	  if (bounds.waypointTop < bounds.viewportTop) {
+	    return POSITIONS.above;
+	  }
+	
+	  return POSITIONS.invisible;
+	}
+	
+	/**
+	 * Attempts to parse the offset provided as a prop as a pixel value. If
+	 * parsing fails, then `undefined` is returned. Three examples of values that
+	 * will be successfully parsed are:
+	 * `20`
+	 * "20px"
+	 * "20"
+	 *
+	 * @param {string|number} str A string of the form "{number}" or "{number}px",
+	 *   or just a number.
+	 * @return {number|undefined} The numeric version of `str`. Undefined if `str`
+	 *   was neither a number nor string ending in "px".
+	 */
+	function parseOffsetAsPixels(str) {
+	  if (!isNaN(parseFloat(str)) && isFinite(str)) {
+	    return parseFloat(str);
+	  } else if (str.slice(-2) === 'px') {
+	    return parseFloat(str.slice(0, -2));
+	  }
+	}
+	
+	/**
+	 * Attempts to parse the offset provided as a prop as a percentage. For
+	 * instance, if the component has been provided with the string "20%" as
+	 * a value of one of the offset props. If the value matches, then it returns
+	 * a numeric version of the prop. For instance, "20%" would become `0.2`.
+	 * If `str` isn't a percentage, then `undefined` will be returned.
+	 *
+	 * @param {string} str The value of an offset prop to be converted to a
+	 *   number.
+	 * @return {number|undefined} The numeric version of `str`. Undefined if `str`
+	 *   was not a percentage.
+	 */
+	function parseOffsetAsPercentage(str) {
+	  if (str.slice(-1) === '%') {
+	    return parseFloat(str.slice(0, -1)) / 100;
+	  }
+	}
+	
+	/**
+	 * @param {string|number} offset
+	 * @param {number} contextHeight
+	 * @return {number} A number representing `offset` converted into pixels.
+	 */
+	function computeOffsetPixels(offset, contextHeight) {
+	  var pixelOffset = parseOffsetAsPixels(offset);
+	
+	  if (typeof pixelOffset === 'number') {
+	    return pixelOffset;
+	  }
+	
+	  var percentOffset = parseOffsetAsPercentage(offset);
+	  if (typeof percentOffset === 'number') {
+	    return percentOffset * contextHeight;
+	  }
+	}
+	
+	/**
+	 * When an element's type is a string, it represents a DOM node with that tag name
+	 * https://facebook.github.io/react/blog/2015/12/18/react-components-elements-and-instances.html#dom-elements
+	 *
+	 * @param {React.element} Component
+	 * @return {bool} Whether the component is a DOM Element
+	 */
+	function isDOMElement(Component) {
+	  return typeof Component.type === 'string';
+	}
+	
+	/**
+	 * Raise an error if "children" isn't a single DOM Element
+	 *
+	 * @param {React.element|null} children
+	 * @return {undefined}
+	 */
+	function ensureChildrenIsSingleDOMElement(children) {
+	  if (children) {
+	    _react2.default.Children.only(children);
+	
+	    if (!isDOMElement(children)) {
+	      throw new Error('You must wrap any Component Elements passed to Waypoint in a DOM Element (eg; a <div>).');
+	    }
+	  }
+	}
+	
+	/**
+	 * Calls a function when you scroll to the element.
+	 */
+	
+	var Waypoint = function (_React$Component) {
+	  _inherits(Waypoint, _React$Component);
+	
+	  function Waypoint(props) {
+	    _classCallCheck(this, Waypoint);
+	
+	    var _this = _possibleConstructorReturn(this, (Waypoint.__proto__ || Object.getPrototypeOf(Waypoint)).call(this, props));
+	
+	    _this.refElement = function (e) {
+	      return _this._ref = e;
+	    };
+	    return _this;
+	  }
+	
+	  _createClass(Waypoint, [{
+	    key: 'componentWillMount',
+	    value: function componentWillMount() {
+	      ensureChildrenIsSingleDOMElement(this.props.children);
+	
+	      if (this.props.scrollableParent) {
+	        // eslint-disable-line react/prop-types
+	        throw new Error('The `scrollableParent` prop has changed name to `scrollableAncestor`.');
+	      }
+	    }
+	  }, {
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var _this2 = this;
+	
+	      if (!Waypoint.getWindow()) {
+	        return;
+	      }
+	
+	      this._handleScroll = this._handleScroll.bind(this);
+	      this.scrollableAncestor = this._findScrollableAncestor();
+	
+	      if (this.props.debug) {
+	        debugLog('scrollableAncestor', this.scrollableAncestor);
+	      }
+	
+	      this.scrollEventListenerHandle = (0, _consolidatedEvents.addEventListener)(this.scrollableAncestor, 'scroll', this._handleScroll, { passive: true });
+	
+	      this.resizeEventListenerHandle = (0, _consolidatedEvents.addEventListener)(window, 'resize', this._handleScroll, { passive: true });
+	
+	      // this._ref may occasionally not be set at this time. To help ensure that
+	      // this works smoothly, we want to delay the initial execution until the
+	      // next tick.
+	      this.initialTimeout = setTimeout(function () {
+	        _this2._handleScroll(null);
+	      }, 0);
+	    }
+	  }, {
+	    key: 'componentWillReceiveProps',
+	    value: function componentWillReceiveProps(nextProps) {
+	      ensureChildrenIsSingleDOMElement(nextProps.children);
+	    }
+	  }, {
+	    key: 'componentDidUpdate',
+	    value: function componentDidUpdate() {
+	      if (!Waypoint.getWindow()) {
+	        return;
+	      }
+	
+	      // The element may have moved.
+	      this._handleScroll(null);
+	    }
+	  }, {
+	    key: 'componentWillUnmount',
+	    value: function componentWillUnmount() {
+	      if (!Waypoint.getWindow()) {
+	        return;
+	      }
+	
+	      (0, _consolidatedEvents.removeEventListener)(this.scrollEventListenerHandle);
+	      (0, _consolidatedEvents.removeEventListener)(this.resizeEventListenerHandle);
+	
+	      clearTimeout(this.initialTimeout);
+	    }
+	
+	    /**
+	     * Traverses up the DOM to find an ancestor container which has an overflow
+	     * style that allows for scrolling.
+	     *
+	     * @return {Object} the closest ancestor element with an overflow style that
+	     *   allows for scrolling. If none is found, the `window` object is returned
+	     *   as a fallback.
+	     */
+	
+	  }, {
+	    key: '_findScrollableAncestor',
+	    value: function _findScrollableAncestor() {
+	      if (this.props.scrollableAncestor) {
+	        return this.props.scrollableAncestor;
+	      }
+	
+	      var node = this._ref;
+	
+	      while (node.parentNode) {
+	        node = node.parentNode;
+	
+	        if (node === document) {
+	          // This particular node does not have a computed style.
+	          continue;
+	        }
+	
+	        if (node === document.documentElement) {
+	          // This particular node does not have a scroll bar, it uses the window.
+	          continue;
+	        }
+	
+	        var style = window.getComputedStyle(node);
+	        var overflowDirec = this.props.horizontal ? style.getPropertyValue('overflow-x') : style.getPropertyValue('overflow-y');
+	        var overflow = overflowDirec || style.getPropertyValue('overflow');
+	
+	        if (overflow === 'auto' || overflow === 'scroll') {
+	          return node;
+	        }
+	      }
+	
+	      // A scrollable ancestor element was not found, which means that we need to
+	      // do stuff on window.
+	      return window;
+	    }
+	
+	    /**
+	     * @param {Object} event the native scroll event coming from the scrollable
+	     *   ancestor, or resize event coming from the window. Will be undefined if
+	     *   called by a React lifecyle method
+	     */
+	
+	  }, {
+	    key: '_handleScroll',
+	    value: function _handleScroll(event) {
+	      if (!this._ref) {
+	        // There's a chance we end up here after the component has been unmounted.
+	        return;
+	      }
+	
+	      var bounds = this._getBounds();
+	      var currentPosition = getCurrentPosition(bounds);
+	      var previousPosition = this._previousPosition;
+	
+	      if (this.props.debug) {
+	        debugLog('currentPosition', currentPosition);
+	        debugLog('previousPosition', previousPosition);
+	      }
+	
+	      // Save previous position as early as possible to prevent cycles
+	      this._previousPosition = currentPosition;
+	
+	      if (previousPosition === currentPosition) {
+	        // No change since last trigger
+	        return;
+	      }
+	
+	      var callbackArg = {
+	        currentPosition: currentPosition,
+	        previousPosition: previousPosition,
+	        event: event,
+	        waypointTop: bounds.waypointTop,
+	        waypointBottom: bounds.waypointBottom,
+	        viewportTop: bounds.viewportTop,
+	        viewportBottom: bounds.viewportBottom
+	      };
+	      this.props.onPositionChange.call(this, callbackArg);
+	
+	      if (currentPosition === POSITIONS.inside) {
+	        this.props.onEnter.call(this, callbackArg);
+	      } else if (previousPosition === POSITIONS.inside) {
+	        this.props.onLeave.call(this, callbackArg);
+	      }
+	
+	      var isRapidScrollDown = previousPosition === POSITIONS.below && currentPosition === POSITIONS.above;
+	      var isRapidScrollUp = previousPosition === POSITIONS.above && currentPosition === POSITIONS.below;
+	
+	      if (this.props.fireOnRapidScroll && (isRapidScrollDown || isRapidScrollUp)) {
+	        // If the scroll event isn't fired often enough to occur while the
+	        // waypoint was visible, we trigger both callbacks anyway.
+	        this.props.onEnter.call(this, {
+	          currentPosition: POSITIONS.inside,
+	          previousPosition: previousPosition,
+	          event: event,
+	          waypointTop: bounds.waypointTop,
+	          waypointBottom: bounds.waypointBottom,
+	          viewportTop: bounds.viewportTop,
+	          viewportBottom: bounds.viewportBottom
+	        });
+	        this.props.onLeave.call(this, {
+	          currentPosition: currentPosition,
+	          previousPosition: POSITIONS.inside,
+	          event: event,
+	          waypointTop: bounds.waypointTop,
+	          waypointBottom: bounds.waypointBottom,
+	          viewportTop: bounds.viewportTop,
+	          viewportBottom: bounds.viewportBottom
+	        });
+	      }
+	    }
+	  }, {
+	    key: '_getBounds',
+	    value: function _getBounds() {
+	      var horizontal = this.props.horizontal;
+	
+	      var _ref$getBoundingClien = this._ref.getBoundingClientRect();
+	
+	      var left = _ref$getBoundingClien.left;
+	      var top = _ref$getBoundingClien.top;
+	      var right = _ref$getBoundingClien.right;
+	      var bottom = _ref$getBoundingClien.bottom;
+	
+	      var waypointTop = horizontal ? left : top;
+	      var waypointBottom = horizontal ? right : bottom;
+	
+	      var contextHeight = void 0;
+	      var contextScrollTop = void 0;
+	      if (this.scrollableAncestor === window) {
+	        contextHeight = horizontal ? window.innerWidth : window.innerHeight;
+	        contextScrollTop = 0;
+	      } else {
+	        contextHeight = horizontal ? this.scrollableAncestor.offsetWidth : this.scrollableAncestor.offsetHeight;
+	        contextScrollTop = horizontal ? this.scrollableAncestor.getBoundingClientRect().left : this.scrollableAncestor.getBoundingClientRect().top;
+	      }
+	
+	      if (this.props.debug) {
+	        debugLog('waypoint top', waypointTop);
+	        debugLog('waypoint bottom', waypointBottom);
+	        debugLog('scrollableAncestor height', contextHeight);
+	        debugLog('scrollableAncestor scrollTop', contextScrollTop);
+	      }
+	
+	      var _props = this.props;
+	      var bottomOffset = _props.bottomOffset;
+	      var topOffset = _props.topOffset;
+	
+	      var topOffsetPx = computeOffsetPixels(topOffset, contextHeight);
+	      var bottomOffsetPx = computeOffsetPixels(bottomOffset, contextHeight);
+	      var contextBottom = contextScrollTop + contextHeight;
+	
+	      return {
+	        waypointTop: waypointTop,
+	        waypointBottom: waypointBottom,
+	        viewportTop: contextScrollTop + topOffsetPx,
+	        viewportBottom: contextBottom - bottomOffsetPx
+	      };
+	    }
+	
+	    /**
+	     * @return {Object}
+	     */
+	
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _this3 = this;
+	
+	      var children = this.props.children;
+	
+	
+	      if (!children) {
+	        // We need an element that we can locate in the DOM to determine where it is
+	        // rendered relative to the top of its context.
+	        return _react2.default.createElement('span', { ref: this.refElement, style: { fontSize: 0 } });
+	      }
+	
+	      var ref = function ref(node) {
+	        _this3.refElement(node);
+	        if (children.ref) {
+	          children.ref(node);
+	        }
+	      };
+	
+	      return _react2.default.cloneElement(children, { ref: ref });
+	    }
+	  }]);
+	
+	  return Waypoint;
+	}(_react2.default.Component);
+	
+	exports.default = Waypoint;
+	
+	
+	Waypoint.propTypes = {
+	  children: _react.PropTypes.element,
+	  debug: _react.PropTypes.bool,
+	  onEnter: _react.PropTypes.func,
+	  onLeave: _react.PropTypes.func,
+	  onPositionChange: _react.PropTypes.func,
+	  fireOnRapidScroll: _react.PropTypes.bool,
+	  scrollableAncestor: _react.PropTypes.any,
+	  horizontal: _react.PropTypes.bool,
+	
+	  // `topOffset` can either be a number, in which case its a distance from the
+	  // top of the container in pixels, or a string value. Valid string values are
+	  // of the form "20px", which is parsed as pixels, or "20%", which is parsed
+	  // as a percentage of the height of the containing element.
+	  // For instance, if you pass "-20%", and the containing element is 100px tall,
+	  // then the waypoint will be triggered when it has been scrolled 20px beyond
+	  // the top of the containing element.
+	  topOffset: _react.PropTypes.oneOfType([_react.PropTypes.string, _react.PropTypes.number]),
+	
+	  // `bottomOffset` is like `topOffset`, but for the bottom of the container.
+	  bottomOffset: _react.PropTypes.oneOfType([_react.PropTypes.string, _react.PropTypes.number])
+	};
+	
+	Waypoint.above = POSITIONS.above;
+	Waypoint.below = POSITIONS.below;
+	Waypoint.inside = POSITIONS.inside;
+	Waypoint.invisible = POSITIONS.invisible;
+	Waypoint.getWindow = function () {
+	  if (typeof window !== 'undefined') {
+	    return window;
+	  }
+	};
+	Waypoint.defaultProps = defaultProps;
+	Waypoint.displayName = 'Waypoint';
+	module.exports = exports['default'];
+
+/***/ },
+/* 538 */
+/***/ function(module, exports, __webpack_require__) {
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.EVENT_HANDLERS_KEY = undefined;
+	exports.addEventListener = addEventListener;
+	exports.removeEventListener = removeEventListener;
+	
+	var _normalizeEventOptions = __webpack_require__(539);
+	
+	var _normalizeEventOptions2 = _interopRequireDefault(_normalizeEventOptions);
+	
+	var _TargetEventHandlers = __webpack_require__(542);
+	
+	var _TargetEventHandlers2 = _interopRequireDefault(_TargetEventHandlers);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	// Export to make testing possible.
+	var EVENT_HANDLERS_KEY = exports.EVENT_HANDLERS_KEY = '__consolidated_events_handlers__';
+	
+	function addEventListener(target, eventName, listener, options) {
+	  if (!target[EVENT_HANDLERS_KEY]) {
+	    // eslint-disable-next-line no-param-reassign
+	    target[EVENT_HANDLERS_KEY] = new _TargetEventHandlers2['default'](target);
+	  }
+	  var normalizedEventOptions = (0, _normalizeEventOptions2['default'])(options);
+	  return target[EVENT_HANDLERS_KEY].add(eventName, listener, normalizedEventOptions);
+	}
+	
+	function removeEventListener(eventHandle) {
+	  var target = eventHandle.target;
+	
+	  // There can be a race condition where the target may no longer exist when
+	  // this function is called, e.g. when a React component is unmounting.
+	  // Guarding against this prevents the following error:
+	  //
+	  //   Cannot read property 'removeEventListener' of undefined
+	
+	  if (target) {
+	    target[EVENT_HANDLERS_KEY]['delete'](eventHandle);
+	  }
+	}
+
+/***/ },
+/* 539 */
+/***/ function(module, exports, __webpack_require__) {
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports['default'] = normalizeEventOptions;
+	
+	var _canUsePassiveEventListeners = __webpack_require__(540);
+	
+	var _canUsePassiveEventListeners2 = _interopRequireDefault(_canUsePassiveEventListeners);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function normalizeEventOptions(eventOptions) {
+	  if (!eventOptions) {
+	    return undefined;
+	  }
+	
+	  if (!(0, _canUsePassiveEventListeners2['default'])()) {
+	    // If the browser does not support the passive option, then it is expecting
+	    // a boolean for the options argument to specify whether it should use
+	    // capture or not. In more modern browsers, this is passed via the `capture`
+	    // option, so let's just hoist that value up.
+	    return !!eventOptions.capture;
+	  }
+	
+	  return eventOptions;
+	}
+
+/***/ },
+/* 540 */
+/***/ function(module, exports, __webpack_require__) {
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports['default'] = canUsePassiveEventListeners;
+	
+	var _canUseDOM = __webpack_require__(541);
+	
+	var _canUseDOM2 = _interopRequireDefault(_canUseDOM);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	// Adapted from Modernizr
+	// https://github.com/Modernizr/Modernizr/blob/5eea7e2a/feature-detects/dom/passiveeventlisteners.js#L26-L35
+	function testPassiveEventListeners() {
+	  if (!_canUseDOM2['default']) {
+	    return false;
+	  }
+	
+	  var supportsPassiveOption = false;
+	  try {
+	    var opts = Object.defineProperty({}, 'passive', {
+	      get: function () {
+	        function get() {
+	          supportsPassiveOption = true;
+	        }
+	
+	        return get;
+	      }()
+	    });
+	    window.addEventListener('test', null, opts);
+	  } catch (e) {
+	    // do nothing
+	  }
+	
+	  return supportsPassiveOption;
+	}
+	
+	var memoized = void 0;
+	
+	function canUsePassiveEventListeners() {
+	  if (memoized === undefined) {
+	    memoized = testPassiveEventListeners();
+	  }
+	  return memoized;
+	}
+
+/***/ },
+/* 541 */
+/***/ function(module, exports) {
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var CAN_USE_DOM = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
+	
+	exports['default'] = CAN_USE_DOM;
+
+/***/ },
+/* 542 */
+/***/ function(module, exports, __webpack_require__) {
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _eventOptionsKey = __webpack_require__(543);
+	
+	var _eventOptionsKey2 = _interopRequireDefault(_eventOptionsKey);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var TargetEventHandlers = function () {
+	  function TargetEventHandlers(target) {
+	    _classCallCheck(this, TargetEventHandlers);
+	
+	    this.target = target;
+	    this.events = {};
+	  }
+	
+	  _createClass(TargetEventHandlers, [{
+	    key: 'getEventHandlers',
+	    value: function () {
+	      function getEventHandlers(eventName, options) {
+	        var key = String(eventName) + ' ' + String((0, _eventOptionsKey2['default'])(options));
+	
+	        if (!this.events[key]) {
+	          this.events[key] = {
+	            size: 0,
+	            index: 0,
+	            handlers: {},
+	            handleEvent: undefined
+	          };
+	        }
+	        return this.events[key];
+	      }
+	
+	      return getEventHandlers;
+	    }()
+	  }, {
+	    key: 'handleEvent',
+	    value: function () {
+	      function handleEvent(eventName, options, event) {
+	        var _getEventHandlers = this.getEventHandlers(eventName, options),
+	            handlers = _getEventHandlers.handlers;
+	
+	        Object.keys(handlers).forEach(function (index) {
+	          var handler = handlers[index];
+	          if (handler) {
+	            // We need to check for presence here because a handler function may
+	            // cause later handlers to get removed. This can happen if you for
+	            // instance have a waypoint that unmounts another waypoint as part of an
+	            // onEnter/onLeave handler.
+	            handler(event);
+	          }
+	        });
+	      }
+	
+	      return handleEvent;
+	    }()
+	  }, {
+	    key: 'add',
+	    value: function () {
+	      function add(eventName, listener, options) {
+	        // options has already been normalized at this point.
+	        var eventHandlers = this.getEventHandlers(eventName, options);
+	
+	        if (eventHandlers.size === 0) {
+	          eventHandlers.handleEvent = this.handleEvent.bind(this, eventName, options);
+	
+	          this.target.addEventListener(eventName, eventHandlers.handleEvent, options);
+	        }
+	
+	        eventHandlers.size += 1;
+	        eventHandlers.index += 1;
+	        eventHandlers.handlers[eventHandlers.index] = listener;
+	
+	        return {
+	          target: this.target,
+	          eventName: eventName,
+	          options: options,
+	          index: eventHandlers.index
+	        };
+	      }
+	
+	      return add;
+	    }()
+	  }, {
+	    key: 'delete',
+	    value: function () {
+	      function _delete(_ref) {
+	        var eventName = _ref.eventName,
+	            index = _ref.index,
+	            options = _ref.options;
+	
+	        // options has already been normalized at this point.
+	        var eventHandlers = this.getEventHandlers(eventName, options);
+	
+	        if (eventHandlers.size === 0) {
+	          // There are no matching event handlers, so no work to be done here.
+	          return;
+	        }
+	
+	        if (eventHandlers.handlers[index]) {
+	          delete eventHandlers.handlers[index];
+	          eventHandlers.size -= 1;
+	        }
+	
+	        if (eventHandlers.size === 0) {
+	          this.target.removeEventListener(eventName, eventHandlers.handleEvent, options);
+	
+	          eventHandlers.handleEvent = undefined;
+	        }
+	      }
+	
+	      return _delete;
+	    }()
+	  }]);
+	
+	  return TargetEventHandlers;
+	}();
+	
+	exports['default'] = TargetEventHandlers;
+
+/***/ },
+/* 543 */
+/***/ function(module, exports) {
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports["default"] = eventOptionsKey;
+	/* eslint-disable no-bitwise */
+	
+	/**
+	 * Generate a unique key for any set of event options
+	 */
+	function eventOptionsKey(normalizedEventOptions) {
+	  if (!normalizedEventOptions) {
+	    return 0;
+	  }
+	
+	  // If the browser does not support passive event listeners, the normalized
+	  // event options will be a boolean.
+	  if (normalizedEventOptions === true) {
+	    return 100;
+	  }
+	
+	  // At this point, the browser supports passive event listeners, so we expect
+	  // the event options to be an object with possible properties of capture,
+	  // passive, and once.
+	  //
+	  // We want to consistently return the same value, regardless of the order of
+	  // these properties, so let's use binary maths to assign each property to a
+	  // bit, and then add those together (with an offset to account for the
+	  // booleans at the beginning of this function).
+	  var capture = normalizedEventOptions.capture << 0;
+	  var passive = normalizedEventOptions.passive << 1;
+	  var once = normalizedEventOptions.once << 2;
+	  return capture + passive + once;
+	}
+
+/***/ },
+/* 544 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/localdisk/vruelasr/dev/comptox-impact/app/assets/javascripts/client/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/localdisk/vruelasr/dev/comptox-impact/app/assets/javascripts/client/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+	
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _jquery = __webpack_require__(545);
 	
 	var _jquery2 = _interopRequireDefault(_jquery);
 	
-	var _AltmetricWidget = __webpack_require__(534);
+	var _AltmetricWidget = __webpack_require__(546);
 	
 	var _AltmetricWidget2 = _interopRequireDefault(_AltmetricWidget);
 	
-	var _PlumxWidget = __webpack_require__(535);
+	var _PlumxWidget = __webpack_require__(547);
 	
 	var _PlumxWidget2 = _interopRequireDefault(_PlumxWidget);
 	
-	var _KudosWidget = __webpack_require__(536);
+	var _KudosWidget = __webpack_require__(548);
 	
 	var _KudosWidget2 = _interopRequireDefault(_KudosWidget);
 	
 	var _reactBootstrap = __webpack_require__(225);
 	
-	__webpack_require__(538);
+	__webpack_require__(550);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -50609,8 +51659,42 @@
 	            });
 	        }
 	    }, {
+	        key: 'appendPlumxScript',
+	        value: function appendPlumxScript() {
+	            if (document.getElementById('plumx-script')) {
+	                console.log('Appended Plumx script 1st level');
+	                if (window.__plumX) {
+	                    window.__plumX.widgets.popup.wireUp();
+	                    console.log('Appended Plumx script 2nd level');
+	                }
+	                return;
+	            }
+	            var plumxScript = document.createElement("script");
+	            plumxScript.id = 'plumx-script';
+	            plumxScript.src = "//d39af2mgp1pqhg.cloudfront.net/widget-popup.js";
+	            plumxScript.async = true;
+	            document.head.appendChild(plumxScript);
+	        }
+	    }, {
+	        key: 'appendAltmetricScript',
+	        value: function appendAltmetricScript() {
+	            if (document.getElementById('altmetric-script')) {
+	                if (window._altmetric) {
+	                    window._altmetric.embed_init();
+	                }
+	                return;
+	            }
+	            var altMetricScript = document.createElement("script");
+	            altMetricScript.id = 'altmetric-script';
+	            altMetricScript.src = "//d1bxh8uas1mnw7.cloudfront.net/assets/embed.js";
+	            altMetricScript.async = true;
+	            document.head.appendChild(altMetricScript);
+	        }
+	    }, {
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
+	            this.appendPlumxScript();
+	            this.appendAltmetricScript();
 	            /* Get metrics */
 	            this.handleMetrics(this);
 	        }
@@ -50673,7 +51757,32 @@
 	            };
 	
 	            var Citation = function Citation() {
-	                return _react2.default.createElement('div', { dangerouslySetInnerHTML: { __html: publication.citation } });
+	                return _react2.default.createElement(
+	                    'div',
+	                    null,
+	                    _react2.default.createElement('span', { dangerouslySetInnerHTML: { __html: publication.citation } }),
+	                    _react2.default.createElement(
+	                        'span',
+	                        null,
+	                        publication.doi ? _react2.default.createElement(
+	                            'a',
+	                            { href: 'https://doi.org/' + publication.doi, target: '_blank' },
+	                            ' doi:',
+	                            publication.doi
+	                        ) : _react2.default.createElement(
+	                            'span',
+	                            null,
+	                            ' Retrieved from ',
+	                            _react2.default.createElement(
+	                                'a',
+	                                { href: publication.external_url },
+	                                publication.external_url
+	                            )
+	                        )
+	                    ),
+	                    _react2.default.createElement('br', null),
+	                    _react2.default.createElement('br', null)
+	                );
 	            };
 	
 	            var Project = function Project() {
@@ -50691,7 +51800,7 @@
 	                        { md: centerWide ? 7 : 9 },
 	                        _react2.default.createElement(
 	                            'div',
-	                            null,
+	                            { className: 'publication-item-citation' },
 	                            _react2.default.createElement(Citation, null)
 	                        ),
 	                        _react2.default.createElement(
@@ -50745,6 +51854,7 @@
 	}(_react2.default.Component);
 	
 	PublicationItem.propTypes = {
+	    id: _react.PropTypes.string.isRequired,
 	    publication: _react.PropTypes.object.isRequired,
 	    centerWide: _react.PropTypes.bool.isRequired
 	};
@@ -50759,7 +51869,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/localdisk/vruelasr/dev/comptox-impact/app/assets/javascripts/client/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "PublicationItem.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 533 */
+/* 545 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -60985,7 +62095,7 @@
 
 
 /***/ },
-/* 534 */
+/* 546 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/localdisk/vruelasr/dev/comptox-impact/app/assets/javascripts/client/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/localdisk/vruelasr/dev/comptox-impact/app/assets/javascripts/client/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -61006,7 +62116,6 @@
 	    var doi = _ref.doi;
 	    return _react2.default.createElement("div", {
 	        className: "altmetric-embed",
-	        "data-hide-less-than": "1",
 	        "data-badge-popover": "left",
 	        "data-badge-type": "donut",
 	        "data-doi": doi });
@@ -61024,7 +62133,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/localdisk/vruelasr/dev/comptox-impact/app/assets/javascripts/client/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "AltmetricWidget.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 535 */
+/* 547 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/localdisk/vruelasr/dev/comptox-impact/app/assets/javascripts/client/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/localdisk/vruelasr/dev/comptox-impact/app/assets/javascripts/client/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -61064,7 +62173,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/localdisk/vruelasr/dev/comptox-impact/app/assets/javascripts/client/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "PlumxWidget.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 536 */
+/* 548 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/localdisk/vruelasr/dev/comptox-impact/app/assets/javascripts/client/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/localdisk/vruelasr/dev/comptox-impact/app/assets/javascripts/client/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -61079,7 +62188,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _kudos_butterfly_large = __webpack_require__(537);
+	var _kudos_butterfly_large = __webpack_require__(549);
 	
 	var _kudos_butterfly_large2 = _interopRequireDefault(_kudos_butterfly_large);
 	
@@ -61108,19 +62217,19 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/localdisk/vruelasr/dev/comptox-impact/app/assets/javascripts/client/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "KudosWidget.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 537 */
+/* 549 */
 /***/ function(module, exports) {
 
 	module.exports = "data:image/png;base64,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"
 
 /***/ },
-/* 538 */
+/* 550 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(539);
+	var content = __webpack_require__(551);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(479)(content, {});
@@ -61140,7 +62249,7 @@
 	}
 
 /***/ },
-/* 539 */
+/* 551 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(478)();
@@ -61148,13 +62257,53 @@
 	
 	
 	// module
-	exports.push([module.id, ".publication-item {\n  padding-top: 15px;\n  border-bottom: 0.5px solid #d0d0d0; }\n\n.publication-item-scientist {\n  padding-top: 5px; }\n\n.publication-item-button {\n  text-align: center;\n  height: 50px;\n  width: 50px; }\n\n.publication-item-button img {\n  width: 100%;\n  height: 100%; }\n\n.publication-item-inline-metric {\n  transform: scale(0.85, 0.85);\n  /*Half width and height */\n  -ms-transform: scale(0.85, 0.85);\n  /* IE 9 */\n  -webkit-transform: scale(0.85, 0.85);\n  /* Safari and Chrome */\n  -o-transform: scale(0.85, 0.85);\n  /* Opera */\n  -moz-transform: scale(0.85, 0.85);\n  /* Firefox */\n  float: right;\n  padding-bottom: 5px; }\n\n.publication-item-show-counts {\n  padding-top: 15px;\n  font-size: 95%; }\n\n.publication-item-no-show-counts {\n  visibility: hidden; }\n\n.publication-item-show-project {\n  visibility: visible; }\n\n.publication-item-hide-project {\n  visibility: hidden; }\n\n.divider {\n  width: 30px;\n  height: auto;\n  display: inline-block; }\n", ""]);
+	exports.push([module.id, ".publication-item {\n  padding-top: 35px; }\n\n.publication-item-citation {\n  border-bottom: 0.5px solid #d0d0d0; }\n\n.publication-item-button {\n  text-align: center;\n  height: 50px;\n  width: 50px; }\n\n.publication-item-button img {\n  width: 100%;\n  height: 100%; }\n\n.publication-item-inline-metric {\n  transform: scale(0.85, 0.85);\n  /*Half width and height */\n  -ms-transform: scale(0.85, 0.85);\n  /* IE 9 */\n  -webkit-transform: scale(0.85, 0.85);\n  /* Safari and Chrome */\n  -o-transform: scale(0.85, 0.85);\n  /* Opera */\n  -moz-transform: scale(0.85, 0.85);\n  /* Firefox */\n  float: right;\n  padding-bottom: 5px; }\n\n.publication-item-show-counts {\n  padding-top: 15px;\n  font-size: 95%; }\n\n.publication-item-no-show-counts {\n  visibility: hidden; }\n\n.publication-item-show-project {\n  visibility: visible; }\n\n.publication-item-hide-project {\n  visibility: hidden; }\n\n.divider {\n  width: 30px;\n  height: auto;\n  display: inline-block; }\n", ""]);
 	
 	// exports
 
 
 /***/ },
-/* 540 */
+/* 552 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(553);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(479)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/sass-loader/index.js!./publications-tab-content.css", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/sass-loader/index.js!./publications-tab-content.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 553 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(478)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "@charset \"UTF-8\";\n.infinite-scroll-example {\n  position: relative; }\n\n.infinite-scroll-example__scrollable-parent {\n  height: 500px;\n  margin: 0 auto;\n  max-width: 100%;\n  overflow-x: hidden;\n  overflow-y: scroll;\n  position: relative; }\n\n.infinite-scroll-example__loading-message,\n.infinite-scroll-example__count {\n  background-color: #999;\n  color: #fff;\n  opacity: 0.5;\n  padding: 10px;\n  pointer-events: none;\n  position: absolute;\n  z-index: 1000; }\n\n.infinite-scroll-example__arrow {\n  background-color: #fff;\n  bottom: 0;\n  color: #000;\n  font-size: 40px;\n  line-height: 50px;\n  opacity: 0.75;\n  pointer-events: none;\n  position: absolute;\n  text-align: center;\n  width: 100%;\n  z-index: 1000; }\n\n.infinite-scroll-example__arrow:before {\n  content: '\\E2\\2013\\BC'; }\n\n.infinite-scroll-example__count {\n  right: 0;\n  top: 0; }\n\n.infinite-scroll-example__loading-message {\n  left: 50%;\n  top: 50%;\n  transform: translate(-50%, -50%); }\n\n.infinite-scroll-example__waypoint {\n  color: #cccccc;\n  margin: 10px 4px 20px;\n  text-align: left; }\n", ""]);
+	
+	// exports
+
+
+/***/ },
+/* 554 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/localdisk/vruelasr/dev/comptox-impact/app/assets/javascripts/client/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/localdisk/vruelasr/dev/comptox-impact/app/assets/javascripts/client/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -61169,137 +62318,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	__webpack_require__(528);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	/**
-	 * Created by Victor H. Ruelas-Rivera on 2/15/17.
-	 * US EPA National Center for Computational Toxicology
-	 */
-	var LinkedProfilesTabLink = function LinkedProfilesTabLink(_ref) {
-	    var url = _ref.url,
-	        title = _ref.title,
-	        thumbnail = _ref.thumbnail,
-	        linkIdPrefix = _ref.linkIdPrefix;
-	    return _react2.default.createElement(
-	        'div',
-	        null,
-	        _react2.default.createElement(
-	            'div',
-	            null,
-	            _react2.default.createElement(
-	                'a',
-	                { className: 'linked-profile-tab-link', href: url, target: '_blank' },
-	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'linked-profile-tab-link-thumbnail' },
-	                    _react2.default.createElement('img', { src: thumbnail, alt: linkIdPrefix })
-	                ),
-	                ' ',
-	                _react2.default.createElement(
-	                    'div',
-	                    null,
-	                    title
-	                )
-	            )
-	        ),
-	        _react2.default.createElement('br', null)
-	    );
-	};
-	
-	LinkedProfilesTabLink.propTypes = {
-	    url: _react.PropTypes.string.isRequired,
-	    title: _react.PropTypes.string.isRequired,
-	    thumbnail: _react.PropTypes.string.isRequired,
-	    linkIdPrefix: _react.PropTypes.string.isRequired
-	};
-	
-	exports.default = LinkedProfilesTabLink;
-	
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/localdisk/vruelasr/dev/comptox-impact/app/assets/javascripts/client/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "LinkedProfilesTabLink.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-
-/***/ },
-/* 541 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/localdisk/vruelasr/dev/comptox-impact/app/assets/javascripts/client/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/localdisk/vruelasr/dev/comptox-impact/app/assets/javascripts/client/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-	
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	__webpack_require__(528);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	/**
-	 * Created by Victor H. Ruelas-Rivera on 2/16/17.
-	 * US EPA National Center for Computational Toxicology
-	 */
-	var PresentationsTabPresentationItem = function PresentationsTabPresentationItem(_ref) {
-	    var userUrl = _ref.userUrl;
-	    return _react2.default.createElement(
-	        'div',
-	        { className: 'slide-share-item' },
-	        _react2.default.createElement('iframe', {
-	            src: 'https://www.slideshare.net/AntonyWilliams/slideshelf',
-	            width: '760px',
-	            height: '570px',
-	            frameBorder: '0',
-	            marginWidth: '0',
-	            marginHeight: '0',
-	            scrolling: 'no',
-	            style: { border: 'none' },
-	            allowFullScreen: true,
-	            webkitallowfullscreen: true,
-	            mozallowfullscreen: true })
-	    );
-	};
-	
-	PresentationsTabPresentationItem.propTypes = {
-	    userUrl: _react.PropTypes.string.isRequired
-	};
-	
-	exports.default = PresentationsTabPresentationItem;
-	
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/localdisk/vruelasr/dev/comptox-impact/app/assets/javascripts/client/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "PresentationsTabPresentationItem.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-
-/***/ },
-/* 542 */
-/***/ function(module, exports) {
-
-	module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAbEAAAHjCAYAAACtliFNAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAO0FJREFUeNrsnU2MHEeanoPNJkXNUFRJ2vFI2l2zNNrFerAHNQHvZaw1qw3D9tiLYbcBz8G7AKtlwPIC6+3ug32wYXQ35mD44m7CB1sHq4vGnmZtdPUcPLft4qwg2J4Bugkb87saFmWDq9FIM0WKovjTJB1fVaRULFb+VUVmRmQ+D5Ao/nRXZUVmxhvvF198cUQBQCLeeudGXb/UR/659+rLpw5oHYBiOEITAISK1px+Oa8PeW3E/HhXHx19XNJHWwtbjxYEQMQA8haumn5ZMeJVn+KtWvq4qMWsQ6sCIGIAeQjYun5Z1kfN4tuKiK0ScgRAxACyEi8JF+5M6bzi2NBCtk5rAyBiADYFrKlftnP6OHFli8yXAdhjhiaACgvYdo4CJjT0sWecHwDgxACmErBmQR8vTuwlHBkATgxgEgFrFihgQs04shpXAwARA0gjYA2VbwgxjDlHzgPAawgnQpUETJzPvso2CzEtkujR5uoA4MQA4lhxTMCEbcKKAIgYQJwLE/Fac/DUggohAICIAYSy7PK54cYAEDGAKJoOn5sI2AKXCAARA3gM7XIWlN16iFVzigCIGECBnPPgHOcIKQIgYgDjaHCeAIgYgHcYd1P35HSpqQiAiAF4KwyvcLkA0jFLE7jDG2+/Jh1uzRzDne/pGDfR1cfVob/LBoxSXLb3+lfeZDNGf2BODAAR80KsGkakTpvXusoo5KU/KxC5rhE3EbsDLW4dnBgAIGIQJyIiTiJaZ02HWkSnGohkY0TcDsxxSR8dLWxd3A0AIGIIl6xLOmdEo+7wqQai2jTnLSImDm1XC1pZitJ2uSMBygtV7O2IVlBx4ZwqV+UFEbJdedWi5uUGjmbrlT1PTrfz6sun5nmiABCxPB3XeVWNkkEiaBd9c2ieiVhLi9gSTxYAIpalcNXVIPwm4lWvYBN0Rcykw/VlDk0L2UNP2nZDi9g6TxkAIpaFeMmIfllRqHXUnV1wPdNRi5hshOlDluK8FrEOtxUAImZTvBaMeDVojVCk491wVcy0iG0q9/fs6mkBe4ZbCQARs+m8tlU1Q4aT0tXHkmtipkVMXNi+423HfBgAImZNvNZwXuVyZlrIrjg+IFnUItbm1gFAxCYVL+ngJOzEnJc9pFNedSEBRItY0zhrJx2sFrCXuF0AELFJxEvWeK0Y9wXZsKGPraLXmjnsxpa0iLW4TQDSU+kq9iZ0uI+AZY60775p7yJZdbBtOggYAE5sEve1ptzPWCsjW2owX1aIK9NuTBY+NxxqjzNaxNhpAAAnltp9IWDFsFKwK1tUg21qXGAVAQNAxNII2LoalCCqc+kLRdp/z1yPXNGiIQI274CQSUr9FrcCwHRUIpxoMg93FHtLuYg4kfm8w4tvvXNjwdwTRQkYa8IAcGKJBKyhBuFDBMxN5LpcyTu8aNZkFeHIEDAARCyxgMn8i4QP2RjRbeT6SHixmbOQdYyQ5TUvtYqAAdiltOFE3SHKwtYml9g7pDp+rh39W+/cyDpbVURyiSQOAEQsiXhJhyRzHQ0ur7eIQ1osYJ5MQpubFu+drhpsr9LikgIgYkkFTMKHzH/5TyEJH0bM6mqwc4E4+UlC0f0dsREvAEQMAUPI5ossV2XcmWQyvmIEbW5E2OQce+b1khpU4Ohx6QAQsTQCJh2LhBDrXNJSCtmiL7tIAwAiNomAkYFYbsTZvFR0AWEAcA+vU+xNCHEbASs9QQo+1xkAyuHEmAOrJIXPkQEAIoaAAUJWYq7WXqwlfDZ7p3vXWDsHUzHr6XlvI2CVZc5c/0WaIldBGham0+qzJKraNM+ifv9x/9wZGbRcV59lgCotfB2uDHjrxKjEAYbcK3tUQKgCsTo7rTjlRMeI22U1WFjeReAQMdcFrGlG4QDCkhayFs2QSrACsaobsRpd91YGusa1XTZCd6DFjfAzIla4gMnDts8lgxHOaCFjXiXaYTVKLFhpha2/IJ25OEQsbwGTB++KIpUeHoc1ZI8K14IRrIZi3jjuvukgav7jS2LHDgIGIQQFn+crKlqB0zqnKHqd9r5ZMIe0o4ha24ham/AjTsymC1tXg20yAKLY0G5svSLCFYiWdMB1Ln0miDO7aAStS3MgYpMKGPNgkIbSzo+ZMGEgXEQlEDRwXcTMPNg+I01IQdcIWSlCQSZUeF5NviUMIGilx+U5sTUEDFJSN/fNqsfCVTdua5n730mCJQqb+lr1943TYtaiWXBioy6soQZlpQAmwbuwogkXnjcCBn4hzl+E7ALuLH9crWK/yaWBKfBiQbys49LHij5k+cgOAuYtEupd0ccVfS33zIAEqurEyEYES6xqN7blqHjVzT1OkkZ5EUd2QRwa6foVEjEWNYNFnFsEbVLjl3FclbsPAzHr0hz2cS2cuImAgSVqypGwtIiXhJnUYJ4XAavefSiuW0KN28aFQxmdGGvCICPEjRUyAjbOSzqwBpcBhmjpYwNnVj4nRjIHZEHuSR4jzgsBg1GaOLOSOTFS6iFjZCfoDs4LHGXLODMSQDx2YmQjgrf3l4ymZVSN84IJCdLz12kKD50YLgx8dWNmv64VBmFgka5xZS2awh8nRgcAebBsWcCaarAchPsXbFLXx7ZZNM1+cK47Me3C6qYjAMiDqTMVTcciSUgNmhNygPkyx50Yo1jw4n4zJaLW1WAZCAIGeRHMl7G+0DUnRnUOKICJqniYrENJ3KjThFAgUjV/lfVl7jixJgIGORNsSZ/GfUnocA8BAweQe3dfikbTFG6I2DLND67ed8Z9SeiQDgNcG4htmsQPBlaqoHAiJaagYEL3GzNp82uIF3iAhMWXTveutXFiuDCoFudDBEwGV3sIGHjkynb0fbtjBl+IWI6QaQNF0hwjYCsmOsDaHPCNYK6skvdu7iL2xtuvsREgFD6CNfdhkLwhuypTgBp8pq4qmvRRhBM7x/0GDnDWjFz3iQxAidisWnixCBFrcJ9B0Ry7ea9pBKxOa0DJqFR4MdfsRIezErv6uMi9Xw2+9Kc/XZ65+6BWb19Vsx/fo0GgrEj24mrZiwnPFjBCcJHu6195c517vtyYEItkHzInC1VA7nMpJvyKFrLVsn7JvMOJZ7mvoCABkyiAlDkj+xCqxopZHF3KwVveItbgfoICBKyJA4OKI31vKat85CZiZvNLgCIEbBsBA+hHIUqX8JGnE0PEIG8B2zYCBgADasaRNRGx9DAfBnkLWJOWABgrZNtlEbI8sxOZUIc8xCvIQOR+A4hGhKx2undtCycWwxtvv1ZXzEkAAgbgGpsmaoGIxVDnXgEEDMBJmj4LWV4i1uA+AQQMACHzVcROc48AAgaAkPkqYnXuD0DAABAyX0WMTgYQMACEzFsRIzMREDAAhMw/ETPp9QAIGIB/QraOE2M+DOyyg4AB5Maa65U9ZrhG4JELk/BGg5YAyBWnS1ThxMAXAdtU1EIEKFLInIyAIGLgg4CJeK3QEgCFsueikBFOBNcFbEGxnQqAC0hS1Y5rO0QjYuCygM0hYABOUVeD7GBEDCBGwPqjPsUaQwDXmHNpDRkiBq6yo5hPBXAVWUPmxDw1IgYuujDJRGzQEgBOI3uRFf6cImLgmoA1FZmIAL4giR51RAxAfZrIsUlLAHhDMHeNiEHlBUwehm1FIgeAb8yZKQBEDCqNPATURATwkxWzphMRg0q6sKaipBSA72wXMT+Wh4gdcG0hQsDqinkwgDIQTAmUTsR6XFuIgAXNAOWhkfceZLO0efGYjUObVfven/vG/3zl8v4HTsyDvXx3Rp18cISbEWB6ZA+y9unetVyicHmIGOHEeETE1qr0hQ+vXlfdH/xMqRNunM+X7xzlLgSwh4QVz+TxQZmHE1//ypuEE+Exbvwnt8Y2xx9yTQAsMpdXWDGv7ETcGHzKx//tR30n5grP3ieMCJABa3nsP5aXiOHGoI+Il4iYWy4MEQPIiMyzFXFikCuuhRGFZ3BiAFmReVgxLxG7yrWEW9/+qVNhxICTD7g2ABmynOUiaJwY5MLDW/ecCyMGPHufwjUAGZLpImhEDHLho//yf/pC5iJfPCScCJAxjaxqK+YiYibNvst1rCb3fvChuv2d/+vkubHAGSA3Ns1uFV46MaHDNayuC3MVXBhAbtRVBhve5ilil7mG1UMcmIvJHAGsEQPIFetJHjgxyAyZA3PZhQ2cGEkdADki4USrJfZye4Jf/8qbktzBoucKISn1riZzCFJqCicGkDtN7cYaPjox3FiFuP/zW30Rw4UBwBisubG8n+Jdrl01kDVhLrsw4a/eQ8QACqJhy43hxCATF+ZqSv2jToxQIoDvbixXEXv9K292FQufK+HCXEfmwlgjBlC4G2v65sQEQoq4sMKRnZwBwH83VsST3Oa64cKK5teZDwNwgfq0biz3J9mk2ne5driwoiCUCOAUy745MeEC1w0XVhSEEgGcYm6aTMWinmZCiriwwiCUCOAcE8+NFfI0myxFhKxE+CRghBIBnGPidWNFDkkvct3KgSxqdr06R8BvEEoEcJXzXomYdmPixLpcN/+58733nK/OIYgDI5QI4CzNSSrcF/1E48ZKgC8JHV++g4ABOE7qTMWin+otRWV7712YJHW4jlSsf/nuUS4YgPtuLNXuz4WK2OtfeVMEjAQPj7n9nXe9OE8RMBEyAHAaEbAFn5yYsMF18xNxYOLEfIBQIoA3pAopFv5km3T7FtfNRxfmR1q9LG4mrR7AG2Tx85xPTgw3hohlhoQQX7nNXBhAWd2YEyJm3NgW180ffEno+PKdo7gwAP9IPC/m0kSBuDEyFb0Rsb/0woWJiAGAd9SSVrd3RsRMpiKFgT1AFjb7EEqUMCIZiQDecs43JyZCtq6o4uGBC3M/I1FCiLgwAK9ZSLJmbNbBE1/Sxx7Xz2URKyyUOJ/0B3PYboV7FCAHIVMx2evOiZh2Y5033n6trVIueIN8kFBiUU7s33Q/6LjSDnqEyM0AkD3LcSLm6gpQcWMkeTjpwt6jEQAgL+biigK7GE7sJ3loNyZCtsM1dE3EistK/Eb9VxppXVmKPYq6p3vXulxhAOdoRLmxWVfPWrZqIazoFkWGEg17Q4LWFx59LGpBO0jyOwkET5kIgAjkrha1FlcdoHDORYmY6wXlCCs65cKcCyVKmGHN8nsGBUi3tajtpa2oDQDWicxSdFrEzNqxRa6hG9z9/gcunlaWItPIQCQBYAIh89WJ9bMVFSWpcGLFsTLJbrMAYJWz3oqYEbJVNZingIK494MP+3NirnHi4VR1EbtqUO4sODppR4EAUKwTm/XoS0hY8YrKNnwEIbgYSpSSUl+7cUz9iylE7HTv2nrwF+245M+NkFFg1aIBXXPUzWGL4YGC7fee5PupkGue1WcV+Z19Rmopzunn9cBbETNp91KxYQ8hyx/XQokiYH/n5jHtxHL5uLi9jaSDupjwvU7roznm31uio1O+x7BQXEr4XmdHOnHJCF4dXm5gJtVlJLyZ8tkLdm7f1cdB2BIGs3eUnMP5BG2dpp3OjwhG4Lzb+lx6I+dQN226bKF/+fR7689ph3xnac9zMdcRHndj/oqYEbIDLWQSWtzmeuaHhBEPr1536px+55NZ9ez9qbdY6Sb8ubiR8yOOLgqzbm1cx3VRv0dnyvcIuJTifIbd59K4ZQWmw2/pn22bQWSc0ATFvLdGxWKsIg9G13Jsme+2FuGO0rTT2aFrJ8K8FXEOci+s69/ZMmI9qbjI72/EfW8jbm39eRvm8whZJxtwPYZ3e7ZrIZOHbJXrmR93v/+hYwJ21FZtxKRuRaXZadZTNgIBk++qD0lokU69GaQ3m455XkUvexExOiMimkTAxnTuHX3MW37Gl6IEbFSw9bGk0m/U28+k1r+7muZ7i3jqY5E+LRFjBzazPn4TLWRb2pG9ghXPh3s/cGc+TMTLUnV6GXm3U/x8VIipNlQZpDcubp+AuaF6jAeTCMBw3zh0PkkqkUh4bd0I9eZIZ9FRn4XH+p28/jkRu5UQAZsfd+4mXLdmXNyceU/5+d1xAiP/pn+nox6fPvi0nRI6so1hd2m+Yy3u9017nE7Yx/TM9z4I+d7LQ+5VBk6t0Wtivq8y7Q8RUYjR6zbj65fRQiajpRaXtTpOTATsb9yyMu7qmFFzGqGQhc8Pg2NUgExnK8e+/v9fmjmPNGwOvYf8/pUp3F9z6L2umPOpR4j5kvmsvSEBCzrm+THzOrspBUzO54o5r7mhQYF81qb+//1xi1mNKCyFtZO5FlGd/qdhVeMs5Rz2h37/lyacGsaqShZyXg0RsOB7r5jv2jBCvj/u2hoxb9PjpHNjMz5/G4Qse1yZD5tCwOZHjpdMx3yQ4elKh3x+yvcInIut82mGOI7g+dkZcTwXks49GZZCBEw667g57EBAx52fdOpRocCVKDdlzmHTiF99TLushQmZ+T5xYcX2uHnEmO9dMyI6zt1TpSias6USMYQsew6v3vDagZk5luGjm9Np1xx5jySsjOng0whYK2JQkDQ8NhexHf3GpB27CauuxPzYWphTNQLVi3FrY98zwbVdCBFOdrivihNDyLKn6PVhFkOIEM75ECeY9Oc3QgRkTqVbg7Uc4YgmDbOtTfPZgduKcGFhg6Ik4eSwKhT0ZdEDk7nSiRhClh1SqQMBK3WHUA8RrOVx4S7TgQw7poOIjryR8nTmIgq9XpjwuyU9hyjR2U3z7ym2/wlzf11FhaLI+6SUIoaQZSRi3WLmw2wJ2HAyhjlkMn+b6vSxjqs/TyUJKtJWIghm7mh07qozgdNI3EENdeyTzGE2LLRD1HfMUmgucWsmu69KN8wVIXvj7dcuK1JVp+b+z28VUi9RxMvSOrBxBEkO0lmeSfF70on2pnAZXoxqx/xf3Ma0l2La2paoBqJhS5jGOqhxySxmWcHoP/ciHGg/UzPBR8att4ME92wpYzVmHVlPpS+TA0M8+OCTXD9PSklJJY4MBeyRB0FcRlhZoDGsDndwY9LsfcVGiSUrIjLF79h0gkkFNFRkzBxeJ8N2RcSGmCnrtzSVPWQ01OWaT0aeSR0nHxzp10LMScCy6OQgW0GKc31QIYaTO0o9a25qLUrIaEeVJ/yTG3mtD3v+cEY1Pp7tO7EiR3RRpFwzBXSw09ZCPE1Lxj67B6UXMSNk/coDWszWFbv0puL+z7MPJ75y+2j/cBxCO5PRVe6GB7OkQV+Tn8ufqco31mImIhZXvBRycmISPvy7N4/5IGBKMcmeqDMJEbFJhM8WacOPvRhhSvq9uV+y59MBTaUW4Wgh62hH9pIalINh64OCBOzX7w3S548XnxohyR17CTqmXcQz3ExbdrDdFEJiVRDD0vhDlmPULbdjd+R864rNM6OoVc6JDQlZTx+y9cEiriych7cOrb+niNb8x7P94/hDZx6ExtAR1mkUVZTVh0SGhuXzDxOSxgTv1bH0s42U5zTJ4GPV1PScN1vRXFQQOQCtrIgNiZl0TOLKWtwPj2M7M1GyDv/hjeN9F+YZedZbfGRkniL9v2g3W7cgIkFbhw0sUxdUTln5Isptn0sjbhOk2PfGXOtX6IWiCTIUZ6rcCMaVSZWPJW6JUSdmZ5Gz7L4sc18Zhg+zdNO9DO6NpILo0yaJayGd+UHKzvxiSGc1tlhuQjYSXueowezCBMKapkzWBYvft0rUKi9iQ2LWpRUeZdrq9SJYIly/99Ex9cXDI1mealbzVXJPzE/hwmoR7iDOYS3FuDCbwm1j3q0ZsfdZUjHujNvSxDBx0QKzNGIjQXv3QgS0GfHZ9bDK++b6tRK2/1ZC0YSRKAAiBqE8+HgyJybiJRmHEjrMYOFyZ+hom86nleJ3khzS4cmGmS9NuedYVDHbsBqfwcaSLdOBrkc4nK2UjrIV0T42hGw7ZmPLuBJLixEi0pzkhAJhNfuKLY5xwV1zrdsRDjAuVX4t7Drr912KuU4tNbKRaMLPhKGB4hHaoXjeePu1hgrZFLAo3v/H30otXl++c7R/ZJW0oR92Z+7XhGWnNoKNGSM6ycDBdIddnxGws2aSP+05RX6uxe8XJsLjNsesq8F2J8H2LF1zXAwbiJjEiZ04FxZ2X5jM042RcmFz5v16cYMUKRSdUEBlS5bFmOvcGLrW/YFDSDsl/Uww7c4+FzAVeYiXx8h2Jq2wkGRYAoBxH2vKv+04gsr3S6MCYdog8Tyffg/ZyNJGEe8d/V6f7uSd1F2nFJMF8/Or44RpaD+0tsXPBObEIIwke4jJYmWZ85KwoYQPEbDQh2wnYr7osRG7PqTj3vb4O8t33RcnOcl2N+K+jIPatHgN9owoJr0GOxOISdN878YE37luvjMClg5x9wonBqmQea7fuHs062SNsId93eNOXeZGLo5zAkO19pbVo6Gz+oTf+awDbSVOUuaLWmqwXix0qYLp+KUNzqsU9SxTCtmm/hxp341x52KuwXkjJJNW9q8bwZT3lozDg7Cam0Mbdp5TJHJMJWLMiTmAa3Nid773nrr+7//Xp3+XAr0iXrLGC8dlhWBvslpGnbYP3z0Q+Km3SoqZEwtzRj31WUJLI+PvPPxZVbzmmSHXHicGjyElp0SwntduS14ldAjW3RnfvVhqKr+dLfL8rEohjhYRg4CuGkw8X/oHu3959sTHsys0CQA4DiJWYTpqEOLoz1eYLWuC0Q3hDgDwAkTMDYJUa9vx8u7QcdV8RjdBhRJ2PAYARAySITtQq8FeZ5/yxtuvjU56N2Jc1fD7dWhVAKgAc4iY28IWKlQA0Ocg5v8aNFGpqSFiAOATw8V8I6vPn+5dW71ae/GyenSfuNOKRcWlAhEDAG9IWxNytC6jWViNiJUIyk7BOBo0AQDgxAAALDJJbcIRWD6CiAEAFMYeTQDDEE4EAABEDAAAABEDAABICHNiADANw1urBFjZYgUAEYOy0cnwvevq0UWxcQzvETUp03b207ZHY0LRuqgGG0uGfn+z6WOw0Wd9TNstDv092IwSABGD8qI7zfmsP8OkcDdMxxolagfTno/+LNnuZnPCX2/rz1+c8vPTbHEqgrkRtlPxmGvV1S+ym/WWadPtofZsD7+PhbR5qDDMiUGYy6iqUIrDWNfHS2pQlLnrqLPczfFemBfBTipgIW0q7bmR87kDIgYV5YAmGHS++uWMiqjPN+X7H0whku2c7oOXJhWvMd93XQ3CiB3uLrAF4UTwhqu1F9fHuISW7hx7KX5nnBs6CHsP8+9L+n3kr82h/6qPee921DxRhBil3UU78juPaYOaOfdays9YinlfmdOTsGtDPVoJo2sEcHe0dqH+e5s7GWxyhCaAMZ3TnvKnfmJkZ5ti3kfmbzbCxMEIwb6KnifrGefSG/3diPedM++bhsVRMZBECjMPNe4ztlW6xIn+/nYxbSHvuZDgveSclqLcnBkMrPHkwQRsEE4E36lbeh9xQ6EljUyHvhHzHmE7c6+Yjn/c+45LUY+iN0bA5mJEKk0b9RII2F5CAQs+e0//XpNbFTKgg4hBWEdWReaiOlsTGpu0baI6/TQhtnE/e95iGyzFhCp31GRFdLfJQoQsQMRgHJcr/N3Pxfz/QQbvmyZbbzelQKYa1UbNWRmBn0aItsMcKQAiBmCHuE52UhFbiAgpthM6vG5IKLFu6bvHhUunnbeS81zhFgOL9BAxgEeJC5Vdn+K9oxxTJ8HvZxlK7MYkXyxYEsvz3GJgC5lTRsRg0g61rMQ5rdNTvPe0IcWLKYUxDRdi/v+spc+pG/cIYAVEDGDEkcR1wtM4sYg5objkju7oGjTLocS4gUvDYhsvcJuBrWcVEYNJOvIyE+pIjABN25mP7cBNRmA7pQuzFppLsEjbpns6yyMGtvopKnbAuA6taypUVI2lmM7choOQkGIr5P8uRXxGK0NHE+nCMgj/jVY7QdRgYhAxCEOcQRXSobvqswrt3RgXtmnh8+LWi437jIPRc7McSoxz3rbvAzlvKnTAtFxCxCAKcSSNEnyPsO1SeinrHO7Y6swl02/ceizjgOWcRp1PpqFEOSVud8CJQRmdmPdMW4F9qMySzZDaORU+/7U75rPaKR0dQBXoP9skdkAYVa7a0RcvM29zxbKAxQnQqGB1Mg4lAng90MaJQRjdCglWfUgUGmqQaNDI8CNrESHFA/1/3aHzyTqUCOAlwXQAIgalFrEUW7HkTVRIcXiPsXE/07TdH3C7g6/9E+FECIPdnbMlKqQYVO9oj9mbTH4vi2xBAEQMSmXVpfPs0RKZUTOCNK7tO6btd0McnG3iRMz2gEberzN0MGCCtFwK/lC5cGL3w/1g40I5TpvXg/pzZ1a5L8Z2Ng2aITOiQootlV9WYj1q92n5d/3/NtcNrg5njRox3+F2gEmcWOlFTIvWnPpssp6sLkTMJaTzXgoRjscGVRmFEgMaKrrsVceigHZH/k5BYEDERpzWghnlNlQ1qk5kxWWaIFMkpNhIsZbtXIbncjZGxC5ZErHumMoor3ArQBqGn5lSiNiIcLEI1K4Tg2w5p5JvfZPlvd3UR1RIvaXslN0aJ5Q4MZi4X/I6sUOLV0Mf2/qPv9THtq8CZr7Hvj5WjCC7MtpBxLIn0T2bcSgxcIULEfdCT4UXLk7DhZHvRYgfqiVi0snro6kPqaSwp+yvmSmKOTPSvSLCrA9XHuwOz0ymJN0k8lwO57Ic8/8barqM1a0xoUQWbkNaLnspYka81tWgDNB2iUdvNSPMImY74tJcGvVAJiTpyPOIMjRi3JgI0OoU99HGiAurlWgQCjixROK1pqqVqCEdyp7+/nsFihnJHflc51AShhJ7E/7fKNsRu0+LkLVGxShhpzM/JoV/RZF4BSkZTYRyWsRkjqii4vXYCNmIWRFhxo7jbbMb8/8bOZ7LQUimoXT83YjfiwspxoUS5b2jMgsvpBAyec52YjoRGVTOq/jSZD3T/vNjKo/MKfYUAwv90RFHxUs67TxDhp36c2fmC/6+ewl/vGc6pS19zrlU1NAdzhXlRvh29Bp1ozayHDr/+pjz35vyXMRdrEaNEMecx6ibljnQQLy2xq0NM7/3y6FBnAjixTSfa96jph7PAoxqg5Z+36UE7ztnnORp08Y94977VTnGLaA257KvSOiA9GyYQdSnOJVibzLzvM0yzImaGcGe1+21pIUsD6ckn9F0LYyQ4ve6o65Bd6TTnk4v7fmM/rypghGwoMbMN40JJV6dpB2MmHRStEHTiM1SWCUP874HKsW8qRlQ7CBgMMXg8RGcCSfqDlke1isIWGKkE5AQ42YOafmXaO7sr2dISLHI7D15FvfHOMhJHf2CcWCsC4NpBtRuiZhJ3NhRFrd/rxgyb7ifceJHh2bOTTSGO/2aA4O6/mBJn8vepGImvye/zzMO07qwcVGBQufETF1DF0ILPs2JRbGhv8d6Fufo0LwYFDzuNIMacefdcaFNI3ZyrwSbi3LfgA0emw8TCpsTM5mHm1wXq6zpdpWOYzGDpA/prJo0ceWpm/ugaQSLFoHczMa4fywknGhKRSFg2SAj333jcm2yS9MCQEGEJlLlKmJm/mufEX0uo2XbC6Q7NCsAuOTCchUxs0hX5n3ITMqHmhEyKwOGcSnaAAA5sVuoiJnQFqm1xbBtS8gUIUUAqJoTMwK2p0itLVrI1i28T5umBICcOYiqzJOpiCFgTiGZi1Ml05gbiar2AJAnF6P+MzMRQ8CcZMVCaPEizQgAOdLOXcSGkjgQMPeYdo6MkCIA5MVBXJFv6yJm6vhRXsZ9IZuonBEhRQDIkdjITxZOjDR6f4RsLqsbCwDAArGRH6siZipxIGB+0HfME1bAJ6QIAFnTSbJfoDURM/MsTdrdK+oqZhffcZgbq0PzAUCGJIr4WBExE5baps29pDFh6j0hRQDIkkQRn6lFbCiRA/xlZYI6i3KD9Wg6AMiAVtSO4radmIzi67S596SaHzM3GHNjAJAFiSM9U4mYSdNu0t6lQAQsbUj4As0GAJbphm27YlXEzKidebBysZBm/Zi+0WS9GGvGAMAmqQbH0zixNcWC5jKynTLtHjcGALaQaYpW5iJmkgBWaO9SUjMDlKRurKVI8AAAO7STJnRM68Q2aetSs5KymgduDABssJH2F2YncGFNRVWOKiADlfmEP9tK496geD6eOaIOlT6OyJ8/G8t+fGTwb2l4+sHDT/98Qv/5iYcPzb8/oKEhDYkqdEwtYnRWlUEWQTfqz53pxP2g3HhXay+KkDVpNreE6rYWJRGpQJyuz9gvl3p9Jk7kHqjPa3H70r1DLgpYdWGpRczsDlynrSuDZJ++lOIGRMQKFCwRKHm9eWTw6goD4cSVQbS8pEmrHybxsMxkrC3T1pWinnTvMeop5i8M7x6bVf/7iWPqrSefUPtPHFc/1X//2dGjTgkYQJYuLK0Tk86MlPrqIQOXVoobsUGT2efOkSPqw6MzffGSV4CSubDWpL+c5mnAhVWTuaR1FU04ADdmCXFU4q7EZX33xMBpIWCAC5vAiZmQUp22rixrKcQJNzal4/rZ7FH1vhYrScoAwIXZcWLnaetKI5mKiQYxuLH0SNbg+0ePfuq43tUihoABLsySiJlFr4ysYTnPG7MKSLjwJ8dn1feeeEL9WL+SkAG4sGycGHNhIDST/iBuLBpxXZJVKM5LsgkP0S7AhWUqYgu0NWhqaSrca1ZpssfF63snjvddVxaLjgE84sCGC4sVMdNpkVYPAYnnRs02La2qN5i4LFnP9T9ODEKGzHUVQxC6vUP7u4K1QW7ccPAcbQ3DrjzlNi0SLqhshXsRL5nvkkQNQoYFDybUkX7oVhJnELPC6UxanWMSESOUCBPfE6aKR+Uq3AdhQ8TLTQIxk0EG18dvFxYpYoQSIYSzKX9+qypuTOa5gjkvwoYeOGU9yBCnfE2/Qm5smamG7EVsgs4KcGLj3FhPlTzJQ0JTPzh+rJ9xiHj5hTgxqYQigw+SbTJH+gLry29mbHVWUBlqKTfMDHZ/7pRyNK87QAlNUQ7Kb2TwIYMQGYwwX5YZG2l3bZ5YxEx1hjptDhYHOKVyY0Ho8F1CUaVCBiOyfo8Qo3UkpX4rizcOGz6yczNE8UraXzBx8C3fv3gQfiJ0WF6GrzFVVKyxlNUbh4kY82EQRWPScIIYfZ/d1wGj9Mog1xtXZgXryRw4MZiWWtKCwCNurJfliCxLcF/VJbj2zJVNRFdlXEt1xvJIG6rDRAMds8ix7cuXlHASo3EIXBkJPKlZyiKZI1LE0maeASI2yY2tPFg71i/Ue/w48yLQR+bKJHtRnBkkYstmZY40TowFzpCEiedNfQgrSmkiWbRMRQcYRVy5uDLCi5F0VU5bMo0TsQbtDwmYarCjhUxCii0XR9vBFikAYQRhZhZIh5J5GDFKxJ6m/SEBNsLOq8qhbEXpmKQMEeFDSDrgkYQP5ksfI5cwYpSIMScGyeIF6Sraj3NjzoQVZf5LRtaEDyEtMkcm4WfoI6n0ue7sjheGQt2YGbFtFPklpHTUj+mEYAp+ZnbrrvggqD8ozSuMGCViDW5JyBN906+rgmorygia0lFgA5kfk2zWCgvZRpaLmnFikAU2M1kXVY5p90G6NAkcYBOZT5WqLhWcV21nVRsREYMssTZ/akIQi3kJmIyYWbgKWdCviF+t9YXivgqb2+YpBmfIY34sEDAyEIH7zAqFzIOFihjVOsABIVtXGZWlQsAAIbPOahHzYFFOjGod4AISmrD6YCBggJBZZ8tseFsohBPBRTcWrB+zEqJAwAAhs05HP6dObHSLiIGrQmZlshgBA4TMOvJsLrpyMqMi1uN2A4eErD2tkP3kGLvzgltC5vk6ssITOSJFrP7cmQNuNXBMyFpqwkLBspCZNHpAyKwyX3QiR5wTA3BRyJbSCpmUkmIhM7iIRAZEyDxkyTUBQ8RgWvK8oVeTfp4U86WUFLguZJ4VDV5yIRMREQPb5BYXNzH4+Tghk86BYr7gAxIpeNePXaJbrgpYmIh1uL3ARYaEbKx4BvMNAL4gEQPH521bJpzvLDgxmIbc4+NRQlbxCuLgKQ5n0DovYGEiRoYiJKL+3JlC0mzN5PIjQibzC6TSg4/IwOvHx5zbi6ztg4CFidh1bitw0YWFCZkkcpCJCD4jA7Ar7syPFVqV3oaIdbilIAGFL3YUIbvx+h+tdp99hqsB3iMDsfeLH4z1B4cuLWaeRMSo2gFJuOTCSVz/p3+0/Nx/+M9q5uRTXBHwnp8eKzQs7p2AjRUxqnZAihu+UN5658amfpk7/pu/pb6IkEEJCObHCqDlo4CFOTGhw+0EMXQLFrCGflkJ/o6QQVkQJ5bz+rF+FqKPAhYlYrgxiKJXpGPXAib73m2P/rsI2Qutb/ZfAXxG1o9dn8llBVTLlyzEtCJ2idsIIih6kLOmj/q4/5h9/sW+I0PIwHdk2UjGafdbvgsYTgwmpbBBzmgYcexNffKpvpCdOPPXuVLgLbePHFHXZjMLKy65sqllJiJWf+5MFyGDCNoFfvZ2ohvbCNnJv/81rhZ4i4QVLWcrBvuBtcrSRlFB1w63EIx7CIqaD9MubF2FhBHDeO5ffUPVXvtDrhp4y0/tJXn0S7aVScDiRIx5MXDGhWkBE/Fam+R3n37tn6nn/vU3yFwEL5EEDwuLoGXgecbF/cAyEzE92m4rBxY+33/wUN29H37I/0OuFDW42Z7ml09+9Wuk4IPXbmyKJI+2cWDdMrbNbIIv38zjRA61GN3TovTZ6wOVRp+OzhxRR48cUceOHlGz+s/H9etRCsKWwomZZI7GtO8jGYu/+l+/rX72z/+JuvuTH3ElwRtEwN6dnVVfuneY9lc3tHitl7lt4hYi7Gb1wQ+1QH1y74G6fvtQvX/zrvrg43v9P3989752WOkE7DPH9qD/+/I+P9fv93PznncOH/AUWBKwgirXb1u74bUTe2H7myR8gHdcmz2q7hxJPDCX53Sx7AIWK2JZhBRFUERYfqaFS15FyLKKCIqwyfv/8pOBUMrnSQgSJmY37w/ULkwiAXXb7ysJH8yTgW+8eyzR3Fgw/9WuQpskWRI+dUOI67qlHZI4IxEUEZa8eWCc3y9uDRxaEefgOZKV2MpZwKQyx1pW7x/Mk7EwGnxBKt3HVPKQZ7S081+TitiFacTrZl+87qobd+47k4Qh5xGEHBGzxLQK+MyVLFzYMEHNRcKL4LkbC8KH3tZAzEzEzJqgTto3FnH4QLuem1q8XE0gDMTs/Zv3eDIyHMxM4cKWc3kITj7VDy9+4d9uEV4E5xEnNuLGKhU+nMSJCReTvqFkF/7i1mFfHHxJf3/wkHmyGDqmikveLqyW5wd+7nfn+wWEKVcFHrkxyT48U6Xw4UQiZuZCYhtJQoeSZShZglAqNsrqwkYJCgg/88f/ElcGzvLJb31ZffjvtpaqkH1oy4kJoeEkMTLiviR0CKWjqwcxnZw/cyFvFzbKqa//Pq4MnETKqMkykVt/+++dozXSiZi4sccmDCV8KIkbuC9cmEXWXPjiuDJwif5+eVq8pIxaMNgz5dgQsSSYRa6PuLEgZZ3KT6V2Ya08PzCrdWE2XJnMmQHk3knrAVTgvsYsB1mrfPuk+WHdoa0rMzcWVNtAwEpNEfsNnXexIcSVSfaiHLMvvMidAbkg4WwZQA25r1GaZg4ZEUvBRiBgUGo6pmJLni5sTlmokZgl/QxGPSJmexfIdND0wmDQJOFsGUDFsIKIJeS9G3drJ4799vIn945xl5WfIubClr14aE4+1R8ZSzFhQoxg+96SAdKv/mmqe+t8pdssjYDplz19zD37+V/jbis3rbwzEk1IZMGr0fLzn42WKV0F0yJVY2RgFBE6DKOun5+FqrZbGie2KQImfzgxe1KdOvEF7rpyIgk8RcyFFZ5WPyn9eYvtb/YLCjNfBpPcPyJeUjVmiizYyrqxRCKmXZjEXJvD/1Z78gU1c+Qod2D5WCpou5Vl3xtOCgpLGIjq+JBUvMTFJ5z3ih0EVjXBI1bEtIDNGRf26C9qAfuVz5/mTiwX7byTOQSz1mWuLI3YFzM9spa5DcQMosTL8mL6JiL2uICJsu+E/f/njj+tTj7xLHdlORD3tVTQZy+X7sEaSv6QxdKEGSFD8QqoZEhxNub/ZSFdPeoHnv3cr6nb926qwwd3uUv9pqgwolDaSWkRM1ksLcfNb39LXX/zP6rDv7zG3VYhJGHj8189l0cJszmJarz68qkuIjZwYQ2VYP2BhBX/ylNfUteu/5C71V+2iggjCmZtWL0SndlXv9Y/bv35nvrom3+ibu9/jzuvxIOXz/3Nee3G/9DGfFfaAeEWIjZgM+mbHD/6ZH9+7IOPr3L3+seBFrDVAj+/ciEQWf8jx92f/Eh99Kd/om59Z089uPkRd2IZOtQXXlRP/aM/6LuvguZDzyNiAxfWVCkn2mVu7PbhR+rmnV9wJ/uDhA+LXq1b2fUtsrZM0qqf+WP93Pz3b/UFjVCjvwOTp77+By7selC5kGKYE5uoqKS4sbuHn6i79z/hrvZEwAqcBwuyEutVvxDD82YSYvz427u4M1zXtAPDyrix2RAXNnHH8vyp39Tv8ROEzH1WtYAd4MLcQkbycog7k7mzT77zZ/1XcGfAESRqOFyl5WylRUxNWdq/v37s5Om+kD14yCaZjrKU9xYrEQ8bhHWWJhFEHJmEG8WhyTwa5H8tJEnjyd/9W77UyqzU4HB2xIU1lIXwjiR6BI4MIXOODUcEDCeWohMNwo0iaDi0HDrGF17sC9YTZ37HyyLPUkvx1ZdPtStxrUb+bm3RKULmJC2zJ5wLD1mDyzG9Q5M5tE/+/M/6rySFTIeEccVtyWsJCjpLlKNaImaqc1gdGSNkzgnYkkPng4hZELQgXV+QUKOI2Z397/ZfSQyJ6Z+0UIlgiduS15KVCKvM8zXsxDIJ7SBkTrDhigMbGSmC5U657yC+/vuPiNq9v/ghTs04LWmfkorWKJJqX3v15VO9sl/XYRE7l9nDZYTs/Y9+Snmq/FlyaA4MJ1aEqBmC8OM9LW53f/JDdfcvflRmYevoo6uPy/LnG9/9fu2Lg/0Qq8ScaQecmC0he/Hpv0b6fX709wVzUcCYDyuGIPyohhIVRNju9kXtR+phX+S+qw7fu+aTuAViJeWCZMlI93Tv2mNLR96q5qCpURkRe+/G3VyyxCT9XhzZL279Pyp7ZIs81IsOrAOLGiGCI8IWrE0Tnlaf7SociJm83jeiJiI3LH45CFQwILs8/G9aqDpcvVgqEbKfzbtTCfYhO370c30xg0we/MUiK3Ek4BUukwedw/MvPla8dljkholzb0dvfnSgVv4wrkbngRanHi3PYHESEctdsU+d+II6Pvtkf56MhA9ruJjAgROrqOCN0MM95U6tCnUUZ4rsVE7MnlS/Vvvt/uaaMBVBHcR1T84XEQPgWbMjYu/duFsXxS7sBGQ/spNf6m+uKX+G1MiCxpe0gHkxyiWpAwARsxoFUI5UEZfwojgymSe7dfc6t148EiJYLWozyymoc+kAcqP0888zLnUqszPH+65MDvkzhLKhjzMeChgiBpAvtbJ/QWec2DDiyOToffKeunH7fRI/PqOjBouXux5/Byp1AORHowpOzN0hxJPP9xM/ak++UPX5MhEvSdyY91zAACBnpPxU2Z2Y2yqrxUvETObMbtz+edWcmYjXhi9JG4wMAZyk1OWnRMS8CO+MitnNOx+WuQ5jSx8XHK64AQD+gBNzUczkkCzGm3c/LEs2Y1eESw22TCll1QLS6wEKc2Kl3Vts1ueTDxJAxJH1BU27Mx+LC5tw4Us8awAA6UXskvJ8nkLS8SXMKEcgaLcPP2K9mYN6TRMA5E6pM4JnS/eFAkFTX+j//fbhTXX73s2+qN09/IR0fUQMABAxf5D6jHIo9Xz/7+LU5BBhO3xwp//n+w8OuRMAADwVsW6lvrB2anIMhA1yhkrPAPlT6vqJM1UTMeBhAqgYpU6xR8QAAMBfEXv+1HFEDAAAvHViQoemAAAAX0WM8kYAAOCtiF2iKQAAwFcR69AUAADgpYg9f+p4DyEDAABfnZiwS3MAAICvItaiOQAAwEsRMyHFNk0CAAA+OjHhIk0CAABeiph2Y+LEujQLAAD46MSEDZoFMoIBEgBkK2LajbXobCAjrtIEALlT6opMMyH/jhsDACgHvcqJGG4MeJgAwGcnJizRPGAZCk0D8NzlI2LajXUUC6ABAHznelWdmLCqCCsCI0IAn6nenNiQG5MvT1gRrPDqy6eYEwNg8JirEwvCimQrAg8UAE7MPxEzQrauqKsIPFAA3vHqy6eq7cSGWGIUDTgxAK/olv0LJhYxMz82TycEU0LVDgBErBAnNpzoQUgIcGIA7nMJEXtcyA5wZICIAeDEvBQxhAymwaTZd2kJAAaNhYmYEbJgjoysReDBAnBz0IiIxQmZPhYV68ggHZdpAoDM6VThS87YeBOzjkxcWZf7Bni4AJygEhGPGVtvZCp7nFEUDQYeLgAXqETEY8bmm5nw4pIi6QMiMMkd3B8A2dJBxKZwZfoQVyaC1nW8DeT8LnC/84ABlIiuHix2q/BFZ7J8c9khWh8vOSpm4gSW5Pz0QYZl/lyiCQAYJDotYmPETDIZixaMlj7mxSnKeXGv85ABMEhExJKKWduk5D9j3FlegtY2n/eMzNmZJBQoEObFABgk2mC2iA81C6Vb5lDv3bi7oF/m9HHWvNamePugc5SRSAfBcppdc70BwB4HVZkPK0zExjm0YVemRa1mOre6OQKeNv8+apUPAvEyAgl+INd8jWYAwIV5LWIhTg0HVXKkJM5b79zoTem8AeBRLlbpy85wvcEBNwYAduhVoV4iIgYusUsTADAoRMTAS/SoUR465jEBGBQiYsDoEaDC9MygEBEDyJmLNAHA1LSq+KURMSgcPXrsKLbxAWAwiIgBDyBAJTmoWlYiIgau0aIJABgEpmWWaw8uIGVy3nrnhtS3rNMapaRLEzAIRMSg7EKGGwOYQMBMQe1KQjgRAMBvKr2pLyIGAOAvnaomdCBiAAD+U/msXkQMAMBPuswjI2IAAL6yQRMgYgAAuDBEDAAAcGGIGAAA4MIQMQAAXBgiBgAAuDBEDAAApmaVJkDEAAB8pFPFnZsRMQCAcsBcGCIGAOAlLbMDOiBiAABeIdusMBeGiAEAeMlGlfcLQ8QAAPxFkjm2aAZEDADAR5ZoAkQMAMBHJIzYpRkQMQAA3zjQArZOMyBiAAC+IUkcizQDIgYA4COEERExAAAvaZONiIgBAPiIuC+yERExAAAvWWRRMyIGAOAjS1rADmgGRAwAwDdabHSJiAEA+IisB2MeDBEDAPCOrj7maQZEDADAN/oLmknkmJ5ZmgDKylvv3FjQL3O0BGhOO3Y+8yRyIGIAcUgnsa2PGk0BDkEmokUIJ0JpMaV7ZM6BkA24JGAtmgERA0gqZAcIGTjCKgJmnyM0AVSBt965IXNje4rQIhRDi1R6RAwAIQMEDBAxQMgQMkDAygFzYlApmCODHFlFwHBiADgy8BGyEHFiALk4MtbrAAKGEwPw1pHVjCOjsgdMS1BKqkNT4MQA8nJkPePI2rQGTEFXDUpJIWA4MYDCXNmmflmhJSAlB0bASBZCxAAKF7KmfhExI+EDkkAKPSIG4JyQyfzYjj7qtAZEQAIHIgbgrJCJE5MK+Au0BozQVYMEDjJbETEA58VM5sg2aQkwtI0DY/4LEQPwRsgIL4KI1oYWry2awi1IsQeIwYSNzuiDDqyaBNmHXH+cGID3rqyhBnNluLJqIO5rnWbAiQGUxZV1cGWVoH+dETCcGEDZXZkkfVCyqjww94WIAVROzGS0vqxYIO07LTXYPoXMQ0QMoHJCVjOurElreEfHuK8OTYGIAVRdzOaMmDVoDefpGvFq0RSIGAA8KmYiYmuImZMw74WIAQBi5qV4XdDHFvNeiBgAIGa+0BXnpY824oWIAcD0YnZekQCSB1Jp4wJzXogYANgXs7oRMlLz7SOidZFsQ0QMAPIRtKZxZw1aY2K6ajDf1SJkiIgBQLHuTAStTovEImIlW6NcYG8vRAwA3BK0OSNmCwjaWOHa1cLVpjkAEQPwQ9AaRtSqWKexa4TrEsIFiBiA34JWM4J2zryW0aWJ2+qIaKlBWnyXKw+IGEA5Ra1u3NlZ89rw8GscmENE64D5LUDEAKotbHNG0OpG3OqOOLbekGBdNYLV4YoBIgYAScWtZgROXk8Pidu0QhcIVPDny+bPfZFCrAARA4C8RS8QvFG6zFOBK/x/AQYA04UJHCfDrPMAAAAASUVORK5CYII="
-
-/***/ },
-/* 543 */
-/***/ function(module, exports) {
-
-	module.exports = "data:image/png;base64,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"
-
-/***/ },
-/* 544 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/localdisk/vruelasr/dev/comptox-impact/app/assets/javascripts/client/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/localdisk/vruelasr/dev/comptox-impact/app/assets/javascripts/client/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-	
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	__webpack_require__(545);
+	__webpack_require__(555);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -61329,13 +62348,13 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/localdisk/vruelasr/dev/comptox-impact/app/assets/javascripts/client/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "NotFound.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 545 */
+/* 555 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(546);
+	var content = __webpack_require__(556);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(479)(content, {});
@@ -61355,7 +62374,7 @@
 	}
 
 /***/ },
-/* 546 */
+/* 556 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(478)();
@@ -61369,7 +62388,7 @@
 
 
 /***/ },
-/* 547 */
+/* 557 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -61377,15 +62396,15 @@
 	exports.__esModule = true;
 	exports.connect = exports.connectAdvanced = exports.Provider = undefined;
 	
-	var _Provider = __webpack_require__(548);
+	var _Provider = __webpack_require__(558);
 	
 	var _Provider2 = _interopRequireDefault(_Provider);
 	
-	var _connectAdvanced = __webpack_require__(551);
+	var _connectAdvanced = __webpack_require__(561);
 	
 	var _connectAdvanced2 = _interopRequireDefault(_connectAdvanced);
 	
-	var _connect = __webpack_require__(553);
+	var _connect = __webpack_require__(563);
 	
 	var _connect2 = _interopRequireDefault(_connect);
 	
@@ -61396,7 +62415,7 @@
 	exports.connect = _connect2.default;
 
 /***/ },
-/* 548 */
+/* 558 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -61406,9 +62425,9 @@
 	
 	var _react = __webpack_require__(1);
 	
-	var _PropTypes = __webpack_require__(549);
+	var _PropTypes = __webpack_require__(559);
 	
-	var _warning = __webpack_require__(550);
+	var _warning = __webpack_require__(560);
 	
 	var _warning2 = _interopRequireDefault(_warning);
 	
@@ -61479,7 +62498,7 @@
 	Provider.displayName = 'Provider';
 
 /***/ },
-/* 549 */
+/* 559 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -61503,7 +62522,7 @@
 	});
 
 /***/ },
-/* 550 */
+/* 560 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -61533,7 +62552,7 @@
 	}
 
 /***/ },
-/* 551 */
+/* 561 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -61554,11 +62573,11 @@
 	
 	var _react = __webpack_require__(1);
 	
-	var _Subscription = __webpack_require__(552);
+	var _Subscription = __webpack_require__(562);
 	
 	var _Subscription2 = _interopRequireDefault(_Subscription);
 	
-	var _PropTypes = __webpack_require__(549);
+	var _PropTypes = __webpack_require__(559);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -61827,7 +62846,7 @@
 	}
 
 /***/ },
-/* 552 */
+/* 562 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -61925,7 +62944,7 @@
 	exports.default = Subscription;
 
 /***/ },
-/* 553 */
+/* 563 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -61936,27 +62955,27 @@
 	
 	exports.createConnect = createConnect;
 	
-	var _connectAdvanced = __webpack_require__(551);
+	var _connectAdvanced = __webpack_require__(561);
 	
 	var _connectAdvanced2 = _interopRequireDefault(_connectAdvanced);
 	
-	var _shallowEqual = __webpack_require__(554);
+	var _shallowEqual = __webpack_require__(564);
 	
 	var _shallowEqual2 = _interopRequireDefault(_shallowEqual);
 	
-	var _mapDispatchToProps = __webpack_require__(555);
+	var _mapDispatchToProps = __webpack_require__(565);
 	
 	var _mapDispatchToProps2 = _interopRequireDefault(_mapDispatchToProps);
 	
-	var _mapStateToProps = __webpack_require__(579);
+	var _mapStateToProps = __webpack_require__(589);
 	
 	var _mapStateToProps2 = _interopRequireDefault(_mapStateToProps);
 	
-	var _mergeProps = __webpack_require__(580);
+	var _mergeProps = __webpack_require__(590);
 	
 	var _mergeProps2 = _interopRequireDefault(_mergeProps);
 	
-	var _selectorFactory = __webpack_require__(581);
+	var _selectorFactory = __webpack_require__(591);
 	
 	var _selectorFactory2 = _interopRequireDefault(_selectorFactory);
 	
@@ -62058,7 +63077,7 @@
 	exports.default = createConnect();
 
 /***/ },
-/* 554 */
+/* 564 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -62097,7 +63116,7 @@
 	}
 
 /***/ },
-/* 555 */
+/* 565 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -62107,9 +63126,9 @@
 	exports.whenMapDispatchToPropsIsMissing = whenMapDispatchToPropsIsMissing;
 	exports.whenMapDispatchToPropsIsObject = whenMapDispatchToPropsIsObject;
 	
-	var _redux = __webpack_require__(556);
+	var _redux = __webpack_require__(566);
 	
-	var _wrapMapToProps = __webpack_require__(577);
+	var _wrapMapToProps = __webpack_require__(587);
 	
 	function whenMapDispatchToPropsIsFunction(mapDispatchToProps) {
 	  return typeof mapDispatchToProps === 'function' ? (0, _wrapMapToProps.wrapMapToPropsFunc)(mapDispatchToProps, 'mapDispatchToProps') : undefined;
@@ -62130,7 +63149,7 @@
 	exports.default = [whenMapDispatchToPropsIsFunction, whenMapDispatchToPropsIsMissing, whenMapDispatchToPropsIsObject];
 
 /***/ },
-/* 556 */
+/* 566 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -62138,27 +63157,27 @@
 	exports.__esModule = true;
 	exports.compose = exports.applyMiddleware = exports.bindActionCreators = exports.combineReducers = exports.createStore = undefined;
 	
-	var _createStore = __webpack_require__(557);
+	var _createStore = __webpack_require__(567);
 	
 	var _createStore2 = _interopRequireDefault(_createStore);
 	
-	var _combineReducers = __webpack_require__(572);
+	var _combineReducers = __webpack_require__(582);
 	
 	var _combineReducers2 = _interopRequireDefault(_combineReducers);
 	
-	var _bindActionCreators = __webpack_require__(574);
+	var _bindActionCreators = __webpack_require__(584);
 	
 	var _bindActionCreators2 = _interopRequireDefault(_bindActionCreators);
 	
-	var _applyMiddleware = __webpack_require__(575);
+	var _applyMiddleware = __webpack_require__(585);
 	
 	var _applyMiddleware2 = _interopRequireDefault(_applyMiddleware);
 	
-	var _compose = __webpack_require__(576);
+	var _compose = __webpack_require__(586);
 	
 	var _compose2 = _interopRequireDefault(_compose);
 	
-	var _warning = __webpack_require__(573);
+	var _warning = __webpack_require__(583);
 	
 	var _warning2 = _interopRequireDefault(_warning);
 	
@@ -62181,7 +63200,7 @@
 	exports.compose = _compose2['default'];
 
 /***/ },
-/* 557 */
+/* 567 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -62190,11 +63209,11 @@
 	exports.ActionTypes = undefined;
 	exports['default'] = createStore;
 	
-	var _isPlainObject = __webpack_require__(558);
+	var _isPlainObject = __webpack_require__(568);
 	
 	var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
 	
-	var _symbolObservable = __webpack_require__(568);
+	var _symbolObservable = __webpack_require__(578);
 	
 	var _symbolObservable2 = _interopRequireDefault(_symbolObservable);
 	
@@ -62447,12 +63466,12 @@
 	}
 
 /***/ },
-/* 558 */
+/* 568 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseGetTag = __webpack_require__(559),
-	    getPrototype = __webpack_require__(565),
-	    isObjectLike = __webpack_require__(567);
+	var baseGetTag = __webpack_require__(569),
+	    getPrototype = __webpack_require__(575),
+	    isObjectLike = __webpack_require__(577);
 	
 	/** `Object#toString` result references. */
 	var objectTag = '[object Object]';
@@ -62515,12 +63534,12 @@
 
 
 /***/ },
-/* 559 */
+/* 569 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Symbol = __webpack_require__(560),
-	    getRawTag = __webpack_require__(563),
-	    objectToString = __webpack_require__(564);
+	var Symbol = __webpack_require__(570),
+	    getRawTag = __webpack_require__(573),
+	    objectToString = __webpack_require__(574);
 	
 	/** `Object#toString` result references. */
 	var nullTag = '[object Null]',
@@ -62549,10 +63568,10 @@
 
 
 /***/ },
-/* 560 */
+/* 570 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var root = __webpack_require__(561);
+	var root = __webpack_require__(571);
 	
 	/** Built-in value references. */
 	var Symbol = root.Symbol;
@@ -62561,10 +63580,10 @@
 
 
 /***/ },
-/* 561 */
+/* 571 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var freeGlobal = __webpack_require__(562);
+	var freeGlobal = __webpack_require__(572);
 	
 	/** Detect free variable `self`. */
 	var freeSelf = typeof self == 'object' && self && self.Object === Object && self;
@@ -62576,7 +63595,7 @@
 
 
 /***/ },
-/* 562 */
+/* 572 */
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/** Detect free variable `global` from Node.js. */
@@ -62587,10 +63606,10 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 563 */
+/* 573 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Symbol = __webpack_require__(560);
+	var Symbol = __webpack_require__(570);
 	
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
@@ -62639,7 +63658,7 @@
 
 
 /***/ },
-/* 564 */
+/* 574 */
 /***/ function(module, exports) {
 
 	/** Used for built-in method references. */
@@ -62667,10 +63686,10 @@
 
 
 /***/ },
-/* 565 */
+/* 575 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var overArg = __webpack_require__(566);
+	var overArg = __webpack_require__(576);
 	
 	/** Built-in value references. */
 	var getPrototype = overArg(Object.getPrototypeOf, Object);
@@ -62679,7 +63698,7 @@
 
 
 /***/ },
-/* 566 */
+/* 576 */
 /***/ function(module, exports) {
 
 	/**
@@ -62700,7 +63719,7 @@
 
 
 /***/ },
-/* 567 */
+/* 577 */
 /***/ function(module, exports) {
 
 	/**
@@ -62735,14 +63754,14 @@
 
 
 /***/ },
-/* 568 */
+/* 578 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(569);
+	module.exports = __webpack_require__(579);
 
 
 /***/ },
-/* 569 */
+/* 579 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global, module) {'use strict';
@@ -62751,7 +63770,7 @@
 	  value: true
 	});
 	
-	var _ponyfill = __webpack_require__(571);
+	var _ponyfill = __webpack_require__(581);
 	
 	var _ponyfill2 = _interopRequireDefault(_ponyfill);
 	
@@ -62774,10 +63793,10 @@
 	
 	var result = (0, _ponyfill2['default'])(root);
 	exports['default'] = result;
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(570)(module)))
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(580)(module)))
 
 /***/ },
-/* 570 */
+/* 580 */
 /***/ function(module, exports) {
 
 	module.exports = function(module) {
@@ -62793,7 +63812,7 @@
 
 
 /***/ },
-/* 571 */
+/* 581 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -62821,7 +63840,7 @@
 	};
 
 /***/ },
-/* 572 */
+/* 582 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -62829,13 +63848,13 @@
 	exports.__esModule = true;
 	exports['default'] = combineReducers;
 	
-	var _createStore = __webpack_require__(557);
+	var _createStore = __webpack_require__(567);
 	
-	var _isPlainObject = __webpack_require__(558);
+	var _isPlainObject = __webpack_require__(568);
 	
 	var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
 	
-	var _warning = __webpack_require__(573);
+	var _warning = __webpack_require__(583);
 	
 	var _warning2 = _interopRequireDefault(_warning);
 	
@@ -62968,7 +63987,7 @@
 	}
 
 /***/ },
-/* 573 */
+/* 583 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -62998,7 +64017,7 @@
 	}
 
 /***/ },
-/* 574 */
+/* 584 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -63054,7 +64073,7 @@
 	}
 
 /***/ },
-/* 575 */
+/* 585 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63065,7 +64084,7 @@
 	
 	exports['default'] = applyMiddleware;
 	
-	var _compose = __webpack_require__(576);
+	var _compose = __webpack_require__(586);
 	
 	var _compose2 = _interopRequireDefault(_compose);
 	
@@ -63117,7 +64136,7 @@
 	}
 
 /***/ },
-/* 576 */
+/* 586 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -63160,7 +64179,7 @@
 	}
 
 /***/ },
-/* 577 */
+/* 587 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63170,7 +64189,7 @@
 	exports.getDependsOnOwnProps = getDependsOnOwnProps;
 	exports.wrapMapToPropsFunc = wrapMapToPropsFunc;
 	
-	var _verifyPlainObject = __webpack_require__(578);
+	var _verifyPlainObject = __webpack_require__(588);
 	
 	var _verifyPlainObject2 = _interopRequireDefault(_verifyPlainObject);
 	
@@ -63243,7 +64262,7 @@
 	}
 
 /***/ },
-/* 578 */
+/* 588 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63251,11 +64270,11 @@
 	exports.__esModule = true;
 	exports.default = verifyPlainObject;
 	
-	var _isPlainObject = __webpack_require__(558);
+	var _isPlainObject = __webpack_require__(568);
 	
 	var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
 	
-	var _warning = __webpack_require__(550);
+	var _warning = __webpack_require__(560);
 	
 	var _warning2 = _interopRequireDefault(_warning);
 	
@@ -63268,7 +64287,7 @@
 	}
 
 /***/ },
-/* 579 */
+/* 589 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63277,7 +64296,7 @@
 	exports.whenMapStateToPropsIsFunction = whenMapStateToPropsIsFunction;
 	exports.whenMapStateToPropsIsMissing = whenMapStateToPropsIsMissing;
 	
-	var _wrapMapToProps = __webpack_require__(577);
+	var _wrapMapToProps = __webpack_require__(587);
 	
 	function whenMapStateToPropsIsFunction(mapStateToProps) {
 	  return typeof mapStateToProps === 'function' ? (0, _wrapMapToProps.wrapMapToPropsFunc)(mapStateToProps, 'mapStateToProps') : undefined;
@@ -63292,7 +64311,7 @@
 	exports.default = [whenMapStateToPropsIsFunction, whenMapStateToPropsIsMissing];
 
 /***/ },
-/* 580 */
+/* 590 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63306,7 +64325,7 @@
 	exports.whenMergePropsIsFunction = whenMergePropsIsFunction;
 	exports.whenMergePropsIsOmitted = whenMergePropsIsOmitted;
 	
-	var _verifyPlainObject = __webpack_require__(578);
+	var _verifyPlainObject = __webpack_require__(588);
 	
 	var _verifyPlainObject2 = _interopRequireDefault(_verifyPlainObject);
 	
@@ -63355,7 +64374,7 @@
 	exports.default = [whenMergePropsIsFunction, whenMergePropsIsOmitted];
 
 /***/ },
-/* 581 */
+/* 591 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63365,7 +64384,7 @@
 	exports.pureFinalPropsSelectorFactory = pureFinalPropsSelectorFactory;
 	exports.default = finalPropsSelectorFactory;
 	
-	var _verifySubselectors = __webpack_require__(582);
+	var _verifySubselectors = __webpack_require__(592);
 	
 	var _verifySubselectors2 = _interopRequireDefault(_verifySubselectors);
 	
@@ -63473,7 +64492,7 @@
 	}
 
 /***/ },
-/* 582 */
+/* 592 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63481,7 +64500,7 @@
 	exports.__esModule = true;
 	exports.default = verifySubselectors;
 	
-	var _warning = __webpack_require__(550);
+	var _warning = __webpack_require__(560);
 	
 	var _warning2 = _interopRequireDefault(_warning);
 	
@@ -63504,7 +64523,7 @@
 	}
 
 /***/ },
-/* 583 */
+/* 593 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/localdisk/vruelasr/dev/comptox-impact/app/assets/javascripts/client/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/localdisk/vruelasr/dev/comptox-impact/app/assets/javascripts/client/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -63516,17 +64535,17 @@
 	});
 	exports.default = configureStore;
 	
-	var _redux = __webpack_require__(556);
+	var _redux = __webpack_require__(566);
 	
-	var _reduxThunk = __webpack_require__(584);
+	var _reduxThunk = __webpack_require__(594);
 	
 	var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 	
-	var _reduxLogger = __webpack_require__(585);
+	var _reduxLogger = __webpack_require__(595);
 	
 	var _reduxLogger2 = _interopRequireDefault(_reduxLogger);
 	
-	var _rootReducer = __webpack_require__(591);
+	var _rootReducer = __webpack_require__(601);
 	
 	var _rootReducer2 = _interopRequireDefault(_rootReducer);
 	
@@ -63545,7 +64564,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/localdisk/vruelasr/dev/comptox-impact/app/assets/javascripts/client/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "configureStore.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 584 */
+/* 594 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -63573,7 +64592,7 @@
 	exports['default'] = thunk;
 
 /***/ },
-/* 585 */
+/* 595 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63584,11 +64603,11 @@
 	
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 	
-	var _core = __webpack_require__(586);
+	var _core = __webpack_require__(596);
 	
-	var _helpers = __webpack_require__(587);
+	var _helpers = __webpack_require__(597);
 	
-	var _defaults = __webpack_require__(590);
+	var _defaults = __webpack_require__(600);
 	
 	var _defaults2 = _interopRequireDefault(_defaults);
 	
@@ -63691,7 +64710,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 586 */
+/* 596 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63704,9 +64723,9 @@
 	
 	exports.printBuffer = printBuffer;
 	
-	var _helpers = __webpack_require__(587);
+	var _helpers = __webpack_require__(597);
 	
-	var _diff = __webpack_require__(588);
+	var _diff = __webpack_require__(598);
 	
 	var _diff2 = _interopRequireDefault(_diff);
 	
@@ -63833,7 +64852,7 @@
 	}
 
 /***/ },
-/* 587 */
+/* 597 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -63857,7 +64876,7 @@
 	var timer = exports.timer = typeof performance !== "undefined" && performance !== null && typeof performance.now === "function" ? performance : Date;
 
 /***/ },
-/* 588 */
+/* 598 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63867,7 +64886,7 @@
 	});
 	exports.default = diffLogger;
 	
-	var _deepDiff = __webpack_require__(589);
+	var _deepDiff = __webpack_require__(599);
 	
 	var _deepDiff2 = _interopRequireDefault(_deepDiff);
 	
@@ -63956,7 +64975,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 589 */
+/* 599 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(global) {/*!
@@ -64385,7 +65404,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 590 */
+/* 600 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -64436,7 +65455,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 591 */
+/* 601 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/localdisk/vruelasr/dev/comptox-impact/app/assets/javascripts/client/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/localdisk/vruelasr/dev/comptox-impact/app/assets/javascripts/client/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -64447,9 +65466,9 @@
 	  value: true
 	});
 	
-	var _redux = __webpack_require__(556);
+	var _redux = __webpack_require__(566);
 	
-	var _reducers = __webpack_require__(592);
+	var _reducers = __webpack_require__(602);
 	
 	var _reducers2 = _interopRequireDefault(_reducers);
 	
@@ -64466,7 +65485,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/localdisk/vruelasr/dev/comptox-impact/app/assets/javascripts/client/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "rootReducer.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 592 */
+/* 602 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/localdisk/vruelasr/dev/comptox-impact/app/assets/javascripts/client/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/localdisk/vruelasr/dev/comptox-impact/app/assets/javascripts/client/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -64478,9 +65497,9 @@
 	});
 	exports.default = home;
 	
-	var _actions = __webpack_require__(593);
+	var _actions = __webpack_require__(603);
 	
-	var _model = __webpack_require__(596);
+	var _model = __webpack_require__(606);
 	
 	var _model2 = _interopRequireDefault(_model);
 	
@@ -64521,7 +65540,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/localdisk/vruelasr/dev/comptox-impact/app/assets/javascripts/client/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "reducers.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 593 */
+/* 603 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/localdisk/vruelasr/dev/comptox-impact/app/assets/javascripts/client/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/localdisk/vruelasr/dev/comptox-impact/app/assets/javascripts/client/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -64534,7 +65553,7 @@
 	exports.INVALIDATE_HOME = exports.RECEIVE_HOME = exports.REQUEST_HOME = undefined;
 	exports.fetchHomeIfNeeded = fetchHomeIfNeeded;
 	
-	var _isomorphicFetch = __webpack_require__(594);
+	var _isomorphicFetch = __webpack_require__(604);
 	
 	var _isomorphicFetch2 = _interopRequireDefault(_isomorphicFetch);
 	
@@ -64602,19 +65621,19 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/localdisk/vruelasr/dev/comptox-impact/app/assets/javascripts/client/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "actions.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 594 */
+/* 604 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// the whatwg-fetch polyfill installs the fetch() function
 	// on the global object (window or self)
 	//
 	// Return that as the export for use in Webpack, Browserify etc.
-	__webpack_require__(595);
+	__webpack_require__(605);
 	module.exports = self.fetch.bind(self);
 
 
 /***/ },
-/* 595 */
+/* 605 */
 /***/ function(module, exports) {
 
 	(function(self) {
@@ -65078,7 +66097,7 @@
 
 
 /***/ },
-/* 596 */
+/* 606 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/localdisk/vruelasr/dev/comptox-impact/app/assets/javascripts/client/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/localdisk/vruelasr/dev/comptox-impact/app/assets/javascripts/client/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
