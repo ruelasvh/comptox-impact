@@ -14,7 +14,15 @@ class PublicationsController < ApplicationController
   def show
     render(
         status: 200,
-        json: Publication.find(params[:publication_id])
+        json: {
+            meta: {
+                status: "success",
+                success: true,
+                message: nil,
+                warnings: nil
+            },
+            data: Publication.find(params[:publication_id])
+        }
     )
   end
 
