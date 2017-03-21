@@ -17,7 +17,7 @@ Scientist.create!(
     lastName: "Richard",
     email: "richard.ann@epa.gov",
     title: "Research Chemist",
-    photoUrl: "http://comptox.ag.epa.gov/impact/api/scientists/1/phto/1.jpg",
+    photoUrl: "http://comptox.ag.epa.gov/impact/api/scientists/1/photo/1.jpg",
     orcid: "0000-0003-2116-2300",
     researchGate: "https://www.researchgate.net/profile/Ann_Richard",
     linkedIn: "https://www.linkedin.com/in/ann-richard-77b1b64",

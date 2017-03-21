@@ -32,10 +32,10 @@ class PublicationsTabContent extends React.Component {
         let curLimit = this.state.limit + step;
         let curOffset = this.state.offset;
 
-        Client.searchPublications(curLimit, curOffset, data => {
+        Client.searchPublications(curLimit, curOffset, response => {
             // add data
             let currPublications = this.state.publications;
-            let updatedPublications = currPublications.concat(data);
+            let updatedPublications = currPublications.concat(response.data);
 
             this.setState({
                 publications: updatedPublications,

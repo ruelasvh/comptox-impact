@@ -1,4 +1,6 @@
 class PublicationsController < ApplicationController
+  before_action :validate_params
+
   # GET /api/publications
   def index
     render(
@@ -19,7 +21,7 @@ class PublicationsController < ApplicationController
   # GET /api/publications?limit=5&offset=0
   def query
     @offset = 0
-    @limit = 5
+    @limit = 8
 
     if params.has_key?(:offset)
       @offset = params[:offset]
@@ -32,8 +34,45 @@ class PublicationsController < ApplicationController
 
     render(
         status: 200,
-        json: @publications
+        json: {
+            meta: {
+                status: "success",
+                success: true,
+                message: nil,
+                warnings: nil,
+                selfUrl: "http://comptox.ag.epa.gov/impact/api/publications"
+            },
+            data: @publications,
+            pagination: {
+                offset: @offset,
+                limit: @limit,
+                totalItems: Publication.all.size
+            }
+        }
     )
   end
+
+  ActionController::Parameters.action_on_unpermitted_parameters = :raise
+
+  rescue_from(ActionController::UnpermittedParameters) do |pme|
+    render json: {
+        code: 1001,
+        message: "The request is malformed.",
+        error: { unknown_paramters: pme.params }
+    }, status: :bad_request
+  end
+
+  private
+
+    def validate_params
+      activity = PublicationsHelper::Activity.new(params)
+      if !activity.valid?
+        render json: {
+            code: 1001,
+            message: "The request is malformed.",
+            error: activity.errors
+        }, status: :bad_request
+      end
+    end
 
 end
