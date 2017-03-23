@@ -5,16 +5,16 @@
 import React, { Component } from 'react';
 import { Router, IndexRoute } from 'react-router';
 import { createHistory, useBasename } from 'history';
+import { Provider } from 'react-redux';
+import configureStore from './configureStore';
 
 // components
 import Header from './header/HeaderIndex';
 import Footer from './footer/FooterIndex';
-import Home from './home/HomeIndex';
+import Home from './home/components/HomeIndex';
 import ScientistsIndex from './scientists/ScientistsIndex';
 import ScientistProfile from './scientist/ScientistProfile';
 import NotFound from './notfound/NotFound';
-import { Provider } from 'react-redux';
-import configureStore from './configureStore';
 
 const store = configureStore();
 
@@ -32,7 +32,7 @@ export class Root extends Component {
 
 // Change to whichever subdomain this project will be deployed from, i.e.,
 // comptox.ag.epa.gov/impact -- relativePath = "/impact"
-export const relativePath = "/impact";
+export const relativePath = "";
 
 const browserHistory = useBasename(createHistory)({
     basename: relativePath

@@ -3,10 +3,9 @@
  * US EPA National Center for Computational Toxicology
  */
 const State = {
-    isFetching: true,
-    didInvalidate: false,
+    isFetching: false,
     lastUpdated: Date.now(),
-    data: {}
+    homeData: {}
 };
 
 export default State;

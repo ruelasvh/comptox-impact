@@ -2,31 +2,26 @@
  * Created by Victor H. Ruelas-Rivera on 2/27/17.
  * US EPA National Center for Computational Toxicology
  */
-import { INVALIDATE_HOME, REQUEST_HOME, RECEIVE_HOME} from './actions';
-import Model from './model';
+import { REQUEST_HOME, RECEIVE_HOME} from './actions';
+import State from './model';
 
-const initialState = Model;
+const initialState = State;
 
-export default function home(state = initialState, action) {
+function homeReducer(state = initialState, action) {
     switch (action.type) {
-        case INVALIDATE_HOME:
-            return Object.assign({}, state, {
-                didInvalidate: true
-            });
         case REQUEST_HOME:
             return Object.assign({}, state, {
-                isFetching: true,
-                didInvalidate: false
+                isFetching: true
             });
         case RECEIVE_HOME:
             return Object.assign({}, state, {
                 isFetching: false,
-                didInvalidate: false,
-                data: action.json,
-                lastUpdated: action.receivedAt
+                lastUpdated: action.receivedAt,
+                homeData: action.data
             });
         default:
             return state;
     }
 }
 
+export default homeReducer;

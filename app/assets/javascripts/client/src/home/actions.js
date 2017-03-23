@@ -2,7 +2,6 @@
  * Created by Victor H. Ruelas-Rivera on 2/27/17.
  * US EPA National Center for Computational Toxicology
  */
-import fetch from 'isomorphic-fetch';
 import Client from '../utils/Client';
 
 // Actions, i.e. what happened
@@ -17,15 +16,8 @@ export const RECEIVE_HOME = 'RECEIVE_HOME';
 function receiveHome(json) {
     return {
         type: RECEIVE_HOME,
-        json: json,
+        data: json,
         receivedAt: Date.now()
-    }
-}
-
-export const INVALIDATE_HOME = 'INVALIDATE_HOME';
-function invalidateHome() {
-    return {
-        type: INVALIDATE_HOME
     }
 }
 
@@ -37,12 +29,13 @@ function fetchHome() {
 }
 
 function shouldFetchHome(state) {
-    if (!state) {
+    const { homeData } = state.homeReducer;
+    if (Object.keys(homeData).length === 0 && homeData.constructor === Object) {
         return true;
-    } else if (state.loaded) {
+    } else if (state.homeReducer.isFetching) {
         return false;
     } else {
-        return state.didInvalidate;
+        return false;
     }
 }
 

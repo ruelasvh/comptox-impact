@@ -3,54 +3,35 @@
  * US EPA National Center for Computational Toxicology
  */
 import React, { PropTypes } from 'react';
+import { connect } from 'react-redux';
 import { Grid, Row, Col, Thumbnail} from 'react-bootstrap';
 import { Link } from 'react-router';
+import { fetchHomeIfNeeded } from '../actions';
+import scientists from '../img/NCCT_Staff.jpg';
+import publications from '../img/Publications.jpg';
+import data_tools from '../img/Data_Tools.jpg';
+import impact from '../img/Impact.jpg';
+import '../styles/homeindex.css';
 
-import Client from '../utils/Client';
-import scientists from './img/NCCT_Staff.jpg';
-import publications from './img/Publications.jpg';
-import data_tools from './img/Data_Tools.jpg';
-import impact from './img/Impact.jpg';
-import './styles/homeindex.css';
-
-export default class HomeIndex extends React.Component {
+class HomeIndex extends React.Component {
     constructor(props) {
         super(props);
-
-        this.state = {
-            data: []
-        };
-
-        this.handleFetchData = this.handleFetchData.bind(this);
-        this.handleCancelData = this.handleCancelData.bind(this);
-    }
-
-    handleFetchData() {
-        Client.fetchHome(data => {
-            this.setState({ data: data }, () => console.log(this.state.data));
-        });
-    }
-
-    handleCancelData() {
-        this.setState({
-            data: []
-        });
     }
 
     componentDidMount() {
-        this.handleFetchData();
+        const { dispatch } = this.props;
+        dispatch(fetchHomeIfNeeded());
     }
 
     render() {
-        let data = this.state.data;
-
+        const { homeData } = this.props;
         return (
             <div className="LandingMain-container">
                 <Grid>
                     <Row>
                         <Col>
                             {/*<h1 style={{textAlign: 'center'}}>EPA Computational Toxicology Impact</h1>*/}
-                            <h1 style={{textAlign: 'center'}}>{data.title}</h1>
+                            <h1 style={{textAlign: 'center'}}>{homeData.title}</h1>
                         </Col>
                     </Row>
 
@@ -58,7 +39,7 @@ export default class HomeIndex extends React.Component {
 
                     <Row>
                         <Col>
-                            <p style={{fontSize: 'large', textAlign: 'justify'}}>{data.intro}</p>
+                            <p style={{fontSize: 'large', textAlign: 'justify'}}>{homeData.intro}</p>
                         </Col>
                     </Row>
 
@@ -101,3 +82,23 @@ export default class HomeIndex extends React.Component {
         )
     }
 }
+
+HomeIndex.propTypes = {};
+
+function mapStateToProps(state) {
+    const {
+        isFetching,
+        lastUpdated,
+        homeData
+    } = state.homeReducer || {
+        isFetching: false,
+        homeData: {}
+    };
+    return {
+        isFetching,
+        lastUpdated,
+        homeData
+    };
+}
+
+export default connect(mapStateToProps)(HomeIndex)
