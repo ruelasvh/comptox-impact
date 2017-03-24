@@ -12,7 +12,9 @@ exports[`test HomeIndex initial snapshot test 1`] = `
             Object {
               "textAlign": "center",
             }
-          } />
+          }>
+          CompTox Impact Title
+        </h1>
       </div>
     </div>
     <div
@@ -27,7 +29,9 @@ exports[`test HomeIndex initial snapshot test 1`] = `
               "fontSize": "large",
               "textAlign": "justify",
             }
-          } />
+          }>
+          CompTox Impact showcases NCCT research metrics.
+        </p>
       </div>
     </div>
     <div

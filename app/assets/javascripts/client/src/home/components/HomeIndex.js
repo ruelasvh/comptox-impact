@@ -13,7 +13,7 @@ import data_tools from '../img/Data_Tools.jpg';
 import impact from '../img/Impact.jpg';
 import '../styles/homeindex.css';
 
-class HomeIndex extends React.Component {
+export class HomeIndex extends React.Component {
     constructor(props) {
         super(props);
     }
