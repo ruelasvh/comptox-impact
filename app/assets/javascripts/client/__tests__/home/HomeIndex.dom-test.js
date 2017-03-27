@@ -27,7 +27,7 @@ describe('<HomeIndex />', () => {
         const wrapper = shallow(
             <HomeIndex homeData={seed}/>
         );
-        expect(wrapper.find('p').length).toBe(1);
+        expect(wrapper.find('p').length).toBe(4);
     });
     it('should render 4 Links for different site sections', () => {
         const wrapper = shallow(
