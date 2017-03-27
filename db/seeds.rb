@@ -391,7 +391,7 @@ Scientist.create!(
 Scientist.create!(
     scientistId: 23,
     firstName: "Katie",
-    lastName: "Paul-Friedman",
+    lastName: "Paul Friedman",
     email: "",
     title: "",
     photoUrl: "http://comptox.ag.epa.gov/impact/api/scientists/23/photo/23.jpg",
