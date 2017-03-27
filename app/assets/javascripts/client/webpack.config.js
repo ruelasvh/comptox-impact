@@ -17,11 +17,11 @@ const SRC_PATH = __dirname + "/src";
 // If this is changed, change app/views/layouts/application.html.erb respectively
 const OUT_PATH = __dirname + "/build/";
 // Find out which environment we are in
-var NODE_ENV_PLUGIN = new webpack.DefinePlugin({
+const NODE_ENV_PLUGIN = new webpack.DefinePlugin({
     "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV)
 });
 
-var config = {
+const config = {
     entry: [
         "webpack-hot-middleware/client?path=" + PUBLIC_DEV_SERVER + "__webpack_hmr",
         ENTRY

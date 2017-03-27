@@ -3,9 +3,6 @@
  * US EPA National Center for Computational Toxicology
  */
 import React from 'react';
-import configureMockStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
-import { Provider } from 'react-redux';
 import { shallow, mount } from 'enzyme';
 import { HomeIndex } from '../../src/home/components/HomeIndex';
 import seed from '../../mocks/homeMock';

@@ -4,9 +4,12 @@
  */
 /* eslint-disable no-undef */
 import { relativePath } from '../App';
+import fetch from 'isomorphic-fetch';
+
+const absolutePath = (process.env.NODE_ENV === "production" ? "http://comptox.ag.epa.gov" : "http://localhost:3000");
 
 function fetchHome(callback) {
-    return fetch(`${relativePath}/api/home`, {
+    return fetch(`${absolutePath+relativePath}/api/home`, {
         accept: 'application/json',
     }).then(checkStatus)
         .then(parseJSON)
