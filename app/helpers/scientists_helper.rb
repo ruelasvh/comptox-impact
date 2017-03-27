@@ -16,7 +16,8 @@ module ScientistsHelper
     def initialize(params={})
       @scientistId = params[:scientistId]
       @format = params[:format]
-      ActionController::Parameters.new(params).permit(:scientistId,:format)
+      @scientistImage = params[:scientistImage]
+      ActionController::Parameters.new(params).permit(:scientistId,:scientistImage,:format)
     end
 
   end

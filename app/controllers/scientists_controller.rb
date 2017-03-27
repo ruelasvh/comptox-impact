@@ -21,7 +21,7 @@ class ScientistsController < ApplicationController
 
   # GET /api/scientists/1/photo/1.jpg
   def show_photo
-    if params[:scientistId] != params[:image]
+    if params[:scientistId] != params[:scientistImage]
       render(
           json: {
               code: 1001,
@@ -30,8 +30,7 @@ class ScientistsController < ApplicationController
           }, status: :bad_request
       )
     else
-
-    scientistImage = params[:image] + '.' + params[:format]
+    scientistImage = params[:scientistImage] + '.' + params[:format]
       send_file(
           Rails.root.join('app', 'assets', 'images', 'api', 'staff', scientistImage),
           :type => 'image/jpeg',

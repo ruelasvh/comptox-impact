@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     scope '/scientists' do
       get '/' => 'scientists#index'
       get ':scientistId' => 'scientists#show'
-      get ':scientistId/photo/:image.:format' => 'scientists#show_photo'
+      get ':scientistId/photo/:scientistImage.:format' => 'scientists#show_photo'
       get ':scientistId/publications' => 'scientists#show_publications'
     end
     # publications
