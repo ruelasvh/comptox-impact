@@ -6,8 +6,8 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { Button, Glyphicon, Thumbnail, Grid } from 'react-bootstrap';
 import Isotope from 'isotope-layout';
-import ScientistsIndex from '../../src/scientists/ScientistsIndex';
-import Scientist from '../../src/scientists/ScientistsIndexItem';
+import ScientistsIndex from '../../src/scientists/components/ScientistsIndex';
+import Scientist from '../../src/scientists/components/ScientistsIndexItem';
 import seed from '../../mocks/scientistsListMock';
 
 describe('<ScientistsIndex />', () => {

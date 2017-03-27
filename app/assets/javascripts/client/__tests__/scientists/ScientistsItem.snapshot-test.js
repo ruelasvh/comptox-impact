@@ -3,7 +3,7 @@
  * US EPA National Center for Computational Toxicology
  */
 import React from 'react';
-import Scientist from '../../src/scientists/ScientistsIndexItem';
+import Scientist from '../../src/scientists/components/ScientistsIndexItem';
 import renderer from 'react-test-renderer';
 import seed from '../../mocks/scientistMock';
 

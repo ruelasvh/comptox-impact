@@ -5,7 +5,7 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { Thumbnail} from 'react-bootstrap';
-import Scientist from '../../src/scientists/ScientistsIndexItem';
+import Scientist from '../../src/scientists/components/ScientistsIndexItem';
 import seed from '../../mocks/scientistMock';
 
 describe('<ScientistsItem />', () => {
