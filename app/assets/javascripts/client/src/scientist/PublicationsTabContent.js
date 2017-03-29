@@ -8,7 +8,7 @@ import Waypoint from 'react-waypoint';
 // http client
 import Client from '../utils/Client';
 // components
-import PublicationItem from '../publications/PublicationItem';
+import PublicationItem from '../publications/components/PublicationItem';
 // styles
 import './styles/publications-tab-content.css';
 

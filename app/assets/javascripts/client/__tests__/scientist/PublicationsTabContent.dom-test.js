@@ -5,7 +5,7 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import PublicationsTabContent from '../../src/scientist/PublicationsTabContent';
-import PublicationItem from '../../src/publications/PublicationItem';
+import PublicationItem from '../../src/publications/components/PublicationItem';
 
 describe('<PublicationsTabContent />', () => {
     it('should exist', () => {

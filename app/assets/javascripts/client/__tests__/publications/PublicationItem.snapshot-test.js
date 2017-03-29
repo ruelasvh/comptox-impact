@@ -3,7 +3,7 @@
  * US EPA National Center for Computational Toxicology
  */
 import React from 'react';
-import PublicationItem from '../../src/publications/PublicationItem';
+import PublicationItem from '../../src/publications/components/PublicationItem';
 import renderer from 'react-test-renderer';
 import seed from '../../mocks/publicationMock';
 

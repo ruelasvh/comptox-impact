@@ -7,7 +7,7 @@ import AltmetricWidget from './AltmetricWidget';
 import PlumxWidget from './PlumxWidget';
 import KudosWidget from './KudosWidget';
 import { Glyphicon, Badge, Row, Col} from 'react-bootstrap';
-import './styles/publicationitem.css';
+import '../styles/publicationitem.css';
 
 class PublicationItem extends React.Component {
     constructor() {

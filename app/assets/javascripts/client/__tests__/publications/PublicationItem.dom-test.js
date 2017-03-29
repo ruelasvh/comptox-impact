@@ -4,10 +4,10 @@
  */
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import PublicationItem from '../../src/publications/PublicationItem';
-import AltmetricWidget from '../../src/publications/AltmetricWidget';
-import PlumxWidget from '../../src/publications/PlumxWidget';
-import KudosWidget from '../../src/publications/KudosWidget';
+import PublicationItem from '../../src/publications/components/PublicationItem';
+import AltmetricWidget from '../../src/publications/components/AltmetricWidget';
+import PlumxWidget from '../../src/publications/components/PlumxWidget';
+import KudosWidget from '../../src/publications/components/KudosWidget';
 import seed from '../../mocks/publicationMock';
 
 describe('<PublicationItem />', () => {
