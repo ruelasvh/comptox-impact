@@ -6,14 +6,14 @@ import Client from '../utils/Client';
 
 // Actions, i.e. what happened
 export const REQUEST_HOME = 'REQUEST_HOME';
-function requestHome() {
+function requestHomeData() {
     return {
         type: REQUEST_HOME
     }
 }
 
 export const RECEIVE_HOME = 'RECEIVE_HOME';
-function receiveHome(json) {
+function receiveHomeData(json) {
     return {
         type: RECEIVE_HOME,
         data: json,
@@ -21,28 +21,28 @@ function receiveHome(json) {
     }
 }
 
-function fetchHome() {
+function fetchHomeData() {
     return dispatch => {
-        dispatch(requestHome());
-        return Client.fetchHome(json => dispatch(receiveHome(json)));
+        dispatch(requestHomeData());
+        return Client.fetchHome(json => dispatch(receiveHomeData(json)));
     }
 }
 
-function shouldFetchHome(state) {
-    const { homeData } = state.homeReducer;
+function shouldFetchHomeData(state) {
+    const { homeData } = state.simpleHomeData;
     if (Object.keys(homeData).length === 0 && homeData.constructor === Object) {
         return true;
-    } else if (state.homeReducer.isFetching) {
+    } else if (state.simpleHomeData.isFetching) {
         return false;
     } else {
         return false;
     }
 }
 
-export function fetchHomeIfNeeded() {
+export function fetchHomeDataIfNeeded() {
     return (dispatch, getState) => {
-        if (shouldFetchHome(getState())) {
-            return dispatch(fetchHome())
+        if (shouldFetchHomeData(getState())) {
+            return dispatch(fetchHomeData())
         }
     }
 }

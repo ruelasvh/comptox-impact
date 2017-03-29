@@ -7,7 +7,7 @@ import State from './model';
 
 const initialState = State;
 
-function homeReducer(state = initialState, action) {
+function homeData(state = initialState, action) {
     switch (action.type) {
         case REQUEST_HOME:
             return Object.assign({}, state, {
@@ -24,4 +24,4 @@ function homeReducer(state = initialState, action) {
     }
 }
 
-export default homeReducer;
+export default homeData;

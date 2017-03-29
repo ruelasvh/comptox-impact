@@ -4,7 +4,7 @@
  */
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
-import { fetchHomeIfNeeded, REQUEST_HOME, RECEIVE_HOME } from '../../src/home/actions'
+import { fetchHomeDataIfNeeded, REQUEST_HOME, RECEIVE_HOME } from '../../src/home/actions'
 import { relativePath } from '../../src/App'
 import nock from 'nock'
 import data from '../../mocks/homeMock'
@@ -29,14 +29,14 @@ describe('async actions', () => {
             { type: RECEIVE_HOME, data, receivedAt: Date.now()}
         ]
         const store = mockStore({
-            homeReducer: {
+            simpleHomeData: {
                 isFetching: false,
                 lastUpdated: Date.now(),
                 homeData: {}
             }
         })
 
-        return store.dispatch(fetchHomeIfNeeded())
+        return store.dispatch(fetchHomeDataIfNeeded())
             .then(() => {
                 expect(store.getActions()).toEqual(expectedActions)
             })

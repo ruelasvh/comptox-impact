@@ -6,7 +6,7 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { Grid, Row, Col, Thumbnail} from 'react-bootstrap';
 import { Link } from 'react-router';
-import { fetchHomeIfNeeded } from '../actions';
+import { fetchHomeDataIfNeeded } from '../actions';
 import scientists from '../img/NCCT_Staff.jpg';
 import publications from '../img/Publications.jpg';
 import data_tools from '../img/Data_Tools.jpg';
@@ -20,7 +20,7 @@ export class HomeIndex extends React.Component {
 
     componentDidMount() {
         const { dispatch } = this.props;
-        dispatch(fetchHomeIfNeeded());
+        dispatch(fetchHomeDataIfNeeded());
     }
 
     render() {
@@ -90,7 +90,7 @@ function mapStateToProps(state) {
         isFetching,
         lastUpdated,
         homeData
-    } = state.homeReducer || {
+    } = state.simpleHomeData || {
         isFetching: false,
         homeData: {}
     };
