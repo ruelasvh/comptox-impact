@@ -4,5 +4,10 @@
  */
 
 const State = {
+    isFetching: false,
+    lastUpdated: Date.now(),
+    byId: {},
+    allIds: [],
+};
 
-}
+export default State;

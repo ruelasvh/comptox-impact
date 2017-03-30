@@ -24,7 +24,7 @@ function receiveHomeData(json) {
 function fetchHomeData() {
     return dispatch => {
         dispatch(requestHomeData());
-        return Client.fetchHome(json => dispatch(receiveHomeData(json)));
+        return Client.searchHomeData(json => dispatch(receiveHomeData(json)));
     }
 }
 

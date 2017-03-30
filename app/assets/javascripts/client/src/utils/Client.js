@@ -8,7 +8,7 @@ import fetch from 'isomorphic-fetch';
 
 const absolutePath = (process.env.NODE_ENV === "production" ? "http://comptox.ag.epa.gov" : "http://localhost:3000");
 
-function fetchHome(callback) {
+function searchHomeData(callback) {
     return fetch(`${absolutePath+relativePath}/api/home`, {
         accept: 'application/json',
     }).then(checkStatus)
@@ -17,7 +17,7 @@ function fetchHome(callback) {
 }
 
 function searchScientists(callback) {
-    return fetch(`${relativePath}/api/scientists`, {
+    return fetch(`${absolutePath+relativePath}/api/scientists`, {
         accept: 'application/json',
     }).then(checkStatus)
         .then(parseJSON)
@@ -71,7 +71,7 @@ function parseJSON(response) {
 }
 
 const Client = {
-    fetchHome,
+    searchHomeData,
     searchScientists,
     searchScientist,
     searchScientistPhoto,
