@@ -49,7 +49,7 @@ class MainGADashboard extends React.Component {
                     'end-date': 'yesterday'
                 },
                 chart: {
-                    container: 'pageviews-chart-container',
+                    container: 'comptox-pageviews-chart-container',
                     type: 'LINE',
                     options: {
                         width: '100%',
@@ -74,7 +74,7 @@ class MainGADashboard extends React.Component {
                     'end-date': 'yesterday'
                 },
                 chart: {
-                    container: 'unique-pageviews-chart-container',
+                    container: 'comptox-unique-pageviews-chart-container',
                     type: 'LINE',
                     options: {
                         width: '100%',
@@ -99,7 +99,7 @@ class MainGADashboard extends React.Component {
                     'end-date': 'yesterday'
                 },
                 chart: {
-                    container: 'mobile-desktop-chart-container',
+                    container: 'comptox-mobile-desktop-chart-container',
                     type: 'PIE',
                     options: {
                         width: '100%',
@@ -120,11 +120,11 @@ class MainGADashboard extends React.Component {
                     metrics: 'ga:users,ga:newUsers',
                     dimensions: 'ga:fullReferrer',
                     filters: 'ga:fullReferrer!@direct;ga:fullReferrer!@anal;ga:pagePath==epa.gov/chemical-research/downloadable-computational-toxicology-data',
-                    'start-date': '30daysAgo',
+                    'start-date': '2016-01-01',
                     'end-date': 'yesterday'
                 },
                 chart: {
-                    container: 'referral-site-chart-container',
+                    container: 'comptox-referral-site-chart-container',
                     type: 'TABLE',
                     options: {
                         width: '100%',
@@ -149,7 +149,7 @@ class MainGADashboard extends React.Component {
                     'end-date': 'yesterday'
                 },
                 chart: {
-                    container: 'events-chart-container',
+                    container: 'comptox-events-chart-container',
                     type: 'PIE',
                     options: {
                         width: '100%',
@@ -174,7 +174,7 @@ class MainGADashboard extends React.Component {
                     'end-date': 'yesterday'
                 },
                 chart: {
-                    container: 'avg-time-on-page-chart-container',
+                    container: 'comptox-avg-time-on-page-chart-container',
                     type: 'TABLE',
                     options: {
                         width: '100%',
@@ -187,6 +187,311 @@ class MainGADashboard extends React.Component {
                 console.log('avgTimeOnPageChart error', e);
             });
 
+            /**
+             * ToxCast Data
+             **/
+                // Chart for displaying page views
+            var toxcastPageviewsChart = new gapi.analytics.googleCharts.DataChart({
+                    reportType: 'ga',
+                    query: {
+                        ids: 'ga:69871570',
+                        metrics: 'ga:pageviews',
+                        dimensions: 'ga:yearMonth',
+                        filters: 'ga:pagePath==epa.gov/chemical-research/toxicity-forecaster-toxcasttm-data',
+                        'start-date': '2016-01-01',
+                        'end-date': 'yesterday'
+                    },
+                    chart: {
+                        container: 'toxcast-pageviews-chart-container',
+                        type: 'LINE',
+                        options: {
+                            width: '100%',
+                            title: 'Page Views By Month And Year'
+                        }
+                    }
+                });
+
+            toxcastPageviewsChart.on('error', function (e) {
+                console.log('toxcastPageviewsChart error', e);
+            });
+
+            // Chart for displaying unique pages views
+            var toxcastUniquePageviewsChart = new gapi.analytics.googleCharts.DataChart({
+                reportType: 'ga',
+                query: {
+                    ids: 'ga:69871570',
+                    metrics: 'ga:uniquePageviews',
+                    dimensions: 'ga:yearMonth',
+                    filters: 'ga:pagePath==epa.gov/chemical-research/toxicity-forecaster-toxcasttm-data',
+                    'start-date': '2016-01-01',
+                    'end-date': 'yesterday'
+                },
+                chart: {
+                    container: 'toxcast-unique-pageviews-chart-container',
+                    type: 'LINE',
+                    options: {
+                        width: '100%',
+                        title: 'Page Views By Month And Year'
+                    }
+                }
+            });
+
+            toxcastUniquePageviewsChart.on('error', function (e) {
+                console.log('toxcastUniquePageviews error', e);
+            });
+
+            // Chart for displaying mobile vs desktop
+            var toxcastMobileDesktopChart = new gapi.analytics.googleCharts.DataChart({
+                reportType: 'ga',
+                query: {
+                    ids: 'ga:69871570',
+                    metrics: 'ga:users',
+                    dimensions: 'ga:deviceCategory',
+                    filters: 'ga:pagePath==epa.gov/chemical-research/toxicity-forecaster-toxcasttm-data',
+                    'start-date': '2016-01-01',
+                    'end-date': 'yesterday'
+                },
+                chart: {
+                    container: 'toxcast-mobile-desktop-chart-container',
+                    type: 'PIE',
+                    options: {
+                        width: '100%',
+                        title: 'Device Category'
+                    }
+                }
+            });
+
+            toxcastMobileDesktopChart.on('error', function (e) {
+                console.log('toxcastMobileDesktopChart error', e);
+            });
+
+            // Chart for displaying referral sites
+            var toxcastReferralSiteChart = new gapi.analytics.googleCharts.DataChart({
+                reportType: 'ga',
+                query: {
+                    ids: 'ga:69871570',
+                    metrics: 'ga:users,ga:newUsers',
+                    dimensions: 'ga:fullReferrer',
+                    filters: 'ga:fullReferrer!@direct;ga:fullReferrer!@anal;ga:pagePath==epa.gov/chemical-research/toxicity-forecaster-toxcasttm-data',
+                    'start-date': '2016-01-01',
+                    'end-date': 'yesterday'
+                },
+                chart: {
+                    container: 'toxcast-referral-site-chart-container',
+                    type: 'TABLE',
+                    options: {
+                        width: '100%',
+                        title: 'Referral Site'
+                    }
+                }
+            });
+
+            toxcastReferralSiteChart.on('error', function (e) {
+                console.log('toxcastReferralSiteChart error', e);
+            });
+
+            // Chart for displaying specific events
+            var toxcastEventsChart = new gapi.analytics.googleCharts.DataChart({
+                reportType: 'ga',
+                query: {
+                    ids: 'ga:69871570',
+                    metrics: 'ga:totalEvents',
+                    dimensions: 'ga:eventLabel',
+                    filters: 'ga:pagePath==epa.gov/chemical-research/toxicity-forecaster-toxcasttm-data',
+                    'start-date': '2016-01-01',
+                    'end-date': 'yesterday'
+                },
+                chart: {
+                    container: 'toxcast-events-chart-container',
+                    type: 'TABLE',
+                    options: {
+                        width: '100%',
+                        title: 'Total Events By Event Label'
+                    }
+                }
+            });
+
+            toxcastEventsChart.on('error', function (e) {
+                console.log('toxcastEventsChart error', e);
+            });
+
+            // Chart for displaying average time on page
+            var toxcastAvgTimeOnPageChart = new gapi.analytics.googleCharts.DataChart({
+                reportType: 'ga',
+                query: {
+                    ids: 'ga:69871570',
+                    metrics: 'ga:avgTimeOnPage',
+                    dimensions: 'ga:pagePath',
+                    filters: 'ga:pagePath==epa.gov/chemical-research/toxicity-forecaster-toxcasttm-data',
+                    'start-date': '30daysAgo',
+                    'end-date': 'yesterday'
+                },
+                chart: {
+                    container: 'toxcast-avg-time-on-page-chart-container',
+                    type: 'TABLE',
+                    options: {
+                        width: '100%',
+                        title: 'Average Time On Page (seconds)'
+                    }
+                }
+            });
+
+            toxcastAvgTimeOnPageChart.on('error', function (e) {
+                console.log('toxcastAvgTimeOnPageChart error', e);
+            });
+
+            /**
+             * DSSTox Data
+             */
+                // Chart for displaying page views
+            var dsstoxPageviewsChart = new gapi.analytics.googleCharts.DataChart({
+                    reportType: 'ga',
+                    query: {
+                        ids: 'ga:69871570',
+                        metrics: 'ga:pageviews',
+                        dimensions: 'ga:yearMonth',
+                        filters: 'ga:pagePath==epa.gov/chemical-research/distributed-structure-searchable-toxicity-dsstox-database',
+                        'start-date': '2016-01-01',
+                        'end-date': 'yesterday'
+                    },
+                    chart: {
+                        container: 'dsstox-pageviews-chart-container',
+                        type: 'LINE',
+                        options: {
+                            width: '100%',
+                            title: 'Page Views By Month And Year'
+                        }
+                    }
+                });
+
+            dsstoxPageviewsChart.on('error', function (e) {
+                console.log('dsstoxPageviewsChart error', e);
+            });
+
+            // Chart for displaying unique pages views
+            var dsstoxUniquePageviewsChart = new gapi.analytics.googleCharts.DataChart({
+                reportType: 'ga',
+                query: {
+                    ids: 'ga:69871570',
+                    metrics: 'ga:uniquePageviews',
+                    dimensions: 'ga:yearMonth',
+                    filters: 'ga:pagePath==epa.gov/chemical-research/distributed-structure-searchable-toxicity-dsstox-database',
+                    'start-date': '2016-01-01',
+                    'end-date': 'yesterday'
+                },
+                chart: {
+                    container: 'dsstox-unique-pageviews-chart-container',
+                    type: 'LINE',
+                    options: {
+                        width: '100%',
+                        title: 'Page Views By Month And Year'
+                    }
+                }
+            });
+
+            dsstoxUniquePageviewsChart.on('error', function (e) {
+                console.log('dsstoxUniquePageviews error', e);
+            });
+
+            // Chart for displaying mobile vs desktop
+            var dsstoxMobileDesktopChart = new gapi.analytics.googleCharts.DataChart({
+                reportType: 'ga',
+                query: {
+                    ids: 'ga:69871570',
+                    metrics: 'ga:users',
+                    dimensions: 'ga:deviceCategory',
+                    filters: 'ga:pagePath==epa.gov/chemical-research/distributed-structure-searchable-toxicity-dsstox-database',
+                    'start-date': '2016-01-01',
+                    'end-date': 'yesterday'
+                },
+                chart: {
+                    container: 'dsstox-mobile-desktop-chart-container',
+                    type: 'PIE',
+                    options: {
+                        width: '100%',
+                        title: 'Device Category'
+                    }
+                }
+            });
+
+            dsstoxMobileDesktopChart.on('error', function (e) {
+                console.log('dsstoxMobileDesktopChart error', e);
+            });
+
+            // Chart for displaying referral sites
+            var dsstoxReferralSiteChart = new gapi.analytics.googleCharts.DataChart({
+                reportType: 'ga',
+                query: {
+                    ids: 'ga:69871570',
+                    metrics: 'ga:users,ga:newUsers',
+                    dimensions: 'ga:fullReferrer',
+                    filters: 'ga:fullReferrer!@direct;ga:fullReferrer!@anal;ga:pagePath==epa.gov/chemical-research/distributed-structure-searchable-toxicity-dsstox-database',
+                    'start-date': '2016-01-01',
+                    'end-date': 'yesterday'
+                },
+                chart: {
+                    container: 'dsstox-referral-site-chart-container',
+                    type: 'TABLE',
+                    options: {
+                        width: '100%',
+                        title: 'Referral Site'
+                    }
+                }
+            });
+
+            dsstoxReferralSiteChart.on('error', function (e) {
+                console.log('dsstoxReferralSiteChart error', e);
+            });
+
+            // Chart for displaying specific events
+            var dsstoxEventsChart = new gapi.analytics.googleCharts.DataChart({
+                reportType: 'ga',
+                query: {
+                    ids: 'ga:69871570',
+                    metrics: 'ga:totalEvents',
+                    dimensions: 'ga:eventLabel',
+                    filters: 'ga:pagePath==epa.gov/chemical-research/distributed-structure-searchable-toxicity-dsstox-database',
+                    'start-date': '2016-01-01',
+                    'end-date': 'yesterday'
+                },
+                chart: {
+                    container: 'dsstox-events-chart-container',
+                    type: 'TABLE',
+                    options: {
+                        width: '100%',
+                        title: 'Total Events By Event Label'
+                    }
+                }
+            });
+
+            dsstoxEventsChart.on('error', function (e) {
+                console.log('dsstoxEventsChart error', e);
+            });
+
+            // Chart for displaying average time on page
+            var dsstoxAvgTimeOnPageChart = new gapi.analytics.googleCharts.DataChart({
+                reportType: 'ga',
+                query: {
+                    ids: 'ga:69871570',
+                    metrics: 'ga:avgTimeOnPage',
+                    dimensions: 'ga:pagePath',
+                    filters: 'ga:pagePath==epa.gov/chemical-research/distributed-structure-searchable-toxicity-dsstox-database',
+                    'start-date': '30daysAgo',
+                    'end-date': 'yesterday'
+                },
+                chart: {
+                    container: 'dsstox-avg-time-on-page-chart-container',
+                    type: 'TABLE',
+                    options: {
+                        width: '100%',
+                        title: 'Average Time On Page (seconds)'
+                    }
+                }
+            });
+
+            dsstoxAvgTimeOnPageChart.on('error', function (e) {
+                console.log('dsstoxAvgTimeOnPageChart error', e);
+            });
             // Load all charts
             gapi.analytics.auth.on('success', function (response) {
                 // Hide the auth-button
@@ -198,6 +503,18 @@ class MainGADashboard extends React.Component {
                 referralSiteChart.execute();
                 eventsChart.execute();
                 avgTimeOnPageChart.execute();
+                toxcastPageviewsChart.execute();
+                toxcastUniquePageviewsChart.execute();
+                toxcastMobileDesktopChart.execute();
+                toxcastReferralSiteChart.execute();
+                toxcastEventsChart.execute();
+                toxcastAvgTimeOnPageChart.execute();
+                dsstoxPageviewsChart.execute();
+                dsstoxUniquePageviewsChart.execute();
+                dsstoxMobileDesktopChart.execute();
+                dsstoxReferralSiteChart.execute();
+                dsstoxEventsChart.execute();
+                dsstoxAvgTimeOnPageChart.execute();
             });
 
         });
@@ -215,12 +532,30 @@ class MainGADashboard extends React.Component {
                     <Row>
                         <h2>CompTox Data</h2>
                         <div id="embed-api-auth-container"></div>
-                        <div id="pageviews-chart-container"></div>
-                        <div id="unique-pageviews-chart-container"></div>
-                        <div id="mobile-desktop-chart-container"></div>
-                        <div id="referral-site-chart-container"></div>
-                        <div id="events-chart-container"></div>
-                        <div id="avg-time-on-page-chart-container"></div>
+                        <div id="comptox-pageviews-chart-container"></div>
+                        <div id="comptox-unique-pageviews-chart-container"></div>
+                        <div id="comptox-mobile-desktop-chart-container"></div>
+                        <div id="comptox-referral-site-chart-container"></div>
+                        <div id="comptox-events-chart-container"></div>
+                        <div id="comptox-avg-time-on-page-chart-container"></div>
+                        <br/>
+                        <h2>ToxCast Data</h2>
+                        <br/>
+                        <div id="toxcast-pageviews-chart-container"></div>
+                        <div id="toxcast-unique-pageviews-chart-container"></div>
+                        <div id="toxcast-mobile-desktop-chart-container"></div>
+                        <div id="toxcast-referral-site-chart-container"></div>
+                        <div id="toxcast-most-popular-links-chart-container"></div>
+                        <div id="toxcast-events-chart-container"></div>
+                        <div id="toxcast-avg-time-on-page-chart-container"></div>
+                        <h2>DSSTox Data</h2>
+                        <div id="dsstox-pageviews-chart-container"></div>
+                        <div id="dsstox-unique-pageviews-chart-container"></div>
+                        <div id="dsstox-mobile-desktop-chart-container"></div>
+                        <div id="dsstox-referral-site-chart-container"></div>
+                        <div id="dsstox-most-popular-links-chart-container"></div>
+                        <div id="dsstox-events-chart-container"></div>
+                        <div id="dsstox-avg-time-on-page-chart-container"></div>
                     </Row>
                 </Grid>
             </div>
