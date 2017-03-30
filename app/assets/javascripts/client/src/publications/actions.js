@@ -26,16 +26,20 @@ function receivePublications(json) {
     }
 }
 
-function normalizeData(json) {
-    /** Function takes in json of array of objects. Return normalized object
-     * with elements of array as embedded objects in normalized object
-     **/
-    let normalizedJson = {};
-    let size = json.length;
-    for (let i = 0; i < size; i++) {
-        normalizedJson = Object.assign({}, normalizedJson, { [json[i].publication_id]: json[i] });
+function normalizeData(jsonArr) {
+    let publications = {};
+    let allPublicationIds = [];
+    for (let publication of jsonArr) {
+        publications = {
+            ...publications,
+            [publication.publication_id]: publication
+        }
+        allPublicationIds.push(publication.publication_id);
     }
-    return normalizedJson;
+    return {
+        publications,
+        allPublicationIds
+    };
 }
 
 function fetchPublications(limit, offset) {

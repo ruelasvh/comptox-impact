@@ -19,7 +19,8 @@ function publications(state = initialState, action) {
             return Object.assign({}, state, {
                 isFetching: false,
                 lastUpdated: action.receivedAt,
-                byId: action.data,
+                byId: action.data.publications,
+                allIds: action.data.allPublicationIds,
                 limit: action.limit,
                 offset: action.offset
             });
