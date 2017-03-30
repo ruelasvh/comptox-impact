@@ -7,18 +7,14 @@ import './styles/scientistprofile.css';
 
 const PresentationsTabPresentationItem = ( {userUrl} ) => (
     <div className="slide-share-item">
+
         <iframe
-            src="https://www.slideshare.net/AntonyWilliams/slideshelf"
-            width="760px"
-            height="570px"
-            frameBorder="0"
-            marginWidth="0"
-            marginHeight="0"
-            scrolling="no"
-            style={{border:'none'}}
-            allowFullScreen
-            webkitallowfullscreen
-            mozallowfullscreen/>
+            src="https://widgets.figshare.com/articles/4679824/embed?show_title=1"
+            width="568px"
+            height="426px"
+            frameBorder="0">
+        </iframe>
+
     </div>
 );
 

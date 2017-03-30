@@ -54207,7 +54207,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".scientist-container {\n  font-family: \"Helvetica Neue\", \"Arial\", sans-serif;\n  padding-top: 1em;\n  margin-bottom: 3em;\n  max-width: 100%;\n  min-height: 100%;\n  position: relative;\n  /* Firefox */\n  min-height: -moz-calc(100% - 30px);\n  /* WebKit */\n  min-height: -webkit-calc(100% - 30px);\n  /* Standard */\n  min-height: calc(100% - 30px); }\n\n.scientist-links {\n  text-align: center;\n  float: left; }\n\n.scientist-links img {\n  height: 100%;\n  width: 100%; }\n\n.scientist-links-button {\n  position: relative;\n  display: inline-block;\n  width: 44px;\n  padding: 8px; }\n\n.scientist-links-button-disabled {\n  pointer-events: none;\n  cursor: default;\n  opacity: 0.4; }\n\n.scientist-links-button-disabled img {\n  -webkit-filter: grayscale(100%);\n  -moz-filter: grayscale(100%);\n  -o-filter: grayscale(100%);\n  filter: grayscale(100%); }\n\n/*Edit this to change tooltip properties in Tooltip*/\n.tooltip {\n  /*width: 120px;*/\n  /*background-color: #fff;*/\n  /*color: black;*/\n  /*text-align: center;*/\n  /*border-radius: 6px;*/\n  /*padding: 5px 0;*/\n  /*position: absolute;*/\n  /*z-index: 1;*/\n  /*bottom: 150%;*/\n  /*left: 50%;*/\n  /*margin-left: -60px;*/ }\n\n.scientist-grid {\n  max-width: 800px; }\n\n.scientist-share {\n  text-align: right;\n  padding: 10px; }\n\n.scientist-photo {\n  width: 90%;\n  /*border: 3px solid #333;*/ }\n\n.scientist-divider {\n  border: 2px solid #d0d0d0; }\n\n.scientist-bio {\n  text-align: left; }\n\n.scientist-bio-body {\n  padding-left: 15px; }\n\n.headline {\n  line-height: 2em; }\n\n.headline:after {\n  content: ' ';\n  display: block;\n  border: 2px solid #d0d0d0;\n  /*border:2px solid #2c2c2c;*/\n  border-radius: 4px;\n  -webkit-border-radius: 4px;\n  -moz-border-radius: 4px;\n  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);\n  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);\n  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05); }\n\n#bio-aoe {\n  font-weight: bold; }\n\n#bio-edu {\n  font-weight: bold; }\n\n#bio-pe {\n  font-weight: bold; }\n\n/** Tabs general styles **/\n.tab-frame {\n  padding: 2em 0.5em; }\n\n/** Presentation Tab styles **/\n.slide-share-item {\n  text-align: center; }\n\n/** Linked Profile Tab styles **/\n.linked-profile-tab-link {\n  padding-bottom: 4px;\n  list-style: none; }\n\n.linked-profile-tab-link div {\n  display: inline-block; }\n\n.linked-profile-tab-link p {\n  padding-top: 2px;\n  font-size: 12px;\n  color: #666666; }\n\n.linked-profile-tab-link-thumbnail {\n  height: 15px;\n  width: 15px; }\n\n.linked-profile-tab-link-thumbnail img {\n  width: 100%;\n  height: 100%; }\n", ""]);
+	exports.push([module.id, ".scientist-container {\n  font-family: \"Helvetica Neue\", \"Arial\", sans-serif;\n  padding-top: 1em;\n  margin-bottom: 3em;\n  max-width: 100%;\n  min-height: 100%;\n  position: relative;\n  /* Firefox */\n  min-height: -moz-calc(100% - 30px);\n  /* WebKit */\n  min-height: -webkit-calc(100% - 30px);\n  /* Standard */\n  min-height: calc(100% - 30px); }\n\n.scientist-links {\n  text-align: center;\n  float: left; }\n\n.scientist-links img {\n  height: 100%;\n  width: 100%; }\n\n.scientist-links-button {\n  position: relative;\n  display: inline-block;\n  width: 44px;\n  padding: 8px; }\n\n.scientist-links-button-disabled {\n  pointer-events: none;\n  cursor: default;\n  opacity: 0.4; }\n\n.scientist-links-button-disabled img {\n  -webkit-filter: grayscale(100%);\n  -moz-filter: grayscale(100%);\n  -o-filter: grayscale(100%);\n  filter: grayscale(100%); }\n\n/*Edit this to change tooltip properties in Tooltip*/\n.tooltip {\n  /*width: 120px;*/\n  /*background-color: #fff;*/\n  /*color: black;*/\n  /*text-align: center;*/\n  /*border-radius: 6px;*/\n  /*padding: 5px 0;*/\n  /*position: absolute;*/\n  /*z-index: 1;*/\n  /*bottom: 150%;*/\n  /*left: 50%;*/\n  /*margin-left: -60px;*/ }\n\n.scientist-grid {\n  max-width: 800px; }\n\n.scientist-share {\n  text-align: right;\n  padding: 10px; }\n\n.scientist-photo {\n  width: 90%;\n  /*border: 3px solid #333;*/ }\n\n.scientist-divider {\n  border: 2px solid #d0d0d0; }\n\n.scientist-bio {\n  text-align: left; }\n\n.scientist-bio-body {\n  padding-left: 15px; }\n\n.headline {\n  line-height: 2em; }\n\n.headline:after {\n  content: ' ';\n  display: block;\n  border: 2px solid #d0d0d0;\n  /*border:2px solid #2c2c2c;*/\n  border-radius: 4px;\n  -webkit-border-radius: 4px;\n  -moz-border-radius: 4px;\n  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);\n  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);\n  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05); }\n\n#bio-aoe {\n  font-weight: bold; }\n\n#bio-edu {\n  font-weight: bold; }\n\n#bio-pe {\n  font-weight: bold; }\n\n/** Tabs general styles **/\n.tab-frame {\n  padding: 2em 0.5em; }\n\n/** Presentation Tab styles **/\n.slide-share-item {\n  text-align: center;\n  margin-bottom: 5em; }\n\n/** Linked Profile Tab styles **/\n.linked-profile-tab-link {\n  padding-bottom: 4px;\n  list-style: none; }\n\n.linked-profile-tab-link div {\n  display: inline-block; }\n\n.linked-profile-tab-link p {\n  padding-top: 2px;\n  font-size: 12px;\n  color: #666666; }\n\n.linked-profile-tab-link-thumbnail {\n  height: 15px;\n  width: 15px; }\n\n.linked-profile-tab-link-thumbnail img {\n  width: 100%;\n  height: 100%; }\n", ""]);
 	
 	// exports
 
@@ -54623,17 +54623,10 @@
 	        'div',
 	        { className: 'slide-share-item' },
 	        _react2.default.createElement('iframe', {
-	            src: 'https://www.slideshare.net/AntonyWilliams/slideshelf',
-	            width: '760px',
-	            height: '570px',
-	            frameBorder: '0',
-	            marginWidth: '0',
-	            marginHeight: '0',
-	            scrolling: 'no',
-	            style: { border: 'none' },
-	            allowFullScreen: true,
-	            webkitallowfullscreen: true,
-	            mozallowfullscreen: true })
+	            src: 'https://widgets.figshare.com/articles/4679824/embed?show_title=1',
+	            width: '568px',
+	            height: '426px',
+	            frameBorder: '0' })
 	    );
 	};
 	
