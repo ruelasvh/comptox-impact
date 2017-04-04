@@ -4,7 +4,8 @@
  */
 import { combineReducers } from 'redux';
 import simpleHomeData from './home/reducers';
-import publications from './publications/reducers';
+import publications from './publications/reducers/publications';
+import publicationsVisibilityFilter from './publications/reducers/visibilityFilter';
 
 function entities(state = {}, action) {
     return {
@@ -12,6 +13,6 @@ function entities(state = {}, action) {
     }
 }
 
-const rootReducer = combineReducers({ simpleHomeData, entities });
+const rootReducer = combineReducers({ simpleHomeData, entities, publicationsVisibilityFilter });
 
 export default rootReducer;

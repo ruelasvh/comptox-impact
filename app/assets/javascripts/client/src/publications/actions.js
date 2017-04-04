@@ -26,6 +26,14 @@ function receivePublications(json) {
     }
 }
 
+export const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER';
+export const setVisibilityFilter = (filter) => {
+    return {
+        type: 'SET_VISIBILITY_FILTER',
+        filter
+    }
+}
+
 function normalizeData(jsonArr) {
     let publications = {};
     let allPublicationIds = [];
@@ -50,6 +58,7 @@ function fetchPublications(limit, offset) {
 }
 
 function shouldFetchPublications(state) {
+    console.log('state inside actions: ', state);
     const { byId } = state.entities.publications;
     if (Object.keys(byId).length === 0 && byId.constructor === Object) {
         return true;

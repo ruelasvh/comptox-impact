@@ -12,7 +12,7 @@ import configureStore from './configureStore';
 import Header from './header/HeaderIndex';
 import Footer from './footer/FooterIndex';
 import Home from './home/components/HomeIndex';
-import PublicationsIndex from './publications/container/PublicationsIndexContainer';
+import VisiblePublications from './publications/container/VisiblePublications';
 import ScientistsIndex from './scientists/components/ScientistsIndex';
 import ScientistProfile from './scientist/ScientistProfile';
 import DataToolsIndex from './data-tools/components/DataToolsIndex';
@@ -34,7 +34,7 @@ export class Root extends Component {
 
 // Change to whichever subdomain this project will be deployed from, i.e.,
 // comptox.ag.epa.gov/impact -- relativePath = "/impact"
-export const relativePath = "/impact";
+export const relativePath = "";
 
 const browserHistory = useBasename(createHistory)({
     basename: relativePath
@@ -45,7 +45,7 @@ const routes = {
     component: Root,
     indexRoute: { component: Home },
     childRoutes: [
-        { path: 'publications', component: PublicationsIndex },
+        { path: 'publications', component: VisiblePublications },
         { path: 'scientists', component: ScientistsIndex },
         { path: 'scientists/:scientistId', component: ScientistProfile },
         { path: 'data-tools', component: DataToolsIndex },

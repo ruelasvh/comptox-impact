@@ -28,8 +28,6 @@ class PublicationsController < ApplicationController
 
   # GET /api/publications?limit=5&offset=0
   def query
-    @offset = 0
-    @limit = 8
 
     if params.has_key?(:offset)
       @offset = params[:offset]
@@ -38,26 +36,59 @@ class PublicationsController < ApplicationController
       @limit = params[:limit]
     end
 
-    @publications = Publication.where(:publication_id => @offset..@limit)
+    if @offset == nil && @limit == nil
+      @publications = Publication.all
+      render(
+          status: 200,
+          json: {
+              meta: {
+                  status: "success",
+                  success: true,
+                  message: nil,
+                  warnings: nil,
+                  selfUrl: "http://comptox.ag.epa.gov/impact/api/publications"
+              },
+              data: @publications,
+              pagination: {
+                  offset: @offset,
+                  limit: @limit,
+                  totalItems: Publication.all.size
+              }
+          }
+      )
+    elsif @offset != nil && @limit != nil
+      @publications = Publication.where(:publication_id => @offset..@limit)
+      render(
+          status: 200,
+          json: {
+              meta: {
+                  status: "success",
+                  success: true,
+                  message: nil,
+                  warnings: nil,
+                  selfUrl: "http://comptox.ag.epa.gov/impact/api/publications"
+              },
+              data: @publications,
+              pagination: {
+                  offset: @offset,
+                  limit: @limit,
+                  totalItems: Publication.all.size
+              }
+          }
+      )
+    else
+      render json: {
+          code: 1001,
+          message: "The request is malformed.",
+          error: { missing_paramters:
+                       {
+                           offset: @offset,
+                           limit: @limit
+                       }
+          }
+      }, status: :bad_request
+    end
 
-    render(
-        status: 200,
-        json: {
-            meta: {
-                status: "success",
-                success: true,
-                message: nil,
-                warnings: nil,
-                selfUrl: "http://comptox.ag.epa.gov/impact/api/publications"
-            },
-            data: @publications,
-            pagination: {
-                offset: @offset,
-                limit: @limit,
-                totalItems: Publication.all.size
-            }
-        }
-    )
   end
 
   ActionController::Parameters.action_on_unpermitted_parameters = :raise
