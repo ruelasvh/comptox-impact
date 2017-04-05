@@ -137,14 +137,6 @@ class ScientistsIndex extends React.Component {
         }
 
     }
-
-    // componentWillUpdate() {
-    //     if (this.state.isotope) {
-    //         this.state.isotope.arrange(
-    //             { sortBy: 'name', sortAscending: this.state.sortValue }
-    //         );
-    //     }
-    // }
 }
 
 export default ScientistsIndex;
