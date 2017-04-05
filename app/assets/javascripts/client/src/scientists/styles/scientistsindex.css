@@ -70,10 +70,12 @@
     border-radius: 2px;
 }
 
-.scientists-sort-button {
+/**
+* Sorting and searching forms
+**/
+.scientists-controls-container {
     padding-top: 1em;
     padding-bottom: 2em;
-    text-align: center;
 }
 
 .scientists-sort-button-style {
@@ -82,6 +84,7 @@
     border: 1px solid #ddd;
     padding: 5px 14px;
     color: #337ab7;
+    float: right;
 }
 
 .scientists-sort-button-style:hover {
@@ -90,4 +93,9 @@
 
 .scientists-sort-button-style:focus {
     outline: 0;
+}
+
+.scientists-search-form-style {
+    padding-left: 50%;
+    padding-right: 180px;
 }

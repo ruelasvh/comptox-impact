@@ -6,9 +6,11 @@ import { combineReducers } from 'redux';
 import simpleHomeData from './home/reducers';
 import publications from './publications/reducers/publications';
 import publicationsVisibilityFilter from './publications/reducers/visibilityFilter';
+import scientists from './scientists/reducers/scientists';
 
 function entities(state = {}, action) {
     return {
+        scientists: scientists(state.scientists, action),
         publications: publications(state.publications, action)
     }
 }

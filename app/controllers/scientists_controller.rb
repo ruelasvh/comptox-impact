@@ -5,17 +5,37 @@ class ScientistsController < ApplicationController
   def index
     render(
         status: 200,
-        json: Scientist.order(:lastName)
+        json: {
+            meta: {
+                status: "success",
+                success: true,
+                message: nil,
+                warnings: nil,
+                selfUrl: "http://comptox.ag.epa.gov/impact/api/scientists"
+            },
+            data: Scientist.order(:lastName),
+            pagination: {
+                totalItems: Scientist.all.size
+            }
+        }
     )
   end
 
   # GET /api/scientists/1
   def show
     scientistId = params[:scientistId]
-
     render(
         status: 200,
-        json: Scientist.find(scientistId)
+        json: {
+            meta: {
+                status: "success",
+                success: true,
+                message: nil,
+                warnings: nil,
+                selfUrl: "http://comptox.ag.epa.gov/impact/api/scientists/"+scientistId
+            },
+            data: Scientist.find(scientistId)
+        }
     )
   end
 
@@ -45,7 +65,19 @@ class ScientistsController < ApplicationController
 
     render(
         status: 200,
-        json: Scientist.find(scientistId).publications.all
+        json: {
+            meta: {
+                status: "success",
+                success: true,
+                message: nil,
+                warnings: nil,
+                selfUrl: "http://comptox.ag.epa.gov/impact/api/scientists/"+scientistId+"/publications"
+            },
+            data: Scientist.find(scientistId).publications.all,
+            pagination: {
+                totalItems: Scientist.find(scientistId).publications.all.size
+            }
+        }
       )
   end
 
