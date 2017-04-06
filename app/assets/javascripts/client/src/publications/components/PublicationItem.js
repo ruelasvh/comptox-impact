@@ -103,7 +103,7 @@ class PublicationItem extends React.Component {
         const metrics = this.state.metrics;
         const id = this.props.id;
 
-        // Separate information into different React Components
+        // Display information in their own badge
         const PlumMetrics = () => (
             <div className="publication-item-inline-metric">
                 <Glyphicon glyph="glyphicon glyphicon-eye-open" />
@@ -127,8 +127,7 @@ class PublicationItem extends React.Component {
                         <a href={`https://doi.org/${publication.doi}`} target="_blank"> doi:{publication.doi}</a> :
                         <span> Retrieved from <a href={publication.external_url}>{publication.external_url}</a></span>
                     }
-                    </span>
-                <br/><br/>
+                </span>
             </div>
         );
 
