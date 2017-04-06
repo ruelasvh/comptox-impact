@@ -25,12 +25,12 @@ function receiveScientists(json) {
 function normalizeData(jsonArr) {
     let scientists = {};
     let allScientistsIds = [];
-    for (let publication of jsonArr) {
+    for (let scientist of jsonArr) {
         scientists = {
             ...scientists,
-            [publication.scientistId]: publication
+            [scientist.scientistId]: scientist
         };
-        allScientistsIds.push(publication.scientistId);
+        allScientistsIds.push(scientist.scientistId);
     }
     return {
         scientists,

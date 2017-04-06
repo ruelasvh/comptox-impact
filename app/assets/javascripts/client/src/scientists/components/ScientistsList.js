@@ -12,12 +12,21 @@ import Scientist from './ScientistsListItem';
 import '../styles/scientistsindex.css';
 
 
-class ScientistsIndex extends React.Component {
+class ScientistsList extends React.Component {
     constructor(props) {
         super(props);
 
         // Convert to array
         const scientistsArr = Object.keys(this.props.scientists).map(key => this.props.scientists[key]);
+        // Sort by lastName
+        function compare(a,b) {
+            if (a.lastName < b.lastName)
+                return -1;
+            if (a.lastName > b.lastName)
+                return 1;
+            return 0;
+        }
+        scientistsArr.sort(compare);
 
         this.state = {
             isotope: null,
@@ -139,4 +148,8 @@ class ScientistsIndex extends React.Component {
     }
 }
 
-export default ScientistsIndex;
+ScientistsList.propTypes = {
+    scientists: PropTypes.object.isRequired
+};
+
+export default ScientistsList;

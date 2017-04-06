@@ -30,31 +30,31 @@ const Scientist = ({ scientist }) => {
 )};
 
 Scientist.propTypes = {
-    scientist: PropTypes.shape({
-        scientistId: PropTypes.number.isRequired,
-        firstName: PropTypes.string.isRequired,
-        lastName: PropTypes.string.isRequired,
-        title: PropTypes.string.isRequired,
-        // email: PropTypes.string.isRequired,
-        // photoUrl: PropTypes.string.isRequired,
-        // orcid: PropTypes.string.isRequired,
-        // researchGate: PropTypes.string.isRequired,
-        // googleScholar: PropTypes.string.isRequired,
-        // linkedIn: PropTypes.string.isRequired,
-        // plumx: PropTypes.string.isRequired,
-        // publons: PropTypes.string.isRequired,
-        // europePmc: PropTypes.string.isRequired,
-        // bio: PropTypes.string.isRequired,
-        // createdBy: PropTypes.string.isRequired,
-        // updatedBy: PropTypes.string.isRequired,
-        // publications: PropTypes.string.isRequired,
-        // presentations: PropTypes.string.isRequired,
-        // projects: PropTypes.string.isRequired,
-        // selfUrl: PropTypes.string.isRequired,
-        // created_at: PropTypes.string.isRequired,
-        // updated_at: PropTypes.string.isRequired
-    }).isRequired,
-    // scientists_path: PropTypes.string.isRequired
+    // scientist: PropTypes.shape({
+    //     scientistId: PropTypes.number.isRequired,
+    //     firstName: PropTypes.string.isRequired,
+    //     lastName: PropTypes.string.isRequired,
+    //     title: PropTypes.string.isRequired,
+    //     email: PropTypes.string.isRequired,
+    //     photoUrl: PropTypes.string.isRequired,
+    //     orcid: PropTypes.string.isRequired,
+    //     researchGate: PropTypes.string.isRequired,
+    //     googleScholar: PropTypes.string.isRequired,
+    //     linkedIn: PropTypes.string.isRequired,
+    //     plumx: PropTypes.string.isRequired,
+    //     publons: PropTypes.string.isRequired,
+    //     europePmc: PropTypes.string.isRequired,
+    //     bio: PropTypes.string.isRequired,
+    //     createdBy: PropTypes.string.isRequired,
+    //     updatedBy: PropTypes.string.isRequired,
+    //     publications: PropTypes.string.isRequired,
+    //     presentations: PropTypes.string.isRequired,
+    //     projects: PropTypes.string.isRequired,
+    //     selfUrl: PropTypes.string.isRequired,
+    //     created_at: PropTypes.string.isRequired,
+    //     updated_at: PropTypes.string.isRequired
+    // }).isRequired,
+    scientist: PropTypes.object.isRequired
 };
 
 export default Scientist;
