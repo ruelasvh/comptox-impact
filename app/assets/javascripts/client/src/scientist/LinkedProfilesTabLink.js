@@ -11,6 +11,7 @@ import googlescholarThumbnail from './img/googlescholar.png';
 import europepmcThumbnail from './img/europepmc.png';
 import vivoThumbnail from './img/vivo.png';
 import publonsThumbnail from './img/publons.png';
+import microsoftAcademic from './img/microsoftacademic.jpg';
 import './styles/scientistprofile.css';
 
 export const linkTypes = {
@@ -22,7 +23,7 @@ export const linkTypes = {
     "EUROPE_PMC": "Europe PMC",
     "VIVO": "VIVO-ORD Research and Expertise",
     "PUBLONS": "Publons",
-    "MICROSOFT_ACADEMIC": "MicrosoftAcademic"
+    "MICROSOFT_ACADEMIC": "Microsoft Academic"
 };
 
 const linkDescriptions = {
@@ -55,6 +56,8 @@ function getExtraAttributeValues( linkType ) {
        return {"description": linkDescriptions.VIVO, "thumbnail": vivoThumbnail}
    } else if (linkType == linkTypes.PUBLONS) {
        return {"description": linkDescriptions.PUBLONS, "thumbnail": publonsThumbnail}
+   } else if (linkType == linkTypes.MICROSOFT_ACADEMIC) {
+       return {"description": linkDescriptions.MICROSOFT_ACADEMIC, "thumbnail": microsoftAcademic}
    } else {
        return {}
    }

@@ -62,6 +62,9 @@ class ScientistProfileTabs extends React.Component {
                 {this.props.scientistDetails.publons ? <Link
                     url={this.props.scientistDetails.publons}
                     label={linkTypes.PUBLONS}/> : ''}
+                {this.props.scientistDetails.microsoftAcademic ? <Link
+                        url={this.props.scientistDetails.microsoftAcademic}
+                        label={linkTypes.MICROSOFT_ACADEMIC}/> : ''}
             </div>
         );
 
