@@ -20,14 +20,16 @@ class ScientistProfile extends React.Component {
     constructor(props) {
         super(props);
 
-        let initialScientistDetails = {};
+        let scientistDetailsFromProps = {};
+
         if (this.props.location) {
-            initialScientistDetails = this.props.location.state ?
-                this.props.location.state.scientist : {};
+            if (this.props.location.state) {
+                scientistDetailsFromProps = this.props.location.state.scientist;
+            }
         }
 
         this.state = {
-            scientistDetails: initialScientistDetails,
+            scientistDetails: scientistDetailsFromProps,
         };
 
         // Bind functions
@@ -37,33 +39,24 @@ class ScientistProfile extends React.Component {
 
     handleFetchScientist() {
         const scientistId = this.props.params.scientistId;
-        // var photoURL = `/api/scientists/${scientistId}/photo/${scientistId}.jpg`;
-        // if (process.env.NODE_ENV === "production") {
-        //     photoURL = this.state.scientistDetails.photoUrl;
-        // }
 
-        Client.searchScientist(scientistId, (scientistDetails) => {
-            this.setState({ scientistDetails: scientistDetails },
+        Client.searchScientist(scientistId, (scientist) => {
+            this.setState({ scientistDetails: scientist.data },
                 () => console.log(this.state.scientistDetails))
         });
-        //
-        // Client.searchScientistPhoto(photoURL, (scientistPhotoURL) => {
-        //     this.setState({ scientistPhoto: scientistPhotoURL },
-        //         () => console.log(this.state.scientistPhoto))
-        // })
     }
 
     handleCancelScientist() {
         this.setState({
-            scientistDetails: []
+            scientistDetails: {}
         });
     }
 
-
-
-
     componentDidMount() {
-        this.handleFetchScientist();
+        // Fetch scientist details if state is empty
+        if (Object.keys(this.state.scientistDetails).length === 0 && this.state.scientistDetails.constructor === Object) {
+            this.handleFetchScientist();
+        }
     }
 
     render() {
