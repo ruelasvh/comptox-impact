@@ -2,25 +2,16 @@
  * Created by Victor H. Ruelas-Rivera on 4/3/17.
  * US EPA National Center for Computational Toxicology
  */
+import React from 'react';
 import { connect } from 'react-redux';
+import Loader from 'react-loader';
 import PublicationsList from '../components/PublicationsList';
 import { fetchPublicationsIfNeeded } from '../actions';
-
-const getVisiblePublications = (publications, filter) => {
-    switch (filter) {
-        case 'SHOW_ALL':
-            return publications;
-        case 'SHOW_2013':
-            return publications.filter()
-    }
-}
-
 
 const mapStateToProps = (state) => {
     const {
         isFetching,
         byId,
-        visibilityFilter,
         limit,
         offset
     } = state.entities.publications || {
@@ -30,10 +21,10 @@ const mapStateToProps = (state) => {
         limit: null,
         offset: null
     };
-    const visiblePublications = getVisiblePublications(byId, visibilityFilter);
+
     return {
         isFetching,
-        visiblePublications,
+        publications: byId,
         limit,
         offset
     }
@@ -41,16 +32,27 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchPublicationsIfNeeded: () => {
+        getPublications: () => {
             dispatch(fetchPublicationsIfNeeded())
         }
     }
 }
 
-const VisiblePublicationsList = connect(
+export class VisiblePublications extends React.Component {
+    componentDidMount() {
+        this.props.getPublications();
+    }
+
+    render() {
+        return (
+            <Loader loaded={!this.props.isFetching}>
+                <PublicationsList publications={this.props.publications}/>
+            </Loader>
+        )
+    }
+}
+
+export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(PublicationsList);
-
-export default VisiblePublicationsList;
-
+)(VisiblePublications);

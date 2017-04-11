@@ -27,7 +27,7 @@ class PublicationItem extends React.Component {
         $(document).ready(function () {
             // Simulate mouse enter element
             $("#plumx-publication-item-" + id).mouseenter(function () {
-                // console.log('Plumx icon simulate hover');
+                console.log('Plumx icon simulate hover');
                 data = [];
                 m.clear();
             });

@@ -20,7 +20,7 @@ function publications(state = initialState, action) {
                 isFetching: false,
                 lastUpdated: action.receivedAt,
                 byId: action.data.publications,
-                allIds: action.data.allPublicationIds,
+                allIds: action.data.allPublicationsIds,
                 limit: action.limit,
                 offset: action.offset
             });
