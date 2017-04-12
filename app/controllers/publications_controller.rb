@@ -26,9 +26,16 @@ class PublicationsController < ApplicationController
     )
   end
 
-  # GET /api/publications?limit=5&offset=0
+  # GET /api/publications?limit=5&offset=0 or /api/publications?page=1
   def query
 
+    total_items = Publication.all.size
+
+    if params.has_key?(:page)
+      @page = params[:page]
+      @limit = @page.to_i * 10
+      @offset = @limit.to_i - 10
+    end
     if params.has_key?(:offset)
       @offset = params[:offset]
     end
@@ -36,7 +43,7 @@ class PublicationsController < ApplicationController
       @limit = params[:limit]
     end
 
-    if @offset == nil && @limit == nil
+    if @offset.nil? && @limit.nil? && @page.nil?
       @publications = Publication.all
       render(
           status: 200,
@@ -52,11 +59,11 @@ class PublicationsController < ApplicationController
               pagination: {
                   offset: @offset,
                   limit: @limit,
-                  totalItems: Publication.all.size
+                  totalItems: total_items
               }
           }
       )
-    elsif @offset != nil && @limit != nil
+    elsif !@offset.nil? && !@limit.nil? && @page.nil?
       @publications = Publication.where(:publication_id => @offset..@limit)
       render(
           status: 200,
@@ -66,13 +73,33 @@ class PublicationsController < ApplicationController
                   success: true,
                   message: nil,
                   warnings: nil,
-                  selfUrl: "http://comptox.ag.epa.gov/impact/api/publications"
+                  selfUrl: "http://comptox.ag.epa.gov/impact/api/publications?limit="+@limit+"&offset="+@offset
               },
               data: @publications,
               pagination: {
                   offset: @offset,
                   limit: @limit,
-                  totalItems: Publication.all.size
+                  totalItems: total_items
+              }
+          }
+      )
+    elsif !@page.nil?
+    @publications = Publication.where(:publication_id => @offset..@limit)
+      render(
+          status: 200,
+          json: {
+              meta: {
+                  status: "success",
+                  success: true,
+                  message: nil,
+                  warnings: nil,
+                  selfUrl: "http://comptox.ag.epa.gov/impact/api/publications?page="+@page
+              },
+              data: @publications,
+              pagination: {
+                  page: @page,
+                  totalPages: (total_items/10.to_f).ceil,
+                  totalItems: total_items
               }
           }
       )
