@@ -5,14 +5,26 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Home.delete_all
 Scientist.delete_all
 PublicationType.delete_all
 Publication.delete_all
 ScientistPublication.delete_all
 
+################################################
+# Landing page info
+################################################
+Home.create!(
+    title: "EPA Computational Toxicology Impact",
+    intro: "Chemical safety has been a major priority for EPA since it was established in 1970. As the number of chemicals entering the marketplace has increased, evaluating chemicals for potential health effects has become a formidable challenge. Today, some 80,000 chemicals are listed or registered under the Toxic Substance Control Act (TSCA), and hundreds of new chemicals are introduced every year. EPA's computational toxicology research has made a tremendous impact on this challenge by developing scientific approaches that can be used to evaluate thousands of chemicals for potential health effects. Approaches are faster, more efficient, and far less costly than traditional methods. Learn more about our impact by exploring our scientists, publications and data.",
+    scientists_img_url: "http://comptox.ag.epa.gov/impact/api/home/photo/NCCT_Staff.jpg",
+    publications_img_url: "http://comptox.ag.epa.gov/impact/api/home/photo/Publications.jpg",
+    datatools_img_url: "http://comptox.ag.epa.gov/impact/api/home/photo/Data_Tools.jpg",
+    impact_img_url: "http://comptox.ag.epa.gov/impact/api/home/photo/Impact.jpg"
+)
+
 Scientist.create!(
     scientistId: 1,
-    other_details: "isPrincipalInvestigator",
     firstName: "Ann",
     lastName: "Richard",
     email: "richard.ann@epa.gov",
@@ -30,7 +42,6 @@ Scientist.create!(
 
 Scientist.create!(
     scientistId: 2,
-    other_details: "isPrincipalInvestigator",
     firstName: "Antony",
     lastName: "Williams",
     email: "williams.antony@epa.gov",
@@ -51,7 +62,6 @@ Scientist.create!(
 
 Scientist.create!(
     scientistId: 3,
-    other_details: "isPrincipalInvestigator",
     firstName: "Audrey",
     lastName: "Bone",
     email: "bone.audrey@epa.gov",
@@ -69,7 +79,6 @@ Scientist.create!(
 
 Scientist.create!(
     scientistId: 4,
-    other_details: "isPrincipalInvestigator",
     firstName: "Chris",
     lastName: "Grulke",
     email: "grulke.chris@epa.gov",
@@ -87,7 +96,6 @@ Scientist.create!(
 
 Scientist.create!(
     scientistId: 5,
-    other_details: "isPrincipalInvestigator",
     firstName: "Danica",
     lastName: "DeGroot",
     email: "degroot.danica@epa.gov",
@@ -103,7 +111,6 @@ Scientist.create!(
 
 Scientist.create!(
     scientistId: 6,
-    other_details: "isPrincipalInvestigator",
     firstName: "Danielle",
     lastName: "Suarez",
     email: "suarez.danielle@epa.gov",
@@ -137,7 +144,6 @@ Scientist.create!(
 
 Scientist.create!(
     scientistId: 8,
-    other_details: "isPrincipalInvestigator",
     firstName: "Grace",
     lastName: "Patlewicz",
     email: "tier.grace@epa.gov",
@@ -155,7 +161,6 @@ Scientist.create!(
 
 Scientist.create!(
     scientistId: 9,
-    other_details: "isPrincipalInvestigator",
     firstName: "Imran",
     lastName: "Shah",
     email: "shah.imran@epa.gov",
@@ -173,7 +178,6 @@ Scientist.create!(
 
 Scientist.create!(
     scientistId: 10,
-    other_details: "isPrincipalInvestigator",
     firstName: "Jeremy",
     lastName: "Fitzpatrick",
     email: "fitzpatrick.jeremy@epa.gov",
@@ -190,7 +194,6 @@ Scientist.create!(
 
 Scientist.create!(
     scientistId: 11,
-    other_details: "isPrincipalInvestigator",
     firstName: "John",
     lastName: "Cowden",
     email: "cowden.john@epa.gov",
@@ -206,7 +209,6 @@ Scientist.create!(
 
 Scientist.create!(
     scientistId: 12,
-    other_details: "isPrincipalInvestigator",
     firstName: "John",
     lastName: "Wambaugh",
     email: "wambaugh.john@epa.gov",
@@ -225,7 +227,6 @@ Scientist.create!(
 
 Scientist.create!(
     scientistId: 13,
-    other_details: "isPrincipalInvestigator",
     firstName: "Keith",
     lastName: "Houck",
     email: "houck.keith@epa.gov",
@@ -245,7 +246,6 @@ Scientist.create!(
 
 Scientist.create!(
     scientistId: 14,
-    other_details: "isPrincipalInvestigator",
     firstName: "Kevin",
     lastName: "Crofton",
     email: "crofton.kevin@epa.gov",
@@ -280,7 +280,6 @@ Scientist.create!(
 
 Scientist.create!(
     scientistId: 16,
-    other_details: "isPrincipalInvestigator",
     firstName: "Richard",
     lastName: "Judson",
     email: "judson.richard@epa.gov",
@@ -299,7 +298,6 @@ Scientist.create!(
 
 Scientist.create!(
     scientistId: 17,
-    other_details: "isPrincipalInvestigator",
     firstName: "Russell",
     lastName: "Thomas",
     email: "thomas.russell@epa.gov",
@@ -317,7 +315,6 @@ Scientist.create!(
 
 Scientist.create!(
     scientistId: 18,
-    other_details: "isPrincipalInvestigator",
     firstName: "Stephen",
     lastName: "Little",
     email: "little.stephen@epa.gov",
@@ -334,7 +331,6 @@ Scientist.create!(
 
 Scientist.create!(
     scientistId: 19,
-    other_details: "isPrincipalInvestigator",
     firstName: "Steven",
     lastName: "Simmons",
     email: "simmons.steve@epa.gov",
@@ -353,7 +349,6 @@ Scientist.create!(
 
 Scientist.create!(
     scientistId: 20,
-    other_details: "isPrincipalInvestigator",
     firstName: "Thomas",
     lastName: "Knudsen",
     email: "knudsed.thomas@epa.gov",
@@ -370,7 +365,6 @@ Scientist.create!(
 
 Scientist.create!(
     scientistId: 21,
-    other_details: "isPrincipalInvestigator",
     firstName: "Woodrow",
     lastName: "Setzer",
     email: "setzer.woodrow@epa.gov",

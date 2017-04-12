@@ -12,6 +12,5 @@ class CreateScientistPublications < ActiveRecord::Migration
     add_index :scientist_publications, [:scientist_id, :publication_id], unique: true
 
     add_foreign_key :scientist_publications, :publications, column: :publication_id, primary_key: 'publication_id', on_update: :cascade, on_delete: :nullify
-    add_foreign_key :scientist_publications, :scientists, column: :scientist_id, primary_key: 'scientistId', on_update: :cascade, on_delete: :nullify
   end
 end
