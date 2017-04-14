@@ -20,11 +20,8 @@ class ScientistProfileTabs extends React.Component {
         const linkedProfilesTab = 3;
         const projectsTab = 4;
 
-        const initialTabSelected = this.props.scientistDetails.other_details == "isPrincipalInvestigator" ?
-            publicationsTab : linkedProfilesTab;
-
         this.state = {
-            key: initialTabSelected
+            key: publicationsTab
         };
 
         // Bind functions
@@ -36,6 +33,9 @@ class ScientistProfileTabs extends React.Component {
     }
 
     render() {
+        const hasPublications = true;
+        const hasPresentations = true;
+        const hasProjects = false;
         const LinkedProfilesTabLinks = (
             <div>
                 {this.props.scientistDetails.orcid ? <Link
@@ -70,13 +70,13 @@ class ScientistProfileTabs extends React.Component {
 
         return (
             <Tabs activeKey={this.state.key} onSelect={this.handleSelect} id="controlled-tabs">
-                <Tab eventKey={1} title="Publications" disabled={!(this.props.scientistDetails.other_details == "isPrincipalInvestigator")}>
+                <Tab eventKey={1} title="Publications" disabled={!hasPublications}>
                     <div className="tab-frame" style={{marginBottom: '8em'}}>
                         {/*{publications}*/}
                         <Publications/>
                     </div>
                 </Tab>
-                <Tab eventKey={2} title="Presentations" disabled={!(this.props.scientistDetails.other_details == "isPrincipalInvestigator")}>
+                <Tab eventKey={2} title="Presentations" disabled={!hasPresentations}>
                     <div className="tab-frame">
                         <SlideShare userUrl="empty for now"/>
                     </div>
@@ -86,7 +86,7 @@ class ScientistProfileTabs extends React.Component {
                         {LinkedProfilesTabLinks}
                     </div>
                 </Tab>
-                <Tab eventKey={4} title="Projects" disabled={!(this.props.scientistDetails.other_details == "isPrincipalInvestigator")}>
+                <Tab eventKey={4} title="Projects" disabled={!hasProjects}>
                     <div className="tab-frame">
                         Projects content
                     </div>
