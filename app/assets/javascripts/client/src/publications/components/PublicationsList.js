@@ -15,42 +15,71 @@ export class PublicationsList extends React.Component {
         const publicationsArr = Object.keys(this.props.publications).map(key => this.props.publications[key]);
 
         this.state = {
-            activePage: 1,
             publications: publicationsArr,
-            currentlyDisplayed: publicationsArr
+            filteredPublications: publicationsArr,
+            searchTerm: '',
+            activePage: 1,
+            publicationsPerPage: 5,
+            savedPage: 1
         };
 
         //Bindings
         this.handleSelectPage = this.handleSelectPage.bind(this);
+        this.handleInputChange = this.handleInputChange.bind(this);
     }
 
     // To be used with the Pagination widget.
     handleSelectPage(eventKey) {
         this.setState({
-            activePage: eventKey
+            activePage: eventKey,
+            savedPage: eventKey
+        });
+    }
+
+    // Handle search bar input behaviour
+    handleInputChange(event) {
+        let newlyFiltered = this.state.publications.filter(
+            (publication) => {
+                return (
+                    (publication.doi ? publication.doi.includes(event.target.value) : false) ||
+                    (publication.citation ? publication.citation.toLowerCase().includes(event.target.value.toLowerCase()) : false)
+                )
+            }
+        );
+
+        this.setState({
+            searchTerm: event.target.value,
+            filteredPublications: newlyFiltered,
+            activePage: 1
         });
     }
 
     render() {
-            const Publications = (
-                <div>
-                    {this.state.publications.map(function (publication) {
-                        return (
-                            <PublicationItem
-                                id={publication.publication_id.toString()}
-                                key={publication.publication_id}
-                                publication={publication}
-                                centerWide={true} />
-                        );
-                    })}
-                </div>
-            );
 
+        const { filteredPublications, activePage, searchTerm, savedPage, publicationsPerPage } = this.state;
+
+        const currentPage = searchTerm == '' ? savedPage : activePage;
+
+        // Logic for displaying current publications
+        const indexOfLastPublication = currentPage * publicationsPerPage;
+        const indexOfFistPublication = indexOfLastPublication - publicationsPerPage;
+        const currentPublications = filteredPublications.slice(indexOfFistPublication, indexOfLastPublication);
+
+        const renderPublications = currentPublications.map((publication, index) => {
+            return (
+                <PublicationItem
+                    id={publication.publication_id.toString()}
+                    key={index}
+                    publication={publication}
+                    centerWide={true} />
+            )
+        });
 
         return (
-            <div className="publications-container">
-                <Grid>
-                    <Row bsClass="with-underheader-1">
+            <div>
+                <div className="publications-container">
+                    <Grid>
+                    <Row>
                         <Col md={5}>
                             <h1>Publications</h1>
                         </Col>
@@ -66,7 +95,10 @@ export class PublicationsList extends React.Component {
                                         <InputGroup.Addon>
                                             <Glyphicon glyph="glyphicon glyphicon-search" />
                                         </InputGroup.Addon>
-                                        <FormControl type="text" placeholder="Authors, Publication Name, DOI" />
+                                        <FormControl
+                                            type="text"
+                                            placeholder="Authors, Publication Title, DOI"
+                                            onChange={this.handleInputChange} />
                                     </InputGroup>
                                 </FormGroup>
                             </div>
@@ -131,7 +163,7 @@ export class PublicationsList extends React.Component {
                     {/**
                      * Spacing between filter dropdowns and publications.
                      **/}
-                    <div style={{padding: '25px'}}/>
+                    {/*<div style={{padding: '25px'}}/>*/}
 
                     {/**
                      * Publications go start here.
@@ -156,21 +188,23 @@ export class PublicationsList extends React.Component {
 
 
                     <div className="publications-item-grid">
-                        {Publications}
-                    </div>
-
-                    <div className="publications-pagination">
-                        <Pagination
-                            prev
-                            next
-                            ellipsis
-                            boundaryLinks
-                            items={20}
-                            maxButtons={5}
-                            activePage={this.state.activePage}
-                            onSelect={this.handleSelectPage} />
+                        {renderPublications}
                     </div>
                 </Grid>
+                </div>
+                <div className="publications-pagination">
+                    <Pagination
+                        prev
+                        next
+                        first
+                        last
+                        ellipsis
+                        boundaryLinks
+                        items={Math.ceil(filteredPublications.length / publicationsPerPage)}
+                        maxButtons={3}
+                        activePage={currentPage}
+                        onSelect={this.handleSelectPage} />
+                </div>
             </div>
         );
     }

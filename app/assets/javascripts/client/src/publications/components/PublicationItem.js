@@ -90,10 +90,8 @@ class PublicationItem extends React.Component {
     }
 
     componentDidMount() {
-        this.appendPlumxScript();
-        this.appendAltmetricScript();
         /* Get metrics */
-        this.handleMetrics(this);
+        // this.handleMetrics(this);
     }
 
     render() {
@@ -169,6 +167,11 @@ class PublicationItem extends React.Component {
                 </Row>
             </div>
         )
+    }
+
+    componentDidUpdate() {
+        this.appendPlumxScript();
+        this.appendAltmetricScript();
     }
 }
 

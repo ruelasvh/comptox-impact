@@ -47,6 +47,12 @@
 }
 
 .publications-pagination {
-    padding-top: 30px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 200px;
+    vertical-align: bottom;
+    display: table-cell;
     text-align: center;
 }
