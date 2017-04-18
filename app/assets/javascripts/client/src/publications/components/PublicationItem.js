@@ -27,7 +27,6 @@ class PublicationItem extends React.Component {
         $(document).ready(function () {
             // Simulate mouse enter element
             $("#plumx-publication-item-" + id).mouseenter(function () {
-                console.log('Plumx icon simulate hover');
                 data = [];
                 m.clear();
             });
@@ -47,7 +46,10 @@ class PublicationItem extends React.Component {
                         m.set(data[i], data[i+1]);
                     }
                 }
-                // console.log(m);
+                // If publication has doi, store metrics otherwise reset map
+                if (!thisComponent.props.publication.doi) {
+                    m.clear();
+                }
                 thisComponent.setState({ metrics: m });
             });
             // Fire mouse hovering over element (does not work with out previous statements)
@@ -55,51 +57,19 @@ class PublicationItem extends React.Component {
             // Give time to collect the data
             setTimeout(function () {
                 $("#plumx-publication-item-" + id).trigger('mouseleave');
-            }, 1500);
+            }, 100);
         });
-    }
-
-    appendPlumxScript() {
-        if (document.getElementById('plumx-script')) {
-            console.log('Appended Plumx script 1st level');
-            if (window.__plumX) {
-                window.__plumX.widgets.popup.wireUp();
-                console.log('Appended Plumx script 2nd level');
-            }
-            return;
-        }
-        const plumxScript = document.createElement("script");
-        plumxScript.id = 'plumx-script';
-        plumxScript.src = "//d39af2mgp1pqhg.cloudfront.net/widget-popup.js";
-        plumxScript.async = true;
-        document.head.appendChild(plumxScript);
-    }
-
-    appendAltmetricScript() {
-        if (document.getElementById('altmetric-script')) {
-            if (window._altmetric) {
-                window._altmetric.embed_init();
-            }
-            return;
-        }
-        const altMetricScript = document.createElement("script");
-        altMetricScript.id = 'altmetric-script';
-        altMetricScript.src = "//d1bxh8uas1mnw7.cloudfront.net/assets/embed.js";
-        altMetricScript.async = true;
-        document.head.appendChild(altMetricScript);
     }
 
     componentDidMount() {
         /* Get metrics */
-        // this.handleMetrics(this);
+        this.handleMetrics(this);
     }
 
     render() {
         // console.log(this.state.metrics);
-        const centerWide = this.props.centerWide;
-        const publication = this.props.publication;
+        const { centerWide, publication, id } = this.props;
         const metrics = this.state.metrics;
-        const id = this.props.id;
 
         // Display information in their own badge
         const PlumMetrics = () => (
@@ -121,16 +91,16 @@ class PublicationItem extends React.Component {
             <div>
                 <span dangerouslySetInnerHTML={{__html: publication.citation}} />
                 <span>
-                    {publication.doi ?
-                        <a href={`https://doi.org/${publication.doi}`} target="_blank"> doi:{publication.doi}</a> :
-                        <span> Retrieved from <a href={publication.external_url}>{publication.external_url}</a></span>
+                    {
+                        publication.doi ?
+                        <a href={`https://doi.org/${publication.doi}`} target="_blank"> doi:{publication.doi}</a> : ''
                     }
                 </span>
             </div>
         );
 
         const Project = () => (
-            <div dangerouslySetInnerHTML={{__html: publication.projectLink}} />
+            <div dangerouslySetInnerHTML={{__html: publication.project}} />
         );
 
         return (
@@ -150,28 +120,29 @@ class PublicationItem extends React.Component {
                         </div>
                     </Col>
                     <Col md={1}>
-                        <div className="publication-item-button" id={"altmetric-publication-item-" + id}>
-                            <AltmetricWidget doi={publication.doi} />
+                        <div
+                            className={"publication-item-button " + (publication.doi ? "" : "publication-item-button-disabled")}
+                            id={"altmetric-publication-item-" + id}
+                            key={id} >
+                            <AltmetricWidget doi={publication.doi ? publication.doi : "no-doi"} />
                         </div>
                     </Col>
                     <Col md={1}>
-                        <div className="publication-item-button" id={"plumx-publication-item-" + id}>
-                            <PlumxWidget doi={publication.doi} />
+                        <div
+                            className={"publication-item-button " + (publication.doi ? "" : "publication-item-button-disabled")}
+                            id={"plumx-publication-item-" + id}
+                            key={id} >
+                            <PlumxWidget doi={publication.doi ? publication.doi : "null"} />
                         </div>
                     </Col>
                     <Col md={1}>
-                        <div className="publication-item-button">
-                            <KudosWidget doi={publication.doi} />
+                        <div className={"publication-item-button " + (publication.doi ? "" : "publication-item-button-disabled")}>
+                            <KudosWidget doi={publication.doi ? publication.doi : "no-doi"} />
                         </div>
                     </Col>
                 </Row>
             </div>
         )
-    }
-
-    componentDidUpdate() {
-        this.appendPlumxScript();
-        this.appendAltmetricScript();
     }
 }
 

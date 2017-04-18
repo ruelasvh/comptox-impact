@@ -4,14 +4,14 @@
 import React, { PropTypes } from 'react';
 
 const PlumxWidget = ( { doi } ) => (
-    <a
-        href={`https://plu.mx/plum/a/?doi=${encodeURI(doi)}`}
-        className="plumx-plum-print-popup"
-        data-hide-when-empty="false"
-        data-popup="left"
-        data-size="medium"
-        target="_blank">
-    </a>
+        <a
+            className="plumx-plum-print-popup"
+            href={`https://plu.mx/plum/a/?doi=${doi}`}
+            data-hide-when-empty="false"
+            data-popup="top"
+            data-size="medium"
+            target="_blank">
+        </a>
 );
 
 PlumxWidget.propTypes = {

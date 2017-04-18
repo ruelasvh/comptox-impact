@@ -8,6 +8,7 @@ const AltmetricWidget = ( { doi } ) => (
         className="altmetric-embed"
         data-badge-popover="left"
         data-badge-type="donut"
+        data-link-target="_blank"
         data-doi={doi}>
     </div>
 );

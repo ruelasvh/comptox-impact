@@ -12,7 +12,17 @@ export class PublicationsList extends React.Component {
     constructor(props) {
         super(props);
 
+        // Convert to array from nomalized state
         const publicationsArr = Object.keys(this.props.publications).map(key => this.props.publications[key]);
+        // Sort by published date, latest first
+        function compare(a,b) {
+            if (a.published_date > b.published_date)
+                return -1;
+            if (a.published_date < b.published_date)
+                return 1;
+            return 0;
+        }
+        publicationsArr.sort(compare);
 
         this.state = {
             publications: publicationsArr,
@@ -28,8 +38,37 @@ export class PublicationsList extends React.Component {
         this.handleInputChange = this.handleInputChange.bind(this);
     }
 
+    appendPlumxScript() {
+        if (document.getElementById('plumx-script')) {
+            if (window.__plumX) {
+                window.__plumX.widgets.popup.wireUp();
+            }
+            return;
+        }
+        const plumxScript = document.createElement("script");
+        plumxScript.id = 'plumx-script';
+        plumxScript.src = "//d39af2mgp1pqhg.cloudfront.net/widget-popup.js";
+        plumxScript.async = true;
+        document.head.appendChild(plumxScript);
+    }
+
+    appendAltmetricScript() {
+        if (document.getElementById('altmetric-script')) {
+            if (window._altmetric) {
+                window._altmetric.embed_init();
+            }
+            return;
+        }
+        const altMetricScript = document.createElement("script");
+        altMetricScript.id = 'altmetric-script';
+        altMetricScript.src = "//d1bxh8uas1mnw7.cloudfront.net/assets/embed.js";
+        altMetricScript.async = true;
+        document.head.appendChild(altMetricScript);
+    }
+
     // To be used with the Pagination widget.
     handleSelectPage(eventKey) {
+        this.appendPlumxScript();
         this.setState({
             activePage: eventKey,
             savedPage: eventKey
@@ -38,6 +77,9 @@ export class PublicationsList extends React.Component {
 
     // Handle search bar input behaviour
     handleInputChange(event) {
+        // Scroll up
+        window.scrollTo(0,0);
+
         let newlyFiltered = this.state.publications.filter(
             (publication) => {
                 return (
@@ -54,8 +96,12 @@ export class PublicationsList extends React.Component {
         });
     }
 
-    render() {
+    componentDidMount() {
+        this.appendPlumxScript();
+        this.appendAltmetricScript();
+    }
 
+    render() {
         const { filteredPublications, activePage, searchTerm, savedPage, publicationsPerPage } = this.state;
 
         const currentPage = searchTerm == '' ? savedPage : activePage;
@@ -65,11 +111,11 @@ export class PublicationsList extends React.Component {
         const indexOfFistPublication = indexOfLastPublication - publicationsPerPage;
         const currentPublications = filteredPublications.slice(indexOfFistPublication, indexOfLastPublication);
 
-        const renderPublications = currentPublications.map((publication, index) => {
+        const renderPublications = currentPublications.map((publication) => {
             return (
                 <PublicationItem
                     id={publication.publication_id.toString()}
-                    key={index}
+                    key={publication.publication_id}
                     publication={publication}
                     centerWide={true} />
             )
@@ -201,12 +247,17 @@ export class PublicationsList extends React.Component {
                         ellipsis
                         boundaryLinks
                         items={Math.ceil(filteredPublications.length / publicationsPerPage)}
-                        maxButtons={3}
+                        maxButtons={5}
                         activePage={currentPage}
                         onSelect={this.handleSelectPage} />
                 </div>
             </div>
         );
+    }
+
+    componentDidUpdate() {
+        this.appendPlumxScript();
+        this.appendAltmetricScript();
     }
 
 }

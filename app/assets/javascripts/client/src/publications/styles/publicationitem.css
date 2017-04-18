@@ -29,6 +29,12 @@
     height: 100%;
 }
 
+.publication-item-button-disabled {
+    pointer-events: none;
+    cursor: default;
+    opacity: 0.4;
+}
+
 .publication-item-inline-metric {
     transform: scale(.85,.85); /*Half width and height */
     -ms-transform: scale(.85,.85); /* IE 9 */
