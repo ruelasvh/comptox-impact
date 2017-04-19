@@ -6,7 +6,7 @@
 import { relativePath } from '../App';
 import fetch from 'isomorphic-fetch';
 
-const absolutePath = (process.env.NODE_ENV === "production" ? "http://comptox.ag.epa.gov" : "http://localhost:3000");
+const absolutePath = (process.env.NODE_ENV === "production" ? "http://comptox.ag.epa.gov" : "http://localhost:3030");
 
 function searchHomeData(callback) {
     return fetch(`${absolutePath+relativePath}/api/home`, {
