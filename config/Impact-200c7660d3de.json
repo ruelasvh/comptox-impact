@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "impact-152019",
+  "private_key_id": "200c7660d3de75b979b8951720e3058d243f63d9",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC2oDphxvWVMOXS\n6HICcxGkNAPnd/lRQasQTbOA52NtSOe6Ezc/1NsvekQpFCGlfyUr1O6Wix8evAbj\n1FTalGPasfI0Nx45dm2B2LOYlgr3UvaBsxUZfv0oCl77x99Fz3xEqdIcVofWqfAp\nHhvminSwqupiJSRRaHt5CJdYWGNMad/O2YFAUtRf3KnQXaaD5TcH1dJtxe4deGc7\nQ9PlOwU07MrDd2VjnRMzPAN+FYd7SSQN/eJVT/ESe9Q9I1zoVE9HmHZCFdZpg0VL\nPNieUO7m5ppnnDoePY6LE5moSe5b/dq2XvsSSnXPCseQAcEBMWZgWRHpkyFNTGgn\ndFfswlm5AgMBAAECggEAFbxMNobvg6omMEvqBdCcMObf8BSfX8RpD6+vxY/EjaU3\nrzXKRZaX37a1lg4HUyMm0WiuXMyCD65hQ4xp7PnsSIMVSJGmz0ABGIsqFOcGtxjw\nrc8am8Y5ayKQ23aWZEClkaaEk0rZL/tZ0gr7VxzzdnNhIf05rVa6G1WibalXaCie\nOlyQIp31+4t0eqcAAYLoGFJAQa0Q3bP+YleCIqpOswDszshqOIhLHp0iWHj+lWxJ\naxqsjsrohrKAS32xTJLxVqnMreJh7TBjngrpyTmjgv1aqYT1k2JjPWMsebGjtvS4\nxPJPENMODriOzX5gJW9+z731twHfmSwdnK7LJbU0AQKBgQDZFQnNEM3/b6nb9/11\nkKkFUyZRFnEzW69EaBcE8Y1TTrWLW15t2QoTv4NRcDyNFUwVXARWQRvI6SB0nssr\ncAmuAqH5RkhoxdE0++LxcOhlf59eRCsuqh1XIhY7+odRMYD0bMam1qmaC4GRw/RY\njlPxktIdtfrDC40eNNfXEezeCQKBgQDXXdKCloGpTZ/EdHy5NEFkiYxNfLP09JBJ\nvTBWXRVc6rEVZ+0V97fmSCCjsQ2Fm/uFIbFaZ/qtfc2fOZYAS8dqmnSr/jJCVJZ3\nz8sS48cqunuP7vDxctBxLn1vostdFK5FR+sq6FNwURp9R0mc1iBFTcOwjz5avlfg\n5Vaqt6OKMQKBgGZJI3UclfPmCYM8NpFOuFVp+IP8rxoj+VGiOjZ6Gr1GOQSQ6M2Z\nlsX3V0joOZ/AiTkHQoPh6dWhA0nwCItPH0B+vRNXqoazrv/oL+bT7KzmlZE1TaOP\nRIPp69AXG+uGB90j4/Z47zFGeqbUTi3r4mHRbG/Tb3S33KZ+/7S3HYUBAoGAabrH\n1BBri2BuZRYC/TFoQSE93fSwrDs8ctcMWfnMuRcG5MlmnXhFsioKzBHp34QaUNuf\npBCUAoRWZCrzNyX8upslWCKtLd81F5DN03I7nwB6FMlrRD3nkwkNz7aOPB4hCCYs\nj54LCILojERpITQGF7/7qDxKkmYL4n70s08AXKECgYEAv+IQzXxnm8XBjNlVKd8z\ngP4haTAYOTC+4aeOf19wBVBRvcKSSHsEvvnw1s00SnT+Wf+kZd5MUsM+AEaRvFA+\ngeZRdu3NHBTOgLTx7Md7i69t206tC8defZ9HLjfzEi6xznpWfrVHIxbrjoYdD72b\no2I28ahJYX4bmcBh/MNAx38=\n-----END PRIVATE KEY-----\n",
+  "client_email": "public-access-to-comptox-data@impact-152019.iam.gserviceaccount.com",
+  "client_id": "104910527948251479650",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/public-access-to-comptox-data%40impact-152019.iam.gserviceaccount.com"
+}

@@ -6,6 +6,7 @@ import { combineReducers } from 'redux';
 import simpleHomeData from './home/reducers';
 import publications from './publications/reducers/publications';
 import scientists from './scientists/reducers/scientists';
+import gapiAuthorization from './data-tools/reducers/gapiAuthorization';
 
 function entities(state = {}, action) {
     return {
@@ -14,6 +15,6 @@ function entities(state = {}, action) {
     }
 }
 
-const rootReducer = combineReducers({ simpleHomeData, entities });
+const rootReducer = combineReducers({ simpleHomeData, gapiAuthorization, entities });
 
 export default rootReducer;

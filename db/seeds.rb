@@ -2875,6 +2875,7 @@ Publication.create!(
     doi: "10.1016/j.neuro.2016.05.005",
     published_date: "2016-05-1",
     citation: "Johnstone , A., J. Strickland, <a href=\"http://comptox.ag.epa.gov/impact/scientists/14\">K. Crofton</a> , C. Gennings, and T. Shafer. Effects of an Environmentally-relevant Mixture of Pyrethroid Insecticides on Spontaneous Activity in Primary Cortical Networks on Microelectrode Arrays.   NEUROTOXICOLOGY. Elsevier B.V., Amsterdam,  NETHERLANDS, 813X(16): 30083-3, (2016).",
+    project: "Virtual Tissues, vThyroid",
     publication_type_id: 1,
     publication_url: "http://comptox.ag.epa.gov/impact/api/publications/147"
 )
@@ -2882,5 +2883,3244 @@ Publication.create!(
 ScientistPublication.create!(
     scientist_id: "14",
     publication_id: "147",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 148,
+    doi: "10.1186/1471-2350-12-25",
+    published_date: "2011-01-14",
+    citation: "Joubert, Bonnie R.; Reif, David M.; Edwards, Stephen W.; Leiner, Kevin A.; Hudgens, Edward E.; Egeghy, Peter; Gallagher, Jane E.; Hubal, Elaine Cohen. Evaluation of genetic susceptibility to childhood allergy and asthma in an African American urban population. BMC MEDICAL GENETICS. 12(), (2011).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/148"
+)
+
+Publication.create!(
+    publication_id: 149,
+    doi: "10.1093/toxsci/kfw194",
+    published_date: "2016-10-25",
+    citation: "Juberg, D., <a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">T. Knudsen</a>, M. Sander, N. Beck, E. Faustman, D. Mendrick, J. Fowle, T. Hartung, R. Tice, E. Lamazurier, R. Becker, S. Fitzpatrick, G. Daston, A. Harill, R. Hines, D. Keller, J. Lipscomb, D. Watson, T. Bahadori, and <a href=\"http://comptox.ag.epa.gov/impact/scientists/14\">K. Crofton</a>. (Toxicological Sciences) FutureTox III: Bridges for Translation. TOXICOLOGICAL SCIENCES. Society of Toxicology, 1-10, (2016).",
+    project: "High-throughput Tox Testing",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/149"
+)
+
+ScientistPublication.create!(
+    scientist_id: "14",
+    publication_id: "149",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "20",
+    publication_id: "149",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 150,
+    doi: "10.1289/ehp.0901392",
+    published_date: "2010-04-1",
+    citation: "<a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard S.</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/13\">Houck, Keith A.</a>; Kavlock, Robert J.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, Thomas B.</a>; Martin, Matthew T.; Mortensen, Holly M.; Reif, David M.; Rotroff, Daniel M.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/9\">Shah, Imran</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/1\">Richard, Ann M.</a>; Dix, David J.. In Vitro Screening of Environmental Chemicals for Targeted Testing Prioritization: The ToxCast Project. ENVIRONMENTAL HEALTH PERSPECTIVES. 118(4), (2010).",
+    project: "High-throughput Tox Testing",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/150"
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "150",
+    is_primary_author: true
+)
+
+ScientistPublication.create!(
+    scientist_id: "13",
+    publication_id: "150",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "20",
+    publication_id: "150",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "9",
+    publication_id: "150",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "1",
+    publication_id: "150",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 151,
+    doi: "10.1021/tx100428e",
+    published_date: "2011-04-1",
+    citation: "<a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard S.</a>; Kavlock, Robert J.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/21\">Setzer, R. Woodrow</a>; Hubal, Elaine A. Cohen; Martin, Matthew T.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, Thomas B.</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/13\">Houck, Keith A.</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/17\">Thomas, Russell S.</a>; Wetmore, Barbara A.; Dix, David J.. Estimating Toxicity-Related Biological Pathway Altering Doses for High-Throughput Chemical Risk Assessment. CHEMICAL RESEARCH IN TOXICOLOGY. 24(4), (2011).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/151"
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "151",
+    is_primary_author: true
+)
+
+ScientistPublication.create!(
+    scientist_id: "21",
+    publication_id: "151",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "20",
+    publication_id: "151",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "13",
+    publication_id: "151",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "17",
+    publication_id: "151",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 152,
+    doi: "10.1093/toxsci/kfv168",
+    published_date: "2015-11-1",
+    citation: "<a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard S.</a>; Magpantay, Felicia Maria; Chickarmane, Vijay; Haskell, Cymra; Tania, Nessy; Taylor, Jean; Xia, Menghang; Huang, Ruili; Rotroff, Daniel M.; Filer, Dayne L.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/13\">Houck, Keith A.</a>; Martin, Matthew T.; Sipes, Nisha; <a href=\"http://comptox.ag.epa.gov/impact/scientists/1\">Richard, Ann M.</a>; Mansouri, Kamel; <a href=\"http://comptox.ag.epa.gov/impact/scientists/21\">Setzer, R. Woodrow</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, Thomas B.</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/14\">Crofton, Kevin M.</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/17\">Thomas, Russell S.</a>. Integrated Model of Chemical Perturbations of a Biological Pathway Using 18 In Vitro High-Throughput Screening Assays for the Estrogen Receptor. TOXICOLOGICAL SCIENCES. 148(1), (2015).",
+    project: "High-throughput Tox Testing",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/152"
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "152",
+    is_primary_author: true
+)
+
+ScientistPublication.create!(
+    scientist_id: "13",
+    publication_id: "152",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "1",
+    publication_id: "152",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "21",
+    publication_id: "152",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "20",
+    publication_id: "152",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "14",
+    publication_id: "152",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "17",
+    publication_id: "152",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 153,
+    doi: "10.3390/ijms13021805",
+    published_date: "2012-02-1",
+    citation: "<a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard S.</a>; Martin, Matthew T.; Egeghy, Peter; Gangwal, Sumit; Reif, David M.; Kothiya, Parth; Wolf, Maritja; Cathey, Tommy; Transue, Thomas; Smith, Doris; Vail, James; Frame, Alicia; Mosher, Shad; Hubal, Elaine A. Cohen; <a href=\"http://comptox.ag.epa.gov/impact/scientists/1\">Richard, Ann M.</a>. Aggregating Data for Computational Toxicology Applications: The US Environmental Protection Agency (EPA) Aggregated Computational Toxicology Resource (ACToR) System. INTERNATIONAL JOURNAL OF MOLECULAR SCIENCES. 13(2), (2012).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/153"
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "153",
+    is_primary_author: true
+)
+
+ScientistPublication.create!(
+    scientist_id: "1",
+    publication_id: "153",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 154,
+    doi: "10.1021/es102150z",
+    published_date: "2010-08-4",
+    citation: "<a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard S.</a>; Martin, Matthew T.; Reif, David M.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/13\">Houck, Keith A.</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, Thomas B.</a>; Rotroff, Daniel M.; Xia, Menghang; Sakamuru, Srilatha; Huang, Ruili; Shinn, Paul; Austin, Christopher P.; Kavlock, Robert J.; Dix, David J.. Analysis of Eight Oil Spill Dispersants Using Rapid, In Vitro Tests for Endocrine and Other Biological Activity. ENVIRONMENTAL SCIENCE &amp; TECHNOLOGY. 44(15), (2010).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/154"
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "154",
+    is_primary_author: true
+)
+
+ScientistPublication.create!(
+    scientist_id: "13",
+    publication_id: "154",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "20",
+    publication_id: "154",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 155,
+    doi: "10.1039/c1mb05303e",
+    published_date: "2012-01-1",
+    citation: "<a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard S.</a>; Mortensen, Holly M.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/9\">Shah, Imran</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, Thomas B.</a>; Elloumi, Fathi. Using pathway modules as targets for assay development in xenobiotic screening. MOLECULAR BIOSYSTEMS. 8(2), (2012).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/155"
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "155",
+    is_primary_author: true
+)
+
+ScientistPublication.create!(
+    scientist_id: "9",
+    publication_id: "155",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "20",
+    publication_id: "155",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 156,
+    doi: "10.1080/10937404.2010.483937",
+    published_date: "2010-01-1",
+    citation: "<a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard</a>. PUBLIC DATABASES SUPPORTING COMPUTATIONAL TOXICOLOGY. JOURNAL OF TOXICOLOGY AND ENVIRONMENTAL HEALTH-PART B-CRITICAL REVIEWS. 13(2-4), (2010).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/156"
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "156",
+    is_primary_author: true
+)
+
+Publication.create!(
+    publication_id: 157,
+    doi: "10.1186/1471-2105-9-241",
+    published_date: "2008-05-19",
+    citation: "<a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard</a>; Elloumi, Fathi; <a href=\"http://comptox.ag.epa.gov/impact/scientists/21\">Setzer, R. Woodrow</a>; Li, Zhen; <a href=\"http://comptox.ag.epa.gov/impact/scientists/9\">Shah, Imran</a>. A comparison of machine learning algorithms for chemical toxicity classification using a simulated multi-scale data model. BMC BIOINFORMATICS. 9(), (2008).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/157"
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "157",
+    is_primary_author: true
+)
+
+ScientistPublication.create!(
+    scientist_id: "21",
+    publication_id: "157",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "9",
+    publication_id: "157",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 158,
+    doi: "10.1111/bcpt.12239",
+    published_date: "2014-07-1",
+    citation: "<a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/13\">Houck, Keith</a>; Martin, Matt; <a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, Thomas</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/17\">Thomas, Russell S.</a>; Sipes, Nisha; <a href=\"http://comptox.ag.epa.gov/impact/scientists/9\">Shah, Imran</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/12\">Wambaugh, John</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/14\">Crofton, Kevin</a>. In Vitro and Modelling Approaches to Risk Assessment from the US Environmental Protection Agency ToxCast Programme. BASIC &amp; CLINICAL PHARMACOLOGY &amp; TOXICOLOGY. 115(1), (2014).",
+    project: "High-throughput Tox Testing",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/158"
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "158",
+    is_primary_author: true
+)
+
+ScientistPublication.create!(
+    scientist_id: "13",
+    publication_id: "158",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "20",
+    publication_id: "158",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "17",
+    publication_id: "158",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "9",
+    publication_id: "158",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "12",
+    publication_id: "158",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "14",
+    publication_id: "158",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 159,
+    doi: "10.1093/toxsci/kfw092",
+    published_date: "2016-08-1",
+    citation: "<a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/13\">Houck, Keith</a>; Martin, Matt; <a href=\"http://comptox.ag.epa.gov/impact/scientists/1\">Richard, Ann M.</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, Thomas B.</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/9\">Shah, Imran</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/18\">Little, Stephen</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/12\">Wambaugh, John</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/21\">Setzer, R. Woodrow</a>; Kothya, Parth; Phuong, Jimmy; Filer, Dayne; Smith, Doris; Reif, David; Rotroff, Daniel; Kleinstreuer, Nicole; Sipes, Nisha; Xia, Menghang; Huang, Ruili; <a href=\"http://comptox.ag.epa.gov/impact/scientists/14\">Crofton, Kevin</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/17\">Thomas, Russell S.</a>. Analysis of the Effects of Cell Stress and Cytotoxicity on In Vitro Assay Activity Across a Diverse Chemical and Assay Space. TOXICOLOGICAL SCIENCES. 152(2), (2016).",
+    project: "High-throughput Tox Testing",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/159"
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "159",
+    is_primary_author: true
+)
+
+ScientistPublication.create!(
+    scientist_id: "13",
+    publication_id: "159",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "1",
+    publication_id: "159",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "20",
+    publication_id: "159",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "9",
+    publication_id: "159",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "18",
+    publication_id: "159",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "12",
+    publication_id: "159",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "21",
+    publication_id: "159",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "14",
+    publication_id: "159",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "17",
+    publication_id: "159",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 160,
+    published_date: "2016-08-1",
+    citation: "<a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard</a>; Kavlock, Robert; Martin, Matthew; Reif, David; <a href=\"http://comptox.ag.epa.gov/impact/scientists/13\">Houck, Keith</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, Thomas</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/1\">Richard, Ann</a>; Tice, Raymond R.; Whelan, Maurice; Xia, Menghang; Huang, Ruili; Austin, Christopher; Daston, George; Hartung, Thomas; Fowle, John R., III; Wooge, William; Tong, Weida; Dix, David. Perspectives on Validation of High-Throughput Assays Supporting 21st Century Toxicity Testing. ALTEX-ALTERNATIVES TO ANIMAL EXPERIMENTATION. 30(1), (2013).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/160"
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "160",
+    is_primary_author: true
+)
+
+ScientistPublication.create!(
+    scientist_id: "13",
+    publication_id: "160",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "20",
+    publication_id: "160",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "1",
+    publication_id: "160",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 161,
+    doi: "10.14573/altex.2013.1.051",
+    published_date: "2013-01-1",
+    citation: "<a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard</a>; Kavlock, Robert; Martin, Matthew; Reif, David; <a href=\"http://comptox.ag.epa.gov/impact/scientists/13\">Houck, Keith</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, Thomas</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/1\">Richard, Ann</a>; Tice, Raymond R.; Whelan, Maurice; Xia, Menghang; Huang, Ruili; Austin, Christopher; Daston, George; Hartung, Thomas; Fowle, John R., III; Wooge, William; Tong, Weida; Dix, David. Perspectives on Validation of High-Throughput Assays Supporting 21st Century Toxicity Testing. ALTEX-ALTERNATIVES TO ANIMAL EXPERIMENTATION. 30(1), (2013).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/161"
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "161",
+    is_primary_author: true
+)
+
+ScientistPublication.create!(
+    scientist_id: "13",
+    publication_id: "161",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "20",
+    publication_id: "161",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "1",
+    publication_id: "161",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 162,
+    doi: "10.1289/ehp.0800168",
+    published_date: "2009-05-1",
+    citation: "<a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/1\">Richard, Ann</a>; Dix, David J.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/13\">Houck, Keith</a>; Martin, Matthew; Kavlock, Robert; Dellarco, Vicki; Henry, Tala; Holderman, Todd; Sayre, Philip; Tan, Shirlee; Carpenter, Thomas; Smith, Edwin. The Toxicity Data Landscape for Environmental Chemicals. ENVIRONMENTAL HEALTH PERSPECTIVES. 117(5), (2009).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/162"
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "162",
+    is_primary_author: true
+)
+
+ScientistPublication.create!(
+    scientist_id: "13",
+    publication_id: "162",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "1",
+    publication_id: "162",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 163,
+    doi: "10.1016/j.taap.2007.12.037",
+    published_date: "2008-11-15",
+    citation: "<a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/1\">Richard, Ann</a>; Dix, David; <a href=\"http://comptox.ag.epa.gov/impact/scientists/13\">Houck, Keith</a>; Elloumi, Fathi; Martin, Matthew; Cathey, Tommy; Transue, Thomas R.; Spencer, Richard; Wolf, Maritja. ACTOR - Aggregated Computational Toxicology Resource. TOXICOLOGY AND APPLIED PHARMACOLOGY. 233(1), (2008).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/163"
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "163",
+    is_primary_author: true
+)
+
+ScientistPublication.create!(
+    scientist_id: "13",
+    publication_id: "163",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "1",
+    publication_id: "163",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 164,
+    doi: "10.1186/s13321-015-0072-8",
+    published_date: "2015-06-19",
+    citation: "Karapetyan, Karen; Batchelor, Colin; Sharpe, David; Tkachenko, Valery; <a href=\"http://comptox.ag.epa.gov/impact/scientists/2\">Williams, Antony J.</a>. The Chemical Validation and Standardization Platform (CVSP): large-scale automated validation of chemical structure datasets. JOURNAL OF CHEMINFORMATICS. 7(), (2015).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/164"
+)
+
+ScientistPublication.create!(
+    scientist_id: "2",
+    publication_id: "164",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 165,
+    doi: "10.1016/j.fct.2016.04.012",
+    published_date: "2016-06-1",
+    citation: "Karmaus, Agnes L.; Filer, Dayne L.; Martin, Matthew T.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/13\">Houck, Keith A.</a>. Evaluation of food-relevant chemicals in the ToxCast high-throughput screening program. FOOD AND CHEMICAL TOXICOLOGY. 92(), (2016).",
+    project: "High-throughput Tox Testing",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/165"
+)
+
+ScientistPublication.create!(
+    scientist_id: "13",
+    publication_id: "165",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 166,
+    doi: "10.1093/toxsci/kfw002",
+    published_date: "2016-04-1",
+    citation: "Karmaus, Agnes L.; Toole, Colleen M.; Filer, Dayne L.; Lewis, Kenneth C.; Martin, Matthew T.. High-Throughput Screening of Chemical Effects on Steroidogenesis Using H295R Human Adrenocortical Carcinoma Cells. TOXICOLOGICAL SCIENCES. 150(2), (2016).",
+    project: "High-throughput Tox Testing",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/166"
+)
+
+Publication.create!(
+    publication_id: 167,
+    doi: "10.1002/bdra.23146",
+    published_date: "2013-05-1",
+    citation: "Kavlock, R. J.. A Random Walk through Teratology. BIRTH DEFECTS RESEARCH PART A-CLINICAL AND MOLECULAR TERATOLOGY. 97(5), (2013).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/167"
+)
+
+Publication.create!(
+    publication_id: 168,
+    doi: "10.1002/bdra.20605",
+    published_date: "2009-05-1",
+    citation: "Kavlock, R. J.. Applications of Computational Toxicology to the Understanding of Risks of Developmental Toxicity.. BIRTH DEFECTS RESEARCH PART A-CLINICAL AND MOLECULAR TERATOLOGY. 85(5), (2009).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/168"
+)
+
+Publication.create!(
+    publication_id: 169,
+    doi: "10.1080/10408440591007377",
+    published_date: "2005-10-1",
+    citation: "Kavlock, R; Cummings, A. Mode of action: Inhibition of androgen receptor function - Vinclozolin-induced malformations in reproductive development. CRITICAL REVIEWS IN TOXICOLOGY. 35(8-9), (2005).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/169"
+)
+
+Publication.create!(
+    publication_id: 170,
+    doi: "10.1080/10408440591007386",
+    published_date: "2005-10-1",
+    citation: "Kavlock, R; Cummings, A. Mode of action: Reduction of testosterone availability - Molinate-induced inhibition of spermatogenesis. CRITICAL REVIEWS IN TOXICOLOGY. 35(8-9), (2005).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/170"
+)
+
+Publication.create!(
+    publication_id: 171,
+    doi: "10.1093/toxsci/kfm297",
+    published_date: "2008-05-1",
+    citation: "Kavlock, Robert J.; Ankley, Gerald; Blancato, Jerry; Breen, Michael; Conolly, Rory; Dix, David; <a href=\"http://comptox.ag.epa.gov/impact/scientists/13\">Houck, Keith</a>; Hubal, Elaine; <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard</a>; Rabinowitz, James; <a href=\"http://comptox.ag.epa.gov/impact/scientists/1\">Richard, Ann</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/21\">Setzer, R. Woodrow</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/9\">Shah, Imran</a>; Villeneuve, Daniel; Weber, Eric. Computational toxicology - A state of the science mini review. TOXICOLOGICAL SCIENCES. 103(1), (2008).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/171"
+)
+
+ScientistPublication.create!(
+    scientist_id: "13",
+    publication_id: "171",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "171",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "1",
+    publication_id: "171",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "21",
+    publication_id: "171",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "9",
+    publication_id: "171",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 172,
+    doi: "10.1111/j.1539-6924.2008.01168.x",
+    published_date: "2009-04-1",
+    citation: "Kavlock, Robert J.; Austin, Christopher P.; Tice, Raymond R.. Toxicity Testing in the 21st Century: Implications for Human Health Risk Assessment. RISK ANALYSIS. 29(4), (2009).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/172"
+)
+
+Publication.create!(
+    publication_id: 173,
+    published_date: "2007-01-1",
+    citation: "Kavlock, Robert. Computational toxicology: New approaches to improve environmental health protection. Proceedings of the 4th International Academic Conference on Environmental and Occupational Medicine. (), (2007).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/173"
+)
+
+Publication.create!(
+    publication_id: 174,
+    doi: "10.1016/j.ntt.2009.04.007",
+    published_date: "2009-07-1",
+    citation: "Kavlock, Robert. The future of toxicity testing-The NRC vision and the EPA's ToxCast program national center for computational toxicology. NEUROTOXICOLOGY AND TERATOLOGY. 31(4), (2009).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/174"
+)
+
+Publication.create!(
+    publication_id: 175,
+    doi: "10.1016/j.reprotox.2006.04.007",
+    published_date: "2006-10-1",
+    citation: "Kavlock, Robert; Barr, Dana; Boekelheide, Kim; Breslin, William; Breysse, Patrick; Chapin, Robert; Gaido, Kevin; Hodgson, Ernest; Marcus, Michele; Shea, Katherine; Williams, Paige. NTP-CERHR Expert Panel update on the reproductive and developmental toxicity of di(2-ethylhexyl) phthalate. REPRODUCTIVE TOXICOLOGY. 22(3), (2006).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/175"
+)
+
+Publication.create!(
+    publication_id: 176,
+    doi: "10.1021/tx3000939",
+    published_date: "2012-07-1",
+    citation: "Kavlock, Robert; Chandler, Kelly; <a href=\"http://comptox.ag.epa.gov/impact/scientists/13\">Houck, Keith</a>; Hunter, Sid; <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard</a>; Kleinstreuer, Nicole; <a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, Thomas</a>; Martin, Matt; Padilla, Stephanie; Reif, David; <a href=\"http://comptox.ag.epa.gov/impact/scientists/1\">Richard, Ann</a>; Rotroff, Daniel; Sipes, Nisha; Dix, David. Update on EPA's ToxCast Program: Providing High Throughput Decision Support Tools for Chemical Risk Management. CHEMICAL RESEARCH IN TOXICOLOGY. 25(7), (2012).",
+    project: "High-throughput Tox Testing",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/176"
+)
+
+ScientistPublication.create!(
+    scientist_id: "13",
+    publication_id: "176",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "176",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "20",
+    publication_id: "176",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "1",
+    publication_id: "176",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 177,
+    doi: "10.1080/10937404.2010.483935",
+    published_date: "2010-01-1",
+    citation: "Kavlock, Robert; Dix, David. COMPUTATIONAL TOXICOLOGY AS IMPLEMENTED BY THE US EPA: PROVIDING HIGH THROUGHPUT DECISION SUPPORT TOOLS FOR SCREENING AND ASSESSING CHEMICAL EXPOSURE, HAZARD AND RISK. JOURNAL OF TOXICOLOGY AND ENVIRONMENTAL HEALTH-PART B-CRITICAL REVIEWS. 13(2-4), (2010).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/177"
+)
+
+Publication.create!(
+    publication_id: 178,
+    published_date: "2010-01-2",
+    citation: "Kesic, M. J.; Zhang, W.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/19\">Simmons, S.</a>; Jaspers, I.. Nrf2 Dependent Gene Expression Modifies Susceptibility To Influenza A Infection. AMERICAN JOURNAL OF RESPIRATORY AND CRITICAL CARE MEDICINE. 181(), (2010).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/178"
+)
+
+ScientistPublication.create!(
+    scientist_id: "19",
+    publication_id: "178",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 179,
+    doi: "10.1016/j.freeradbiomed.2011.04.027",
+    published_date: "2011-07-15",
+    citation: "Kesic, Matthew J.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/19\">Simmons, Steven O.</a>; Bauer, Rebecca; Jaspers, Ilona. Nrf2 expression modifies influenza A entry and replication in nasal epithelial cells. FREE RADICAL BIOLOGY AND MEDICINE. 51(2), (2011).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/179"
+)
+
+ScientistPublication.create!(
+    scientist_id: "19",
+    publication_id: "179",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 180,
+    published_date: "2006-04-1",
+    citation: "Kim, SJ; Dix, DJ; Thompson, KE; Murrell, RN; Schmid, JE; Gallagher, JE; Rockett, JC. Gene expression in head hair follicles plucked from men and women. ANNALS OF CLINICAL AND LABORATORY SCIENCE. 36(2), (2006).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/180"
+)
+
+Publication.create!(
+    publication_id: 181,
+    doi: "10.1373/clinchem.2006.078436",
+    published_date: "2007-06-1",
+    citation: "Kim, Sung Jae; Dix, David J.; Thompson, Kary E.; Murrell, Rachel N.; Schmid, Judith E.; Gallagher, Jane E.; Rockett, John C.. Effects of storage, RNA extraction, genechip type, and donor sex on gene expression profiling of human whole blood. CLINICAL CHEMISTRY. 53(6), (2007).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/181"
+)
+
+Publication.create!(
+    publication_id: 182,
+    doi: "10.1161/CIRCULATIONAHA.105.598409",
+    published_date: "2006-06-6",
+    citation: "Kim, YK; Suarez, J; Hu, Y; McDonough, PM; Boer, C; Dix, DJ; Dillmann, WH. Deletion of the inducible 70-kDa heat shock protein genes in mice impairs cardiac contractile function and calcium handling associated with hypertrophy. CIRCULATION. 113(22), (2006).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/182"
+)
+
+Publication.create!(
+    publication_id: 183,
+    doi: "10.14573/altex.1309261",
+    published_date: "2014-01-1",
+    citation: "Kleensang, Andre; Maertens, Alexandra; Rosenberg, Michael; Fitzpatrick, Suzanne; Lamb, Justin; Auerbach, Scott; Brennan, Richard; <a href=\"http://comptox.ag.epa.gov/impact/scientists/14\">Crofton, Kevin M.</a>; Gordon, Ben; Fornace, Albert J., Jr.; Gaido, Kevin; Gerhold, David; Haw, Robin; Henney, Adrian; Ma'ayan, Avi; McBride, Mary; Monti, Stefano; Ochs, Michael F.; Pandey, Akhilesh; Sharan, Roded; Stierum, Rob; Tugendreich, Stuart; Willett, Catherine; Wittwehr, Clemens; Xia, Jianguo; Patton, Geoffrey W.; Arvidson, Kirk; Bouhifd, Mounir; Hogberg, Helena T.; Luechtefeld, Thomas; Smirnova, Lena; Zhao, Liang; Adeleye, Yeyejide; Kanehisa, Minoru; Carmichael, Paul; Andersen, Melvin E.; Hartung, Thomas. Pathways of Toxicity. ALTEX-ALTERNATIVES TO ANIMAL EXPERIMENTATION. 31(1), (2014).",
+    project: "Adverse Outcome Pathways",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/183"
+)
+
+ScientistPublication.create!(
+    scientist_id: "14",
+    publication_id: "183",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 184,
+    doi: "10.1002/bdra.23023",
+    published_date: "2012-05-1",
+    citation: "Kleinstreuer, N. C.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, T. B.</a>. vEmbryo In Silico Models: Predicting Vascular Developmental Toxicity. BIRTH DEFECTS RESEARCH PART A-CLINICAL AND MOLECULAR TERATOLOGY. 94(5), (2012).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/184"
+)
+
+ScientistPublication.create!(
+    scientist_id: "20",
+    publication_id: "184",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 185,
+    doi: "10.1016/j.taap.2011.08.025",
+    published_date: "2011-11-15",
+    citation: "Kleinstreuer, N. C.; Smith, A. M.; West, P. R.; Conard, K. R.; Fontaine, B. R.; Weir-Hauptman, A. M.; Palmer, J. A.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, T. B.</a>; Dix, D. J.; Donley, E. L. R.; Cezar, G. G.. Identifying developmental toxicity pathways for a subset of ToxCast chemicals using human embryonic stem cells and metabolomics. TOXICOLOGY AND APPLIED PHARMACOLOGY. 257(1), (2011).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/185"
+)
+
+ScientistPublication.create!(
+    scientist_id: "20",
+    publication_id: "185",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 186,
+    doi: "10.1002/bdra.20677",
+    published_date: "2010-05-1",
+    citation: "Kleinstreuer, N.; Dix, D.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, R.</a>; Kavlock, R.; Sipes, N.; Reif, D.; Chandler, K.; Rountree, M.; Dewoskin, R.; Singh, A.; Spencer, R.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, T.</a>. A Toxicity Signature for Species-Specific Disruption of Embryonic Vasculogenesis Derived from ToxCast (TM) In Vitro Profiling Data. BIRTH DEFECTS RESEARCH PART A-CLINICAL AND MOLECULAR TERATOLOGY. 88(5), (2010).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/186"
+)
+
+ScientistPublication.create!(
+    scientist_id: "20",
+    publication_id: "186",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "186",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 187,
+    doi: "10.1002/bdra.23146",
+    published_date: "2013-05-1",
+    citation: "Kleinstreuer, N.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, T.</a>; Colaiacovo, M.; Allard, P.. The Use of Genetic Model Systems for Assessing Environmental Effects on Reproduction. BIRTH DEFECTS RESEARCH PART A-CLINICAL AND MOLECULAR TERATOLOGY. 97(5), (2013).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/187"
+)
+
+ScientistPublication.create!(
+    scientist_id: "20",
+    publication_id: "187",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 188,
+    doi: "10.1002/bdra.20834",
+    published_date: "2011-05-1",
+    citation: "Kleinstreuer, N.; Rountree, M.; Sipes, N.; Chandler, K.; Dewoskin, R.; Singh, A., V; Spencer, R.; Kavlock, R.; Dix, D.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, T.</a>. In Silico Testing of Environmental Impact on Embryonic Vascular Development. BIRTH DEFECTS RESEARCH PART A-CLINICAL AND MOLECULAR TERATOLOGY. 91(5), (2011).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/188"
+)
+
+ScientistPublication.create!(
+    scientist_id: "20",
+    publication_id: "188",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 189,
+    doi: "10.1021/acs.chemrestox.6b00347",
+    published_date: "2016-11-18",
+    citation: "Kleinstreuer, N.C., P. Ceger, E. Watt, M. Martin, <a href=\"http://comptox.ag.epa.gov/impact/scientists/13\">K. Houck</a>, P. Browne, <a href=\"http://comptox.ag.epa.gov/impact/scientists/17\">R. Thomas</a>, W. Casey, D. Dix, D. Allen, S. Sakamuru, M. Xia, R. Huang, and <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">R. Judson</a>. (Chemical Research in Toxicology) Development and Validation of a Computational Model for Androgen Receptor Activity. 1-59, (2016).",
+    project: "Demonstration and Evaluation",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/189"
+)
+
+ScientistPublication.create!(
+    scientist_id: "13",
+    publication_id: "189",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "17",
+    publication_id: "189",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "189",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 190,
+    doi: "10.1093/toxsci/kfs285",
+    published_date: "2013-01-1",
+    citation: "Kleinstreuer, Nicole C.; Dix, David J.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/13\">Houck, Keith A.</a>; Kavlock, Robert J.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, Thomas B.</a>; Martin, Matthew T.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/23\">Paul, Katie B.</a>; Reif, David M.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/14\">Crofton, Kevin M.</a>; Hamilton, Kerry; Hunter, Ronald; <a href=\"http://comptox.ag.epa.gov/impact/scientists/9\">Shah, Imran</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard S.</a>. In Vitro Perturbations of Targets in Cancer Hallmark Processes Predict Rodent Chemical Carcinogenesis. TOXICOLOGICAL SCIENCES. 131(1), (2013).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/190"
+)
+
+ScientistPublication.create!(
+    scientist_id: "13",
+    publication_id: "190",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "20",
+    publication_id: "190",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "23",
+    publication_id: "190",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "14",
+    publication_id: "190",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "9",
+    publication_id: "190",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "190",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 191,
+    doi: "10.1093/toxsci/kfs285",
+    published_date: "2013-01-1",
+    citation: "Kleinstreuer, Nicole C.; Dix, David J.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/13\">Houck, Keith A.</a>; Kavlock, Robert J.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, Thomas B.</a>; Martin, Matthew T.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/23\">Paul, Katie B.</a>; Reif, David M.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/14\">Crofton, Kevin M.</a>; Hamilton, Kerry; Hunter, Ronald; <a href=\"http://comptox.ag.epa.gov/impact/scientists/9\">Shah, Imran</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard S.</a>. In Vitro Perturbations of Targets in Cancer Hallmark Processes Predict Rodent Chemical Carcinogenesis. TOXICOLOGICAL SCIENCES. 131(1), (2013).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/191"
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "191",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "20",
+    publication_id: "191",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 192,
+    published_date: "2012-01-1",
+    citation: "Kleinstreuer, Nicole C.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, Thomas B.</a>. Predictive modeling and computational toxicology. DEVELOPMENTAL AND REPRODUCTIVE TOXICOLOGY: A PRACTICAL APPROACH, 3RD EDITION. (), (2012).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/192"
+)
+
+ScientistPublication.create!(
+    scientist_id: "20",
+    publication_id: "192",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 193,
+    doi: "10.1038/nbt.2914",
+    published_date: "2014-06-1",
+    citation: "Kleinstreuer, Nicole C.; Yang, Jian; Berg, Ellen L.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, Thomas B.</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/1\">Richard, Ann M.</a>; Martin, Matthew T.; Reif, David M.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard S.</a>; Polokoff, Mark; Dix, David J.; Kavlock, Robert J.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/13\">Houck, Keith A.</a>. Phenotypic screening of the ToxCast chemical library to classify toxic and therapeutic mechanisms. NATURE BIOTECHNOLOGY. 32(6), (2014).",
+    project: "High-throughput Tox Testing",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/193"
+)
+
+ScientistPublication.create!(
+    scientist_id: "20",
+    publication_id: "193",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "1",
+    publication_id: "193",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "193",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "13",
+    publication_id: "193",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 194,
+    doi: "10.1371/journal.pcbi.1002996",
+    published_date: "2013-04-1",
+    citation: "Kleinstreuer, Nicole; Dix, David; Rountree, Michael; Baker, Nancy; Sipes, Nisha; Reif, David; Spencer, Richard; <a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, Thomas</a>. A Computational Model Predicting Disruption of Blood Vessel Development. PLOS COMPUTATIONAL BIOLOGY. 9(4), (2013).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/194"
+)
+
+ScientistPublication.create!(
+    scientist_id: "20",
+    publication_id: "194",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 195,
+    doi: "10.1002/em.21934",
+    published_date: "2015-06-1",
+    citation: "Kligerman , A., R. Young, L. Stankowski, K. Pant, T. Lawlor, M. Aardema, and <a href=\"http://comptox.ag.epa.gov/impact/scientists/13\">K. Houck</a>. An Evaluation of 25 Selected ToxCast Chemicals in Medium-Throughput Assays to Detect Genotoxicity.   ENVIRONMENTAL AND MOLECULAR MUTAGENESIS. John Wiley &amp; Sons, Inc, Hoboken, NJ, USA, 56(5): 468-476, (2015).",
+    project: "High-throughput Tox Testing",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/195"
+)
+
+ScientistPublication.create!(
+    scientist_id: "13",
+    publication_id: "195",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 196,
+    doi: "10.1002/em.21734",
+    published_date: "2012-09-1",
+    citation: "Kligerman, A.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, R.</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/13\">Houck, K.</a>. Evaluating ToxCast (TM) High-Throughput Assays for Their Ability to Detect Direct-Acting Genotoxicants. ENVIRONMENTAL AND MOLECULAR MUTAGENESIS. 53(), (2012).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/196"
+)
+
+ScientistPublication.create!(
+    scientist_id: "13",
+    publication_id: "196",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "196",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 197,
+    doi: "10.1016/j.yrtph.2009.07.004",
+    published_date: "2009-11-1",
+    citation: "Knight, Andrew W.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/18\">Little, Stephen</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/13\">Houck, Keith</a>; Dix, David; <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/1\">Richard, Ann</a>; McCarroll, Nancy; Akerman, Gregory; Yang, Chihae; Birrell, Louise; Walmsley, Richard M.. Evaluation of high-throughput genotoxicity assays used in profiling the US EPA ToxCast (TM) chemicals. REGULATORY TOXICOLOGY AND PHARMACOLOGY. 55(2), (2009).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/197"
+)
+
+ScientistPublication.create!(
+    scientist_id: "13",
+    publication_id: "197",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "18",
+    publication_id: "197",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "197",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "1",
+    publication_id: "197",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 198,
+    doi: "10.1002/bdra.20677",
+    published_date: "2010-05-1",
+    citation: "<a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, T. B.</a>. Pathway Profiling and Tissue Modeling Using ToxCast (TM) HTS Data. BIRTH DEFECTS RESEARCH PART A-CLINICAL AND MOLECULAR TERATOLOGY. 88(5), (2010).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/198"
+)
+
+ScientistPublication.create!(
+    scientist_id: "20",
+    publication_id: "198",
+    is_primary_author: true
+)
+
+Publication.create!(
+    publication_id: 199,
+    doi: "10.1016/j.ntt.2014.04.004",
+    published_date: "2014-05-1",
+    citation: "<a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, T. B.</a>. Teratology v2.0: Building a path forward. NEUROTOXICOLOGY AND TERATOLOGY. 43(), (2014).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/199"
+)
+
+ScientistPublication.create!(
+    scientist_id: "20",
+    publication_id: "199",
+    is_primary_author: true
+)
+
+Publication.create!(
+    publication_id: 200,
+    doi: "10.1002/bdra.20834",
+    published_date: "2011-05-1",
+    citation: "<a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, T. B.</a>. Use of High-Throughput Testing and Approaches for Evaluating Chemical Risk: Relevance to Humans. BIRTH DEFECTS RESEARCH PART A-CLINICAL AND MOLECULAR TERATOLOGY. 91(5), (2011).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/200"
+)
+
+ScientistPublication.create!(
+    scientist_id: "20",
+    publication_id: "200",
+    is_primary_author: true
+)
+
+Publication.create!(
+    publication_id: 201,
+    doi: "10.1002/bdra.20476",
+    published_date: "2008-05-1",
+    citation: "<a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, T. B.</a>. Using web-based tools for teaching embryology. BIRTH DEFECTS RESEARCH PART A-CLINICAL AND MOLECULAR TERATOLOGY. 82(5), (2008).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/201"
+)
+
+ScientistPublication.create!(
+    scientist_id: "20",
+    publication_id: "201",
+    is_primary_author: true
+)
+
+Publication.create!(
+    publication_id: 202,
+    published_date: "2010-01-1",
+    citation: "<a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, T. B.</a>; Daston, G. P.. Virtual Tissues and Developmental Systems Biology. COMPREHENSIVE TOXICOLOGY, VOL 12: DEVELOPMENTAL TOXICOLOGY, 2ND EDITION. (), (2010).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/202"
+)
+
+ScientistPublication.create!(
+    scientist_id: "20",
+    publication_id: "202",
+    is_primary_author: true
+)
+
+Publication.create!(
+    publication_id: 203,
+    doi: "10.1002/bdra.23387",
+    published_date: "2015-05-1",
+    citation: "<a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, T. B.</a>; Franzosa, J. A.; Baker, N. C.; Spencer, R. S.; Hunter, E. S.; Kleinstreuer, N. C.; Ellis-Hutchings, R.; Carney, E. W.. Vascular Developmental Toxicity of TNP-470 and 5HPP-33 Assessed with ToxCastDB and Anchored to Functional Assays for Angiogenesis and Embryogenesis. BIRTH DEFECTS RESEARCH PART A-CLINICAL AND MOLECULAR TERATOLOGY. 103(5), (2015).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/203"
+)
+
+ScientistPublication.create!(
+    scientist_id: "20",
+    publication_id: "203",
+    is_primary_author: true
+)
+
+Publication.create!(
+    publication_id: 204,
+    doi: "10.1002/bdra.23387",
+    published_date: "2015-05-1",
+    citation: "<a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, T. B.</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, R. S.</a>; Baker, N. C.; Leung, M. C. K.. Evaluation of 1066 ToxCast Chemicals in a Human Stem Cell Assay for Developmental Toxicity. BIRTH DEFECTS RESEARCH PART A-CLINICAL AND MOLECULAR TERATOLOGY. 103(5), (2015).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/204"
+)
+
+ScientistPublication.create!(
+    scientist_id: "20",
+    publication_id: "204",
+    is_primary_author: true
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "204",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 205,
+    doi: "10.1016/j.ntt.2009.04.023",
+    published_date: "2009-01-7",
+    citation: "<a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, T. B.</a>; Martin, M. T.; Kavlock, R. J.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, R. S.</a>; Dix, D. J.; Singh, A. V.. Profiling developmental toxicity of 387 environmental chemicals using EPA's Toxicity Reference Database (ToxRefDB). NEUROTOXICOLOGY AND TERATOLOGY. 31(4), (2009).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/205"
+)
+
+ScientistPublication.create!(
+    scientist_id: "20",
+    publication_id: "205",
+    is_primary_author: true
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "205",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 206,
+    published_date: "2009-05-1",
+    citation: "<a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, T. B.</a>; Martin, M. T.; Kavlock, R. J.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, R. S.</a>; Dix, D. J.; Singh, A., V. Profiling Developmental Toxicity of 387 Environmental Chemicals Using EPA's Toxicity Reference Database (ToxRefDB). BIRTH DEFECTS RESEARCH PART A-CLINICAL AND MOLECULAR TERATOLOGY. 85(5), (2009).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/206"
+)
+
+ScientistPublication.create!(
+    scientist_id: "20",
+    publication_id: "206",
+    is_primary_author: true
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "206",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 207,
+    published_date: "2013-09-1",
+    citation: "<a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, T.</a>; Allard, P.. Validating Novel Genetic Strategies for the Rapid Assessment of Environmental Perturbation of Germline Integrity.. ENVIRONMENTAL AND MOLECULAR MUTAGENESIS. 54(), (2013).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/207"
+)
+
+ScientistPublication.create!(
+    scientist_id: "20",
+    publication_id: "207",
+    is_primary_author: true
+)
+
+Publication.create!(
+    publication_id: 208,
+    doi: "10.1016/j.reprotox.2007.11.009",
+    published_date: "2008-01-1",
+    citation: "<a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, Thomas B.</a>. Untitled. REPRODUCTIVE TOXICOLOGY. 25(1), (2008).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/208"
+)
+
+ScientistPublication.create!(
+    scientist_id: "20",
+    publication_id: "208",
+    is_primary_author: true
+)
+
+Publication.create!(
+    publication_id: 209,
+    doi: "10.1016/j.tox.2010.12.010",
+    published_date: "2011-03-28",
+    citation: "<a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, Thomas B.</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/13\">Houck, Keith A.</a>; Sipes, Nisha S.; Singh, Amar V.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard S.</a>; Martin, Matthew T.; Weissman, Arthur; Kleinstreuer, Nicole C.; Mortensen, Holly M.; Reif, David M.; Rabinowitz, James R.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/21\">Setzer, R. Woodrow</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/1\">Richard, Ann M.</a>; Dix, David J.; Kavlock, Roberti.. Activity profiles of 309 ToxCast (TM) chemicals evaluated across 292 biochemical targets. TOXICOLOGY. 282(1-2), (2011).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/209"
+)
+
+ScientistPublication.create!(
+    scientist_id: "20",
+    publication_id: "209",
+    is_primary_author: true
+)
+
+ScientistPublication.create!(
+    scientist_id: "13",
+    publication_id: "209",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "209",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "21",
+    publication_id: "209",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "1",
+    publication_id: "209",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 210,
+    doi: "10.1002/bdrb.20315",
+    published_date: "2011-10-1",
+    citation: "<a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, Thomas B.</a>; Kavlock, Robert J.; Daston, George P.; Stedman, Donald; Hixon, Mary; Kim, James H.. Developmental Toxicity Testing for Safety Assessment: New Approaches and Technologies. BIRTH DEFECTS RESEARCH PART B-DEVELOPMENTAL AND REPRODUCTIVE TOXICOLOGY. 92(5), (2011).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/210"
+)
+
+ScientistPublication.create!(
+    scientist_id: "20",
+    publication_id: "210",
+    is_primary_author: true
+)
+
+Publication.create!(
+    publication_id: 211,
+    doi: "10.1093/toxsci/kfu234",
+    published_date: "2015-02-1",
+    citation: "<a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, Thomas B.</a>; Keller, Douglas A.; Sander, Miriam; Carney, Edward W.; Doerrer, Nancy G.; Eaton, David L.; Fitzpatrick, Suzanne Compton; Hastings, Kenneth L.; Mendrick, Donna L.; Tice, Raymond R.; Watkins, Paul B.; Whelan, Maurice. FutureTox II: In vitro Data and In Silico Models for Predictive Toxicology. TOXICOLOGICAL SCIENCES. 143(2), (2015).",
+    project: "Virtual Tissues, vEmbryo",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/211"
+)
+
+ScientistPublication.create!(
+    scientist_id: "20",
+    publication_id: "211",
+    is_primary_author: true
+)
+
+Publication.create!(
+    publication_id: 212,
+    doi: "10.1002/bdrc.20223",
+    published_date: "2011-12-1",
+    citation: "<a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, Thomas B.</a>; Kleinstreuer, Nicole C.. Disruption of embryonic vascular development in predictive toxicology. BIRTH DEFECTS RESEARCH PART C-EMBRYO TODAY-REVIEWS. 93(4), (2011).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/212"
+)
+
+ScientistPublication.create!(
+    scientist_id: "20",
+    publication_id: "212",
+    is_primary_author: true
+)
+
+Publication.create!(
+    publication_id: 213,
+    doi: "10.1002/bdrc.20223",
+    published_date: "2011-12-1",
+    citation: "<a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, Thomas B.</a>; Kochhar, Devendra M.. The Hemimelic Extra Toes Mouse Mutant: Historical Perspective on Unraveling Mechanisms of Dysmorphogenesis. BIRTH DEFECTS RESEARCH PART C-EMBRYO TODAY-REVIEWS. 90(2), (2010).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/213"
+)
+
+ScientistPublication.create!(
+    scientist_id: "20",
+    publication_id: "213",
+    is_primary_author: true
+)
+
+Publication.create!(
+    publication_id: 214,
+    doi: "10.1016/j.reprotox.2009.03.016",
+    published_date: "2009-09-1",
+    citation: "<a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, Thomas B.</a>; Martin, Matthew T.; Kavlock, Robert J.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard S.</a>; Dix, David J.; Singh, Amar V.. Profiling the activity of environmental chemicals in prenatal developmental toxicity studies using the US EPA's ToxRefDB. REPRODUCTIVE TOXICOLOGY. 28(2), (2009).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/214"
+)
+
+ScientistPublication.create!(
+    scientist_id: "20",
+    publication_id: "214",
+    is_primary_author: true
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "214",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 215,
+    doi: "10.1289/ehp.12891",
+    published_date: "2009-07-1",
+    citation: "Kramer, Melissa G.; Firestone, Michael; Kavlock, Robert; Zenick, Harold. The Future of Toxicity Testing for Environmental Contaminants. ENVIRONMENTAL HEALTH PERSPECTIVES. 117(7), (2009).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/215"
+)
+
+Publication.create!(
+    publication_id: 216,
+    doi: "10.1002/jat.3265",
+    published_date: "2016-08-1",
+    citation: "Kuo, Byron; Webster, A. Francina; <a href=\"http://comptox.ag.epa.gov/impact/scientists/17\">Thomas, Russell S.</a>; Yauk, Carole L.. BMDExpress Data Viewer - a visualization tool to analyze BMDExpress datasets. JOURNAL OF APPLIED TOXICOLOGY. 36(8), (2016).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/216"
+)
+
+ScientistPublication.create!(
+    scientist_id: "17",
+    publication_id: "216",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 217,
+    doi: "10.1016/j.drudis.2016.10.011",
+    published_date: "2016-10-29",
+    citation: "Langley, G.R., I.M. Adcock, F. Busquet, <a href=\"http://comptox.ag.epa.gov/impact/scientists/14\">K. Crofton</a>, E. Csernok, C. Giese, T. Heinonen, K. Herrmann, M. Hofmann-Apitius, B. Landesmann, L.J. Marshall 11, E. McIvor, A.R. Muotri, F. Noor, K. Schutte, T. Seidle, A. van de Stolpe, H. Van Esch, C. Willett, and G. Woszczek. (DRUG DISCOVERY TODAY) Towards a 21st century roadmap for biomedical research and drug discovery: Consensus report and recommendations.   DRUG DISCOVERY TODAY. Elsevier Science Ltd, New York, NY, USA,  1-13, (2016).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/217"
+)
+
+ScientistPublication.create!(
+    scientist_id: "14",
+    publication_id: "217",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 218,
+    doi: "10.1289/ehp.1510345",
+    published_date: "2015-11-1",
+    citation: "Langley, Gill; Austin, Christopher P.; Balapure, Anil K.; Birnbaum, Linda S.; Bucher, John R.; Fentem, Julia; Fitzpatrick, Suzanne C.; Fowle, John R.; Kavlock, Robert J.; Kitano, Hiroaki; Lidbury, Brett A.; Muotri, Alysson R.; Peng, Shuang-Qing; Sakharov, Dmitry; Seidle, Troy; Trez, Thales; Tonevitsky, Alexander; van de Stolpe, Anja; Whelan, Maurice; Willett, Catherine. Lessons from Toxicology: Developing a 21st-Century Paradigm for Medical Research. ENVIRONMENTAL HEALTH PERSPECTIVES. 123(11), (2015).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/218"
+)
+
+Publication.create!(
+    publication_id: 219,
+    doi: "10.14573/altex.1406091",
+    published_date: "2014-01-1",
+    citation: "Leist, Marcel; Hasiwa, Nina; Rovida, Costanza; Daneshian, Mardas; Basketter, David; Kimber, Ian; Clewell, Harvey; Gocht, Tilman; Goldberg, Alan; Busquet, Francois; Rossi, Anna-Maria; Schwarz, Michael; Stephens, Martin; Taalman, Rob; <a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, Thomas B.</a>; McKim, James; Harris, Georgina; Pamies, David; Hartung, Thomas. Consensus Report on the Future of Animal-Free Systemic Toxicity Testing. ALTEX-ALTERNATIVES TO ANIMAL EXPERIMENTATION. 31(3), (2014).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/219"
+)
+
+ScientistPublication.create!(
+    scientist_id: "20",
+    publication_id: "219",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 220,
+    doi: "10.1002/bdra.23251",
+    published_date: "2014-05-1",
+    citation: "Leung, M. C. K.; Hutson, M. S.; Belmonte, J. M.; Swat, M.; Sipes, N.; Baker, N. C.; Spencer, R. M.; Seifert, A. W.; Perreault, S. D.; Glazier, J. A.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, T. B.</a>. Computational Embryology and Predictive Toxicology of Hypospadias. BIRTH DEFECTS RESEARCH PART A-CLINICAL AND MOLECULAR TERATOLOGY. 100(5), (2014).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/220"
+)
+
+ScientistPublication.create!(
+    scientist_id: "20",
+    publication_id: "220",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 221,
+    doi: "10.1002/bdra.23519",
+    published_date: "2016-05-1",
+    citation: "Leung, M. C. K.; Kapraun, D. F.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/2\">Williams, A. J.</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, T. B.</a>. An Evaluation of ToxCast Angiogenic Disruptors for Effects on Mitochondrial Bioactivity Profiles. BIRTH DEFECTS RESEARCH PART A-CLINICAL AND MOLECULAR TERATOLOGY. 106(5), (2016).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/221"
+)
+
+ScientistPublication.create!(
+    scientist_id: "20",
+    publication_id: "221",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "2",
+    publication_id: "221",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 222,
+    doi: "10.1016/j.reprotox.2016.05.005",
+    published_date: "2016-09-1",
+    citation: "Leung, Maxwell C. K.; Hutson, M. Shane; Seifert, Ashley W.; Spencer, Richard M.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, Thomas B.</a>. Computational modeling and simulation of genital tubercle development. REPRODUCTIVE TOXICOLOGY. 64(), (2016).",
+    project: "Virtual Tissues, vEmbryo",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/222"
+)
+
+ScientistPublication.create!(
+    scientist_id: "20",
+    publication_id: "222",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 223,
+    doi: "10.1289/ehp.1510385",
+    published_date: "2016-07-1",
+    citation: "Leung, Maxwell C. K.; Phuong, Jimmy; Baker, Nancy C.; Sipes, Nisha S.; Klinefelter, Gary R.; Martin, Matthew T.; McLaurin, Keith W.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/21\">Setzer, R. Woodrow</a>; Darney, Sally Perreault; <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard S.</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, Thomas B.</a>. Systems Toxicology of Male Reproductive Development: Profiling 774 Chemicals for Molecular Targets and Adverse Outcomes. ENVIRONMENTAL HEALTH PERSPECTIVES. 124(7), (2016).",
+    project: "Virtual Tissues, vEmbryo",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/223"
+)
+
+ScientistPublication.create!(
+    scientist_id: "20",
+    publication_id: "223",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "21",
+    publication_id: "223",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "223",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 224,
+    doi: "10.1097/01.ede.0000340351.70222.65",
+    published_date: "2008-11-1",
+    citation: "Little, J. C.; Xu, Y.; Hubal, Cohen E.; Clausen, P.. Exposure to Phthalate Emitted from Vinyl Flooring and Sorbed to Interior Surfaces, Dust, Airborne Particles and Human Skin. EPIDEMIOLOGY. 19(6), (2008).",
+    project: "Virtual Tissues, vEmbryo",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/224"
+)
+
+Publication.create!(
+    publication_id: 225,
+    doi: "10.1021/es301088a",
+    published_date: "2012-10-16",
+    citation: "Little, John C.; Weschler, Charles J.; Nazaroff, William W.; Liu, Zhe; Hubal, Elaine A. Cohen. Rapid Methods to Estimate Potential Exposure to Semivolatile Organic Compounds in the Indoor Environment. ENVIRONMENTAL SCIENCE &amp; TECHNOLOGY. 46(20), (2012).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/225"
+)
+
+Publication.create!(
+    publication_id: 226,
+    doi: "10.1021/tx500501h",
+    published_date: "2015-04-1",
+    citation: "Liu, Jie; Mansouri, Kamel; <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard S.</a>; Martin, Matthew T.; Hong, Huixiao; Chen, Minjun; Xu, Xiaowei; <a href=\"http://comptox.ag.epa.gov/impact/scientists/17\">Thomas, Russell S.</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/9\">Shah, Imran</a>. Predicting Hepatotoxicity Using ToxCast in Vitro Bioactivity and Chemical Structure. CHEMICAL RESEARCH IN TOXICOLOGY. 28(4), (2015).",
+    project: "Virtual Tissues, vLiver",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/226"
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "226",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 227,
+    doi: "10.1080/15287394.2013.874246",
+    published_date: "2014-01-1",
+    citation: "Liu, Jun; Simmons, Steve O.; Pei, Ruoting. REGULATION OF IL-8 PROMOTER ACTIVITY BY VERRUCARIN A IN HUMAN MONOCYTIC THP-1 CELLS. JOURNAL OF TOXICOLOGY AND ENVIRONMENTAL HEALTH-PART A-CURRENT ISSUES. 77(19), (2014).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/227"
+)
+
+Publication.create!(
+    publication_id: 228,
+    doi: "10.1093/toxsci/kfn234",
+    published_date: "2009-02-1",
+    citation: "Lou, Inchio; <a href=\"http://comptox.ag.epa.gov/impact/scientists/12\">Wambaugh, John F.</a>; Lau, Christopher; Hanson, Roger G.; Lindstrom, Andrew B.; Strynar, Mark J.; Zehr, R. Dan; <a href=\"http://comptox.ag.epa.gov/impact/scientists/21\">Setzer, R. Woodrow</a>; Barton, Hugh A.. Modeling Single and Repeated Dose Pharmacokinetics of PFOA in Mice. TOXICOLOGICAL SCIENCES. 107(2), (2009).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/228"
+)
+
+ScientistPublication.create!(
+    scientist_id: "12",
+    publication_id: "228",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "21",
+    publication_id: "228",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 229,
+    doi: "10.1371/journal.pone.0055603",
+    published_date: "2013-02-7",
+    citation: "Luijten, Mirjam; Singh, Amar V.; Bastian, Caleb A.; Westerman, Anja; Pisano, M. Michele; Pennings, Jeroen L. A.; Verhoef, Aart; Green, Maia L.; Piersma, Aldert H.; de Vries, Annemieke; <a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, Thomas B.</a>. Lasting Effects on Body Weight and Mammary Gland Gene Expression in Female Mice upon Early Life Exposure to n-3 but Not n-6 High-Fat Diets. PLOS ONE. 8(2), (2013).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/229"
+)
+
+ScientistPublication.create!(
+    scientist_id: "20",
+    publication_id: "229",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 230,
+    doi: "10.1007/s11538-010-9508-5",
+    published_date: "2010-10-1",
+    citation: "Luke, Nicholas S.; DeVito, Michael J.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/9\">Shah, Imran</a>; El-Masri, Hisham A.. Development of a Quantitative Model of Pregnane X Receptor (PXR) Mediated Xenobiotic Metabolizing Enzyme Induction. BULLETIN OF MATHEMATICAL BIOLOGY. 72(7), (2010).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/230"
+)
+
+ScientistPublication.create!(
+    scientist_id: "9",
+    publication_id: "230",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 231,
+    doi: "10.1002/em.20653",
+    published_date: "2011-06-1",
+    citation: "Mahadevan, Brinda; Snyder, Ronald D.; Waters, Michael D.; Benz, R. Daniel; Kemper, Raymond A.; Tice, Raymond R.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/1\">Richard, Ann M.</a>. Genetic Toxicology in the 21st Century: Reflections and Future Directions. ENVIRONMENTAL AND MOLECULAR MUTAGENESIS. 52(5), (2011).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/231"
+)
+
+ScientistPublication.create!(
+    scientist_id: "1",
+    publication_id: "231",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 232,
+    doi: "10.1016/j.reprotox.2016.08.014",
+    published_date: "2016-10-1",
+    citation: "Makris, Susan L.; Scott, Cheryl Siegel; Fox, John; <a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, Thomas B.</a>; Hotchkiss, Andrew K.; Arzuaga, Xabier; Euling, Susan Y.; Powers, Christina M.; Jinot, Jennifer; Hogan, Karen A.; Abbott, Barbara D.; Hunter, E. Sidney, III; Narotsky, Michael G.. A systematic evaluation of the potential effects of trichloroethylene exposure on cardiac development. REPRODUCTIVE TOXICOLOGY. 65(), (2016).",
+    project: "Human Health Risk Assessment",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/232"
+)
+
+ScientistPublication.create!(
+    scientist_id: "20",
+    publication_id: "232",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 233,
+    doi: "10.1002/ieam.1923",
+    published_date: "2017-03-1",
+    citation: "Malloy, T.F., E. Beryt, and <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">R. Judson</a>. (ESandT) Advancing Alternatives Analysis: The Role of Predictive Toxicology in Selecting Safer Chemical Products and Processes.   ENVIRONMENTAL SCIENCE &amp; TECHNOLOGY. American Chemical Society, Washington, DC, USA,.",
+    project: "Sustainable Chemistry",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/233"
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "233",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 234,
+    doi: "10.1080/1062936X.2016.1253611",
+    published_date: "2016-01-1",
+    citation: "Mansouri, K.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/4\">Grulke, C. M.</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/1\">Richard, A. M.</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, R. S.</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/2\">Williams, A. J.</a>. An automated curation procedure for addressing chemical errors and inconsistencies in public datasets used in QSAR modelling. SAR AND QSAR IN ENVIRONMENTAL RESEARCH. 27(11), (2016).",
+    project: "Sustainable Chemistry",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/234"
+)
+
+ScientistPublication.create!(
+    scientist_id: "4",
+    publication_id: "234",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "1",
+    publication_id: "234",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "234",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "2",
+    publication_id: "234",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 235,
+    doi: "10.1289/ehp.1510267",
+    published_date: "2016-07-1",
+    citation: "Mansouri, Kamel; Abdelaziz, Ahmed; Rybacka, Aleksandra; Roncaglioni, Alessandra; Tropsha, Alexander; Varnek, Alexandre; Zakharov, Alexey; Worth, Andrew; <a href=\"http://comptox.ag.epa.gov/impact/scientists/1\">Richard, Ann M.</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/4\">Grulke, Christopher M.</a>; Trisciuzzi, Daniela; Fourches, Denis; Horvath, Dragos; Benfenati, Emilio; Muratov, Eugene; Wedebye, Eva Bay; Grisoni, Francesca; Mangiatordi, Giuseppe F.; Incisivo, Giuseppina M.; Hong, Huixiao; Ng, Hui W.; Tetko, Igor V.; Balabin, Ilya; Kancherla, Jayaram; Shen, Jie; Burton, Julien; Nicklaus, Marc; Cassotti, Matteo; Nikolov, Nikolai G.; Nicolotti, Orazio; Andersson, Patrik L.; Zang, Qingda; Politi, Regina; Beger, Richard D.; Todeschini, Roberto; Huang, Ruili; Farag, Sherif; Rosenberg, Sine A.; Slavov, Svetoslav; Hu, Xin; <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard S.</a>. CERAPP: Collaborative Estrogen Receptor Activity Prediction Project. ENVIRONMENTAL HEALTH PERSPECTIVES. 124(7), (2016).",
+    project: "Sustainable Chemistry",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/235"
+)
+
+ScientistPublication.create!(
+    scientist_id: "1",
+    publication_id: "235",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "4",
+    publication_id: "235",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "235",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 236,
+    doi: "10.1007/978-1-4939-3609-0_16",
+    published_date: "2016-01-1",
+    citation: "Mansouri, Kamel; <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard S.</a>. In Silico Study of In Vitro GPCR Assays by QSAR Modeling. IN SILICO METHODS FOR PREDICTING DRUG TOXICITY. 1425(), (2016).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/236"
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "236",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 237,
+    published_date: "2014-08-10",
+    citation: "Mansouri, Kamel; Sipes, Nisha; Nicolas, Chantel; <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard</a>. In-silico study of ToxCast GPCR assays by quantitative structure-activity relationships (QSARs) modeling. ABSTRACTS OF PAPERS OF THE AMERICAN CHEMICAL SOCIETY. 248(), (2014).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/237"
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "237",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 238,
+    doi: "10.1093/toxsci/kfm065",
+    published_date: "2007-06-1",
+    citation: "Martin, Matthew T.; Brennan, Richard J.; Hu, Wenyue; Ayanoglu, Eser; Lau, Christopher; Ren, Hongzu; Wood, Carmen R.; Corton, J. Christopher; Kavlock, Robert J.; Dix, David J.. Toxicogenomic study of triazole fungicides and perfluoroalkyl acids in rat livers predicts toxicity and categorizes chemicals based on mechanisms of toxicity. TOXICOLOGICAL SCIENCES. 97(2), (2007).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/238"
+)
+
+Publication.create!(
+    publication_id: 239,
+    doi: "10.1289/ehp.0900951R",
+    published_date: "2009-10-1",
+    citation: "Martin, Matthew T.; Dix, David J.. US EPA's Toxicity Reference Database: Martin and Dix Respond. ENVIRONMENTAL HEALTH PERSPECTIVES. 117(10), (2009).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/239"
+)
+
+Publication.create!(
+    publication_id: 240,
+    doi: "10.1021/tx900325g",
+    published_date: "2010-03-1",
+    citation: "Martin, Matthew T.; Dix, David J.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard S.</a>; Kavlock, Robert J.; Reif, David M.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/1\">Richard, Ann M.</a>; Rotroff, Daniel M.; Romanov, Sergei; Medvedev, Alexander; Poltoratskaya, Natalia; Gambarian, Maria; Moeser, Matt; Makarov, Sergei S.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/13\">Houck, Keith A.</a>. Impact of Environmental Chemicals on Key Transcription Regulators and Correlation to Toxicity End Points within EPA's ToxCast Program. CHEMICAL RESEARCH IN TOXICOLOGY. 23(3), (2010).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/240"
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "240",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "1",
+    publication_id: "240",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "13",
+    publication_id: "240",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 241,
+    doi: "10.1289/ehp.0800074",
+    published_date: "2009-03-1",
+    citation: "Martin, Matthew T.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard S.</a>; Reif, David M.; Kavlock, Robert J.; Dix, David J.. Profiling Chemicals Based on Chronic Toxicity Results from the US EPA ToxRef Database. ENVIRONMENTAL HEALTH PERSPECTIVES. 117(3), (2009).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/241"
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "241",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 242,
+    doi: "10.3109/19396368.2011.652288",
+    published_date: "2012-02-1",
+    citation: "Martin, Matthew T.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, Thomas B.</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard S.</a>; Kavlock, Robert J.; Dix, David J.. Economic benefits of using adaptive predictive models of reproductive toxicity in the context of a tiered testing program. SYSTEMS BIOLOGY IN REPRODUCTIVE MEDICINE. 58(1), (2012).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/242"
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "242",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "20",
+    publication_id: "242",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 243,
+    doi: "10.1095/biolreprod.111.090977",
+    published_date: "2011-08-1",
+    citation: "Martin, Matthew T.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, Thomas B.</a>; Reif, David M.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/13\">Houck, Keith A.</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard S.</a>; Kavlock, Robert J.; Dix, David J.. Predictive Model of Rat Reproductive Toxicity from ToxCast High Throughput Screening. BIOLOGY OF REPRODUCTION. 85(2), (2011).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/243"
+)
+
+ScientistPublication.create!(
+    scientist_id: "20",
+    publication_id: "243",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "13",
+    publication_id: "243",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "243",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 244,
+    doi: "10.1093/toxsci/kfp080",
+    published_date: "2009-07-1",
+    citation: "Martin, Matthew T.; Mendez, Elizabeth; Corum, Daniel G.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard S.</a>; Kavlock, Robert J.; Rotroff, Daniel M.; Dix, David J.. Profiling the Reproductive Toxicity of Chemicals from Multigeneration Studies in the Toxicity Reference Database. TOXICOLOGICAL SCIENCES. 110(1), (2009).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/244"
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "244",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 245,
+    doi: "10.1093/biolreprod/85.s1.791",
+    published_date: "2011-07-1",
+    citation: "Martin, Matthew T.; Rotroff, Daniel; Dix, David J.. Validation, Acceptance, and Extension of a Predictive Model of Rodent Reproductive Toxicity Using Toxcast High-Throughput Screening. BIOLOGY OF REPRODUCTION. 85(), (2011).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/245"
+)
+
+Publication.create!(
+    publication_id: 246,
+    doi: "10.1021/es2033857",
+    published_date: "2012-03-20",
+    citation: "Mattingly, Carolyn J.; McKone, Thomas E.; Callahan, Michael A.; Blake, Judith A.; Hubal, Elaine A. Cohen. Providing the Missing Link: the Exposure Science Ontology ExO. ENVIRONMENTAL SCIENCE &amp; TECHNOLOGY. 46(6), (2012).",
+    project: "High-throughput Tox Testing",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/246"
+)
+
+Publication.create!(
+    publication_id: 247,
+    doi: "10.1016/j.reprotox.2016.11.005",
+    published_date: "2016-11-10",
+    citation: "McCollum, C., J. Conde Vancells, C. Hans, M. Vazquez-Chantada, N. Kleinstreuer, T. Tal , <a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">T. Knudsen</a>, S. Shah, F. Merchant, R. Finnell, J. Gustafsson, R. Cabrera, and M. Bondesson. (Reproductive Toxicology) Identification of vascular disruptor compounds by a tiered analysis in zebrafish embryos and mouse embryonic endothelial cells.   REPRODUCTIVE TOXICOLOGY. Elsevier Science Ltd, New York, NY, USA,.",
+    project: "Virtual Tissues, vEmbryo",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/247"
+)
+
+ScientistPublication.create!(
+    scientist_id: "20",
+    publication_id: "247",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 248,
+    doi: "10.1007/s00216-016-0139-z",
+    published_date: "2016-12-16",
+    citation: "<a href=\"http://comptox.ag.epa.gov/impact/scientists/30\">Mceachran, A.</a>, J. Sobus, and <a href=\"http://comptox.ag.epa.gov/impact/scientists/2\">A. Williams</a>. (Analytical and Bioanalytical Chemistry) Identifying known unknowns using the US EPAs CompTox Chemistry Dashboard.   Analytical and Bioanalytical Chemistry. Springer, New York, NY, USA,  1-7, (2016).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/248"
+)
+
+ScientistPublication.create!(
+    scientist_id: "30",
+    publication_id: "248",
+    is_primary_author: true
+)
+
+ScientistPublication.create!(
+    scientist_id: "2",
+    publication_id: "248",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 249,
+    doi: "10.1093/toxsci/kfr295",
+    published_date: "2012-03-1",
+    citation: "McLanahan, Eva D.; El-Masri, Hisham A.; Sweeney, Lisa M.; Kopylev, Leonid Y.; Clewell, Harvey J.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/12\">Wambaugh, John F.</a>; Schlosser, P. M.. Physiologically Based Pharmacokinetic Model Use in Risk Assessment-Why Being Published Is Not Enough. TOXICOLOGICAL SCIENCES. 126(1), (2012).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/249"
+)
+
+ScientistPublication.create!(
+    scientist_id: "12",
+    publication_id: "249",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 250,
+    doi: "10.1371/journal.pone.0070911",
+    published_date: "2013-08-5",
+    citation: "Mitchell, J., N. Parbon, Z.A. Collier, P. Egeghy , E. Hubal , I. Linkov, and D. Vallero. A Decision Analytic Approach to Exposure-Based Chemical Prioritization.   PLoS ONE. Public Library of Science, San Francisco, CA, USA, 8(8): 1-13, (2013).",
+    project: "Rapid Exposure and Dose",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/250"
+)
+
+Publication.create!(
+    publication_id: 251,
+    doi: "10.1016/j.scitotenv.2013.04.051",
+    published_date: "2013-08-1",
+    citation: "Mitchell, Jade; Arnot, Jon A.; Jolliet, Olivier; Georgopoulos, Panos G.; Isukapalli, Sastry; Dasgupta, Surajit; Pandian, Muhilan; <a href=\"http://comptox.ag.epa.gov/impact/scientists/12\">Wambaugh, John</a>; Egeghy, Peter; Hubal, Elaine A. Cohen; Vallero, Daniel A.. Comparison of modeling approaches to prioritize chemicals based on estimates of exposure and exposure potential. SCIENCE OF THE TOTAL ENVIRONMENT. 458(), (2013).",
+    project: "Rapid Exposure and Dose",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/251"
+)
+
+ScientistPublication.create!(
+    scientist_id: "12",
+    publication_id: "251",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 252,
+    doi: "10.2217/14622416.8.9.1229",
+    published_date: "2007-09-1",
+    citation: "Motsinger, Alison A.; Ritchie, Marylyn D.; Reif, David M.. Novel methods for detecting epistasis in pharmacogenomics studies. PHARMACOGENOMICS. 8(9), (2007).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/252"
+)
+
+Publication.create!(
+    publication_id: 253,
+    doi: "10.1002/gepi.20420",
+    published_date: "2009-12-1",
+    citation: "Motsinger-Reif, Alison A.; Reif, David M.; Fanelli, Theresa J.; Ritchie, Marylyn D.. A Comparison of Analytical Methods for Genetic Association Studies (vol 32, pg 767, 2008). GENETIC EPIDEMIOLOGY. 33(8), (2009).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/253"
+)
+
+Publication.create!(
+    publication_id: 254,
+    doi: "10.1002/gepi.20345",
+    published_date: "2008-12-1",
+    citation: "Motsinger-Reif, Alison A.; Reif, David M.; Fanelli, Theresa J.; Ritchie, Marylyn D.. A Comparison of Analytical Methods for Genetic Association Studies. GENETIC EPIDEMIOLOGY. 32(8), (2008).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/254"
+)
+
+Publication.create!(
+    publication_id: 255,
+    doi: "10.1016/j.tiv.2013.02.012",
+    published_date: "2013-06-1",
+    citation: "Murk, AlberTinka J.; Rijntjes, Eddy; Blaauboer, Bas J.; Clewell, Rebecca; <a href=\"http://comptox.ag.epa.gov/impact/scientists/14\">Crofton, Kevin M.</a>; Dingemans, Milou M. L.; Furlow, J. David; Kavlock, Robert; Koehrle, Josef; Opitz, Robert; Traas, Theo; Visser, Theo J.; Xia, Menghang; Gutleb, Arno C.. Mechanism-based testing strategy using in vitro approaches for identification of thyroid hormone disrupting chemicals. TOXICOLOGY IN VITRO. 27(4), (2013).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/255"
+)
+
+ScientistPublication.create!(
+    scientist_id: "14",
+    publication_id: "255",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 256,
+    doi: "10.1289/ehp.1204992",
+    published_date: "2012-12-1",
+    citation: "Nazaroff, William; Weschler, Charles J.; Little, John C.; Hubal, Elaine A. Cohen. Intake to Production Ratio: A Measure of Exposure Intimacy for Manufactured Chemicals. ENVIRONMENTAL HEALTH PERSPECTIVES. 120(12), (2012).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/256"
+)
+
+Publication.create!(
+    publication_id: 257,
+    doi: "10.1021/nn4037927",
+    published_date: "2013-08-1",
+    citation: "Nel, Andre E.; Nasser, Elina; Godwin, Hilary; Avery, David; Bahadori, Tina; Bergeson, Lynn; Beryt, Elizabeth; Bonner, James C.; Boverhof, Darrell; Carter, Janet; Castranova, Vince; DeShazo, J. R.; Hussain, Saber M.; Kane, Agnes B.; Klaessig, Frederick; Kuempel, Eileen; Lafranconi, Mark; Landsiedel, Robert; Malloy, Timothy; Miller, Mary Beth; Morris, Jeffery; Moss, Kenneth; Oberdorster, Gunter; Pinkerton, Kent; Pleus, Richard C.; Shatkin, Jo Anne; <a href=\"http://comptox.ag.epa.gov/impact/scientists/17\">Thomas, Russell</a>; Tolaymat, Thabet; Wang, Amy; Wong, Jeffrey. A Multi-Stakeholder Perspective on the Use of Alternative Test Strategies for Nanomaterial Safety Assessment. ACS NANO. 7(8), (2013).",
+    project: "Sustainable Chemistry",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/257"
+)
+
+ScientistPublication.create!(
+    scientist_id: "17",
+    publication_id: "257",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 258,
+    doi: "10.1002/bdra.20834",
+    published_date: "2011-05-1",
+    citation: "Nichols, H.; Barrier, M.; Jeffay, S.; Chandler, K.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/19\">Simmons, S.</a>; Hunter, S.. Assessment of a 42 Metal Salts Chemical Library in Mouse Embryonic Stem Cells. BIRTH DEFECTS RESEARCH PART A-CLINICAL AND MOLECULAR TERATOLOGY. 91(5), (2011).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/258"
+)
+
+ScientistPublication.create!(
+    scientist_id: "19",
+    publication_id: "258",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 259,
+    published_date: "2014-08-10",
+    citation: "Nicolas, Chantel I.; Goldsmith, Michael R.; Ahir, Bhavesh K.; Wetmore, Barbara A.; Dionisio, Kathie L.; Mansouri, Kamel; <a href=\"http://comptox.ag.epa.gov/impact/scientists/21\">Setzer, R. Woodrow</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard S.</a>; Rabinowitz, James; <a href=\"http://comptox.ag.epa.gov/impact/scientists/12\">Wambaugh, John F.</a>. High-throughput exposure modeling of semi-volatile chemicals in articles of commerce. ABSTRACTS OF PAPERS OF THE AMERICAN CHEMICAL SOCIETY. 248(), (2014).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/259"
+)
+
+ScientistPublication.create!(
+    scientist_id: "21",
+    publication_id: "259",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "259",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "12",
+    publication_id: "259",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 260,
+    doi: "10.1016/j.tox.2015.07.005",
+    published_date: "2015-10-2",
+    citation: "Oshida, Keiyu; Vasani, Naresh; <a href=\"http://comptox.ag.epa.gov/impact/scientists/17\">Thomas, Russell S.</a>; Applegate, Dawn; Gonzalez, Frank J.; Aleksunes, Lauren M.; Klaassen, Curtis D.; Corton, J. Christopher. Screening a mouse liver gene expression compendium identifies modulators of the aryl hydrocarbon receptor (AhR). TOXICOLOGY. 336(), (2015).",
+    project: "Virtual Tissues, vLiver",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/260"
+)
+
+ScientistPublication.create!(
+    scientist_id: "17",
+    publication_id: "260",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 261,
+    doi: "10.1371/journal.pone.0112655",
+    published_date: "2015-02-17",
+    citation: "Oshida, Keiyu; Vasani, Naresh; <a href=\"http://comptox.ag.epa.gov/impact/scientists/17\">Thomas, Russell S.</a>; Applegate, Dawn; Rosen, Mitch; Abbott, Barbara; Lau, Christopher; Guo, Grace; Aleksunes, Lauren M.; Klaassen, Curtis; Corton, J. Christopher. Identification of Modulators of the Nuclear Receptor Peroxisome Proliferator-Activated Receptor alpha (PPAR alpha) in a Mouse Liver Gene Expression Compendium. PLOS ONE. 10(2), (2015).",
+    project: "High-throughput Tox Testing",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/261"
+)
+
+ScientistPublication.create!(
+    scientist_id: "17",
+    publication_id: "261",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 262,
+    doi: "10.1016/j.fertnstert.2004.12.046",
+    published_date: "2005-06-1",
+    citation: "Ostermeier, CG; Goodrich, RJ; Diamond, MP; Dix, DJ; Krawetz, SA. Toward using stable spermatozoal RNAs for prognostic assessment of male factor fertility. FERTILITY AND STERILITY. 83(6), (2005).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/262"
+)
+
+Publication.create!(
+    publication_id: 263,
+    doi: "10.1016/j.reprotox.2011.10.018",
+    published_date: "2012-04-1",
+    citation: "Padilla, S.; Corum, D.; Padnos, B.; Hunter, D. L.; Beam, A.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/13\">Houck, K. A.</a>; Sipes, N.; Kleinstreuer, N.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, T.</a>; Dix, D. J.; Reif, D. M.. Zebrafish developmental screening of the ToxCast (TM) Phase I chemical library. REPRODUCTIVE TOXICOLOGY. 33(2), (2012).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/263"
+)
+
+ScientistPublication.create!(
+    scientist_id: "13",
+    publication_id: "263",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "20",
+    publication_id: "263",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 264,
+    doi: "10.1016/j.yrtph.2015.03.015",
+    published_date: "2015-06-1",
+    citation: "<a href=\"http://comptox.ag.epa.gov/impact/scientists/8\">Patlewicz, G.</a>; Ball, N.; Boogaard, P. J.; Becker, R. A.; Hubesch, B.. Building scientific confidence in the development and evaluation of read-across. REGULATORY TOXICOLOGY AND PHARMACOLOGY. 72(1), (2015).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/264"
+)
+
+ScientistPublication.create!(
+    scientist_id: "8",
+    publication_id: "264",
+    is_primary_author: true
+)
+
+Publication.create!(
+    publication_id: 265,
+    doi: "10.1016/j.yrtph.2016.08.007",
+    published_date: "2016-12-1",
+    citation: "<a href=\"http://comptox.ag.epa.gov/impact/scientists/8\">Patlewicz, Grace</a>; Casati, Silvia; Basketter, David A.; Asturiol, David; Roberts, David W.; Lepoittevin, Jean-Pierre; Worth, Andrew P.; Aschberger, Karin. Can currently available non-animal methods detect pre and pro-haptens relevant for skin sensitization?. REGULATORY TOXICOLOGY AND PHARMACOLOGY. 82(), (2016).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/265"
+)
+
+ScientistPublication.create!(
+    scientist_id: "8",
+    publication_id: "265",
+    is_primary_author: true
+)
+
+Publication.create!(
+    publication_id: 266,
+    doi: "10.1021/acs.chemrestox.5b00388",
+    published_date: "2016-04-1",
+    citation: "<a href=\"http://comptox.ag.epa.gov/impact/scientists/8\">Patlewicz, Grace</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/10\">Fitzpatrick, Jeremy M.</a>. Current and Future Perspectives on the Development, Evaluation, and Application of in Silico Approaches for Predicting Toxicity. CHEMICAL RESEARCH IN TOXICOLOGY. 29(4), (2016).",
+    project: "High-throughput Tox Testing",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/266"
+)
+
+ScientistPublication.create!(
+    scientist_id: "8",
+    publication_id: "266",
+    is_primary_author: true
+)
+
+ScientistPublication.create!(
+    scientist_id: "10",
+    publication_id: "266",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 267,
+    doi: "10.1016/j.yrtph.2015.02.011",
+    published_date: "2015-04-1",
+    citation: "<a href=\"http://comptox.ag.epa.gov/impact/scientists/8\">Patlewicz, Grace</a>; Simon, Ted W.; Rowlands, J. Craig; Budinsky, Robert A.; Becker, Richard A.. Proposing a scientific confidence framework to help support the application of adverse outcome pathways for regulatory purposes. REGULATORY TOXICOLOGY AND PHARMACOLOGY. 71(3), (2015).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/267"
+)
+
+ScientistPublication.create!(
+    scientist_id: "8",
+    publication_id: "267",
+    is_primary_author: true
+)
+
+Publication.create!(
+    publication_id: 268,
+    doi: "10.1016/j.tox.2013.08.006",
+    published_date: "2013-10-4",
+    citation: "<a href=\"http://comptox.ag.epa.gov/impact/scientists/23\">Paul, Katie B.</a>; Hedge, Joan M.; Macherla, Chitralekha; Filer, Dayne L.; Burgess, Emily; <a href=\"http://comptox.ag.epa.gov/impact/scientists/19\">Simmons, Steven O.</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/14\">Crofton, Kevin M.</a>; Hornung, Michael W.. Cross-species analysis of thyroperoxidase inhibition by xenobiotics demonstrates conservation of response between pig and rat. TOXICOLOGY. 312(), (2013).",
+    project: "High-throughput Tox Testing",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/268"
+)
+
+ScientistPublication.create!(
+    scientist_id: "23",
+    publication_id: "268",
+    is_primary_author: true
+)
+
+ScientistPublication.create!(
+    scientist_id: "19",
+    publication_id: "268",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "14",
+    publication_id: "268",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 269,
+    doi: "10.1021/tx400310w",
+    published_date: "2014-03-1",
+    citation: "<a href=\"http://comptox.ag.epa.gov/impact/scientists/23\">Paul, Katie B.</a>; Hedge, Joan M.; Rotroff, Daniel M.; Hornung, Michael W.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/14\">Crofton, Kevin M.</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/19\">Simmons, Steven O.</a>. Development of a Thyroperoxidase Inhibition Assay for High-Throughput Screening. CHEMICAL RESEARCH IN TOXICOLOGY. 27(3), (2014).",
+    project: "High-throughput Tox Testing",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/269"
+)
+
+ScientistPublication.create!(
+    scientist_id: "23",
+    publication_id: "269",
+    is_primary_author: true
+)
+
+ScientistPublication.create!(
+    scientist_id: "14",
+    publication_id: "269",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "19",
+    publication_id: "269",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 270,
+    doi: "10.1016/j.tiv.2013.07.008",
+    published_date: "2013-10-1",
+    citation: "<a href=\"http://comptox.ag.epa.gov/impact/scientists/23\">Paul, Katie B.</a>; Thompson, Jerry T.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/19\">Simmons, Steven O.</a>; Vanden Heuvel, John P.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/14\">Crofton, Kevin M.</a>. Evidence for triclosan-induced activation of human and rodent xenobiotic nuclear receptors. TOXICOLOGY IN VITRO. 27(7), (2013).",
+    project: "High-throughput Tox Testing",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/270"
+)
+
+ScientistPublication.create!(
+    scientist_id: "23",
+    publication_id: "270",
+    is_primary_author: true
+)
+
+ScientistPublication.create!(
+    scientist_id: "19",
+    publication_id: "270",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "14",
+    publication_id: "270",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 271,
+    doi: "10.1007/978-1-4939-2778-4_1",
+    published_date: "2015-01-1",
+    citation: "Perkins, E., N. Garcia-Reyero, S. Edwards , C. Wittwehr, D. Villeneuve , D. Lyons , and G. Ankley. The Adverse Outcome Pathway: A conceptual framework to support toxicity testing in the 21st century.  Chapter 1,  Computational Systems Toxicology: Discovering and Using the Toxicological Blueprint of Active Substances. Springer Science + Business Media, New York, NY, USA,  1-26, (2015).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/271"
+)
+
+Publication.create!(
+    publication_id: 272,
+    doi: "10.1289/ehp.1306638",
+    published_date: "2013-09-1",
+    citation: "Perkins, Edward J.; Ankley, Gerald T.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/14\">Crofton, Kevin M.</a>; Garcia-Reyero, Natalia; LaLone, Carlie A.; Johnson, Mark S.; Tietge, Joseph E.; Villeneuve, Daniel L.. Current Perspectives on the Use of Alternative Species in Human Health and Ecological Hazard Assessments. ENVIRONMENTAL HEALTH PERSPECTIVES. 121(9), (2013).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/272"
+)
+
+ScientistPublication.create!(
+    scientist_id: "14",
+    publication_id: "272",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 273,
+    doi: "10.1039/C6GC02744J",
+    published_date: "2017-01-1",
+    citation: "Phillips, K., <a href=\"http://comptox.ag.epa.gov/impact/scientists/12\">J. Wambaugh</a>, <a href=\"http://comptox.ag.epa.gov/impact/scientists/4\">C. Grulke</a>, K. Dionisio, and K. Isaacs. High-throughput screening of chemicals as functional substitutes using structure-based classification models.   GREEN CHEMISTRY. Royal Society of Chemistry, Cambridge,  UK, 19: 1063-1074, (2017).",
+    project: "Rapid Exposure and Dose",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/273"
+)
+
+ScientistPublication.create!(
+    scientist_id: "12",
+    publication_id: "273",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "4",
+    publication_id: "273",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 274,
+    doi: "10.1021/acs.chemrestox.6b00079",
+    published_date: "2016-09-1",
+    citation: "Pinto, Caroline L.; Mansouri, Kamel; <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard</a>; Browne, Patience. Prediction of Estrogenic Bioactivity of Environmental Chemical Metabolites. CHEMICAL RESEARCH IN TOXICOLOGY. 29(9), (2016).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/274"
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "274",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 275,
+    doi: "10.1021/es3023072",
+    published_date: "2012-09-4",
+    citation: "Powers, Christina M.; Dana, Genya; Gillespie, Patricia; Gwinn, Maureen R.; Hendren, Christine Ogilvie; Long, Thomas C.; Wang, Amy; Davis, J. Michael. Comprehensive Environmental Assessment: A Meta-Assessment Approach. ENVIRONMENTAL SCIENCE &amp; TECHNOLOGY. 46(17), (2012).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/275"
+)
+
+Publication.create!(
+    publication_id: 276,
+    doi: "10.1002/em.21734",
+    published_date: "2012-09-1",
+    citation: "Prasad, R. Y.; McGee, J. K.; Killius, M. G.; Ackerman, D.; Blackman, C. F.; DeMarini, D. M.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/19\">Simmons, S. O.</a>. Cellular Stress Response to Engineered Nanoparticles: Effect of Size, Surface Coating, and Cellular Uptake. ENVIRONMENTAL AND MOLECULAR MUTAGENESIS. 53(), (2012).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/276"
+)
+
+ScientistPublication.create!(
+    scientist_id: "19",
+    publication_id: "276",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 277,
+    doi: "10.1016/j.tiv.2013.07.005",
+    published_date: "2013-09-1",
+    citation: "Prasad, Raju Y.; McGee, John K.; Killius, Micaela G.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/6\">Suarez, Danielle A.</a>; Blackman, Carl F.; DeMarini, David M.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/19\">Simmons, Steven O.</a>. Investigating oxidative stress and inflammatory responses elicited by silver nanoparticles using high-throughput reporter genes in HepG2 cells: Effect of size, surface coating, and intracellular uptake. TOXICOLOGY IN VITRO. 27(6), (2013).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/277"
+)
+
+ScientistPublication.create!(
+    scientist_id: "6",
+    publication_id: "276",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "19",
+    publication_id: "277",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 278,
+    doi: "10.1289/ehp.11077",
+    published_date: "2008-05-1",
+    citation: "Rabinowitz, James R.; Goldsmith, Michael-Rock; <a href=\"http://comptox.ag.epa.gov/impact/scientists/18\">Little, Stephen B.</a>; Pasquinelli, Melissa A.. Computational molecular modeling for evaluating the toxicity of environmental chemicals: Prioritizing bioassay requirements. ENVIRONMENTAL HEALTH PERSPECTIVES. 116(5), (2008).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/278"
+)
+
+ScientistPublication.create!(
+    scientist_id: "18",
+    publication_id: "278",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 279,
+    doi: "10.1021/tx900135x",
+    published_date: "2009-09-1",
+    citation: "Rabinowitz, James R.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/18\">Little, Stephen B.</a>; Laws, Susan C.; Goldsmith, Michael-Rock. Molecular Modeling for Screening Environmental Chemicals for Estrogenicity: Use of the Toxicant-Target Approach. CHEMICAL RESEARCH IN TOXICOLOGY. 22(9), (2009).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/279"
+)
+
+ScientistPublication.create!(
+    scientist_id: "18",
+    publication_id: "279",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 280,
+    doi: "10.1016/j.ntt.2011.05.051",
+    published_date: "2011-07-1",
+    citation: "Raffaele, Kathleen; Bergfeldt, Don; Burgess-Herbert, Sarah; <a href=\"http://comptox.ag.epa.gov/impact/scientists/14\">Crofton, Kevin</a>; Diwan, Sanjivani; Makris, Susan; Segal, Deborah; Gilbert, Mary. Next Generation Risk Assessment and Developmental Neurotoxicity: Potential and Challenges in Evaluation of the Thyroid Hormonal Pathway. NEUROTOXICOLOGY AND TERATOLOGY. 33(4), (2011).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/280"
+)
+
+ScientistPublication.create!(
+    scientist_id: "14",
+    publication_id: "280",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 281,
+    doi: "10.1016/j.envint.2015.12.008",
+    published_date: "2016-03-1",
+    citation: "Rager, Julia E.; Strynar, Mark J.; Liang, Shuang; McMahen, Rebecca L.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/1\">Richard, Ann M.</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/4\">Grulke, Christopher M.</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/12\">Wambaugh, John F.</a>; Isaacs, Kristin K.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/2\">Williams, Antony J.</a>; Sobus, Jon R.. Linking high resolution mass spectrometry data with exposure and toxicity forecasts to advance high-throughput environmental monitoring. ENVIRONMENT INTERNATIONAL. 88(), (2016).",
+    project: "Rapid Exposure and Dose",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/281"
+)
+
+ScientistPublication.create!(
+    scientist_id: "1",
+    publication_id: "281",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "4",
+    publication_id: "281",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "12",
+    publication_id: "281",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "281",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "2",
+    publication_id: "281",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 282,
+    doi: "10.1164/ajrccm-conference.2009.179.1_MeetingAbstracts.A2757",
+    published_date: "2009-01-1",
+    citation: "Reif, D. M.; Gallagher, J. E.; Hubal, E. Cohen; Neas, L. M.; Hudgens, E. E.; Heidenfelder, B. L.; Edwards, S. W.. Integrated Analysis of Blood Gene Expression Data with Demographic, Clinical, and Environmental Exposure Information To Identify Subtypes of Childhood Asthma. AMERICAN JOURNAL OF RESPIRATORY AND CRITICAL CARE MEDICINE. 179(), (2009).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/282"
+)
+
+Publication.create!(
+    publication_id: 283,
+    doi: "10.1097/01.ede.0000340497.85202.c0",
+    published_date: "2008-11-1",
+    citation: "Reif, D. M.; Heidenfelder, B.; Edwards, S.; Gallagher, J.; Hudgens, E.; Neas, L.; Rogers, J.; Williams, A.; Hubal, Cohen E.. Integrating Demographic, Clinical, and Environmental Exposure Information to Identify Genomic Biomarkers Associated with Subtypes of Childhood Asthma. EPIDEMIOLOGY. 19(6), (2008).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/283"
+)
+
+Publication.create!(
+    publication_id: 284,
+    doi: "10.1038/gene.2008.80",
+    published_date: "2009-03-1",
+    citation: "Reif, D. M.; Motsinger-Reif, A. A.; McKinney, B. A.; Rock, M. T.; Crowe, J. E., Jr.; Moore, J. H.. Integrated analysis of genetic and proteomic data identifies biomarkers associated with adverse events following smallpox vaccination. GENES AND IMMUNITY. 10(2), (2009).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/284"
+)
+
+Publication.create!(
+    publication_id: 285,
+    doi: "10.1289/ehp.1002180",
+    published_date: "2010-12-1",
+    citation: "Reif, David M.; Martin, Matthew T.; Tan, Shirlee W.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/13\">Houck, Keith A.</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard S.</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/1\">Richard, Ann M.</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, Thomas B.</a>; Dix, David J.; Kavlock, Robert J.. Endocrine Profiling and Prioritization of Environmental Chemicals Using ToxCast Data. ENVIRONMENTAL HEALTH PERSPECTIVES. 118(12), (2010).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/285"
+)
+
+ScientistPublication.create!(
+    scientist_id: "13",
+    publication_id: "285",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "285",
+    is_primary_author: false
+)
+
+
+ScientistPublication.create!(
+    scientist_id: "1",
+    publication_id: "285",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "20",
+    publication_id: "285",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 286,
+    doi: "10.1093/bioinformatics/bts686",
+    published_date: "2013-02-1",
+    citation: "Reif, David M.; Sypa, Myroslav; Lock, Eric F.; Wright, Fred A.; Wilson, Ander; Cathey, Tommy; <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard R.</a>; Rusyn, Ivan. ToxPi GUI: an interactive visualization tool for transparent integration of data from diverse sources of evidence. BIOINFORMATICS. 29(3), (2013).",
+    project: "High-throughput Tox Testing",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/286"
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "286",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 287,
+    doi: "10.1002/em.20522",
+    published_date: "2009-08-1",
+    citation: "<a href=\"http://comptox.ag.epa.gov/impact/scientists/1\">Richard, A. M.</a>. Chemical and Biological Profiling Approaches for Exploring Mutagenicity and Carcinogenicity of EPA ToxCast (TM) Chemicals. ENVIRONMENTAL AND MOLECULAR MUTAGENESIS. 50(7), (2009).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/287"
+)
+
+ScientistPublication.create!(
+    scientist_id: "1",
+    publication_id: "287",
+    is_primary_author: true
+)
+
+Publication.create!(
+    publication_id: 288,
+    doi: "10.1002/bdra.20373",
+    published_date: "2007-05-1",
+    citation: "<a href=\"http://comptox.ag.epa.gov/impact/scientists/1\">Richard, A.</a>; Julien, E.; Yang, C.. Cheminformatic approaches in predictive toxicology. BIRTH DEFECTS RESEARCH PART A-CLINICAL AND MOLECULAR TERATOLOGY. 79(5), (2007).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/288"
+)
+
+ScientistPublication.create!(
+    scientist_id: "1",
+    publication_id: "288",
+    is_primary_author: true
+)
+
+Publication.create!(
+    publication_id: 289,
+    published_date: "2005-08-28",
+    citation: "<a href=\"http://comptox.ag.epa.gov/impact/scientists/1\">Richard, AM</a>. Promoting data standards and open public access to structure-searchable toxicity databases: DSSTox and coordinated public efforts. ABSTRACTS OF PAPERS OF THE AMERICAN CHEMICAL SOCIETY. 230(), (2005).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/289"
+)
+
+ScientistPublication.create!(
+    scientist_id: "1",
+    publication_id: "289",
+    is_primary_author: true
+)
+
+Publication.create!(
+    publication_id: 290,
+    published_date: "2006-05-1",
+    citation: "<a href=\"http://comptox.ag.epa.gov/impact/scientists/1\">Richard, AM</a>; Gold, LS; Nicklaus, MC. Chemical structure indexing of toxicity data on the Internet: Moving toward a flat world. CURRENT OPINION IN DRUG DISCOVERY &amp; DEVELOPMENT. 9(3), (2006).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/290"
+)
+
+ScientistPublication.create!(
+    scientist_id: "1",
+    publication_id: "290",
+    is_primary_author: true
+)
+
+Publication.create!(
+    publication_id: 291,
+    doi: "10.1021/tx060116u",
+    published_date: "2006-10-16",
+    citation: "<a href=\"http://comptox.ag.epa.gov/impact/scientists/1\">Richard, Ann M.</a>. Future of toxicologys - Predictive toxicology: An expanded view of chemical toxicity. CHEMICAL RESEARCH IN TOXICOLOGY. 19(10), (2006).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/291"
+)
+
+ScientistPublication.create!(
+    scientist_id: "1",
+    publication_id: "291",
+    is_primary_author: true
+)
+
+Publication.create!(
+    publication_id: 292,
+    doi: "10.1021/acs.chemrestox.6b00135",
+    published_date: "2016-08-1",
+    citation: "<a href=\"http://comptox.ag.epa.gov/impact/scientists/1\">Richard, Ann M.</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard S.</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/13\">Houck, Keith A.</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/4\">Grulke, Christopher M.</a>; Volarath, Patra; Thillainadarajah, Inthirany; Yang, Chihae; Rathman, James; Martin, Matthew T.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/12\">Wambaugh, John F.</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, Thomas B.</a>; Kancherla, Jayaram; Mansouri, Kamel; <a href=\"http://comptox.ag.epa.gov/impact/scientists/8\">Patlewicz, Grace</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/2\">Williams, Antony J.</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/18\">Little, Stephen B.</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/14\">Crofton, Kevin M.</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/17\">Thomas, Russell S.</a>. ToxCast Chemical Landscape: Paving the Road to 21st Century Toxicology. CHEMICAL RESEARCH IN TOXICOLOGY. 29(8), (2016).",
+    project: "High-throughput Tox Testing",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/292"
+)
+
+ScientistPublication.create!(
+    scientist_id: "1",
+    publication_id: "292",
+    is_primary_author: true
+)
+
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "292",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "13",
+    publication_id: "292",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "4",
+    publication_id: "292",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "12",
+    publication_id: "292",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "20",
+    publication_id: "292",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "8",
+    publication_id: "292",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "2",
+    publication_id: "292",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "18",
+    publication_id: "292",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "14",
+    publication_id: "292",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "17",
+    publication_id: "292",
+    is_primary_author: false
+)
+
+
+Publication.create!(
+    publication_id: 293,
+    published_date: "2009-08-16",
+    citation: "<a href=\"http://comptox.ag.epa.gov/impact/scientists/1\">Richard, Ann M.</a>; Wolf, Maritja A.; Williams-Devane, ClarLynda R.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard</a>. CINF 1-US EPA computational toxicology programs: Central role of chemical-annotation efforts and molecular databases. ABSTRACTS OF PAPERS OF THE AMERICAN CHEMICAL SOCIETY. 238(), (2009).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/293"
+)
+
+ScientistPublication.create!(
+    scientist_id: "1",
+    publication_id: "293",
+    is_primary_author: true
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "293",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 294,
+    doi: "10.1080/15376510701857452",
+    published_date: "2008-01-1",
+    citation: "<a href=\"http://comptox.ag.epa.gov/impact/scientists/1\">Richard, Ann M.</a>; Yang, Chihae; <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard S.</a>. Toxicity data informatics: Supporting a new paradigm for toxicity prediction. TOXICOLOGY MECHANISMS AND METHODS. 18(2-3), (2008).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/294"
+)
+
+ScientistPublication.create!(
+    scientist_id: "1",
+    publication_id: "294",
+    is_primary_author: true
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "294",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 295,
+    doi: "10.1038/NNANO.2015.141",
+    published_date: "2015-09-1",
+    citation: "Richter, Alexander P.; Brown, Joseph S.; Bharti, Bhuvnesh; Wang, Amy; Gangwal, Sumit; <a href=\"http://comptox.ag.epa.gov/impact/scientists/13\">Houck, Keith</a>; Hubal, Elaine A. Cohen; Paunov, Vesselin N.; Stoyanov, Simeon D.; Velev, Orlin D.. An environmentally benign antimicrobial nanoparticle based on a silver-infused lignin core. NATURE NANOTECHNOLOGY. 10(9), (2015).",
+    project: "Sustainable Chemistry",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/295"
+)
+
+ScientistPublication.create!(
+    scientist_id: "13",
+    publication_id: "295",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 296,
+    doi: "10.1016/j.reprotox.2006.05.008",
+    published_date: "2006-11-1",
+    citation: "Rockett, John C.; Narotsky, Michael G.; Thompson, Kary E.; Thillainadarajah, Inthirany; Blystone, Chad R.; Goetz, Amber K.; Ren, Hongzu; Best, Deborah S.; Murrell, Rachel N.; Nichols, Harriette P.; Schmid, Judith E.; Wolf, Douglas C.; Dix, David J.. Effect of conazole fungicides on reproductive development in the female rat. REPRODUCTIVE TOXICOLOGY. 22(4), (2006).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/296"
+)
+
+Publication.create!(
+    publication_id: 297,
+    doi: "10.1080/10937404.2010.483949",
+    published_date: "2010-01-1",
+    citation: "Rotroff, Daniel M.; Beam, Andrew L.; Dix, David J.; Farmer, Adam; Freeman, Kimberly M.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/13\">Houck, Keith A.</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard S.</a>; LeCluyse, Edward L.; Martin, Matthew T.; Reif, David M.; Ferguson, Stephen S.. XENOBIOTIC-METABOLIZING ENZYME AND TRANSPORTER GENE EXPRESSION IN PRIMARY CULTURES OF HUMAN HEPATOCYTES MODULATED BY TOXCAST CHEMICALS. JOURNAL OF TOXICOLOGY AND ENVIRONMENTAL HEALTH-PART B-CRITICAL REVIEWS. 13(2-4), (2010).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/297"
+)
+
+ScientistPublication.create!(
+    scientist_id: "13",
+    publication_id: "297",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "297",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 298,
+    doi: "10.1021/tx400117y",
+    published_date: "2013-07-1",
+    citation: "Rotroff, Daniel M.; Dix, David J.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/13\">Houck, Keith A.</a>; Kavlock, Robert J.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, Thomas B.</a>; Martin, Matthew T.; Reif, David M.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/1\">Richard, Ann M.</a>; Sipes, Nisha S.; Abassi, Yama A.; Jin, Can; Stampfl, Melinda; <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard S.</a>. Real-Time Growth Kinetics Measuring Hormone Mimicry for ToxCast Chemicals in T-47D Human Ductal Carcinoma Cells. CHEMICAL RESEARCH IN TOXICOLOGY. 26(7), (2013).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/298"
+)
+
+ScientistPublication.create!(
+    scientist_id: "13",
+    publication_id: "298",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "20",
+    publication_id: "298",
+    is_primary_author: false
+)
+
+
+ScientistPublication.create!(
+    scientist_id: "1",
+    publication_id: "298",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "298",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 299,
+    doi: "10.1289/ehp.1205065",
+    published_date: "2013-01-1",
+    citation: "Rotroff, Daniel M.; Dix, David J.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/13\">Houck, Keith A.</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, Thomas B.</a>; Martin, Matthew T.; McLaurin, Keith W.; Reif, David M.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/14\">Crofton, Kevin M.</a>; Singh, Amar V.; Xia, Menghang; Huang, Ruili; <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard S.</a>. Using in Vitro High Throughput Screening Assays to Identify Potential Endocrine-Disrupting Chemicals. ENVIRONMENTAL HEALTH PERSPECTIVES. 121(1), (2013).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/299"
+)
+
+ScientistPublication.create!(
+    scientist_id: "13",
+    publication_id: "299",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "20",
+    publication_id: "299",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "14",
+    publication_id: "299",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "299",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 300,
+    doi: "10.1093/biolreprod/85.s1.797",
+    published_date: "2011-07-1",
+    citation: "Rotroff, Daniel M.; Dix, David; <a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, Thomas</a>; Martin, Matthew; Singh, Amar V.; McLaurin, Keith; Reif, David; <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard</a>. Using ToxCast Data to Characterize Assay Utility for More Efficient Endocrine Disruptor Screening. BIOLOGY OF REPRODUCTION. 85(), (2011).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/300"
+)
+
+ScientistPublication.create!(
+    scientist_id: "20",
+    publication_id: "300",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "300",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 301,
+    doi: "10.1021/es502676e",
+    published_date: "2014-08-5",
+    citation: "Rotroff, Daniel M.; Martin, Matt T.; Dix, David J.; Filer, Dayne L.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/13\">Houck, Keith A.</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, Thomas B.</a>; Sipes, Nisha S.; Reif, David M.; Xia, Menghang; Huang, Ruili; <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard S.</a>. Predictive Endocrine Testing in the 21st Century Using in Vitro Assays of Estrogen Receptor Signaling Responses. ENVIRONMENTAL SCIENCE &amp; TECHNOLOGY. 48(15), (2014).",
+    project: "High-throughput Tox Testing",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/301"
+)
+
+ScientistPublication.create!(
+    scientist_id: "13",
+    publication_id: "301",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "20",
+    publication_id: "301",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "301",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 302,
+    doi: "10.1093/toxsci/kfq220",
+    published_date: "2010-10-1",
+    citation: "Rotroff, Daniel M.; Wetmore, Barbara A.; Dix, David J.; Ferguson, Stephen S.; Clewell, Harvey J.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/13\">Houck, Keith A.</a>; LeCluyse, Edward L.; Andersen, Melvin E.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard S.</a>; Smith, Cornelia M.; Sochaski, Mark A.; Kavlock, Robert J.; Boellmann, Frank; Martin, Matthew T.; Reif, David M.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/12\">Wambaugh, John F.</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/17\">Thomas, Russell S.</a>. Incorporating Human Dosimetry and Exposure into High-Throughput In Vitro Toxicity Screening. TOXICOLOGICAL SCIENCES. 117(2), (2010).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/302"
+)
+
+ScientistPublication.create!(
+    scientist_id: "13",
+    publication_id: "302",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "302",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "12",
+    publication_id: "302",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "17",
+    publication_id: "302",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 303,
+    doi: "10.1093/toxsci/kfw026",
+    published_date: "2016-05-1",
+    citation: "Ryan, Natalia; Chorley, Brian; Tice, Raymond R.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard</a>; Corton, J. Christopher. Moving Toward Integrating Gene Expression Profiling Into High-Throughput Testing: A Gene Expression Biomarker Accurately Predicts Estrogen Receptor alpha Modulation in a Microarray Compendium. TOXICOLOGICAL SCIENCES. 151(1), (2016).",
+    project: "High-throughput Tox Testing",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/303"
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "303",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 304,
+    doi: "10.1016/j.envint.2016.03.010",
+    published_date: "2016-07-1",
+    citation: "Samuel, Gbeminiyi O.; Hoffmann, Sebastian; Wright, Robert A.; Lalu, Manoj Mathew; <a href=\"http://comptox.ag.epa.gov/impact/scientists/8\">Patlewicz, Grace</a>; Becker, Richard A.; DeGeorge, George L.; Fergusson, Dean; Hartung, Thomas; Lewis, R. Jeffrey; Stephens, Martin L.. Guidance on assessing the methodological and reporting quality of toxicologically relevant studies: A scoping review. ENVIRONMENT INTERNATIONAL. 92-93(), (2016).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/304"
+)
+
+ScientistPublication.create!(
+    scientist_id: "8",
+    publication_id: "304",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 305,
+    doi: "10.1038/jes.2009.8",
+    published_date: "2010-03-4",
+    citation: "Sanchez, Yolanda Anita; Deener, Kacee; Hubal, Elaine Cohen; Knowlton, Carrie; Reif, David; Segal, Deborah. Research needs for community-based risk assessment: findings from a multi-disciplinary workshop. JOURNAL OF EXPOSURE SCIENCE AND ENVIRONMENTAL EPIDEMIOLOGY. 20(2), (2010).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/305"
+)
+
+Publication.create!(
+    publication_id: 306,
+    doi: "10.1210/er.2014-v35i3-2331",
+    published_date: "2014-06-1",
+    citation: "Sauer, Scott Jeffrey; Davis, John B.; Lyerly, H. Kim; <a href=\"http://comptox.ag.epa.gov/impact/scientists/9\">Shah, Imran</a>; Williams, Kevin P.; Devi, Gayathri R.. Bisphenol a Interacts with Gper, Activates EGFR and ERK Signaling and Antagonizes Efficacy of Epidermal Growth Factor Receptor Tyrosine Kinase Inhibitors in Breast Cancer Cells. ENDOCRINE REVIEWS. 35(3), (2014).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/306"
+)
+
+ScientistPublication.create!(
+    scientist_id: "9",
+    publication_id: "306",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 307,
+    doi: "10.1002/etc.3309",
+    published_date: "2016-03-1",
+    citation: "Schroeder, Anthony L.; Ankley, Gerald T.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/13\">Houck, Keith A.</a>; Villeneuve, Daniel L.. Environmental surveillance and monitoringThe next frontiers for high-throughput toxicology. ENVIRONMENTAL TOXICOLOGY AND CHEMISTRY. 35(3), (2016).",
+    project: "High-throughput Tox Testing",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/307"
+)
+
+ScientistPublication.create!(
+    scientist_id: "13",
+    publication_id: "307",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 308,
+    doi: "10.1289/ehp.1002476",
+    published_date: "2011-03-1",
+    citation: "Sedykh, Alexander; Zhu, Hao; Tang, Hao; Zhang, Liying; <a href=\"http://comptox.ag.epa.gov/impact/scientists/1\">Richard, Ann</a>; Rusyn, Ivan; Tropsha, Alexander. Use of in Vitro HTS-Derived Concentration-Response Data as Biological Descriptors Improves the Accuracy of QSAR Models of in Vivo Toxicity. ENVIRONMENTAL HEALTH PERSPECTIVES. 119(3), (2011).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/308"
+)
+
+ScientistPublication.create!(
+    scientist_id: "1",
+    publication_id: "308",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 309,
+    doi: "10.1080/10408440591007133",
+    published_date: "2005-10-4",
+    citation: "Seed, J; Carney, EW; Corley, RA; <a href=\"http://comptox.ag.epa.gov/impact/scientists/14\">Crofton, KM</a>; DeSesso, JM; Foster, PMD; Kavlock, R; Kimmel, G; Klaunig, J; Meek, ME; Preston, RJ; Slikker, W; Tabacova, S; Williams, GM; Wiltse, J; Zoeller, RT; Fenner-Crisp, P; Patton, DE. Overview: Using mode of action and life stage information to evaluate the human relevance of animal toxicity data. CRITICAL REVIEWS IN TOXICOLOGY. 35(8-9), (2005).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/309"
+)
+
+ScientistPublication.create!(
+    scientist_id: "14",
+    publication_id: "309",
+    is_primary_author: false
+)
+
+
+Publication.create!(
+    publication_id: 310,
+    doi: "10.1016/j.yrtph.2015.03.005",
+    published_date: "2015-04-14",
+    citation: "Segal , D., S. Makris , A. Kraft , A. Bale, M. Gilbert , D. Bergfelt , K. Raffaele , R.B. Blain, K.M. Fedak, M.J. Selegrade, and <a href=\"http://comptox.ag.epa.gov/impact/scientists/14\">K. Crofton</a>. Evaluation of the ToxRTool's ability to rate the reliability of toxicological data for human health hazard assessments.   REGULATORY TOXICOLOGY AND PHARMACOLOGY. Elsevier Science Ltd, New York, NY, USA, 72(1): 94-101, (2015).",
+    project: "Human Health Risk Assessment",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/310"
+)
+
+ScientistPublication.create!(
+    scientist_id: "14",
+    publication_id: "310",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 311,
+    doi: "10.1289/ehp.7254",
+    published_date: "2005-02-1",
+    citation: "Shafer, TJ; Meyer, DA; <a href=\"http://comptox.ag.epa.gov/impact/scientists/14\">Crofton, KM</a>. Developmental neurotoxicity of pyrethroid insecticides: Critical review and future research needs. ENVIRONMENTAL HEALTH PERSPECTIVES. 113(2), (2005).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/311"
+)
+
+ScientistPublication.create!(
+    scientist_id: "14",
+    publication_id: "311",
+    is_primary_author: false
+)
+
+
+Publication.create!(
+    publication_id: 312,
+    doi: "10.1371/journal.pone.0014584",
+    published_date: "2011-02-14",
+    citation: "<a href=\"http://comptox.ag.epa.gov/impact/scientists/9\">Shah, Imran</a>; Houck, Keith; <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard S.</a>; Kavlock, Robert J.; Martin, Matthew T.; Reif, David M.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/12\">Wambaugh, John</a>; Dix, David J.. Using Nuclear Receptor Activity to Stratify Hepatocarcinogens. PLOS ONE. 6(2), (2011).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/312"
+)
+
+ScientistPublication.create!(
+    scientist_id: "9",
+    publication_id: "312",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "312",
+    is_primary_author: false
+)
+ScientistPublication.create!(
+    scientist_id: "12",
+    publication_id: "312",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 313,
+    doi: "10.1016/j.yrtph.2016.05.008",
+    published_date: "2016-08-1",
+    citation: "<a href=\"http://comptox.ag.epa.gov/impact/scientists/9\">Shah, Imran</a>; Liu, Jie; <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard S.</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/17\">Thomas, Russell S.</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/8\">Patlewicz, Grace</a>. Systematically evaluating read-across prediction and performance using a local validity approach characterized by chemical structure and bioactivity information. REGULATORY TOXICOLOGY AND PHARMACOLOGY. 79(), (2016).",
+    project: "Sustainable Chemistry",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/313"
+)
+
+ScientistPublication.create!(
+    scientist_id: "9",
+    publication_id: "313",
+    is_primary_author: true
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "313",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "17",
+    publication_id: "313",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "8",
+    publication_id: "313",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 314,
+    doi: "10.1289/ehp.1409029",
+    published_date: "2016-07-1",
+    citation: "<a href=\"http://comptox.ag.epa.gov/impact/scientists/9\">Shah, Imran</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/21\">Setzer, R. Woodrow</a>; Jack, John; <a href=\"http://comptox.ag.epa.gov/impact/scientists/13\">Houck, Keith A.</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard S.</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, Thomas B.</a>; Liu, Jie; Martin, Matthew T.; Reif, David M.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/1\">Richard, Ann M.</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/17\">Thomas, Russell S.</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/14\">Crofton, Kevin M.</a>; Dix, David J.; Kavlock, Robert J.. Using ToxCast (TM) Data to Reconstruct Dynamic Cell State Trajectories and Estimate Toxicological Points of Departure. ENVIRONMENTAL HEALTH PERSPECTIVES. 124(7), (2016).",
+    project: "High-throughput Tox Testing",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/314"
+)
+
+ScientistPublication.create!(
+    scientist_id: "9",
+    publication_id: "314",
+    is_primary_author: true
+)
+
+ScientistPublication.create!(
+    scientist_id: "21",
+    publication_id: "314",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "13",
+    publication_id: "314",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "314",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "20",
+    publication_id: "314",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "1",
+    publication_id: "314",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "17",
+    publication_id: "314",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "14",
+    publication_id: "314",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 315,
+    doi: "10.1080/10937404.2010.483948",
+    published_date: "2010-01-1",
+    citation: "<a href=\"http://comptox.ag.epa.gov/impact/scientists/9\">Shah, Imran</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/12\">Wambaugh, John</a>. VIRTUAL TISSUES IN TOXICOLOGY. JOURNAL OF TOXICOLOGY AND ENVIRONMENTAL HEALTH-PART B-CRITICAL REVIEWS. 13(2-4), (2010).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/315"
+)
+
+ScientistPublication.create!(
+    scientist_id: "9",
+    publication_id: "315",
+    is_primary_author: true
+)
+
+ScientistPublication.create!(
+    scientist_id: "12",
+    publication_id: "315",
     is_primary_author: false
 )

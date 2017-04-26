@@ -3,9 +3,7 @@
 <head>
   <title>ComptoxImpact</title>
   <link href="/assets/epa-logo-favicon.png" rel="shortcut icon" type="image/x-icon" />
-  <script id="plumx-script" type="text/javascript" src="//d39af2mgp1pqhg.cloudfront.net/widget-popup.js"></script>
-  <script id="altmetric-script" type="text/javascript" src="//d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script>
-  <%= javascript_include_tag 'application' %>
+  <%= javascript_include_tag 'application', 'http://localhost:4000/client-app.js' %>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
   <%= csrf_meta_tags %>

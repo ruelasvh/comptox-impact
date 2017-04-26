@@ -15,7 +15,7 @@ import Home from './home/components/HomeIndex';
 import VisiblePublications from './publications/container/VisiblePublications';
 import VisibleScientists from './scientists/containers/VisibleScientists';
 import ScientistProfile from './scientist/ScientistProfile';
-import DataToolsIndex from './data-tools/components/DataToolsIndex';
+import DataToolsIndex from './data-tools/components/DataToolsMain';
 import NotFound from './notfound/NotFound';
 
 const store = configureStore();
@@ -34,7 +34,7 @@ export class Root extends Component {
 
 // Change to whichever subdomain this project will be deployed from, i.e.,
 // comptox.ag.epa.gov/impact -- relativePath = "/impact"
-export const relativePath = "/impact";
+export const relativePath = "";
 
 const browserHistory = useBasename(createHistory)({
     basename: relativePath

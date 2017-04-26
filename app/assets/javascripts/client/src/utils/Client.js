@@ -6,10 +6,10 @@
 import { relativePath } from '../App';
 import fetch from 'isomorphic-fetch';
 
-const absolutePath = (process.env.NODE_ENV === "production" ? "http://comptox.ag.epa.gov" : "http://localhost:3030");
+// const absolutePath = (process.env.NODE_ENV === "production" ? "http://comptox.ag.epa.gov" : "http://localhost:3000");
 
 function searchHomeData(callback) {
-    return fetch(`${absolutePath+relativePath}/api/home`, {
+    return fetch(`${relativePath}/api/home`, {
         accept: 'application/json',
     }).then(checkStatus)
         .then(parseJSON)
@@ -17,7 +17,7 @@ function searchHomeData(callback) {
 }
 
 function searchScientists(callback) {
-    return fetch(`${absolutePath+relativePath}/api/scientists`, {
+    return fetch(`${relativePath}/api/scientists`, {
         accept: 'application/json',
     }).then(checkStatus)
         .then(parseJSON)
