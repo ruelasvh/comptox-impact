@@ -29,7 +29,7 @@ export class PublicationsList extends React.Component {
             filteredPublications: publicationsArr,
             searchTerm: '',
             activePage: 1,
-            publicationsPerPage: 5,
+            publicationsPerPage: 10,
             savedPage: 1
         };
 
@@ -209,7 +209,7 @@ export class PublicationsList extends React.Component {
                     {/**
                      * Spacing between filter dropdowns and publications.
                      **/}
-                    {/*<div style={{padding: '25px'}}/>*/}
+                    <div style={{padding: '25px'}}/>
 
                     {/**
                      * Publications go start here.
