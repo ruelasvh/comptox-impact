@@ -1,7 +1,7 @@
 .publications-container {
     font-family: "Helvetica Neue", "Arial", sans-serif;
     padding-top: 2%;
-    margin-bottom: 4%;
+    margin-bottom: 10%;
     max-width: 100%;
     min-height: 100%;
     position: relative;
@@ -48,6 +48,6 @@
 
 .publications-pagination {
     position: relative;
-    bottom: 70px;
+    bottom: 100px;
     text-align: center;
 }
