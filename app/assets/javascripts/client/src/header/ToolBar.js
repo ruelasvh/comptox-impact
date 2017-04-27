@@ -10,7 +10,7 @@ const ToolBar = ( { currentUri } ) => (
     <Navbar id="secondary-navbar" style={{backgroundColor: '#E8F6FD'}} fluid >
         <Navbar.Collapse>
             <Nav pullRight>
-                <NavDropdown id="share-nav-dropdown" className="navbar-static-top-share-dropdown" eventKey={0} title="Share" >
+                <NavDropdown id="share-nav-dropdown" className="navbar-static-top-share-dropdown" eventKey={0} title="Share Page" >
                     <MenuItem
                         eventKey="1"
                         href={"https://www.facebook.com/sharer/sharer.php?u=http://comptox.ag.epa.gov/impact" + currentUri}
