@@ -39,19 +39,20 @@ class DataToolsIndex extends React.Component {
         var _this = this;
         gapi.analytics.ready(function () {
             var CLIENT_ID = '793061702170-5egs8fbsdai74gocs0kflusn9e4b52hr.apps.googleusercontent.com';
-            const ACCESS_TOKEN_FROM_SERVICE_ACCOUNT = 'ya29.Elk3BFYQsCTkWOkhCaibSbjT9IzwzavnExSh38Y7Zjo8oOtlBOn9fKlzB9dMVZdEKFJQJ6Jgln86bWS5AIjjODsvyLdpgce5RD-64gXQIFYe_sP-L1aEnD1SXw';
-
-            gapi.analytics.auth.authorize({
-                container: 'embed-api-auth-container',
-                clientid: CLIENT_ID,
-                userInfoLabel: ''
-            });
+            // const ACCESS_TOKEN_FROM_SERVICE_ACCOUNT = 'ya29.Elk3BFYQsCTkWOkhCaibSbjT9IzwzavnExSh38Y7Zjo8oOtlBOn9fKlzB9dMVZdEKFJQJ6Jgln86bWS5AIjjODsvyLdpgce5RD-64gXQIFYe_sP-L1aEnD1SXw';
+            const ACCESS_TOKEN_FROM_SERVICE_ACCOUNT = 'ya29.Elk5BDKySCbx-T1fq3YG4IqGlozOFxeG8kPK7a8334ygMeY4ap5om9GxOBBA8hwqU2Fp5Go5AgkVpHyMir8-QteTPDnY5q00G5PfQvzlC9GdvmUOdHiI5ue8Dw';
 
             // gapi.analytics.auth.authorize({
-            //     'serverAuth': {
-            //         'access_token': ACCESS_TOKEN_FROM_SERVICE_ACCOUNT
-            //     }
+            //     container: 'embed-api-auth-container',
+            //     clientid: CLIENT_ID,
+            //     userInfoLabel: ''
             // });
+
+            gapi.analytics.auth.authorize({
+                'serverAuth': {
+                    'access_token': ACCESS_TOKEN_FROM_SERVICE_ACCOUNT
+                }
+            });
 
             gapi.analytics.auth.on('success', function (response) {
                 console.log('Google Analytics API Validation Successful.');console.dir(response);
@@ -343,7 +344,7 @@ class DataToolsIndex extends React.Component {
                 <Grid>
                     <div id="embed-api-auth-container"></div>
 
-                    <h2>CompTox Research - Data and Tools Usage</h2>
+                    <h1>CompTox Research Data and Tools Usage</h1>
                     <br/><br/>
                     {dataDomainTabInstance}
                     <br/><br/><br/>
