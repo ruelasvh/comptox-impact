@@ -17,6 +17,10 @@ Rails.application.routes.draw do
       get '/' => 'publications#query'
       get ':publication_id' => 'publications#show'
     end
+    # data and tools
+    scope '/data-tools' do
+      get '/gtoken' => 'data_tools#get_google_token'
+    end
   end
 
   get '*path', to: 'application#index'
