@@ -83,7 +83,7 @@ const config = {
 // Drop all hot stuff for production!
 if (process.env.NODE_ENV === "production") {
     config.devtool = "source-map";
-    config.entry = ENTRY;
+    config.entry = ["babel-polyfill", ENTRY];
     delete config.output.publicPath;
     config.plugins = [NODE_ENV_PLUGIN];
 }

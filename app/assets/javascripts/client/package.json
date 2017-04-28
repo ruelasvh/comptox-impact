@@ -50,6 +50,7 @@
     "webpack-hot-middleware": "^2.15.0"
   },
   "dependencies": {
+    "babel-polyfill": "^6.23.0",
     "chart.js": "^2.5.0",
     "dsv-loader": "^2.0.0",
     "isotope-layout": "^3.0.2",
