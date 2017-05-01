@@ -32,7 +32,6 @@ const FooterIndex = () => (
             <li><div><a href="https://epa.gov/comptox" target="_blank">About Us</a></div></li>
             <li><div><a href="#PrivacySecurityNotice">Privacy and Security Notice</a></div></li>
             <li><div><a href="#Accesibility">Accessibility</a></div></li>
-            <li><p style={{fontSize: "small"}}>Last Updated on {document.lastModified}</p></li>
         </ul>
     </footer>
 );
