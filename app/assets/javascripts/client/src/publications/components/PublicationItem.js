@@ -7,7 +7,9 @@ import AltmetricWidget from './AltmetricWidget';
 import PlumxWidget from './PlumxWidget';
 import KudosWidget from './KudosWidget';
 import { Glyphicon, Badge, Row, Col} from 'react-bootstrap';
+import wgxpath from 'wgxpath';
 import '../styles/publicationitem.css';
+
 
 class PublicationItem extends React.Component {
     constructor() {
@@ -24,6 +26,7 @@ class PublicationItem extends React.Component {
         const id = thisComponent.props.id;
         let data = [];
         let m = new Map();
+
         $(document).ready(function () {
             // Simulate mouse enter element
             $("#plumx-publication-item-" + id).mouseenter(function () {
@@ -32,25 +35,32 @@ class PublicationItem extends React.Component {
             });
             // Simulate mouse leave element
             $("#plumx-publication-item-" + id).mouseleave(function () {
+
                 const plumxMetricsUsage = getElementByXpath(".//*[@id='plumx-publication-item-"+id+"']/div/div/div/ul");
-                $("span", plumxMetricsUsage).each(function () {
-                    data.push($(this).text());
-                });
-                // console.log(data);
-                for (var i = 0; i < data.length; i++) {
-                    if (data[i] === "Abstract Views: ") {
-                        m.set(data[i], data[i+1]);
-                    } else if (data[i] === "Downloads: ") {
-                        m.set(data[i], data[i+1]);
-                    } else if (data[i] === "Citation Indexes: ") {
-                        m.set(data[i], data[i+1]);
+                // console.log('node', plumxMetricsUsage);
+
+                if (plumxMetricsUsage) {
+                    $("span", plumxMetricsUsage).each(function () {
+                        data.push($(this).text());
+                    });
+
+                    for (var i = 0; i < data.length; i++) {
+                        if (data[i] === "Abstract Views: ") {
+                            m.set(data[i], data[i+1]);
+                        } else if (data[i] === "Downloads: ") {
+                            m.set(data[i], data[i+1]);
+                        } else if (data[i] === "Citation Indexes: ") {
+                            m.set(data[i], data[i+1]);
+                        }
                     }
                 }
+
                 // If publication has doi, store metrics otherwise reset map
                 if (!thisComponent.props.publication.doi) {
                     m.clear();
                 }
-                thisComponent.setState({ metrics: m });
+
+                thisComponent.setState({ metrics: m }, console.log(thisComponent.state.metrics));
             });
             // Fire mouse hovering over element (does not work with out previous statements)
             $("#plumx-publication-item-" + id).trigger("mouseover");
@@ -62,12 +72,10 @@ class PublicationItem extends React.Component {
     }
 
     componentDidMount() {
-        /* Get metrics */
         this.handleMetrics(this);
     }
 
     render() {
-        // console.log(this.state.metrics);
         const { centerWide, publication, id } = this.props;
         const metrics = this.state.metrics;
 
@@ -132,7 +140,7 @@ class PublicationItem extends React.Component {
                             className={"publication-item-button " + (publication.doi ? "" : "publication-item-button-disabled")}
                             id={"plumx-publication-item-" + id}
                             key={id} >
-                            <PlumxWidget doi={publication.doi ? publication.doi : "null"} />
+                            <PlumxWidget doi={publication.doi ? publication.doi : "xxxx/xxxxxx"} />
                         </div>
                     </Col>
                     <Col md={1}>
@@ -154,6 +162,7 @@ PublicationItem.propTypes = {
 
 // Return element from XPath
 function getElementByXpath(path) {
+    wgxpath.install(window);
     return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
 }
 

@@ -68,7 +68,6 @@ export class PublicationsList extends React.Component {
 
     // To be used with the Pagination widget.
     handleSelectPage(eventKey) {
-        this.appendPlumxScript();
         this.setState({
             activePage: eventKey,
             savedPage: eventKey
@@ -97,6 +96,11 @@ export class PublicationsList extends React.Component {
     }
 
     componentDidMount() {
+        this.appendPlumxScript();
+        this.appendAltmetricScript();
+    }
+
+    componentDidUpdate() {
         this.appendPlumxScript();
         this.appendAltmetricScript();
     }
@@ -253,11 +257,6 @@ export class PublicationsList extends React.Component {
                 </div>
             </div>
         );
-    }
-
-    componentDidUpdate() {
-        this.appendPlumxScript();
-        this.appendAltmetricScript();
     }
 
 }
