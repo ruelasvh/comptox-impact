@@ -27,15 +27,8 @@ function receivePublications(json) {
 }
 
 function normalizeData(jsonArr) {
-    let publications = {};
-    let allPublicationsIds = [];
-    for (let publication of jsonArr) {
-        publications = {
-            ...publications,
-            [publication.publication_id]: publication
-        };
-        allPublicationsIds.push(publication.publication_id);
-    }
+    let publications = jsonArr;
+    let allPublicationsIds = jsonArr.map(pub => pub.publication_id);
     return {
         publications,
         allPublicationsIds

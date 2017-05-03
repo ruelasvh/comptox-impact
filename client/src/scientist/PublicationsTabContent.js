@@ -18,8 +18,8 @@ class PublicationsTabContent extends React.Component {
 
         this.state = {
             publications: [],
-            limit: 0,
-            offset: 1,
+            limit: 8,
+            offset: 0,
             isLoading: false
         };
 
@@ -28,19 +28,17 @@ class PublicationsTabContent extends React.Component {
     }
 
     handleFetchPublications() {
-        let step = 8;
-        let curLimit = this.state.limit + step;
+        let step = this.state.limit;
         let curOffset = this.state.offset;
 
-        Client.searchPublications(curLimit, curOffset, response => {
+        Client.searchPublications(step, curOffset, response => {
             // add data
             let currPublications = this.state.publications;
             let updatedPublications = currPublications.concat(response.data);
 
             this.setState({
                 publications: updatedPublications,
-                limit: curLimit + curOffset,
-                offset: curOffset + curLimit,
+                offset: curOffset + step,
                 isLoading: false
             }, () => console.log('<PublicationsTab/> :', this.state))
         })
