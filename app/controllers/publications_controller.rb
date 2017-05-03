@@ -33,18 +33,21 @@ class PublicationsController < ApplicationController
 
     if params.has_key?(:page)
       @page = params[:page]
-      @limit = @page.to_i * 10
-      @offset = @limit.to_i - 10
+      @offset = (@page.to_i - 1) * 10
     end
     if params.has_key?(:offset)
       @offset = params[:offset]
+    else
+      @offset = '0'
     end
     if params.has_key?(:limit)
       @limit = params[:limit]
+    else
+      @limit = '10'
     end
 
-    if @offset.nil? && @limit.nil? && @page.nil?
-      @publications = Publication.all
+    if @limit == '0'
+      @publications = Publication.all.order("published_date DESC")
       render(
           status: 200,
           json: {
@@ -57,14 +60,12 @@ class PublicationsController < ApplicationController
               },
               data: @publications,
               pagination: {
-                  offset: @offset,
-                  limit: @limit,
                   totalItems: total_items
               }
           }
       )
-    elsif !@offset.nil? && !@limit.nil? && @page.nil?
-      @publications = Publication.where(:publication_id => @offset..@limit)
+    elsif @page.nil?
+      @publications = Publication.order("published_date DESC").offset(@offset).limit(@limit)
       render(
           status: 200,
           json: {
@@ -77,14 +78,14 @@ class PublicationsController < ApplicationController
               },
               data: @publications,
               pagination: {
-                  offset: @offset,
-                  limit: @limit,
+                  offset: @offset.to_i,
+                  limit: @limit.to_i,
                   totalItems: total_items
               }
           }
       )
     elsif !@page.nil?
-    @publications = Publication.where(:publication_id => @offset..@limit)
+      @publications = Publication.order("published_date DESC").offset(@offset).limit(@limit)
       render(
           status: 200,
           json: {
@@ -97,7 +98,7 @@ class PublicationsController < ApplicationController
               },
               data: @publications,
               pagination: {
-                  page: @page,
+                  page: @page.to_i,
                   totalPages: (total_items/10.to_f).ceil,
                   totalItems: total_items
               }
