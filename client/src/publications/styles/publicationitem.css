@@ -1,0 +1,69 @@
+.publication-item {
+    padding-top: 15px;
+    padding-bottom: 5px;
+    position: relative;
+    z-index: 1;
+}
+
+.publication-item:before {
+    content : "";
+    position: absolute;
+    left    : 0;
+    bottom  : 0;
+    height  : 1px;
+    width   : 98%;  /* or 100px */
+    border-bottom: 0.5px solid #d0d0d0;
+}
+
+.publication-item-citation {
+}
+
+.publication-item-button {
+    text-align: center;
+    height: 50px;
+    width: 50px;
+}
+
+.publication-item-button img {
+    width: 100%;
+    height: 100%;
+}
+
+.publication-item-button-disabled {
+    pointer-events: none;
+    cursor: default;
+    opacity: 0.4;
+}
+
+.publication-item-inline-metric {
+    transform: scale(.85,.85); /*Half width and height */
+    -ms-transform: scale(.85,.85); /* IE 9 */
+    -webkit-transform: scale(.85,.85); /* Safari and Chrome */
+    -o-transform: scale(.85,.85); /* Opera */
+    -moz-transform: scale(.85,.85); /* Firefox */
+    float: right;
+    padding-bottom: 5px;
+}
+
+.publication-item-show-counts {
+    padding-top: 15px;
+    font-size: 95%;
+}
+
+.publication-item-no-show-counts {
+    visibility: hidden;
+}
+
+.publication-item-show-project {
+    visibility: visible;
+}
+
+.publication-item-hide-project {
+    visibility: hidden;
+}
+
+.divider{
+    width:30px;
+    height:auto;
+    display:inline-block;
+}

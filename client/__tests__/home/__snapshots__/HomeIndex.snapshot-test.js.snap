@@ -1,0 +1,132 @@
+exports[`test HomeIndex initial snapshot test 1`] = `
+<div
+  className="LandingMain-container">
+  <div
+    className="container">
+    <div
+      className="row">
+      <div
+        className="">
+        <h1
+          style={
+            Object {
+              "textAlign": "center",
+            }
+          }>
+          CompTox Impact Title
+        </h1>
+      </div>
+    </div>
+    <div
+      className="LandingMain-header-text-space" />
+    <div
+      className="row">
+      <div
+        className="">
+        <p
+          style={
+            Object {
+              "fontSize": "large",
+              "textAlign": "justify",
+            }
+          }>
+          CompTox Impact showcases NCCT research metrics.
+        </p>
+      </div>
+    </div>
+    <div
+      className="LandingMain-text-button-space" />
+    <div
+      className="LandingMain-button-text">
+      <div
+        className="row">
+        <div
+          className="col-md-3 col-xs-12">
+          <a
+            onClick={[Function]}
+            style={Object {}}>
+            <div
+              className="thumbnail">
+              <img
+                alt="NCCT_Staff"
+                src="test-file-stub" />
+              <div
+                className="caption">
+                <h3>
+                  Scientists 
+                  <p>
+                    <br />
+                  </p>
+                </h3>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div
+          className="col-md-3 col-xs-12">
+          <a
+            onClick={[Function]}
+            style={Object {}}>
+            <div
+              className="thumbnail">
+              <img
+                alt="Publications_Presentations"
+                src="test-file-stub" />
+              <div
+                className="caption">
+                <h3>
+                  Publications and Presentations
+                </h3>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div
+          className="col-md-3 col-xs-12">
+          <a
+            onClick={[Function]}
+            style={Object {}}>
+            <div
+              className="thumbnail">
+              <img
+                alt="Data_Tools"
+                src="test-file-stub" />
+              <div
+                className="caption">
+                <h3>
+                  Data and Tools 
+                  <p>
+                    <br />
+                  </p>
+                </h3>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div
+          className="col-md-3 col-xs-12">
+          <a
+            onClick={[Function]}
+            style={Object {}}>
+            <div
+              className="thumbnail">
+              <img
+                alt="Impact"
+                src="test-file-stub" />
+              <div
+                className="caption">
+                <h3>
+                  Impact 
+                  <p>
+                    <br />
+                  </p>
+                </h3>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
