@@ -18,8 +18,8 @@ class PublicationsTabContent extends React.Component {
 
         this.state = {
             publications: [],
-            limit: 0,
-            offset: 1,
+            limit: 8,
+            offset: 0,
             isLoading: false
         };
 
@@ -27,22 +27,51 @@ class PublicationsTabContent extends React.Component {
         this.handleFetchPublications = this.handleFetchPublications.bind(this);
     }
 
+    appendPlumxScript() {
+        if (document.getElementById('plumx-script')) {
+            if (window.__plumX) {
+                window.__plumX.widgets.popup.wireUp();
+            }
+            return;
+        }
+        const plumxScript = document.createElement("script");
+        plumxScript.id = 'plumx-script';
+        plumxScript.src = "//d39af2mgp1pqhg.cloudfront.net/widget-popup.js";
+        plumxScript.async = true;
+        document.head.appendChild(plumxScript);
+    }
+
+    appendAltmetricScript() {
+        if (document.getElementById('altmetric-script')) {
+            if (window._altmetric) {
+                window._altmetric.embed_init();
+            }
+            return;
+        }
+        const altMetricScript = document.createElement("script");
+        altMetricScript.id = 'altmetric-script';
+        altMetricScript.src = "//d1bxh8uas1mnw7.cloudfront.net/assets/embed.js";
+        altMetricScript.async = true;
+        document.head.appendChild(altMetricScript);
+    }
+
     handleFetchPublications() {
-        let step = 8;
-        let curLimit = this.state.limit + step;
+        let step = this.state.limit;
         let curOffset = this.state.offset;
 
-        Client.searchPublications(curLimit, curOffset, response => {
+        Client.searchPublications(step, curOffset, response => {
             // add data
             let currPublications = this.state.publications;
             let updatedPublications = currPublications.concat(response.data);
 
             this.setState({
                 publications: updatedPublications,
-                limit: curLimit + curOffset,
-                offset: curOffset + curLimit,
+                offset: curOffset + step,
                 isLoading: false
-            }, () => console.log('<PublicationsTab/> :', this.state))
+            }, () => {
+                window.__plumX.widgets.popup.wireUp();
+                window._altmetric.embed_init();
+            })
         })
     }
 
@@ -55,7 +84,7 @@ class PublicationsTabContent extends React.Component {
                             id={'pub-item-' + index.toString()}
                             key={'pub-item-' + index.toString()}
                             publication={publication}
-                            centerWide={false} />
+                            centerWide={true} />
                     );
                 })}
             </div>
@@ -72,7 +101,10 @@ class PublicationsTabContent extends React.Component {
         }
     }
 
-
+    componentDidMount() {
+        this.appendPlumxScript();
+        this.appendAltmetricScript();
+    }
 
     render() {
         return (

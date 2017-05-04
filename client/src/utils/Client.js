@@ -43,9 +43,9 @@ function searchScientistPhoto(imageURL, callback) {
 }
 
 function searchPublications(limit, offset, callback) {
-    let queryUrl = limit && offset ?
+    let queryUrl = (typeof limit !== 'undefined') && (typeof offset !== 'undefined') ?
         `${relativePath}/api/publications?limit=${limit}&offset=${offset}` :
-        `${relativePath}/api/publications`;
+        `${relativePath}/api/publications?limit=0`;
     return fetch(queryUrl, {
         accept: 'application/json',
     }).then(checkStatus)

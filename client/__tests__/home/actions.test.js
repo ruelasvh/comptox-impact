@@ -14,12 +14,12 @@ const mockStore = configureMockStore(middlewares)
 
 Date.now = jest.fn(() => 1482363367071);
 
-describe('async actions', () => {
+describe('actions for home', () => {
     afterEach(() => {
         nock.cleanAll()
     })
 
-    it('created RECEIVE_HOME when fetching home data has been done', () => {
+    it('it should fetch home data', () => {
         nock(`http://localhost:3000${relativePath}/api`)
             .get('/home')
             .reply(200, data)
@@ -28,6 +28,7 @@ describe('async actions', () => {
             { type: REQUEST_HOME },
             { type: RECEIVE_HOME, data, receivedAt: Date.now()}
         ]
+
         const store = mockStore({
             simpleHomeData: {
                 isFetching: false,

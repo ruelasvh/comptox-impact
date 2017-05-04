@@ -94,17 +94,6 @@ exports[`test FooterIndex renders correctly 1`] = `
         </a>
       </div>
     </li>
-    <li>
-      <p
-        style={
-          Object {
-            "fontSize": "small",
-          }
-        }>
-        Last Updated on 
-        03/29/2017 11:28:23
-      </p>
-    </li>
   </ul>
 </footer>
 `;

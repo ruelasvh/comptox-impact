@@ -13,16 +13,7 @@ export class PublicationsList extends React.Component {
         super(props);
 
         // Convert to array from nomalized state
-        const publicationsArr = Object.keys(this.props.publications).map(key => this.props.publications[key]);
-        // Sort by published date, latest first
-        function compare(a,b) {
-            if (a.published_date > b.published_date)
-                return -1;
-            if (a.published_date < b.published_date)
-                return 1;
-            return 0;
-        }
-        publicationsArr.sort(compare);
+        const publicationsArr = this.props.publications;
 
         this.state = {
             publications: publicationsArr,

@@ -6,8 +6,6 @@ import React, { PropTypes } from 'react';
 import { Button, Pager, Glyphicon, Thumbnail, Grid, Breadcrumb, FormGroup, InputGroup, FormControl } from 'react-bootstrap';
 import { Link } from 'react-router';
 import Isotope from 'isotope-layout';
-
-// components
 import Scientist from './ScientistsListItem';
 import '../styles/scientistsindex.css';
 

@@ -22,8 +22,6 @@ exports[`test <PublicationItem /> renders correctly 1`] = `
               10.1289/ehp.1206301
             </a>
           </span>
-          <br />
-          <br />
         </div>
       </div>
       <div
@@ -85,24 +83,25 @@ exports[`test <PublicationItem /> renders correctly 1`] = `
     <div
       className="col-md-1">
       <div
-        className="publication-item-button"
+        className="publication-item-button "
         id="altmetric-publication-item-pub-item-1">
         <div
           className="altmetric-embed"
           data-badge-popover="left"
           data-badge-type="donut"
-          data-doi="10.1289/ehp.1206301" />
+          data-doi="10.1289/ehp.1206301"
+          data-link-target="_blank" />
       </div>
     </div>
     <div
       className="col-md-1">
       <div
-        className="publication-item-button"
+        className="publication-item-button "
         id="plumx-publication-item-pub-item-1">
         <a
           className="plumx-plum-print-popup"
           data-hide-when-empty="false"
-          data-popup="left"
+          data-popup="top"
           data-size="medium"
           href="https://plu.mx/plum/a/?doi=10.1289/ehp.1206301"
           target="_blank" />
@@ -111,7 +110,7 @@ exports[`test <PublicationItem /> renders correctly 1`] = `
     <div
       className="col-md-1">
       <div
-        className="publication-item-button">
+        className="publication-item-button ">
         <a
           href="https://www.growkudos.com/publications/10.1289%252Fehp.1206301"
           target="_blank">

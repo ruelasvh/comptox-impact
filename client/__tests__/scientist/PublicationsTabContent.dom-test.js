@@ -14,7 +14,7 @@ describe('<PublicationsTabContent />', () => {
         );
         expect(wrapper.exists()).toEqual(true);
     });
-    it('Renders eight <PublicationItems />', () => {
+    it('Renders 8 <PublicationItems />', () => {
         const wrapper = mount(
             <PublicationsTabContent/>
         );
