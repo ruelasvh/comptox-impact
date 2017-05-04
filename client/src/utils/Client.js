@@ -6,10 +6,14 @@
 import { relativePath } from '../App';
 import fetch from 'isomorphic-fetch';
 
-// const absolutePath = (process.env.NODE_ENV === "production" ? "http://comptox.ag.epa.gov" : "http://localhost:3000");
+const absolutePath = (process.env.NODE_ENV === "production" ? "http://comptox.ag.epa.gov" : "http://localhost:3000");
+
+if (process.env.NODE_ENV !== "production") {
+    console.log("Hitting API at http://localhost:3000")
+}
 
 function searchHomeData(callback) {
-    return fetch(`${relativePath}/api/home`, {
+    return fetch(`${absolutePath + relativePath}/api/home`, {
         accept: 'application/json',
     }).then(checkStatus)
         .then(parseJSON)
@@ -17,7 +21,7 @@ function searchHomeData(callback) {
 }
 
 function searchScientists(callback) {
-    return fetch(`${relativePath}/api/scientists`, {
+    return fetch(`${absolutePath + relativePath}/api/scientists`, {
         accept: 'application/json',
     }).then(checkStatus)
         .then(parseJSON)
@@ -25,7 +29,7 @@ function searchScientists(callback) {
 }
 
 function searchScientist(id, callback) {
-    return fetch(`${relativePath}/api/scientists/${id}`, {
+    return fetch(`${absolutePath + relativePath}/api/scientists/${id}`, {
         accept: 'application/json',
     }).then(checkStatus)
         .then(parseJSON)
@@ -44,8 +48,8 @@ function searchScientistPhoto(imageURL, callback) {
 
 function searchPublications(limit, offset, callback) {
     let queryUrl = (typeof limit !== 'undefined') && (typeof offset !== 'undefined') ?
-        `${relativePath}/api/publications?limit=${limit}&offset=${offset}` :
-        `${relativePath}/api/publications?limit=0`;
+        `${absolutePath + relativePath}/api/publications?limit=${limit}&offset=${offset}` :
+        `${absolutePath + relativePath}/api/publications?limit=0`;
     return fetch(queryUrl, {
         accept: 'application/json',
     }).then(checkStatus)
