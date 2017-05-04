@@ -82,7 +82,7 @@ class PublicationsTabContent extends React.Component {
                             id={'pub-item-' + index.toString()}
                             key={'pub-item-' + index.toString()}
                             publication={publication}
-                            centerWide={false} />
+                            centerWide={true} />
                     );
                 })}
             </div>
