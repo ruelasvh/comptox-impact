@@ -54,10 +54,7 @@ class PublicationsTabContent extends React.Component {
         altMetricScript.async = true;
         document.head.appendChild(altMetricScript);
     }
-<<<<<<< HEAD
 
-=======
->>>>>>> d6012a8648f3bfc026c96b753d375b3e6dc483cb
     handleFetchPublications() {
         let step = this.state.limit;
         let curOffset = this.state.offset;
@@ -71,16 +68,10 @@ class PublicationsTabContent extends React.Component {
                 publications: updatedPublications,
                 offset: curOffset + step,
                 isLoading: false
-<<<<<<< HEAD
             }, () => {
                 window.__plumX.widgets.popup.wireUp();
                 window._altmetric.embed_init();
             })
-=======
-            }, () => console.log('<PublicationsTab/> :', this.state))
-            window.__plumX.widgets.popup.wireUp();
-            window._altmetric.embed_init();
->>>>>>> d6012a8648f3bfc026c96b753d375b3e6dc483cb
         })
     }
 
