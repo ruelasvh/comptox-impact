@@ -34,7 +34,7 @@ export class Root extends Component {
 
 // Change to whichever subdomain this project will be deployed from, i.e.,
 // comptox.ag.epa.gov/impact -- relativePath = "/impact"
-export const relativePath = "";
+export const relativePath = document.location.hostname === 'localhost' ? '' : '/' + document.location.pathname.split('/')[1];
 
 const browserHistory = useBasename(createHistory)({
     basename: relativePath
