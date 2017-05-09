@@ -27,5 +27,6 @@
 # Ignore node packages
 node_modules/
 
-# Ignore vim .swp files
+# Ignore vim .swp and .swx files
 *.swp
+*.swx
