@@ -8,6 +8,6 @@ console.warn("3. Run: NODE_ENV=production webpack --config ./webpack.config.js -
 console.warn("These are the build instructions for development in localhost:");
 console.warn("1. Replace 'application' with 'http://localhost:4000/client-app.js' in  /app/views/layouts/application.html.erb");
 console.warn("3. Run: rails s");
-console.warn("4. Run: cd client && npm start");
+console.warn("4. Run: npm start");
 
 
