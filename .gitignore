@@ -10,6 +10,10 @@
 # Ignore db config file.
 /config/database.yml
 
+# Ignore Google Analytics API authorization files
+/config/client_secret_793061702170-5egs8fbsdai74gocs0kflusn9e4b52hr.apps.googleusercontent.com.json
+/config/Impact-200c7660d3de.json
+
 # Ignore all logfiles and tempfiles.
 /log/*
 !/log/.keep
