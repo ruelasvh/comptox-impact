@@ -190,7 +190,10 @@ class DataToolsIndex extends React.Component {
                     <Col sm={8}>
                         <Tab.Content animation>
                             <Tab.Pane eventKey="a-usage-analog-stats">
-                                <h3>Usage from Analog Stats</h3>
+                                <p>The Aggregated Computational Toxicology Online Resource (ACToR) aggregates data from more than 1,000 public sources on over 500,000 chemicals, and can be used to query a specific chemical and find all publicly available hazard, exposure, and risk assessment data.</p>
+                                <br/>
+                                <p style={{"text-align": "center", "font-size": "20px"}}>Follow this link to view analog data from ACToR:</p>
+                                <p style={{"text-align": "center", "font-size": "20px"}}><a href="https://actor.epa.gov/reports" target="_blank">ACToR Analog Usage Data</a></p>
                             </Tab.Pane>
                             <Tab.Pane eventKey="a-usage-google-analytics">
                                 <h3>Usage from Google Analytics</h3>
