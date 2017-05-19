@@ -9,9 +9,13 @@ import MainGADashboard from './MainGADashboard'
 import GAChart from './GAChart';
 import GASuperimposedChart from './GASuperimposedChart';
 import LineChartJS from './LineChartJS';
+import LineChart from './LineChart';
+import DoughnutChart from './DoughnutChart';
 import moment from 'moment';
 import { getAuthorizationIfNeeded } from '../actions';
+import { queryGAApi } from '../../utils/Client';
 import '../styles/datatoolsmain.css';
+
 
 function mapStateToProps(state) {
     const { isAuthGAPI } = state.gapiAuthorization || { isAuthGAPI: false };
@@ -24,48 +28,94 @@ function mapStateToProps(state) {
 class DataToolsIndex extends React.Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            datasets: {
+                analytics: {
+                    comptoxDashboard: {
+                        pageViews: {},
+                        uniquePageViews: {},
+                        domainTypes: {}
+                    }
+                }
+            },
+            isFetching: true
+        };
+        // Bindings
+        this.fetchData = this.fetchData.bind(this);
     }
 
-    loadGAEmbedAPI() {
-        (function(w,d,s,g,js,fs){
-            g=w.gapi||(w.gapi={});g.analytics={q:[],ready:function(f){this.q.push(f);}};
-            js=d.createElement(s);fs=d.getElementsByTagName(s)[0];
-            js.src='https://apis.google.com/js/platform.js';
-            fs.parentNode.insertBefore(js,fs);js.onload=function(){g.load('analytics');};
-        }(window,document,'script'));
-    }
+    // loadGAEmbedAPI() {
+    //     (function(w,d,s,g,js,fs){
+    //         g=w.gapi||(w.gapi={});g.analytics={q:[],ready:function(f){this.q.push(f);}};
+    //         js=d.createElement(s);fs=d.getElementsByTagName(s)[0];
+    //         js.src='https://apis.google.com/js/platform.js';
+    //         fs.parentNode.insertBefore(js,fs);js.onload=function(){g.load('analytics');};
+    //     }(window,document,'script'));
+    // }
 
-    authenticateAPI() {
-        var _this = this;
-        gapi.analytics.ready(function () {
-            var CLIENT_ID = '793061702170-5egs8fbsdai74gocs0kflusn9e4b52hr.apps.googleusercontent.com';
-            // const ACCESS_TOKEN_FROM_SERVICE_ACCOUNT = 'ya29.Elk3BFYQsCTkWOkhCaibSbjT9IzwzavnExSh38Y7Zjo8oOtlBOn9fKlzB9dMVZdEKFJQJ6Jgln86bWS5AIjjODsvyLdpgce5RD-64gXQIFYe_sP-L1aEnD1SXw';
-            const ACCESS_TOKEN_FROM_SERVICE_ACCOUNT = 'ya29.Elk5BDKySCbx-T1fq3YG4IqGlozOFxeG8kPK7a8334ygMeY4ap5om9GxOBBA8hwqU2Fp5Go5AgkVpHyMir8-QteTPDnY5q00G5PfQvzlC9GdvmUOdHiI5ue8Dw';
+    // authenticateAPI() {
+    //     var _this = this;
+    //     gapi.analytics.ready(function () {
+    //         var CLIENT_ID = '793061702170-5egs8fbsdai74gocs0kflusn9e4b52hr.apps.googleusercontent.com';
+    //         // const ACCESS_TOKEN_FROM_SERVICE_ACCOUNT = 'ya29.Elk3BFYQsCTkWOkhCaibSbjT9IzwzavnExSh38Y7Zjo8oOtlBOn9fKlzB9dMVZdEKFJQJ6Jgln86bWS5AIjjODsvyLdpgce5RD-64gXQIFYe_sP-L1aEnD1SXw';
+    //
+    //         gapi.analytics.auth.authorize({
+    //             container: 'embed-api-auth-container',
+    //             clientid: CLIENT_ID,
+    //             userInfoLabel: '',
+    //             approval_prompt: 'force'
+    //         });
+    //
+    //         // gapi.analytics.auth.authorize({
+    //         //     'serverAuth': {
+    //         //         'access_token': ACCESS_TOKEN_FROM_SERVICE_ACCOUNT
+    //         //     }
+    //         // });
+    //
+    //         gapi.analytics.auth.on('success', function (response) {
+    //             console.log('Google Analytics API Validation Successful.');console.dir(response);
+    //             _this.props.dispatch(getAuthorizationIfNeeded());
+    //         })
+    //     });
+    // }
 
-            gapi.analytics.auth.authorize({
-                container: 'embed-api-auth-container',
-                clientid: CLIENT_ID,
-                userInfoLabel: '',
-                approval_prompt: 'force'
-            });
+    fetchData() {
+        let _this = this;
 
-            // gapi.analytics.auth.authorize({
-            //     'serverAuth': {
-            //         'access_token': ACCESS_TOKEN_FROM_SERVICE_ACCOUNT
-            //     }
-            // });
+        let queryCompDashPaveViews = queryGAApi('https://impact-152019.appspot.com/query?id=ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICA5JEKDA');
+        let queryCompDashUniquePageViews = queryGAApi('https://impact-152019.appspot.com/query?id=ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgIDa44YKDA');
+        let queryCompDashDomainTypes = queryGAApi('https://impact-152019.appspot.com/query?id=ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICZ0oUKDA');
 
-            gapi.analytics.auth.on('success', function (response) {
-                console.log('Google Analytics API Validation Successful.');console.dir(response);
-                _this.props.dispatch(getAuthorizationIfNeeded());
-            })
+        Promise.all([queryCompDashPaveViews, queryCompDashUniquePageViews, queryCompDashDomainTypes]).then(function (results) {
+            // console.log("Promise.all");console.dir(results);
+
+            let datasets = {
+                analytics: {
+                    comptoxDashboard: {
+                        pageViews: results[0],
+                        uniquePageViews: results[1],
+                        domainTypes: results[2]
+                    }
+                }
+            };
+
+            _this.setState({ datasets: datasets, isFetching: false });
         });
     }
 
+    query(params) {
+        return fetch(params).then(function (response) {
+            return response.json();
+        }).then(function (json) {
+            return json;
+        });
+    }
 
     componentDidMount() {
-        this.loadGAEmbedAPI();
-        this.authenticateAPI();
+        // this.loadGAEmbedAPI();
+        // this.authenticateAPI();
+        this.fetchData();
     }
 
     render() {
@@ -91,82 +141,39 @@ class DataToolsIndex extends React.Component {
                     <Col sm={9}>
                         <Tab.Content animation>
                             <Tab.Pane eventKey="cd-page-views">
-                                <h3>Page Views</h3>
-                                <GAChart
-                                    chartId="comptox-dashboard-pageviews-chart-container"
-                                    tableId="ga:117399791"
-                                    chartType="LINE"
-                                    chartTitle="Page Views By Month"
-                                    metrics="ga:pageviews"
-                                    dimensions="ga:yearMonth"
-                                    filters="ga:pagePath==epa.gov/chemical-research/downloadable-computational-toxicology-data"
-                                    startDate="365daysAgo"
-                                    endDate="yesterday"/>
+                                {!this.state.isFetching ?
+                                    <LineChart data={this.state.datasets.analytics.comptoxDashboard.pageViews}
+                                               label="Page Views By Month"/> : ' '
+                                }
                             </Tab.Pane>
                             <Tab.Pane eventKey="cd-unique-page-views">
-                                <h3>Unique Page Views</h3>
-                                <GAChart
-                                    chartId="comptox-dashboard-unique-pageviews-chart-container"
-                                    tableId="ga:117399791"
-                                    chartType="LINE"
-                                    chartTitle="Unique Page Views By Month"
-                                    metrics="ga:uniquePageviews"
-                                    dimensions="ga:yearMonth"
-                                    filters="ga:pagePath==epa.gov/chemical-research/downloadable-computational-toxicology-data"
-                                    startDate="365daysAgo"
-                                    endDate="yesterday"/>
+                                {!this.state.isFetching ?
+                                    <LineChart data={this.state.datasets.analytics.comptoxDashboard.uniquePageViews}
+                                               label="Unique Page Views By Month"/> : ' '
+                                }
                             </Tab.Pane>
                             <Tab.Pane eventKey="cd-type-users">
-                                <h3>Type of Users</h3>
-                                <p style={{"fontSize": "20px"}}>User Domain (by gov, com, all)</p>
-                                <GAChart
-                                    chartId="comptox-dashboard-user-domain-gov-chart-container"
-                                    tableId="ga:117399791"
-                                    chartType="TABLE"
-                                    chartTitle="User Domain GOV Addresses"
-                                    metrics="ga:users"
-                                    dimensions="ga:networkDomain"
-                                    filters="ga:pagePath==epa.gov/chemical-research/downloadable-computational-toxicology-data;ga:networkDomain=~\.gov$"
-                                    startDate="2016-04-23"
-                                    endDate="yesterday"/>
-                                <GAChart
-                                    chartId="comptox-dashboard-user-domain-org-chart-container"
-                                    tableId="ga:117399791"
-                                    chartType="TABLE"
-                                    chartTitle="User Domain ORG Addresses"
-                                    metrics="ga:users"
-                                    dimensions="ga:networkDomain"
-                                    filters="ga:pagePath==epa.gov/chemical-research/downloadable-computational-toxicology-data;ga:networkDomain=~\.com$"
-                                    startDate="2016-04-23"
-                                    endDate="yesterday"/>
-                                <GAChart
-                                    chartId="comptox-dashboard-user-domain-com-chart-container"
-                                    tableId="ga:117399791"
-                                    chartType="TABLE"
-                                    chartTitle="User Domain COM Addresses"
-                                    metrics="ga:users"
-                                    dimensions="ga:networkDomain"
-                                    filters="ga:pagePath==epa.gov/chemical-research/downloadable-computational-toxicology-data"
-                                    startDate="2016-04-23"
-                                    endDate="yesterday"/>
+                                {!this.state.isFetching ?
+                                    <DoughnutChart data={this.state.datasets.analytics.comptoxDashboard.domainTypes}
+                                                    label="Type Of Users By Domain"/> : ' '
+                                }
                             </Tab.Pane>
                             <Tab.Pane eventKey="cd-trend">
-                                <h3>Trends</h3>
-                                {this.props.isAuthGAPI ?
-                                    <LineChartJS
-                                        tableId="ga:117399791"
-                                        metrics="ga:pageviews"
-                                        dimensions="ga:month,ga:nthMonth"
-                                        title="Trend Comparing Page Views"/>
-                                    : ''}
-                                <br/>
-                                {this.props.isAuthGAPI ?
-                                    <LineChartJS
-                                        tableId="ga:117399791"
-                                        metrics="ga:uniquePageviews"
-                                        dimensions="ga:month,ga:nthMonth"
-                                        title="Trend Comparing Unique Page Views"/>
-                                    : ''}
+                                {/*{this.props.isAuthGAPI ?*/}
+                                    {/*<LineChartJS*/}
+                                        {/*tableId="ga:117399791"*/}
+                                        {/*metrics="ga:pageviews"*/}
+                                        {/*dimensions="ga:month,ga:nthMonth"*/}
+                                        {/*title="Trend Comparing Page Views"/>*/}
+                                    {/*: ''}*/}
+                                {/*<br/>*/}
+                                {/*{this.props.isAuthGAPI ?*/}
+                                    {/*<LineChartJS*/}
+                                        {/*tableId="ga:117399791"*/}
+                                        {/*metrics="ga:uniquePageviews"*/}
+                                        {/*dimensions="ga:month,ga:nthMonth"*/}
+                                        {/*title="Trend Comparing Unique Page Views"/>*/}
+                                    {/*: ''}*/}
                             </Tab.Pane>
                         </Tab.Content>
                     </Col>
@@ -201,12 +208,12 @@ class DataToolsIndex extends React.Component {
             </Tab.Container>
         );
 
-        const comptoxResearchSubtabInstance = (
-            <Tab.Container defaultActiveKey="cr-data-download-website">
+        const comptoxDataSubtabInstance = (
+            <Tab.Container defaultActiveKey="cdata-download-website">
                 <Row className="clearfix" >
                     <Col sm={4}>
                         <Nav bsStyle="pills" stacked>
-                            <NavItem eventKey="cr-data-download-website">
+                            <NavItem eventKey="cdata-download-website">
                                 Data Download Website Usage
                             </NavItem>
                             <NavItem eventKey="cr-data-downloads-ftp">
@@ -216,75 +223,75 @@ class DataToolsIndex extends React.Component {
                     </Col>
                     <Col sm={8}>
                         <Tab.Content animation>
-                            <Tab.Pane eventKey="cr-data-download-website">
+                            <Tab.Pane eventKey="cdata-download-website">
                                 <h3>Data Download Website Usage</h3>
-                                <GAChart
-                                    chartId="comptox-pageviews-chart-container"
-                                    tableId="ga:69871570"
-                                    chartType="LINE"
-                                    chartTitle="Page Views By Month"
-                                    metrics="ga:pageviews"
-                                    dimensions="ga:yearMonth"
-                                    filters="ga:pagePath==epa.gov/chemical-research/downloadable-computational-toxicology-data"
-                                    startDate="365daysAgo"
-                                    endDate="yesterday"/>
-                                <GAChart
-                                    chartId="comptox-unique-pageviews-chart-container"
-                                    tableId="ga:69871570"
-                                    chartType="LINE"
-                                    chartTitle="Unique Page Views By Month"
-                                    metrics="ga:uniquePageviews"
-                                    dimensions="ga:yearMonth"
-                                    filters="ga:pagePath==epa.gov/chemical-research/downloadable-computational-toxicology-data"
-                                    startDate="365daysAgo"
-                                    endDate="yesterday"/>
-                                <p style={{"fontSize": "20px"}}>User Domain (by gov, com, all)</p>
-                                <GAChart
-                                    chartId="comptox-user-domain-gov-chart-container"
-                                    tableId="ga:69871570"
-                                    chartType="TABLE"
-                                    chartTitle="User Domain GOV Addresses"
-                                    metrics="ga:users"
-                                    dimensions="ga:networkDomain"
-                                    filters="ga:pagePath==epa.gov/chemical-research/downloadable-computational-toxicology-data;ga:networkDomain=~\.gov$"
-                                    startDate="2016-04-23"
-                                    endDate="yesterday"/>
-                                <GAChart
-                                    chartId="comptox-user-domain-org-chart-container"
-                                    tableId="ga:69871570"
-                                    chartType="TABLE"
-                                    chartTitle="User Domain ORG Addresses"
-                                    metrics="ga:users"
-                                    dimensions="ga:networkDomain"
-                                    filters="ga:pagePath==epa.gov/chemical-research/downloadable-computational-toxicology-data;ga:networkDomain=~\.com$"
-                                    startDate="2016-04-23"
-                                    endDate="yesterday"/>
-                                <GAChart
-                                    chartId="comptox-user-domain-com-chart-container"
-                                    tableId="ga:69871570"
-                                    chartType="TABLE"
-                                    chartTitle="User Domain COM Addresses"
-                                    metrics="ga:users"
-                                    dimensions="ga:networkDomain"
-                                    filters="ga:pagePath==epa.gov/chemical-research/downloadable-computational-toxicology-data"
-                                    startDate="2016-04-23"
-                                    endDate="yesterday"/>
-                                <br/>
-                                {this.props.isAuthGAPI ?
-                                    <LineChartJS
-                                        tableId="ga:69871570"
-                                        metrics="ga:pageviews"
-                                        dimensions="ga:month,ga:nthMonth"
-                                        title="Trend Comparing Page Views"/>
-                                    : ''}
-                                <br/>
-                                {this.props.isAuthGAPI ?
-                                    <LineChartJS
-                                        tableId="ga:69871570"
-                                        metrics="ga:uniquePageviews"
-                                        dimensions="ga:month,ga:nthMonth"
-                                        title="Trend Comparing Unique Page Views"/>
-                                    : ''}
+                                {/*<GAChart*/}
+                                    {/*chartId="comptox-pageviews-chart-container"*/}
+                                    {/*tableId="ga:69871570"*/}
+                                    {/*chartType="LINE"*/}
+                                    {/*chartTitle="Page Views By Month"*/}
+                                    {/*metrics="ga:pageviews"*/}
+                                    {/*dimensions="ga:yearMonth"*/}
+                                    {/*filters="ga:pagePath==epa.gov/chemical-research/downloadable-computational-toxicology-data"*/}
+                                    {/*startDate="365daysAgo"*/}
+                                    {/*endDate="yesterday"/>*/}
+                                {/*<GAChart*/}
+                                    {/*chartId="comptox-unique-pageviews-chart-container"*/}
+                                    {/*tableId="ga:69871570"*/}
+                                    {/*chartType="LINE"*/}
+                                    {/*chartTitle="Unique Page Views By Month"*/}
+                                    {/*metrics="ga:uniquePageviews"*/}
+                                    {/*dimensions="ga:yearMonth"*/}
+                                    {/*filters="ga:pagePath==epa.gov/chemical-research/downloadable-computational-toxicology-data"*/}
+                                    {/*startDate="365daysAgo"*/}
+                                    {/*endDate="yesterday"/>*/}
+                                {/*<p style={{"fontSize": "20px"}}>User Domain (by gov, com, all)</p>*/}
+                                {/*<GAChart*/}
+                                    {/*chartId="comptox-user-domain-gov-chart-container"*/}
+                                    {/*tableId="ga:69871570"*/}
+                                    {/*chartType="TABLE"*/}
+                                    {/*chartTitle="User Domain GOV Addresses"*/}
+                                    {/*metrics="ga:users"*/}
+                                    {/*dimensions="ga:networkDomain"*/}
+                                    {/*filters="ga:pagePath==epa.gov/chemical-research/downloadable-computational-toxicology-data;ga:networkDomain=~\.gov$"*/}
+                                    {/*startDate="2016-04-23"*/}
+                                    {/*endDate="yesterday"/>*/}
+                                {/*<GAChart*/}
+                                    {/*chartId="comptox-user-domain-org-chart-container"*/}
+                                    {/*tableId="ga:69871570"*/}
+                                    {/*chartType="TABLE"*/}
+                                    {/*chartTitle="User Domain ORG Addresses"*/}
+                                    {/*metrics="ga:users"*/}
+                                    {/*dimensions="ga:networkDomain"*/}
+                                    {/*filters="ga:pagePath==epa.gov/chemical-research/downloadable-computational-toxicology-data;ga:networkDomain=~\.com$"*/}
+                                    {/*startDate="2016-04-23"*/}
+                                    {/*endDate="yesterday"/>*/}
+                                {/*<GAChart*/}
+                                    {/*chartId="comptox-user-domain-com-chart-container"*/}
+                                    {/*tableId="ga:69871570"*/}
+                                    {/*chartType="TABLE"*/}
+                                    {/*chartTitle="User Domain COM Addresses"*/}
+                                    {/*metrics="ga:users"*/}
+                                    {/*dimensions="ga:networkDomain"*/}
+                                    {/*filters="ga:pagePath==epa.gov/chemical-research/downloadable-computational-toxicology-data"*/}
+                                    {/*startDate="2016-04-23"*/}
+                                    {/*endDate="yesterday"/>*/}
+                                {/*<br/>*/}
+                                {/*{this.props.isAuthGAPI ?*/}
+                                    {/*<LineChartJS*/}
+                                        {/*tableId="ga:69871570"*/}
+                                        {/*metrics="ga:pageviews"*/}
+                                        {/*dimensions="ga:month,ga:nthMonth"*/}
+                                        {/*title="Trend Comparing Page Views"/>*/}
+                                    {/*: ''}*/}
+                                {/*<br/>*/}
+                                {/*{this.props.isAuthGAPI ?*/}
+                                    {/*<LineChartJS*/}
+                                        {/*tableId="ga:69871570"*/}
+                                        {/*metrics="ga:uniquePageviews"*/}
+                                        {/*dimensions="ga:month,ga:nthMonth"*/}
+                                        {/*title="Trend Comparing Unique Page Views"/>*/}
+                                    {/*: ''}*/}
                             </Tab.Pane>
                             <Tab.Pane eventKey="cr-data-downloads-ftp">
                                 <h3>Data Downloads from FTP Site</h3>
@@ -329,7 +336,7 @@ class DataToolsIndex extends React.Component {
                                 <br/>
                                 <h2>CompTox Data Usage</h2>
                                 <br/>
-                                {comptoxResearchSubtabInstance}
+                                {comptoxDataSubtabInstance}
                             </Tab.Pane>
                         </Tab.Content>
                     </Col>
