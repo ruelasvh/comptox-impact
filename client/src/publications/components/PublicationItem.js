@@ -9,6 +9,7 @@ import KudosWidget from './KudosWidget';
 import { Glyphicon, Badge, Row, Col} from 'react-bootstrap';
 import wgxpath from 'wgxpath';
 import '../styles/publicationitem.css';
+import plumxicon from '../../scientist/img/plumx.png';
 
 
 class PublicationItem extends React.Component {
@@ -82,6 +83,8 @@ class PublicationItem extends React.Component {
         // Display information in their own badge
         const PlumMetrics = () => (
             <div className="publication-item-inline-metric">
+                <img src={plumxicon}/>
+                <div className="divider"/>
                 <Glyphicon glyph="glyphicon glyphicon-eye-open" />
                 &nbsp;<strong>Abstract Views</strong>
                 &nbsp;<Badge>{metrics.has("Abstract Views: ") ? metrics.get("Abstract Views: ") : "N/A"}</Badge>

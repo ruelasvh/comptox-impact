@@ -42,7 +42,12 @@
     -o-transform: scale(.85,.85); /* Opera */
     -moz-transform: scale(.85,.85); /* Firefox */
     float: right;
-    padding-bottom: 5px;
+    padding: 5px;
+    border: 1px solid lightgray;
+    border-radius: 16px;
+}
+.publication-item-inline-metric img {
+  height: 22px;
 }
 
 .publication-item-show-counts {
