@@ -34,3 +34,4 @@ node_modules/
 # Ignore vim .swp and .swx files
 *.swp
 *.swx
+app/assets/stylesheets/
