@@ -57,6 +57,13 @@ function searchPublications(limit, offset, callback) {
         .then(callback)
 }
 
+export function queryGAApi(queryUrl) {
+    return fetch(queryUrl, {
+        accept: 'application/json',
+    }).then(checkStatus)
+        .then(parseJSON)
+}
+
 function checkStatus(response) {
     if (response.status >= 200 && response.status < 300) {
         return response;
