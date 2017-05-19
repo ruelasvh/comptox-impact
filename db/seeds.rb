@@ -2348,7 +2348,7 @@ Publication.create!(
     publication_id: 114,
     doi: "10.1016/j.fct.2013.12.029",
     published_date: "2014-03-1",
-    citation: "Goetz, Amber K.; Rockett, John C.; Ren, Hongzu; Thillainadarajah, Inthirany; Dix, David J.. Inhibition of Rat and Human Steroidogenesis by Triazole Antifungals. SYSTEMS BIOLOGY IN REPRODUCTIVE MEDICINE. 55(5-6), (2009).",
+    citation: "Goldsmith, M. -R.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/4\">Grulke, C. M.</a>; Brooks, R. D.; Transue, T. R.; Tan, Y. M.; Frame, A.; Egeghy, P. P.; Edwards, R.; Chang, D. T.; Tornero-Velez, R.; Isaacs, K.; Wang, A.; Johnson, J.; Holm, K.; Reich, M.; Mitchell, J.; Vallero, D. A.; Phillips, L.; Phillips, M.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/12\">Wambaugh, J. F.</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, R. S.</a>; Buckley, T. J.; Dary, C. C.. Development of a consumer product ingredient database for chemical exposure screening and prioritization. FOOD AND CHEMICAL TOXICOLOGY. 65(), (2014).",
     project: "Rapid Exposure and Dose",
     publication_type_id: 1,
     publication_url: "http://comptox.ag.epa.gov/impact/api/publications/114"
@@ -7138,5 +7138,657 @@ Publication.create!(
 ScientistPublication.create!(
     scientist_id: "13",
     publication_id: "381",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 382,
+    doi: "10.14573/altex.1405271",
+    published_date: "2014-01-1",
+    citation: "van Vliet, Erwin; Daneshian, Mardas; Beilmann, Mario; Davies, Anthony; Fava, Eugenio; Fleck, Roland; Jule, Yvon; Kansy, Manfred; Kustermann, Stefan; Macko, Peter; Mundy, William R.; Roth, Adrian; <a href=\"http://comptox.ag.epa.gov/impact/scientists/9\">Shah, Imran</a>; Uteng, Marianne; van de Water, Bob; Hartung, Thomas; Leist, Marcel. Current Approaches and Future Role of High Content Imaging in Safety Sciences and Drug Discovery. ALTEX-ALTERNATIVES TO ANIMAL EXPERIMENTATION. 31(4), (2014).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/382"
+)
+
+ScientistPublication.create!(
+    scientist_id: "9",
+    publication_id: "382",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 383,
+    doi: "10.1021/sc5000896",
+    published_date: "2014-07-1",
+    citation: "Veronesi, Bellina; Chorley, Brian; Ward, William; <a href=\"http://comptox.ag.epa.gov/impact/scientists/19\">Simmons, Steven O.</a>; Tennant, Alan; Vallanat, Beena. The Physicochemistry of Capped Nanosilver Predicts Its Biological Activity in Rat Brain Endothelial Cells (RBEC4). ACS SUSTAINABLE CHEMISTRY &amp; ENGINEERING. 2(7), (2014).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/383"
+)
+
+ScientistPublication.create!(
+    scientist_id: "19",
+    publication_id: "383",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 384,
+    doi: "10.1093/toxsci/kft177",
+    published_date: "2013-11-1",
+    citation: "Vinken, Mathieu; Landesmann, Brigitte; Goumenou, Marina; Vinken, Stefanie; <a href=\"http://comptox.ag.epa.gov/impact/scientists/9\">Shah, Imran</a>; Jaeschke, Hartmut; Willett, Catherine; Whelan, Maurice; Rogiers, Vera. Development of an Adverse Outcome Pathway From Drug-Mediated Bile Salt Export Pump Inhibition to Cholestatic Liver Injury. TOXICOLOGICAL SCIENCES. 136(1), (2013).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/384"
+)
+
+ScientistPublication.create!(
+    scientist_id: "9",
+    publication_id: "384",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 385,
+    published_date: "2010-08-22",
+    citation: "Volarath, Patra; <a href=\"http://comptox.ag.epa.gov/impact/scientists/18\">Little, Stephen</a>; Yang, Chihae; Martin, Matt; Reif, David; <a href=\"http://comptox.ag.epa.gov/impact/scientists/1\">Richard, Ann</a>. Feature analysis of ToxCast (TM) compounds. ABSTRACTS OF PAPERS OF THE AMERICAN CHEMICAL SOCIETY. 240(), (2010).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/385"
+)
+
+ScientistPublication.create!(
+    scientist_id: "18",
+    publication_id: "385",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "1",
+    publication_id: "385",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 386,
+    doi: "10.1021/acs.chemrestox.5b00424",
+    published_date: "2015-12-1",
+    citation: "Wages, Phillip A.; Lavrich, Katelyn S.; Zhang, Zhenfa; Cheng, Wan-Yun; Corteselli, Elizabeth; Gold, Avram; Bromberg, Philip; <a href=\"http://comptox.ag.epa.gov/impact/scientists/19\">Simmons, Steven O.</a>; Samet, James M.. Protein Sulfenylation: A Novel Readout of Environmental Oxidant Stress. CHEMICAL RESEARCH IN TOXICOLOGY. 28(12), (2015).",
+    project: "High-throughput Tox Testing",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/386"
+)
+
+ScientistPublication.create!(
+    scientist_id: "19",
+    publication_id: "386",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 387,
+    doi: "10.1016/j.freeradbiomed.2014.10.573",
+    published_date: "2014-11-1",
+    citation: "Wages, Phillip A.; Silbajoris, Robert; Bromberg, Philip A.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/19\">Simmons, Steven O.</a>; Samet, James M.. Exploring the Role of H2O2 in Zinc-Induced Cellular Oxidative Effects. FREE RADICAL BIOLOGY AND MEDICINE. 76(), (2014).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/387"
+)
+
+ScientistPublication.create!(
+    scientist_id: "19",
+    publication_id: "387",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 388,
+    doi: "10.1016/j.redox.2014.104405",
+    published_date: "2014-01-1",
+    citation: "Wages, Phillip A.; Silbajoris, Robert; Speen, Adam; Brighton, Luisa; Henriquez, Andres; Tong, Haiyan; Bromberg, Philip A.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/19\">Simmons, Steven O.</a>; Samet, James M.. Role of H2O2 in the oxidative effects of zinc exposure in human airway epithelial cells. REDOX BIOLOGY. 3(), (2014).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/388"
+)
+
+ScientistPublication.create!(
+    scientist_id: "19",
+    publication_id: "388",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 389,
+    doi: "10.1002/em.20693",
+    published_date: "2011-10-1",
+    citation: "Wallace, K.; Blackman, C. F.; DeMarini, D. M.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/19\">Simmons, S. O.</a>. Cellular Stress Responses Elicited by Engineered Nanomaterials.. ENVIRONMENTAL AND MOLECULAR MUTAGENESIS. 52(), (2011).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/389"
+)
+
+ScientistPublication.create!(
+    scientist_id: "19",
+    publication_id: "389",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 390,
+    doi: "10.1140/epje/i2010-10608-1",
+    published_date: "2010-06-1",
+    citation: "<a href=\"http://comptox.ag.epa.gov/impact/scientists/12\">Wambaugh, J. F.</a>; Hartley, R. R.; Behringer, R. P.. Force networks and elasticity in granular silos. EUROPEAN PHYSICAL JOURNAL E. 32(2), (2010).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/390"
+)
+
+ScientistPublication.create!(
+    scientist_id: "12",
+    publication_id: "390",
+    is_primary_author: true
+)
+
+Publication.create!(
+    publication_id: 391,
+    doi: "10.1016/j.physd.2010.06.005",
+    published_date: "2010-09-15",
+    citation: "<a href=\"http://comptox.ag.epa.gov/impact/scientists/12\">Wambaugh, John F.</a>. Simple models for granular force networks. PHYSICA D-NONLINEAR PHENOMENA. 239(18), (2010).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/391"
+)
+
+ScientistPublication.create!(
+    scientist_id: "12",
+    publication_id: "391",
+    is_primary_author: true
+)
+
+Publication.create!(
+    publication_id: 392,
+    doi: "10.1007/s10928-008-9108-2",
+    published_date: "2008-12-1",
+    citation: "<a href=\"http://comptox.ag.epa.gov/impact/scientists/12\">Wambaugh, John F.</a>; Barton, Hugh A.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/21\">Setzer, R. Woodrow</a>. Comparing models for perfluorooctanoic acid pharmacokinetics using Bayesian analysis. JOURNAL OF PHARMACOKINETICS AND PHARMACODYNAMICS. 35(6), (2008).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/392"
+)
+
+ScientistPublication.create!(
+    scientist_id: "12",
+    publication_id: "392",
+    is_primary_author: true
+)
+
+ScientistPublication.create!(
+    scientist_id: "21",
+    publication_id: "392",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 393,
+    doi: "10.1103/PhysRevE.76.051303",
+    published_date: "2007-11-1",
+    citation: "<a href=\"http://comptox.ag.epa.gov/impact/scientists/12\">Wambaugh, John F.</a>; Behringer, Robert P.; Matthews, John V.; Gremaud, Pierre A.. Response to perturbations for granular flow in a hopper. PHYSICAL REVIEW E. 76(5), (2007).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/393"
+)
+
+ScientistPublication.create!(
+    scientist_id: "12",
+    publication_id: "393",
+    is_primary_author: true
+)
+
+Publication.create!(
+    publication_id: 394,
+    doi: "10.1093/toxsci/kft204",
+    published_date: "2013-12-1",
+    citation: "<a href=\"http://comptox.ag.epa.gov/impact/scientists/12\">Wambaugh, John F.</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/21\">Setzer, R. Woodrow</a>; Pitruzzello, Ann M.; Liu, Jie; Reif, David M.; Kleinstreuer, Nicole C.; Wang, Nina Ching Y.; Sipes, Nisha; Martin, Matthew; Das, Kaberi; DeWitt, Jamie C.; Strynar, Mark; <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/13\">Houck, Keith A.</a>; Lau, Christopher. Dosimetric Anchoring of In Vivo and In Vitro Studies for Perfluorooctanoate and Perfluorooctanesulfonate. TOXICOLOGICAL SCIENCES. 136(2), (2013).",
+    project: "High-throughput Tox Testing",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/394"
+)
+
+ScientistPublication.create!(
+    scientist_id: "12",
+    publication_id: "394",
+    is_primary_author: true
+)
+
+ScientistPublication.create!(
+    scientist_id: "21",
+    publication_id: "394",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "394",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "13",
+    publication_id: "394",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 395,
+    doi: "10.1021/es400482g",
+    published_date: "2013-08-6",
+    citation: "<a href=\"http://comptox.ag.epa.gov/impact/scientists/12\">Wambaugh, John F.</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/21\">Setzer, R. Woodrow</a>; Reif, David M.; Gangwal, Sumit; Mitchell-Blackwood, Jade; Arnot, Jon A.; Joliet, Olivier; Frame, Alicia; Rabinowitz, James; <a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, Thomas B.</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard S.</a>; Egeghy, Peter; Vallero, Daniel; Hubal, Elaine A. Cohen. High-Throughput Models for Exposure-Based Chemical Prioritization in the Expo Cast Project. ENVIRONMENTAL SCIENCE &amp; TECHNOLOGY. 47(15), (2013).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/395"
+)
+
+ScientistPublication.create!(
+    scientist_id: "12",
+    publication_id: "395",
+    is_primary_author: true
+)
+
+ScientistPublication.create!(
+    scientist_id: "21",
+    publication_id: "395",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "20",
+    publication_id: "395",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "395",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 396,
+    doi: "10.1021/es503583j",
+    published_date: "2014-11-4",
+    citation: "<a href=\"http://comptox.ag.epa.gov/impact/scientists/12\">Wambaugh, John F.</a>; Wang, Anran; Dionisio, Kathie L.; Frame, Alicia; Egeghy, Peter; <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/21\">Setzer, R. Woodrow</a>. High Throughput Heuristics for Prioritizing Human Exposure to Environmental Chemicals. ENVIRONMENTAL SCIENCE &amp; TECHNOLOGY. 48(21), (2014).",
+    project: "Rapid Exposure and Dose",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/396"
+)
+
+ScientistPublication.create!(
+    scientist_id: "12",
+    publication_id: "396",
+    is_primary_author: true
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "396",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "21",
+    publication_id: "396",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 397,
+    doi: "10.1093/toxsci/kfv118",
+    published_date: "2015-09-1",
+    citation: "<a href=\"http://comptox.ag.epa.gov/impact/scientists/12\">Wambaugh, John F.</a>; Wetmore, Barbara A.; Pearce, Robert; Strope, Cory; Goldsmith, Rocky; Sluka, James P.; Sedykh, Alexander; Tropsha, Alex; Bosgra, Sieto; <a href=\"http://comptox.ag.epa.gov/impact/scientists/9\">Shah, Imran</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/17\">Thomas, Russell S.</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/21\">Setzer, R. Woodrow</a>. Toxicokinetic Triage for Environmental Chemicals. TOXICOLOGICAL SCIENCES. 147(1), (2015).",
+    project: "Rapid Exposure and Dose",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/397"
+)
+
+ScientistPublication.create!(
+    scientist_id: "12",
+    publication_id: "397",
+    is_primary_author: true
+)
+
+ScientistPublication.create!(
+    scientist_id: "9",
+    publication_id: "397",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "397",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "17",
+    publication_id: "397",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "21",
+    publication_id: "397",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 398,
+    doi: "10.1007/978-3-319-15518-0_14",
+    published_date: "2015-01-1",
+    citation: "<a href=\"http://comptox.ag.epa.gov/impact/scientists/12\">Wambaugh, John</a>. Dosimetric Anchoring of Toxicological Studies. TOXICOLOGICAL EFFECTS OF PERFLUOROALKYL AND POLYFLUOROALKYL SUBSTANCES. (), (2015).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/398"
+)
+
+ScientistPublication.create!(
+    scientist_id: "12",
+    publication_id: "398",
+    is_primary_author: true
+)
+
+Publication.create!(
+    publication_id: 399,
+    published_date: "2013-09-8",
+    citation: "<a href=\"http://comptox.ag.epa.gov/impact/scientists/12\">Wambaugh, John</a>. New technologies for exposure assessment. ABSTRACTS OF PAPERS OF THE AMERICAN CHEMICAL SOCIETY. 246(), (2013).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/399"
+)
+
+ScientistPublication.create!(
+    scientist_id: "12",
+    publication_id: "399",
+    is_primary_author: true
+)
+
+Publication.create!(
+    publication_id: 400,
+    doi: "10.1371/journal.pcbi.1000756",
+    published_date: "2010-04-1",
+    citation: "<a href=\"http://comptox.ag.epa.gov/impact/scientists/12\">Wambaugh, John</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/9\">Shah, Imran</a>. Simulating Microdosimetry in a Virtual Hepatic Lobule. PLOS COMPUTATIONAL BIOLOGY. 6(4), (2010).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/400"
+)
+
+ScientistPublication.create!(
+    scientist_id: "12",
+    publication_id: "400",
+    is_primary_author: true
+)
+
+ScientistPublication.create!(
+    scientist_id: "9",
+    publication_id: "400",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 401,
+    doi: "10.1002/wnan.1229",
+    published_date: "2013-09-1",
+    citation: "Wang, Amy; Marinakos, Stella M.; Badireddy, Appala Raju; Powers, Christina M.; A. <a href=\"http://comptox.ag.epa.gov/impact/scientists/13\">Houck, Keith</a>. Characterization of physicochemical properties of nanomaterials and their immediate environments in high-throughput screening of nanomaterial biological activity. WILEY INTERDISCIPLINARY REVIEWS-NANOMEDICINE AND NANOBIOTECHNOLOGY. 5(5), (2013).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/401"
+)
+
+ScientistPublication.create!(
+    scientist_id: "13",
+    publication_id: "401",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 402,
+    doi: "10.1021/tx7003129",
+    published_date: "2007-08-19",
+    citation: "Wang, Kun; <a href=\"http://comptox.ag.epa.gov/impact/scientists/1\">Richard, Ann</a>; Rusyn, Ivan; Tropsha, Alexander. Toxico-cheminformatics and QSPR modeling of the carcinogenic potency database. ABSTRACTS OF PAPERS OF THE AMERICAN CHEMICAL SOCIETY. 234(), (2007).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/402"
+)
+
+ScientistPublication.create!(
+    scientist_id: "1",
+    publication_id: "402",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 403,
+    published_date: "2007-12-1",
+    citation: "Wang, Kun; <a href=\"http://comptox.ag.epa.gov/impact/scientists/1\">Richard, Ann</a>; Rusyn, Ivan; Tropsha, Alexander. Toxico-cheminformatics and QSPR modeling of the carcinogenic potency database. CHEMICAL RESEARCH IN TOXICOLOGY. 20(12), (2007).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/403"
+)
+
+ScientistPublication.create!(
+    scientist_id: "1",
+    publication_id: "403",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 404,
+    doi: "10.1021/tx050285z",
+    published_date: "2006-02-1",
+    citation: "Welch, KD; Reilly, TP; Bourdi, M; Hays, T; Pise-Masison, CA; Radonovich, MF; Brady, JN; Dix, DJ; Pohl, LR. Genomic identification of potential risk factors during acetaminophen-induced liver disease in susceptible and resistant strains of mice. CHEMICAL RESEARCH IN TOXICOLOGY. 19(2), (2006).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/404"
+)
+
+Publication.create!(
+    publication_id: 405,
+    doi: "10.1093/toxsci/kfu169",
+    published_date: "2014-11-1",
+    citation: "Wetmore, Barbara A.; Allen, Brittany; Clewell, Harvey J., III; Parker, Timothy; <a href=\"http://comptox.ag.epa.gov/impact/scientists/12\">Wambaugh, John F.</a>; Almond, Lisa M.; Sochaski, Mark A.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/17\">Thomas, Russell S.</a>. Incorporating Population Variability and Susceptible Subpopulations into Dosimetry for High-Throughput Toxicity Testing. TOXICOLOGICAL SCIENCES. 142(1), (2014).",
+    project: "Rapid Exposure and Dose",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/405"
+)
+
+ScientistPublication.create!(
+    scientist_id: "12",
+    publication_id: "405",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "17",
+    publication_id: "405",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 406,
+    doi: "10.1093/toxsci/kfv171",
+    published_date: "2015-11-1",
+    citation: "Wetmore, Barbara A.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/12\">Wambaugh, John F.</a>; Allen, Brittany; Ferguson, Stephen S.; Sochaski, Mark A.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/21\">Setzer, R. Woodrow</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/13\">Houck, Keith A.</a>; Strope, Cory L.; Cantwell, Katherine; <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard S.</a>; LeCluyse, Edward; Clewell, Harvey J.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/17\">Thomas, Russell S.</a>; Andersen, Melvin E.. Incorporating High-Throughput Exposure Predictions With Dosimetry-Adjusted In Vitro Bioactivity to Inform Chemical Toxicity Testing. TOXICOLOGICAL SCIENCES. 148(1), (2015).",
+    project: "Rapid Exposure and Dose",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/406"
+)
+
+ScientistPublication.create!(
+    scientist_id: "12",
+    publication_id: "406",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "21",
+    publication_id: "406",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "13",
+    publication_id: "406",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "406",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "17",
+    publication_id: "406",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 407,
+    doi: "10.1093/toxsci/kft012",
+    published_date: "2013-04-1",
+    citation: "Wetmore, Barbara A.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/12\">Wambaugh, John F.</a>; Ferguson, Stephen S.; Li, Lili; Clewell, Harvey J., III; <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard S.</a>; Freeman, Kimberly; Bao, Wenjun; Sochaski, Mark A.; Chu, Tzu-Ming; Black, Michael B.; Healy, Eric; Allen, Brittany; Andersen, Melvin E.; Wolfinger, Russell D.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/17\">Thomas, Russell S.</a>. Relative Impact of Incorporating Pharmacokinetics on Predicting In Vivo Hazard and Mode of Action from High-Throughput In Vitro Toxicity Assays. TOXICOLOGICAL SCIENCES. 132(2), (2013).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/407"
+)
+
+ScientistPublication.create!(
+    scientist_id: "12",
+    publication_id: "407",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "407",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "17",
+    publication_id: "407",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 408,
+    doi: "10.1093/toxsci/kfr254",
+    published_date: "2012-01-1",
+    citation: "Wetmore, Barbara A.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/12\">Wambaugh, John F.</a>; Ferguson, Stephen S.; Sochaski, Mark A.; Rotroff, Daniel M.; Freeman, Kimberly; Clewell, Harvey J., III; Dix, David J.; Andersen, Melvin E.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/13\">Houck, Keith A.</a>; Allen, Brittany; <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard S.</a>; Singh, Reetu; Kavlock, Robert J.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/1\">Richard, Ann M.</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/17\">Thomas, Russell S.</a>. Integration of Dosimetry, Exposure, and High-Throughput Screening Data in Chemical Toxicity Assessment. TOXICOLOGICAL SCIENCES. 125(1), (2012).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/408"
+)
+
+ScientistPublication.create!(
+    scientist_id: "12",
+    publication_id: "408",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "13",
+    publication_id: "408",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "408",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "1",
+    publication_id: "408",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "17",
+    publication_id: "408",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 409,
+    doi: "10.1093/toxsci/kfs144",
+    published_date: "2012-07-1",
+    citation: "Wetmore, Barbara A.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/12\">Wambaugh, John F.</a>; Ferguson, Stephen S.; Sochaski, Mark A.; Rotroff, Daniel M.; Freeman, Kimberly; Clewell, Harvey J., III; Dix, David J.; Andersen, Melvin E.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/13\">Houck, Keith A.</a>; Allen, Brittany; <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard S.</a>; Singh, Reetu; Kavlock, Robert J.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/1\">Richard, Ann M.</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/17\">Thomas, Russell S.</a>. Response to Accurate Risk-Based Chemical Screening Relies on Robust Exposure Estimates. TOXICOLOGICAL SCIENCES. 128(1), (2012).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/409"
+)
+
+ScientistPublication.create!(
+    scientist_id: "12",
+    publication_id: "409",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "13",
+    publication_id: "409",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "409",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "1",
+    publication_id: "409",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "17",
+    publication_id: "409",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 410,
+    doi: "10.1016/j.lfs.2015.10.002",
+    published_date: "2016-01-15",
+    citation: "Wexler, Philip; <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard</a>; de Marcellus, Sally; de Knecht, Joop; Leinala, Eeva. Health effects of toxicants: Online knowledge support. LIFE SCIENCES. 145(), (2016).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/410"
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "410",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 411,
+    doi: "10.14573/altex.1401281",
+    published_date: "2014-01-1",
+    citation: "Willett, Catherine; Rae, Jessica Caverly; Goyak, Katy O.; Minsavage, Gary; Westmoreland, Carl; Andersen, Melvin; Avigan, Mark; Duche, Daniel; Harris, Georgina; Hartung, Thomas; Jaeschke, Hartmut; Kleensang, Andre; Landesmann, Brigitte; Martos, Suzanne; Matevia, Marilyn; Toole, Colleen; Rowan, Andrew; Schultz, Terry; Seed, Jennifer; Senior, John; <a href=\"http://comptox.ag.epa.gov/impact/scientists/9\">Shah, Imran</a>; Subramanian, Kalyanasundaram; Vinken, Mathieu; Watkins, Paul. Building Shared Experience to Advance Practical Application of Pathway-Based Toxicology: Liver Toxicity Mode-of-Action. ALTEX-ALTERNATIVES TO ANIMAL EXPERIMENTATION. 31(4), (2014).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/411"
+)
+
+ScientistPublication.create!(
+    scientist_id: "9",
+    publication_id: "411",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 412,
+    doi: "10.1186/1752-0509-7-119",
+    published_date: "2013-11-4",
+    citation: "Williams-DeVane, ClarLynda R.; Reif, David M.; Hubal, Elaine Cohen; Bushel, Pierre R.; Hudgens, Edward E.; Gallagher, Jane E.; Edwards, Stephen W.. Decision tree-based method for integrating gene expression, demographic, and clinical data to determine disease endotypes. BMC SYSTEMS BIOLOGY. 7(), (2013).",
+    project: "Sustainable Healthy Communities",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/412"
+)
+
+Publication.create!(
+    publication_id: 413,
+    doi: "10.1093/bioinformatics/btp042",
+    published_date: "2009-03-1",
+    citation: "Williams-DeVane, ClarLynda R.; Wolf, Maritja A.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/1\">Richard, Ann M.</a>. DSSTox chemical-index files for exposure-related experiments in ArrayExpress and Gene Expression Omnibus: enabling toxico-chemogenomics data linkages. BIOINFORMATICS. 25(5), (2009).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/413"
+)
+
+ScientistPublication.create!(
+    scientist_id: "1",
+    publication_id: "413",
     is_primary_author: false
 )
