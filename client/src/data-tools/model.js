@@ -4,8 +4,6 @@
  */
 
 const State = {
-    isAuthGAPI: false,
-    lastAuthorized: Date.now()
 };
 
 export default State;

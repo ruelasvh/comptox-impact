@@ -12,18 +12,9 @@ import LineChartJS from './LineChartJS';
 import LineChart from './LineChart';
 import DoughnutChart from './DoughnutChart';
 import moment from 'moment';
-import { getAuthorizationIfNeeded } from '../actions';
 import { queryGAApi } from '../../utils/Client';
 import '../styles/datatoolsmain.css';
 
-
-function mapStateToProps(state) {
-    const { isAuthGAPI } = state.gapiAuthorization || { isAuthGAPI: false };
-
-    return {
-        isAuthGAPI: isAuthGAPI
-    }
-}
 
 class DataToolsIndex extends React.Component {
     constructor(props) {
@@ -45,51 +36,14 @@ class DataToolsIndex extends React.Component {
         this.fetchData = this.fetchData.bind(this);
     }
 
-    // loadGAEmbedAPI() {
-    //     (function(w,d,s,g,js,fs){
-    //         g=w.gapi||(w.gapi={});g.analytics={q:[],ready:function(f){this.q.push(f);}};
-    //         js=d.createElement(s);fs=d.getElementsByTagName(s)[0];
-    //         js.src='https://apis.google.com/js/platform.js';
-    //         fs.parentNode.insertBefore(js,fs);js.onload=function(){g.load('analytics');};
-    //     }(window,document,'script'));
-    // }
-
-    // authenticateAPI() {
-    //     var _this = this;
-    //     gapi.analytics.ready(function () {
-    //         var CLIENT_ID = '793061702170-5egs8fbsdai74gocs0kflusn9e4b52hr.apps.googleusercontent.com';
-    //         // const ACCESS_TOKEN_FROM_SERVICE_ACCOUNT = 'ya29.Elk3BFYQsCTkWOkhCaibSbjT9IzwzavnExSh38Y7Zjo8oOtlBOn9fKlzB9dMVZdEKFJQJ6Jgln86bWS5AIjjODsvyLdpgce5RD-64gXQIFYe_sP-L1aEnD1SXw';
-    //
-    //         gapi.analytics.auth.authorize({
-    //             container: 'embed-api-auth-container',
-    //             clientid: CLIENT_ID,
-    //             userInfoLabel: '',
-    //             approval_prompt: 'force'
-    //         });
-    //
-    //         // gapi.analytics.auth.authorize({
-    //         //     'serverAuth': {
-    //         //         'access_token': ACCESS_TOKEN_FROM_SERVICE_ACCOUNT
-    //         //     }
-    //         // });
-    //
-    //         gapi.analytics.auth.on('success', function (response) {
-    //             console.log('Google Analytics API Validation Successful.');console.dir(response);
-    //             _this.props.dispatch(getAuthorizationIfNeeded());
-    //         })
-    //     });
-    // }
-
     fetchData() {
-        let _this = this;
+      let _this = this;
 
-        let queryCompDashPaveViews = queryGAApi('https://impact-152019.appspot.com/query?id=ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICA5JEKDA');
-        let queryCompDashUniquePageViews = queryGAApi('https://impact-152019.appspot.com/query?id=ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgIDa44YKDA');
-        let queryCompDashDomainTypes = queryGAApi('https://impact-152019.appspot.com/query?id=ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICZ0oUKDA');
-
-        Promise.all([queryCompDashPaveViews, queryCompDashUniquePageViews, queryCompDashDomainTypes]).then(function (results) {
-            // console.log("Promise.all");console.dir(results);
-
+      Promise.all([
+        queryGAApi('https://impact-152019.appspot.com/query?id=ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICA5JEKDA'),
+        queryGAApi('https://impact-152019.appspot.com/query?id=ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgIDa44YKDA'),
+        queryGAApi('https://impact-152019.appspot.com/query?id=ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICZ0oUKDA')
+      ]).then(function (results) {
             let datasets = {
                 analytics: {
                     comptoxDashboard: {
@@ -113,8 +67,6 @@ class DataToolsIndex extends React.Component {
     }
 
     componentDidMount() {
-        // this.loadGAEmbedAPI();
-        // this.authenticateAPI();
         this.fetchData();
     }
 
@@ -158,23 +110,6 @@ class DataToolsIndex extends React.Component {
                                                     label="Type Of Users By Domain"/> : ' '
                                 }
                             </Tab.Pane>
-                            <Tab.Pane eventKey="cd-trend">
-                                {/*{this.props.isAuthGAPI ?*/}
-                                    {/*<LineChartJS*/}
-                                        {/*tableId="ga:117399791"*/}
-                                        {/*metrics="ga:pageviews"*/}
-                                        {/*dimensions="ga:month,ga:nthMonth"*/}
-                                        {/*title="Trend Comparing Page Views"/>*/}
-                                    {/*: ''}*/}
-                                {/*<br/>*/}
-                                {/*{this.props.isAuthGAPI ?*/}
-                                    {/*<LineChartJS*/}
-                                        {/*tableId="ga:117399791"*/}
-                                        {/*metrics="ga:uniquePageviews"*/}
-                                        {/*dimensions="ga:month,ga:nthMonth"*/}
-                                        {/*title="Trend Comparing Unique Page Views"/>*/}
-                                    {/*: ''}*/}
-                            </Tab.Pane>
                         </Tab.Content>
                     </Col>
                 </Row>
@@ -199,8 +134,8 @@ class DataToolsIndex extends React.Component {
                             <Tab.Pane eventKey="a-usage-analog-stats">
                                 <p>The Aggregated Computational Toxicology Online Resource (ACToR) aggregates data from more than 1,000 public sources on over 500,000 chemicals, and can be used to query a specific chemical and find all publicly available hazard, exposure, and risk assessment data.</p>
                                 <br/>
-                                <p style={{"text-align": "center", "font-size": "20px"}}>Follow this link to view analog data from ACToR:</p>
-                                <p style={{"text-align": "center", "font-size": "20px"}}><a href="https://actor.epa.gov/reports" target="_blank">ACToR Analog Usage Data</a></p>
+                                <p style={{"textAlign": "center", "fontSize": "20px"}}>Follow this link to view analog data from ACToR:</p>
+                                <p style={{"textAlign": "center", "fontSize": "20px"}}><a href="https://actor.epa.gov/reports" target="_blank">ACToR Analog Usage Data</a></p>
                             </Tab.Pane>
                             <Tab.Pane eventKey="a-usage-google-analytics">
                                 <h3>Usage from Google Analytics</h3>
@@ -279,22 +214,6 @@ class DataToolsIndex extends React.Component {
                                     {/*filters="ga:pagePath==epa.gov/chemical-research/downloadable-computational-toxicology-data"*/}
                                     {/*startDate="2016-04-23"*/}
                                     {/*endDate="yesterday"/>*/}
-                                {/*<br/>*/}
-                                {/*{this.props.isAuthGAPI ?*/}
-                                    {/*<LineChartJS*/}
-                                        {/*tableId="ga:69871570"*/}
-                                        {/*metrics="ga:pageviews"*/}
-                                        {/*dimensions="ga:month,ga:nthMonth"*/}
-                                        {/*title="Trend Comparing Page Views"/>*/}
-                                    {/*: ''}*/}
-                                {/*<br/>*/}
-                                {/*{this.props.isAuthGAPI ?*/}
-                                    {/*<LineChartJS*/}
-                                        {/*tableId="ga:69871570"*/}
-                                        {/*metrics="ga:uniquePageviews"*/}
-                                        {/*dimensions="ga:month,ga:nthMonth"*/}
-                                        {/*title="Trend Comparing Unique Page Views"/>*/}
-                                    {/*: ''}*/}
                             </Tab.Pane>
                             <Tab.Pane eventKey="cr-data-downloads-ftp">
                                 <h3>Data Downloads from FTP Site</h3>
@@ -362,4 +281,4 @@ class DataToolsIndex extends React.Component {
     }
 }
 
-export default connect(mapStateToProps)(DataToolsIndex);
+export default DataToolsIndex;
