@@ -6,8 +6,11 @@ import React from 'react';
 import { Doughnut } from 'react-chartjs-2';
 
 const DoughnutChart = ( { data, label }) => {
-    let govCounter = 0, eduCounter = 0, comCounter = 0, otherCounter = 0;
+    let govCounter = 0, eduCounter = 0, comCounter = 0, orgCounter = 0, otherCounter = 0;
 
+  if(!data.hasOwnProperty('rows') || data.rows.length === 0) {
+    return <div>There is no data. ¯\_(ツ)_/¯</div>;
+  }
     data.rows.forEach(row => {
         if (row[0].includes("gov")) {
             govCounter += 1
@@ -15,6 +18,8 @@ const DoughnutChart = ( { data, label }) => {
             eduCounter += 1
         } else if (row[0].includes("com")) {
             comCounter += 1
+        } else if (row[0].includes("org")) {
+            orgCounter += 1
         } else {
             otherCounter += 1;
         }
@@ -27,6 +32,7 @@ const DoughnutChart = ( { data, label }) => {
             'gov',
             'edu',
             'com',
+            'org',
             'other'
         ],
         datasets: [{
@@ -34,18 +40,21 @@ const DoughnutChart = ( { data, label }) => {
                 (govCounter/totalUsers).toFixed(2)*100,
                 (eduCounter/totalUsers).toFixed(2)*100,
                 (comCounter/totalUsers).toFixed(2)*100,
+                (orgCounter/totalUsers).toFixed(2)*100,
                 (otherCounter/totalUsers).toFixed(2)*100
             ],
             backgroundColor: [
                 '#FF6384',
                 '#36A2EB',
                 '#FFCE56',
+                '#33F499',
                 '#AACE56'
             ],
             hoverBackgroundColor: [
                 '#FF6384',
                 '#36A2EB',
                 '#FFCE56',
+                '#33F499',
                 '#AACE56'
             ],
         }]
