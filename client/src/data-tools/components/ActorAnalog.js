@@ -3,7 +3,7 @@ import { FormControl, Button } from 'react-bootstrap'
 import moment from 'moment'
 import { connect } from 'react-redux';
 
-let analogStart = moment('2009-9-1')
+let analogStart = moment('9-1-2009')
 let analogEnd = moment()
 let dates = []
 let months = []
