@@ -61,7 +61,7 @@ class PublicationItem extends React.Component {
                     m.clear();
                 }
 
-                thisComponent.setState({ metrics: m }, console.log(thisComponent.state.metrics));
+                thisComponent.setState({ metrics: m });
             });
             // Fire mouse hovering over element (does not work with out previous statements)
             $("#plumx-publication-item-" + id).trigger("mouseover");
