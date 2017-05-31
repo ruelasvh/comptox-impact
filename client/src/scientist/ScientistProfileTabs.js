@@ -10,6 +10,7 @@ import Link from './LinkedProfilesTabLink';
 import { linkTypes } from './LinkedProfilesTabLink';
 import SlideShare from './PresentationsTabContent';
 import Publications from './PublicationsTabContent';
+import './styles/scientistprofile.css';
 
 class ScientistProfileTabs extends React.Component {
     constructor(props) {
@@ -21,7 +22,7 @@ class ScientistProfileTabs extends React.Component {
         const projectsTab = 4;
 
         this.state = {
-            key: publicationsTab
+            selectedTab: this.props.scientistData.publications.length === 0 ? linkedProfilesTab : publicationsTab
         };
 
         // Bind functions
@@ -29,54 +30,65 @@ class ScientistProfileTabs extends React.Component {
     }
 
     handleSelect( key ) {
-        this.setState({ key: key });
+        this.setState({ selectedTab: key });
     }
 
     render() {
-        const hasPublications = true;
-        const hasPresentations = true;
-        const hasProjects = false;
         const LinkedProfilesTabLinks = (
             <div>
-                {this.props.scientistDetails.orcid ? <Link
-                    url={"http://orcid.org/" + this.props.scientistDetails.orcid}
+                {this.props.scientistData.orcid ? <Link
+                    url={"http://orcid.org/" + this.props.scientistData.orcid}
                     label={linkTypes.ORCID} /> : ''}
-                {this.props.scientistDetails.plumx ? <Link
-                    url={this.props.scientistDetails.plumx}
+                {this.props.scientistData.plumx ? <Link
+                    url={this.props.scientistData.plumx}
                     label={linkTypes.PLUMX}/> : ''}
-                {this.props.scientistDetails.linkedIn ? <Link
-                    url={this.props.scientistDetails.linkedIn}
+                {this.props.scientistData.linkedIn ? <Link
+                    url={this.props.scientistData.linkedIn}
                     label={linkTypes.LINKEDIN}/> : ''}
-                {this.props.scientistDetails.researchGate ? <Link
-                    url={this.props.scientistDetails.researchGate}
+                {this.props.scientistData.researchGate ? <Link
+                    url={this.props.scientistData.researchGate}
                     label={linkTypes.RESEARCHGATE}/> : ''}
-                {this.props.scientistDetails.googleScholar ? <Link
-                    url={this.props.scientistDetails.googleScholar}
+                {this.props.scientistData.googleScholar ? <Link
+                    url={this.props.scientistData.googleScholar}
                     label={linkTypes.GOOGLE_SCHOLAR}/> : ''}
-                {this.props.scientistDetails.orcid ? <Link
-                    url={`http://europepmc.org/authors/${this.props.scientistDetails.orcid}`}
+                {this.props.scientistData.orcid ? <Link
+                    url={`http://europepmc.org/authors/${this.props.scientistData.orcid}`}
                     label={linkTypes.EUROPE_PMC}/> : ''}
-                {this.props.scientistDetails.vivo ? <Link
-                    url={this.props.scientistDetails.vivo}
+                {this.props.scientistData.vivo ? <Link
+                    url={this.props.scientistData.vivo}
                     label={linkTypes.VIVO}/> : ''}
-                {this.props.scientistDetails.publons ? <Link
-                    url={this.props.scientistDetails.publons}
+                {this.props.scientistData.publons ? <Link
+                    url={this.props.scientistData.publons}
                     label={linkTypes.PUBLONS}/> : ''}
-                {this.props.scientistDetails.microsoftAcademic ? <Link
-                        url={this.props.scientistDetails.microsoftAcademic}
+                {this.props.scientistData.microsoftAcademic ? <Link
+                        url={this.props.scientistData.microsoftAcademic}
                         label={linkTypes.MICROSOFT_ACADEMIC}/> : ''}
             </div>
         );
 
+        const renderProjects = () => {
+            var projects = this.props.scientistData.publications.map((i) => i.project);
+            // Remove duplicates and null values
+            projects = projects.filter((el, index, inputArr) => inputArr.indexOf(el) === index && inputArr[index] !== null);
+            return (
+                <ul>
+                    {projects.map(
+                        function (p, i) {
+                            return <li className="projects-tab-project-item" key={i}><strong>{p}</strong></li>
+                        }
+                    )}
+                </ul>
+            )
+        };
+
         return (
-            <Tabs activeKey={this.state.key} onSelect={this.handleSelect} id="controlled-tabs">
-                <Tab eventKey={1} title="Publications" disabled={!hasPublications}>
+            <Tabs activeKey={this.state.selectedTab} onSelect={this.handleSelect} id="controlled-tabs">
+                <Tab eventKey={1} title="Publications" disabled={this.props.scientistData.publications.length === 0 ? true : false}>
                     <div className="tab-frame" style={{marginBottom: '8em'}}>
-                        {/*{publications}*/}
-                        <Publications/>
+                        <Publications selectedPublications={this.props.scientistData.publications}/>
                     </div>
                 </Tab>
-                <Tab eventKey={2} title="Presentations" disabled={!hasPresentations}>
+                <Tab eventKey={2} title="Presentations" disabled={this.props.scientistData.presentations === null ? true : false}>
                     <div className="tab-frame">
                         <SlideShare userUrl="empty for now"/>
                     </div>
@@ -86,9 +98,9 @@ class ScientistProfileTabs extends React.Component {
                         {LinkedProfilesTabLinks}
                     </div>
                 </Tab>
-                <Tab eventKey={4} title="Projects" disabled={!hasProjects}>
-                    <div className="tab-frame">
-                        Projects content
+                <Tab eventKey={4} title="Projects" >
+                    <div className="tab-frame projects-tab">
+                        {renderProjects()}
                     </div>
                 </Tab>
             </Tabs>
@@ -97,8 +109,7 @@ class ScientistProfileTabs extends React.Component {
 }
 
 ScientistProfileTabs.propTypes = {
-    publicationsData: PropTypes.array.isRequired,
-    scientistDetails: PropTypes.object.isRequired
+    scientistData: PropTypes.object.isRequired
 };
 
 export default ScientistProfileTabs;

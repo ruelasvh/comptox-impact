@@ -13,12 +13,11 @@
 
 .infinite-scroll-example__loading-message,
 .infinite-scroll-example__count {
-    background-color: #999;
+    background-color: #0e6993;
     color: #fff;
-    opacity: 0.5;
     padding: 10px;
     pointer-events: none;
-    position: absolute;
+    position: relative;
     z-index: 1000;
 }
 

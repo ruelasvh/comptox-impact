@@ -5,8 +5,6 @@
 import React, { PropTypes } from 'react';
 import Waypoint from 'react-waypoint';
 
-// http client
-import Client from '../utils/Client';
 // components
 import PublicationItem from '../publications/components/PublicationItem';
 // styles
@@ -17,14 +15,11 @@ class PublicationsTabContent extends React.Component {
         super(props);
 
         this.state = {
-            publications: [],
-            limit: 8,
-            offset: 0,
-            isLoading: false
+            limit: 0,
         };
 
         // Bind functions
-        this.handleFetchPublications = this.handleFetchPublications.bind(this);
+        this.handlePublications = this.handlePublications.bind(this);
     }
 
     appendPlumxScript() {
@@ -55,30 +50,22 @@ class PublicationsTabContent extends React.Component {
         document.head.appendChild(altMetricScript);
     }
 
-    handleFetchPublications() {
-        let step = this.state.limit;
-        let curOffset = this.state.offset;
+    handlePublications() {
+        let step = 8;
+        let currLimit = this.state.limit;
 
-        Client.searchPublications(step, curOffset, response => {
-            // add data
-            let currPublications = this.state.publications;
-            let updatedPublications = currPublications.concat(response.data);
-
-            this.setState({
-                publications: updatedPublications,
-                offset: curOffset + step,
-                isLoading: false
-            }, () => {
-                window.__plumX.widgets.popup.wireUp();
-                window._altmetric.embed_init();
-            })
-        })
+        this.setState({
+            limit: currLimit + step,
+        }, () => {
+            window.__plumX.widgets.popup.wireUp();
+            window._altmetric.embed_init();
+        });
     }
 
     renderPublications() {
         return (
             <div>
-                {this.state.publications.map(function (publication, index) {
+                {this.props.selectedPublications.slice(0, this.state.limit).map(function (publication, index) {
                     return (
                         <PublicationItem
                             id={'pub-item-' + index.toString()}
@@ -92,13 +79,12 @@ class PublicationsTabContent extends React.Component {
     }
 
     renderWaypoint() {
-        if (!this.state.isLoading) {
-            return (
-                <Waypoint
-                    onEnter={this.handleFetchPublications}
-                />
-            )
-        }
+        return (
+            <Waypoint
+                onEnter={this.handlePublications}
+            />
+        )
+
     }
 
     componentDidMount() {
@@ -109,14 +95,15 @@ class PublicationsTabContent extends React.Component {
     render() {
         return (
             <div className="infinite-scroll-example">
+                {/*For debugging*/}
                 <p className="infinite-scroll-example__count">
-                    Items Loaded: {this.state.publications.length}
+                    Publications Loaded: {this.state.limit < this.props.selectedPublications.length ? this.state.limit : this.props.selectedPublications.length}.
+                    Total: {this.props.selectedPublications.length}.
                 </p>
                 <div className="infinite-scroll-example__scrollable-parent">
                     {this.renderPublications()}
                     <div className="infinite-scroll-example__waypoint">
-                        {this.renderWaypoint()}
-                        {/*{this.state.isLoading ? '' : 'Loading more publications...'}*/}
+                        {this.state.limit < this.props.selectedPublications.length ? this.renderWaypoint() : ' '}
                     </div>
                 </div>
             </div>
@@ -125,8 +112,9 @@ class PublicationsTabContent extends React.Component {
 }
 
 PublicationsTabContent.propTypes = {
+    selectedPublications: PropTypes.array.isRequired,
     onEnter: PropTypes.func, // function called when waypoint enters viewport
     onLeave: PropTypes.func, // function called when waypoint leaves viewport
-}
+};
 
 export default PublicationsTabContent;

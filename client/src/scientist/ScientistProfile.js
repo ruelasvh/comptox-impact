@@ -114,8 +114,7 @@ class ScientistProfile extends React.Component {
                             <br/><br/><br/>
                             <Row>
                                 <ScientistProfileTabs
-                                    publicationsData={this.state.publications}
-                                    scientistDetails={scientistDetails}/>
+                                    scientistData={scientistDetails}/>
                             </Row>
                         </Grid>
                     </div>
