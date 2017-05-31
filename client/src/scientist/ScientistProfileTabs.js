@@ -34,6 +34,7 @@ class ScientistProfileTabs extends React.Component {
     }
 
     render() {
+        // Handle linked profiles
         const LinkedProfilesTabLinks = (
             <div>
                 {this.props.scientistData.orcid ? <Link
@@ -66,10 +67,11 @@ class ScientistProfileTabs extends React.Component {
             </div>
         );
 
+        // Handle projects
+        var projects = this.props.scientistData.publications.map((i) => i.project);
+        // Remove duplicates and null values
+        projects = projects.filter((el, index, inputArr) => inputArr.indexOf(el) === index && inputArr[index] !== null);
         const renderProjects = () => {
-            var projects = this.props.scientistData.publications.map((i) => i.project);
-            // Remove duplicates and null values
-            projects = projects.filter((el, index, inputArr) => inputArr.indexOf(el) === index && inputArr[index] !== null);
             return (
                 <ul>
                     {projects.map(
@@ -98,7 +100,7 @@ class ScientistProfileTabs extends React.Component {
                         {LinkedProfilesTabLinks}
                     </div>
                 </Tab>
-                <Tab eventKey={4} title="Projects" >
+                <Tab eventKey={4} title="Projects" disabled={projects.length === 0 ? true : false}>
                     <div className="tab-frame projects-tab">
                         {renderProjects()}
                     </div>
