@@ -7792,3 +7792,245 @@ ScientistPublication.create!(
     publication_id: "413",
     is_primary_author: false
 )
+
+Publication.create!(
+    publication_id: 414,
+    doi: "10.1093/toxsci/kfp061",
+    published_date: "2009-06-1",
+    citation: "Williams-Devane, ClarLynda R.; Wolf, Maritja A.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/1\">Richard, Ann M.</a>. Toward a Public Toxicogenomics Capability for Supporting Predictive Toxicology: Survey of Current Resources and Chemical Indexing of Experiments in GEO and ArrayExpress. TOXICOLOGICAL SCIENCES. 109(2), (2009).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/414"
+)
+
+ScientistPublication.create!(
+    scientist_id: "1",
+    publication_id: "414",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 415,
+    doi: "10.7287/peerj.preprints.2605v1",
+    published_date: "2016-11-21",
+    citation: "Wilson, V., G. LeBlanc, S. Kullman, <a href=\"http://comptox.ag.epa.gov/impact/scientists/14\">K. Crofton</a>, P. Schmieder, and M. Jacobs. Where do we go from here: Challenges and the future of endocrine disrupting compound screening and testing. PeerJ. PeerJ Inc., Corte Madera, CA, USA, (2016).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/415"
+)
+
+ScientistPublication.create!(
+    scientist_id: "14",
+    publication_id: "415",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 416,
+    doi: "10.1021/es801354f",
+    published_date: "2009-04-1",
+    citation: "Xu, Ying; Hubal, Elaine A. Cohen; Clausen, Per A.; Little, John C.. Predicting Residential Exposure to Phthalate Plasticizer Emitted from Vinyl Flooring: A Mechanistic Analysis. ENVIRONMENTAL SCIENCE &amp; TECHNOLOGY. 43(7), (2009).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/416"
+)
+
+Publication.create!(
+    publication_id: 417,
+    doi: "10.1289/ehp.0900559",
+    published_date: "2010-02-1",
+    citation: "Xu, Ying; Hubal, Elaine A. Cohen; Little, John C.. Predicting Residential Exposure to Phthalate Plasticizer Emitted from Vinyl Flooring: Sensitivity, Uncertainty, and Implications for Biomonitoring. ENVIRONMENTAL HEALTH PERSPECTIVES. 118(2), (2010).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/417"
+)
+
+
+Publication.create!(
+    publication_id: 418,
+    doi: "10.1080/15376510701857502",
+    published_date: "2008-01-1",
+    citation: "Yang, C.; Hasselgren, C. H.; Boyer, S.; Arvidson, K.; Aveston, S.; Dierkes, P.; Benigni, R.; Benz, R. D.; Contrera, J.; Kruhlak, N. L.; Matthews, E. J.; Han, X.; Jaworska, J.; Kemper, R. A.; Rathman, J. F.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/1\">Richard, A. M.</a>. Understanding genetic toxicity through data mining: The process of building knowledge by integrating multiple genetic toxicity databases. TOXICOLOGY MECHANISMS AND METHODS. 18(2-3), (2008).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/418"
+)
+
+ScientistPublication.create!(
+    scientist_id: "1",
+    publication_id: "418",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 419,
+    published_date: "2007-03-25",
+    citation: "Yang, Chihae; <a href=\"http://comptox.ag.epa.gov/impact/scientists/1\">Richard, Ann M.</a>. Applying data mining approaches to further understanding chemical effects on biological systems. ABSTRACTS OF PAPERS OF THE AMERICAN CHEMICAL SOCIETY. 233(), (2007).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/419"
+)
+
+ScientistPublication.create!(
+    scientist_id: "1",
+    publication_id: "419",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 420,
+    doi: "10.2174/157340906777441672",
+    published_date: "2006-06-1",
+    citation: "Yang, Chihae; <a href=\"http://comptox.ag.epa.gov/impact/scientists/1\">Richard, Ann M.</a>; Cross, Kevin P.. The Art of Data Mining the Minefields of Toxicity Databases to Link Chemistry to Biology. CURRENT COMPUTER-AIDED DRUG DESIGN. 2(2), (2006).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/420"
+)
+
+ScientistPublication.create!(
+    scientist_id: "1",
+    publication_id: "420",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 421,
+    doi: "10.1021/ci500667v",
+    published_date: "2015-03-1",
+    citation: "Yang, Chihae; Tarkhov, Aleksey; Marusczyk, Joerg; Bienfait, Bruno; Gasteiger, Johann; Kleinoeder, Thomas; Magdziarz, Tomasz; Sacher, Oliver; Schwab, Christof H.; Schwoebel, Johannes; Terfloth, Lothar; Arvidson, Kirk; <a href=\"http://comptox.ag.epa.gov/impact/scientists/1\">Richard, Ann</a>; Worth, Andrew; Rothman, James. New Publicly Available Chemical Query Language, CSRML, To Support Chemotype Representations for Application to Data Mining and Modeling. JOURNAL OF CHEMICAL INFORMATION AND MODELING. 55(3), (2015).",
+    project: "Sustainable Chemistry",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/421"
+)
+
+ScientistPublication.create!(
+    scientist_id: "1",
+    publication_id: "421",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 422,
+    doi: "10.1021/acs.jcim.6b00625",
+    published_date: "2017-01-1",
+    citation: "Zang, Qingda; Mansouri, Kamel; <a href=\"http://comptox.ag.epa.gov/impact/scientists/2\">Williams, Antony J.</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard S.</a>; Allen, David G.; Casey, Warren M.; Kleinstreuer, Nicole C.. In Silico Prediction of Physicochemical Properties of Environmental Chemicals Using Molecular Fingerprints and Machine Learning. JOURNAL OF CHEMICAL INFORMATION AND MODELING. 57(1), (2017).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/422"
+)
+
+ScientistPublication.create!(
+    scientist_id: "2",
+    publication_id: "422",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "422",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 423,
+    doi: "10.1021/ci400527b",
+    published_date: "2013-12-1",
+    citation: "Zang, Qingda; Rotroff, Daniel M.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard S.</a>. Binary Classification of a Large Collection of Environmental Chemicals from Estrogen Receptor Assays by Quantitative Structure-Activity Relationship and Machine Learning Methods. JOURNAL OF CHEMICAL INFORMATION AND MODELING. 53(12), (2013).",
+    project: "Sustainable Chemistry",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/423"
+)
+
+ScientistPublication.create!(
+    scientist_id: "16",
+    publication_id: "423",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 424,
+    doi: "10.1186/1752-0509-4-40",
+    published_date: "2010-04-1",
+    citation: "Zhang, Qiang; Bhattacharya, Sudin; Kline, Douglas E.; Crawford, Robert B.; Conolly, Rory B.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/17\">Thomas, Russell S.</a>; Kaminski, Norbert E.; Andersen, Melvin E.. Stochastic Modeling of B Lymphocyte Terminal Differentiation and Its Suppression by Dioxin. BMC SYSTEMS BIOLOGY. 4(), (2010).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/424"
+)
+
+ScientistPublication.create!(
+    scientist_id: "17",
+    publication_id: "424",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 425,
+    doi: "10.1016/j.taap.2013.01.015",
+    published_date: "2013-03-1",
+    citation: "Zhang, Qiang; Kline, Douglas E.; Bhattacharya, Sudin; Crawford, Robert B.; Conolly, Rory B.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/17\">Thomas, Russell S.</a>; Andersen, Melvin E.; Kaminski, Norbert E.. All-or-none suppression of B cell terminal differentiation by environmental contaminant 2,3,7,8-tetrachlorodibenzo-p-dioxin. TOXICOLOGY AND APPLIED PHARMACOLOGY. 268(1), (2013).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/425"
+)
+
+ScientistPublication.create!(
+    scientist_id: "17",
+    publication_id: "425",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 426,
+    doi: "10.1289/ehp.10573",
+    published_date: "2008-04-1",
+    citation: "Zhu, Hao; Rusyn, Ivan; <a href=\"http://comptox.ag.epa.gov/impact/scientists/1\">Richard, Ann</a>; Tropsha, Alexander. Use of cell viability assay data improves the prediction accuracy of conventional quantitative structure-activity relationship models of animal carcinogenicity. ENVIRONMENTAL HEALTH PERSPECTIVES. 116(4), (2008).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/426"
+)
+
+ScientistPublication.create!(
+    scientist_id: "1",
+    publication_id: "426",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 427,
+    doi: "10.1289/ehp.0800471",
+    published_date: "2009-08-1",
+    citation: "Zhu, Hao; Ye, Lin; <a href=\"http://comptox.ag.epa.gov/impact/scientists/1\">Richard, Ann</a>; Golbraikh, Alexander; Wright, Fred A.; Rusyn, Ivan; Tropsha, Alexander. A Novel Two-Step Hierarchical Quantitative Structure-Activity Relationship Modeling Work Flow for Predicting Acute Toxicity of Chemicals in Rodents. ENVIRONMENTAL HEALTH PERSPECTIVES. 117(8), (2009).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/427"
+)
+
+ScientistPublication.create!(
+    scientist_id: "1",
+    publication_id: "427",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 428,
+    doi: "10.1080/10408440591007313",
+    published_date: "2005-10-1",
+    citation: "Zoeller, RT; <a href=\"http://comptox.ag.epa.gov/impact/scientists/14\">Crofton, KM</a>. Mode of action: Developmental thyroid hormone insufficiency - Neurological abnormalities resulting from exposure to propylthiouracil. CRITICAL REVIEWS IN TOXICOLOGY. 35(8-9), (2005).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/428"
+)
+
+ScientistPublication.create!(
+    scientist_id: "14",
+    publication_id: "428",
+    is_primary_author: false
+)
+
+Publication.create!(
+    publication_id: 429,
+    doi: "10.1093/toxsci/kfn225",
+    published_date: "2009-01-1",
+    citation: "Zorrilla, Leah M.; Gibson, Emily K.; Jeffay, Susan C.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/14\">Crofton, Kevin M.</a>; <a href=\"http://comptox.ag.epa.gov/impact/scientists/21\">Setzer, Woodrow R.</a>; Cooper, Ralph L.; Stoker, Tammy E.. The Effects of Triclosan on Puberty and Thyroid Hormones in Male Wistar Rats. TOXICOLOGICAL SCIENCES. 107(1), (2009).",
+    publication_type_id: 1,
+    publication_url: "http://comptox.ag.epa.gov/impact/api/publications/429"
+)
+
+ScientistPublication.create!(
+    scientist_id: "14",
+    publication_id: "429",
+    is_primary_author: false
+)
+
+ScientistPublication.create!(
+    scientist_id: "21",
+    publication_id: "429",
+    is_primary_author: false
+)
