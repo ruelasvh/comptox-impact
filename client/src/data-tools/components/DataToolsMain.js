@@ -53,25 +53,77 @@ class DataToolsIndex extends React.Component {
 
       Promise.all([
         /* CompTox Dashboard */
-        queryGAApi('https://impact-152019.appspot.com/query?id=ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICA5JEKDA'),
-        queryGAApi('https://impact-152019.appspot.com/query?id=ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgIDa44YKDA'),
-        queryGAApi('https://impact-152019.appspot.com/query?id=ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICZ0oUKDA'),
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICA5JEKDA'), // Page Views
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgIDa44YKDA'), // Unique Page Views
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgIDA-pMKDA'), // Country Month
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgMCoppsJDA'), // Country Year
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgID8qZ8KDA'), // Domain Month
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICZ0oUKDA'), // Domain Year
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgID4-4IKDA'), // State Month
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgMCoppsKDA'), // State Year
         /* ACToR */
-        queryGAApi('https://impact-152019.appspot.com/query?id=ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgID4iYwLDA'),
-        queryGAApi('https://impact-152019.appspot.com/query?id=ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgIDe_pgKDA'),
-        queryGAApi('https://impact-152019.appspot.com/query?id=ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICAw5UJDA'),
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgIDruI8KDA'), // Page Views
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgMCo_IoJDA'), // Unique Page Views
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgID8vYEKDA'), // Country Month
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICv9YQKDA'), // Country Year
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgIC-8YsKDA'), // Domain Month
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgID8qZ8JDA'), // Domain Year
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgIC63J8JDA'), // State Month
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICEtIoKDA'), // State Year
         /* CPCat */
-        queryGAApi('https://impact-152019.appspot.com/query?id=ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICvyIAKDA'),
-        queryGAApi('https://impact-152019.appspot.com/query?id=ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgMDIqoQKDA'),
-        queryGAApi('https://impact-152019.appspot.com/query?id=ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICZzpQKDA'),
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgIDrop4KDA'), // Page Views
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgIDZ8JILDA'), // Unique Page Views
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgIDAnIILDA'), // Country Month
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgMCosYYKDA'), // Country Year
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICEypsKDA'), // Domain Month
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICE3oYKDA'), // Domain Year
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgID89o4JDA'), // State Month
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICZ54MJDA'), // State Year
         /* EDSP21 */
-        queryGAApi('https://impact-152019.appspot.com/query?id=ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgIDtsYMKDA'),
-        queryGAApi('https://impact-152019.appspot.com/query?id=ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgID4iYwKDA'),
-        queryGAApi('https://impact-152019.appspot.com/query?id=ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICZ0oUJDA'),
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgMCo_IoLDA'), // Page Views
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgIDruI8JDA'), // Unique Page Views
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgIDrop4JDA'), // Country Month
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgIDZ8NIIDA'), // Country Year
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgIDAnMIIDA'), // Domain Month
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgMCosYYJDA'), // Domain Year
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgID8vYEJDA'), // State Month
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICv9YQJDA'), // State Year
         /* ToxCast */
-        queryGAApi('https://impact-152019.appspot.com/query?id=ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICAw5UKDA'),
-        queryGAApi('https://impact-152019.appspot.com/query?id=ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgMDIqoQJDA'),
-        queryGAApi('https://impact-152019.appspot.com/query?id=ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICvnJEJDA'),
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgIDA-pMJDA'), // Page Views
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgMCoppsLDA'), // Unique Page Views
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgIDZrIsJDA'), // Country Month
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICEtIoJDA'), // Country Year
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgIC63J8LDA'), // Domain Month
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgIDZ8NIKDA'), // Domain Year
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgIDAnMIKDA'), // State Month
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgMCosYYLDA'), // State Year
+        /* CompTox Download Drupal */
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgMCo6JMJDA'), // Page Views
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICZ54MLDA'), // Unique Page Views
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgIC-7ZoKDA'), // Country Month
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICv4ZkLDA'), // Country Year
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICdlIcKDA'), // Domain Month
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgIC-8YsJDA'), // Domain Year
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICv9YQLDA'), // State Month
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgID8vYELDA'), // State Year
+        /* ToxCast Download Drupal */
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICv4dkIDA'), // Page Views
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICdwJoJDA'), // Unique Page Views
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICdipYKDA'), // Country Month
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgMCo6JMLDA'), // Country Year
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICZ58MIDA'), // Domain Month
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICEtIoLDA'), // Domain Year
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgIC63N8IDA'), // State Month
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgID8qZ8LDA'), // State Year
+        /* DSSTox Download Drupal */
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgIC6qI4JDA'), // Page Views
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICEoJMJDA'), // Unique Page Views
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICdwJoLDA'), // Country Month
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICdipYJDA'), // Country Year
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgMCo6NMIDA'), // Domain Month
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICZ58MKDA'), // Domain Year
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICEtMoIDA'), // State Month
+        queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgIC63N8KDA')  // State Year
       ]).then(function (results) {
         let comptoxdashboard = _this.state.datasets.analytics.comptoxdashboard;
         let actor = _this.state.datasets.analytics.actor;
@@ -82,27 +134,82 @@ class DataToolsIndex extends React.Component {
         comptoxdashboard.usage = {
           pageViews: results[0],
           uniquePageViews: results[1],
-          domainTypes: results[2]
+          countryMonth: results[2],
+          countryYear: results[3],
+          domainMonth: results[4],
+          domainYear: results[5],
+          stateMonth: results[6],
+          stateYear: results[7]
         };
         actor.usage = {
-          pageViews: results[3],
-          uniquePageViews: results[4],
-          domainTypes: results[5]
+          pageViews: results[8],
+          uniquePageViews: results[9],
+          countryMonth: results[10],
+          countryYear: results[11],
+          domainMonth: results[12],
+          domainYear: results[13],
+          stateMonth: results[14],
+          stateYear: results[15]
         };
         cpcat.usage = {
-          pageViews: results[6],
-          uniquePageViews: results[7],
-          domainTypes: results[8]
+          pageViews: results[16],
+          uniquePageViews: results[17],
+          countryMonth: results[18],
+          countryYear: results[19],
+          domainMonth: results[20],
+          domainYear: results[21],
+          stateMonth: results[22],
+          stateYear: results[23]
         };
         edsp21.usage = {
-          pageViews: results[9],
-          uniquePageViews: results[10],
-          domainTypes: results[11]
+          pageViews: results[24],
+          uniquePageViews: results[25],
+          countryMonth: results[26],
+          countryYear: results[27],
+          domainMonth: results[28],
+          domainYear: results[29],
+          stateMonth: results[30],
+          stateYear: results[31]
         };
         toxcast.usage = {
-          pageViews: results[12],
-          uniquePageViews: results[13],
-          domainTypes: results[14]
+          pageViews: results[32],
+          uniquePageViews: results[33],
+          countryMonth: results[34],
+          countryYear: results[35],
+          domainMonth: results[36],
+          domainYear: results[37],
+          stateMonth: results[38],
+          stateYear: results[39]
+        };
+        comptoxdashboard.datadownloads = {
+          pageViews: results[40],
+          uniquePageViews: results[41],
+          countryMonth: results[42],
+          countryYear: results[43],
+          domainMonth: results[44],
+          domainYear: results[45],
+          stateMonth: results[46],
+          stateYear: results[47]
+        };
+        toxcast.datadownloads = {
+          pageViews: results[48],
+          uniquePageViews: results[49],
+          countryMonth: results[50],
+          countryYear: results[51],
+          domainMonth: results[52],
+          domainYear: results[53],
+          stateMonth: results[54],
+          stateYear: results[55]
+        };
+        dsstox.datadownloads = {
+          pageViews: results[56],
+          uniquePageViews: results[57],
+          countryMonth: results[58],
+          countryYear: results[59],
+          domainMonth: results[60],
+          domainYear: results[61],
+          stateMonth: results[62],
+          stateYear: results[63]
         };
 
         let datasets = {
@@ -152,7 +259,7 @@ class DataToolsIndex extends React.Component {
             <Row className="clearfix">
               <Col sm={3}>
                 <Accordion defaultActiveKey="1">
-                  { props.tab.data.hasOwnProperty('usage') ? 
+                  { props.tab.data.hasOwnProperty('usage') ?
                   <Panel header={props.tab.name + " Usage"} eventKey="1">
                     <Nav bsStyle="pills" stacked>
                       <NavItem eventKey="page-views">Page Views</NavItem>
@@ -161,15 +268,20 @@ class DataToolsIndex extends React.Component {
                     </Nav>
                   </Panel>
                     : ' ' }
-                  { props.tab.data.hasOwnProperty('datadownloads') ? 
+                  { props.tab.data.hasOwnProperty('datadownloads') ?
                   <Panel header={props.tab.name + " Data Downloads"} eventKey={ props.tab.data.hasOwnProperty('usage') ? '2' : '1'}>
+                    <Nav bsStyle="pills" stacked>
+                      <NavItem eventKey="drupal-page-views">Page Views</NavItem>
+                      <NavItem eventKey="drupal-unique-page-views">Unique Page Views</NavItem>
+                      <NavItem eventKey="drupal-type-users">Types of Users</NavItem>
+                    </Nav>
                   </Panel>
                     : ' ' }
-                  { props.tab.data.hasOwnProperty('ftpdownloads') ? 
+                  { props.tab.data.hasOwnProperty('ftpdownloads') ?
                   <Panel header={props.tab.name + " FTP Downloads"} eventKey="3">
                   </Panel>
                     : ' ' }
-                  { props.tab.data.hasOwnProperty('analog') ? 
+                  { props.tab.data.hasOwnProperty('analog') ?
                   <Panel header={props.tab.name + " Analog Stats"} eventKey="4">
                     <Nav bsStyle="pills" stacked>
                       <NavItem eventKey="analog">Analog Stats</NavItem>
@@ -179,7 +291,7 @@ class DataToolsIndex extends React.Component {
                 </Accordion>
               </Col>
               <Col sm={9}>
-                { props.tab.data.hasOwnProperty('usage') ? 
+                { props.tab.data.hasOwnProperty('usage') ?
                   <Tab.Content animation>
                     <Tab.Pane eventKey="page-views">
                       {props.self.state.isFetching ?
@@ -193,14 +305,35 @@ class DataToolsIndex extends React.Component {
                     </Tab.Pane>
                     <Tab.Pane eventKey="type-users">
                       {props.self.state.isFetching ?
-                        ' ' : <DoughnutChart data={props.tab.data.usage.domainTypes} label="Type Of Users By Domain"/>
+                        ' ' : <DoughnutChart data={props.tab.data.usage.domainYear} label="Type Of Users By Domain"/>
                       }
                     </Tab.Pane>
+                  </Tab.Content>
+                  : ' ' }
+                { props.tab.data.hasOwnProperty('datadownloads') ?
+                  <Tab.Content animation>
+                    <Tab.Pane eventKey="drupal-page-views">
+                      {props.self.state.isFetching ?
+                        ' ' : <LineChart data={props.tab.data.datadownloads.pageViews}/>
+                      }
+                    </Tab.Pane>
+                    <Tab.Pane eventKey="drupal-unique-page-views">
+                      {props.self.state.isFetching ?
+                        ' ' : <LineChart data={props.tab.data.datadownloads.uniquePageViews}/>
+                      }
+                    </Tab.Pane>
+                    <Tab.Pane eventKey="drupal-type-users">
+                      {props.self.state.isFetching ?
+                        ' ' : <DoughnutChart data={props.tab.data.datadownloads.domainYear} label="Type Of Users By Domain"/>
+                      }
+                    </Tab.Pane>
+                  </Tab.Content>
+                  : ' ' }
+                  <Tab.Content animation>
                     <Tab.Pane eventKey="analog">
                       <ActorAnalog />
                     </Tab.Pane>
                   </Tab.Content>
-                : ' ' }
               </Col>
             </Row>
           </Tab.Container>
@@ -238,30 +371,3 @@ class DataToolsIndex extends React.Component {
 }
 
 export default DataToolsIndex;
-/*
-const actorSubtabInstance = (
-  <Tab.Container defaultActiveKey="a-usage-analog-stats">
-    <Row className="clearfix" >
-      <Col sm={4}>
-        <Nav bsStyle="pills" stacked>
-          <NavItem eventKey="a-usage-analog-stats">
-            Usage from Analog Stats
-          </NavItem>
-          <NavItem eventKey="a-usage-google-analytics">
-            Usage from Google Analytics
-          </NavItem>
-        </Nav>
-      </Col>
-      <Col sm={8}>
-        <Tab.Content animation>
-          <Tab.Pane eventKey="a-usage-analog-stats">
-          </Tab.Pane>
-          <Tab.Pane eventKey="a-usage-google-analytics">
-            <h3>Usage from Google Analytics</h3>
-          </Tab.Pane>
-        </Tab.Content>
-      </Col>
-    </Row>
-  </Tab.Container>
-);
-*/

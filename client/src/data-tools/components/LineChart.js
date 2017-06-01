@@ -14,46 +14,71 @@ const LineChart = ({ data }) => {
 
   let thisyear = moment().year();
   let years = [];
-  let colors = ['rgba(166,206,227,1)', 'rgba(31,120,180,1)', 'rgba(178,223,138,1)', 'rgba(51,160,44,1)'];
+  let colors = ['rgba(166,206,227,', 'rgba(31,120,180,', 'rgba(178,223,138,', 'rgba(51,160,44,'];
   for(let i = 0; i < 4; i++) {
-    years.push({ year: thisyear - i, points: new Array(12), color: colors[i]});
+    years.push({ year: thisyear - i, weeks: new Array(53), color: colors[i]});
   }
-  let labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  let labels = new Array(53);
+  labels[0] = 'Jan';
+  labels[4] = 'Feb';
+  labels[8] = 'Mar';
+  labels[13] = 'Apr';
+  labels[17] = 'May';
+  labels[22] = 'Jun';
+  labels[26] = 'Jul';
+  labels[30] = 'Aug';
+  labels[35] = 'Sep';
+  labels[39] = 'Oct';
+  labels[43] = 'Nov';
+  labels[48] = 'Dec';
+  labels[52] = '';
 
+  let sum = 0;
   data.rows.forEach(row => {
-    const rowYear = parseInt(row[0].slice(0,4));
-    const rowMonth = parseInt(row[0].slice(4));
-    const currentYear = years.filter((year) => year.year === rowYear)[0];
-    if(currentYear) {
-      currentYear.points[rowMonth - 1] = row[1];
+    const date = moment(row[0]);
+    const day = date.dayOfYear();
+    let dateYear = years.filter((year) => year.year === date.year())[0];
+    if (dateYear) {
+      sum += parseInt(row[1]);
+      if (day % 7 === 0) {
+        dateYear.weeks[(day / 7) - 1] = sum / 7;
+        sum = 0;
+      } else if (day === 365 + date.isLeapYear()) {
+        dateYear.weeks[53] = sum / (day % 7);
+        sum = 0;
+      }
     }
   });
 
-  const options = {
-    labels: labels,
-    datasets: years.map(function(year) {
+  const relevantyears = years.filter((year) => year.weeks.some((count) => count > 0));
+
+  const weekPoints = relevantyears.map(function(year) {
       return {
         label: year.year,
         fill: false,
         lineTension: 0.1,
-        backgroundColor: year.color,
-        borderColor: year.color,
+        backgroundColor: year.color + '1)',
+        borderColor: year.color + '1)',
         borderCapStyle: 'butt',
         borderDash: [],
         borderDashOffset: 0.0,
         borderJoinStyle: 'miter',
-        pointBorderColor: year.color,
+        pointBorderColor: year.color + '1)',
         pointBackgroundColor: '#fff',
         pointBorderWidth: 1,
-        pointHoverRadius: 5,
-        pointHoverBackgroundColor: year.color,
+        pointHoverRadius: 1,
+        pointHoverBackgroundColor: year.color + '1)',
         pointHoverBorderColor: 'rgba(220,220,220,1)',
         pointHoverBorderWidth: 1,
-        pointRadius: 2,
-        pointHitRadius: 10,
-        data: year.points
+        pointRadius: 1,
+        pointHitRadius: 1,
+        spanGaps: true,
+        data: year.weeks
       };
-    })
+  });
+  const options = {
+    labels: labels,
+    datasets: weekPoints
   };
 
   return (
