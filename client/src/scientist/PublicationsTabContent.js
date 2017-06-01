@@ -3,11 +3,9 @@
  * US EPA National Center for Computational Toxicology
  */
 import React, { PropTypes } from 'react';
+import { Grid, Row, Col } from 'react-bootstrap';
 import Waypoint from 'react-waypoint';
-
-// components
 import PublicationItem from '../publications/components/PublicationItem';
-// styles
 import './styles/publications-tab-content.css';
 
 class PublicationsTabContent extends React.Component {
@@ -17,7 +15,6 @@ class PublicationsTabContent extends React.Component {
         this.state = {
             limit: 0,
         };
-
         // Bind functions
         this.handlePublications = this.handlePublications.bind(this);
     }
@@ -56,6 +53,7 @@ class PublicationsTabContent extends React.Component {
 
         this.setState({
             limit: currLimit + step,
+            isLoading: false
         }, () => {
             window.__plumX.widgets.popup.wireUp();
             window._altmetric.embed_init();
@@ -93,6 +91,8 @@ class PublicationsTabContent extends React.Component {
     }
 
     render() {
+        console.log('selectedPublications', this.props.selectedPublications);
+
         return (
             <div className="infinite-scroll-example">
                 {/*For debugging*/}
@@ -101,6 +101,23 @@ class PublicationsTabContent extends React.Component {
                     Total: {this.props.selectedPublications.length}.
                 </p>
                 <div className="infinite-scroll-example__scrollable-parent">
+                    <Row bsClass="with-underheader-2">
+                        <Col md={7}>
+                            <strong>Publications</strong>
+                        </Col>
+                        <Col md={2}>
+                            <strong>Research Project</strong>
+                        </Col>
+                        <Col md={1}>
+                            <strong>Altmetric</strong>
+                        </Col>
+                        <Col md={1}>
+                            <strong>PlumX</strong>
+                        </Col>
+                        <Col md={1}>
+                            <strong>Kudos</strong>
+                        </Col>
+                    </Row>
                     {this.renderPublications()}
                     <div className="infinite-scroll-example__waypoint">
                         {this.state.limit < this.props.selectedPublications.length ? this.renderWaypoint() : ' '}
@@ -112,7 +129,7 @@ class PublicationsTabContent extends React.Component {
 }
 
 PublicationsTabContent.propTypes = {
-    selectedPublications: PropTypes.array.isRequired,
+    selectedPublications: PropTypes.object,
     onEnter: PropTypes.func, // function called when waypoint enters viewport
     onLeave: PropTypes.func, // function called when waypoint leaves viewport
 };
