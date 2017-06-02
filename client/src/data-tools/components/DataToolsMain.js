@@ -5,6 +5,7 @@
 import React from 'react';
 import { Grid, Row, Col, Nav, NavItem, Tab, Accordion, Panel } from 'react-bootstrap';
 import LineChart from './LineChart';
+import BarChart from './BarChart';
 import DoughnutChart from './DoughnutChart';
 import ActorAnalog from './ActorAnalog';
 import { queryGAApi } from '../../utils/Client';
@@ -255,7 +256,7 @@ class DataToolsIndex extends React.Component {
 
       function Subtab(props) {
         return (
-          <Tab.Container defaultActiveKey="page-views">
+          <Tab.Container defaultActiveKey={ props.tab.data.hasOwnProperty('usage') ? "page-views" : "drupal-page-views"}>
             <Row className="clearfix">
               <Col sm={3}>
                 <Accordion defaultActiveKey="1">
@@ -295,7 +296,7 @@ class DataToolsIndex extends React.Component {
                   <Tab.Content animation>
                     <Tab.Pane eventKey="page-views">
                       {props.self.state.isFetching ?
-                        ' ' : <LineChart data={props.tab.data.usage.pageViews}/>
+                        ' ' : <BarChart data={props.tab.data.usage.pageViews}/>
                       }
                     </Tab.Pane>
                     <Tab.Pane eventKey="unique-page-views">
