@@ -618,6 +618,7 @@ Publication.create!(
     publication_id: 1,
     doi: "10.1016/j.ntt.2008.03.034",
     published_date: "2014-05-1",
+    title: "The Effects of Triclosan on Puberty and Thyroid Hormones in Male Wistar Rats",
     citation: "Acuff, Karen; Broening, Bill; <a href=\"http://comptox.ag.epa.gov/impact/scientists/14\">Crofton, Kevin</a>; Fix, Andrew; Julien, Elizabeth; Nash, Jay; <a href=\"http://comptox.ag.epa.gov/impact/scientists/1\">Richard, Ann</a>; Tozer, Sarah; Yang, Chihae. Conversion of Developmental Neurotoxicity (DNT) information into a structure-searchable relational database. NEUROTOXICOLOGY AND TERATOLOGY. 30(3), (2008).",
     publication_type_id: 1,
     publication_url: "http://comptox.ag.epa.gov/impact/api/publications/1"
@@ -639,6 +640,7 @@ Publication.create!(
     publication_id: 2,
     doi: nil,
     published_date: "2014-05-1",
+    title: "Predictive Models of Skeletal Developmental Defects from ToxCast High-Throughput Screening Data",
     citation: "Ahir, B. K.; Sipes, N. S.; Baker, N. C.; Leung, M. C. K.; Dewoskin, R. S.; Spencer, R. M.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, R. S.</a>; Martin, M. T.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, T. B.</a>. Predictive Models of Skeletal Developmental Defects from ToxCast High-Throughput Screening Data. BIRTH DEFECTS RESEARCH PART A-CLINICAL AND MOLECULAR TERATOLOGY. 100(5), (2014).",
     publication_type_id: 1,
     publication_url: "http://comptox.ag.epa.gov/impact/api/publications/2"
@@ -660,6 +662,7 @@ Publication.create!(
     publication_id: 3,
     doi: "10.1289/ehp.1206301",
     published_date: "2013-06-1",
+    title: "A C. elegans Screening Platform for the Rapid Assessment of Chemical Disruption of Germline Function",
     citation: "Allard, Patrick; Kleinstreuer, Nicole C.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, Thomas B.</a>; Colaiacovo, Monica P.. A C. elegans Screening Platform for the Rapid Assessment of Chemical Disruption of Germline Function. ENVIRONMENTAL HEALTH PERSPECTIVES. 121(6), (2013).",
     publication_type_id: 1,
     publication_url: "http://comptox.ag.epa.gov/impact/api/publications/3"
@@ -675,6 +678,7 @@ Publication.create!(
     publication_id: 4,
     doi: "10.1038/jes.2010.28",
     published_date: "2010-07-1",
+    title: " Ensuring the safety of chemicals",
     citation: "Anastas, Paul; Teichman, Kevin; Hubal, Elaine Cohen. Ensuring the safety of chemicals. JOURNAL OF EXPOSURE SCIENCE AND ENVIRONMENTAL EPIDEMIOLOGY. 20(5), (2010).",
     publication_type_id: 1,
     publication_url: "http://comptox.ag.epa.gov/impact/api/publications/4"
@@ -684,6 +688,7 @@ Publication.create!(
     publication_id: 5,
     doi: nil,
     published_date: "2014-01-1",
+    title: "Developing Microphysiological Systems for Use as Regulatory Tools - Challenges and Opportunities",
     citation: "Andersen, Melvin E.; Betts, Kellyn; Dragan, Yvonne; Fitzpatrick, Suzanne; Goodman, Jesse L.; Hartung, Thomas; Himmelfarb, Jonathan; Ingber, Donald E.; Jacobs, Abigail; Kavlock, Robert; Kolaja, Kyle; Stevens, James L.; Tagle, Dan; Taylor, D. Lansing; Throckmorton, Douglas. Developing Microphysiological Systems for Use as Regulatory Tools - Challenges and Opportunities. ALTEX-ALTERNATIVES TO ANIMAL EXPERIMENTATION. 31(3), (2014).",
     publication_type_id: 1,
     publication_url: "http://comptox.ag.epa.gov/impact/api/publications/5"
@@ -693,6 +698,7 @@ Publication.create!(
     publication_id: 6,
     doi: "10.1021/acs.est.6b04425",
     published_date: "2016-10-4",
+    title: "Pathway-Based Approaches for Environmental Monitoring and Risk Assessment",
     citation: "Ankley, Gerald; Escher, Beate I.; Hartung, Thomas; <a href=\"http://comptox.ag.epa.gov/impact/scientists/9\">Shah, Imran</a>. Pathway-Based Approaches for Environmental Monitoring and Risk Assessment. ENVIRONMENTAL SCIENCE &amp; TECHNOLOGY. 50(19), (2016).",
     publication_type_id: 1,
     publication_url: "http://comptox.ag.epa.gov/impact/api/publications/6"
@@ -708,6 +714,7 @@ Publication.create!(
     publication_id: 7,
     doi: "10.1021/acs.chemrestox.6b00321",
     published_date: "2016-11-1",
+    title: "Pathway-Based Approaches for Environmental Monitoring and Risk Assessment",
     citation: "Ankley, Gerald; Escher, Beate; Hartung, Thomas; <a href=\"http://comptox.ag.epa.gov/impact/scientists/9\">Shah, Imran</a>. Pathway-Based Approaches for Environmental Monitoring and Risk Assessment. CHEMICAL RESEARCH IN TOXICOLOGY. 29(11), (2016).",
     publication_type_id: 1,
     publication_url: "http://comptox.ag.epa.gov/impact/api/publications/7"
@@ -723,6 +730,7 @@ Publication.create!(
     publication_id: 8,
     doi: "10.14252/foodsafetyfscj.2015012",
     published_date: "2015-01-1",
+    title: "(Food Safety) Developmental Neurotoxicology: History and Outline of Developmental Neurotoxicity Study Guidelines",
     citation: "Aoyama , H., N. Takahashi, Y. Shutoh , A. Motomura , and <a href=\"http://comptox.ag.epa.gov/impact/scientists/14\">K. Crofton</a>. (Food Safety) Developmental Neurotoxicology: History and Outline of Developmental Neurotoxicity Study Guidelines..   Food Safety. Food Safety Commission, Cabinet Office, Government of Japan, TOKYO,  JAPAN, 3(2): 48-61, (2015).",
     project: "Adverse Outcome Pathways",
     publication_type_id: 1,
@@ -739,6 +747,7 @@ Publication.create!(
     publication_id: 9,
     doi: "10.1289/ehp.1408642",
     published_date: "2015-01-1",
+    title: "Profiling of the Tox21 Chemical Collection for Mitochondrial Function to Identify Compounds that Acutely Decrease Mitochondrial Membrane Potential",
     citation: "Attene-Ramos, Matias S.; Huang, Ruili; Michael, Sam; Witt, Kristine L.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/1\">Richard, Ann</a>; Tice, Raymond R.; Simeonov, Anton; Austin, Christopher P.; Xia, Menghang. Profiling of the Tox21 Chemical Collection for Mitochondrial Function to Identify Compounds that Acutely Decrease Mitochondrial Membrane Potential. ENVIRONMENTAL HEALTH PERSPECTIVES. 123(1), (2015).",
     project: "High-throughput Tox Testing",
     publication_type_id: 1,
@@ -755,6 +764,7 @@ Publication.create!(
     publication_id: 10,
     doi: "10.1016/j.drudis.2013.05.015",
     published_date: "2013-08-1",
+    title: "The Tox21 robotic platform for the assessment of environmental chemicals - from vision to reality",
     citation: "Attene-Ramos, Matias S.; Miller, Nicole; Huang, Ruili; Michael, Sam; Itkin, Misha; Kavlock, Robert J.; Austin, Christopher P.; Shinn, Paul; Simeonov, Anton; Tice, Raymond R.; Xia, Menghang. The Tox21 robotic platform for the assessment of environmental chemicals - from vision to reality. DRUG DISCOVERY TODAY. 18(15-16), (2013).",
     publication_type_id: 1,
     publication_url: "http://comptox.ag.epa.gov/impact/api/publications/10"
@@ -764,6 +774,7 @@ Publication.create!(
     publication_id: 11,
     doi: "10.1289/ehp.1510456",
     published_date: "2016-08-1",
+    title: "Prioritizing Environmental Chemicals for Obesity and Diabetes Outcomes Research: A Screening Approach Using ToxCast (TM) High-Throughput Data",
     citation: "Auerbach, Scott; Filer, Dayne; Reif, David; Walker, Vickie; Holloway, Alison C.; Schlezinger, Jennifer; Srinivasan, Supriya; Svoboda, Daniel; <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard</a>; Bucher, John R.; Thayer, Kristina A.. Prioritizing Environmental Chemicals for Obesity and Diabetes Outcomes Research: A Screening Approach Using ToxCast (TM) High-Throughput Data. ENVIRONMENTAL HEALTH PERSPECTIVES. 124(8), (2016).",
     project: "High-throughput Tox Testing",
     publication_type_id: 1,
@@ -780,6 +791,7 @@ Publication.create!(
     publication_id: 12,
     doi: "10.1097/01.ede.0000392237.06413.32",
     published_date: "2011-01-1",
+    title: "From Servant to Luminary: Transforming Exposure Science for Protection of Public Health",
     citation: "Bahadori, Tina; Barr, Dana; Hubal, Elaine Cohen. From Servant to Luminary: Transforming Exposure Science for Protection of Public Health. EPIDEMIOLOGY. 22(1), (2011).",
     publication_type_id: 1,
     publication_url: "http://comptox.ag.epa.gov/impact/api/publications/12"
@@ -789,6 +801,7 @@ Publication.create!(
     publication_id: 13,
     doi: "10.14573/altex.1601251",
     published_date: "2016-01-1",
+    title: "Toward Good Read-Across Practice (GRAP) Guidance.",
     citation: "Ball, Nicholas; Cronin, Mark T. D.; Shen, Jie; Blackburn, Karen; Booth, Ewan D.; Bouhifd, Mounir; Donley, Elizabeth; Egnash, Laura; Hastings, Charles; Juberg, Daland R.; Kleensang, Andre; Kleinstreuer, Nicole; Kroese, E. Dinant; Lee, Adam C.; Luechtefeld, Thomas; Maertens, Alexandra; Marty, Sue; Naciff, Jorge M.; Palmer, Jessica; Pamies, David; Penman, Mike; Richarz, Andrea-Nicole; Russo, Daniel P.; Stuard, Sharon B.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/8\">Patlewicz, Grace</a>; van Ravenzwaay, Bennard; Wu, Shengde; Zhu, Hao; Hartung, Thomas. Toward Good Read-Across Practice (GRAP) Guidance. ALTEX-ALTERNATIVES TO ANIMAL EXPERIMENTATION. 33(2), (2016).",
     project: "Sustainable Chemistry",
     publication_type_id: 1,
@@ -805,6 +818,7 @@ Publication.create!(
     publication_id: 14,
     doi: "10.1007/s00204-015-1464-2",
     published_date: "2015-02-1",
+    title: "International STakeholder NETwork (ISTNET): creating a developmental neurotoxicity (DNT) testing road map for regulatory purposes",
     citation: "Bal-Price, Anna; <a href=\"http://comptox.ag.epa.gov/impact/scientists/14\">Crofton, Kevin M.</a>; Leist, Marcel; Allen, Sandra; Arand, Michael; Buetler, Timo; Delrue, Nathalie; FitzGerald, Rex E.; Hartung, Thomas; Heinonen, Tuula; Hogberg, Helena; Bennekou, Susanne Hougaard; Lichtensteiger, Walter; Oggier, Daniela; Paparella, Martin; Axelstad, Marta; Piersma, Aldert; Rached, Eva; Schilter, BenoIt; Schmuck, Gabriele; Stoppini, Luc; Tongiorgi, Enrico; Tiramani, Manuela; Monnet-Tschudi, Florianne; Wilks, Martin F.; Ylikomi, Timo; Fritsche, Ellen. International STakeholder NETwork (ISTNET): creating a developmental neurotoxicity (DNT) testing road map for regulatory purposes. ARCHIVES OF TOXICOLOGY. 89(2), (2015).",
     project: "Rapid Exposure and Dose",
     publication_type_id: 1,
@@ -821,6 +835,7 @@ Publication.create!(
     publication_id: 15,
     doi: "10.3109/10408444.2014.981331",
     published_date: "2015-01-1",
+    title: "Putative adverse outcome pathways relevant to neurotoxicity",
     citation: "Bal-Price, Anna; <a href=\"http://comptox.ag.epa.gov/impact/scientists/14\">Crofton, Kevin M.</a>; Sachana, Magdalini; Shafer, Timothy J.; Behl, Mamta; Forsby, Anna; Hargreaves, Alan; Landesmann, Brigitte; Lein, Pamela J.; Louisse, Jochem; Monnet-Tschudi, Florianne; Paini, Alicia; Rolaki, Alexandra; Schrattenholz, Andre; Sunol, Cristina; van Thriel, Christoph; Whelan, Maurice; Fritsche, Ellen. Putative adverse outcome pathways relevant to neurotoxicity. CRITICAL REVIEWS IN TOXICOLOGY. 45(1), (2015).",
     publication_type_id: 1,
     publication_url: "http://comptox.ag.epa.gov/impact/api/publications/15"
@@ -836,6 +851,7 @@ Publication.create!(
     publication_id: 16,
     doi: "10.1002/bdra.20610",
     published_date: "2009-08-1",
+    title: "Inducible 70 kDa Heat Shock Proteins Protect Embryos from Teratogen-Induced Exencephaly: Analysis Using Hspa1a/a1b Knockout Mice",
     citation: "Barrier, Marianne; Dix, David J.; Mirkes, Philip E.. Inducible 70 kDa Heat Shock Proteins Protect Embryos from Teratogen-Induced Exencephaly: Analysis Using Hspa1a/a1b Knockout Mice. BIRTH DEFECTS RESEARCH PART A-CLINICAL AND MOLECULAR TERATOLOGY. 85(8), (2009).",
     publication_type_id: 1,
     publication_url: "http://comptox.ag.epa.gov/impact/api/publications/16"
@@ -845,6 +861,7 @@ Publication.create!(
     publication_id: 17,
     doi: "10.2164/jandrol.107.003970",
     published_date: "2008-05-1",
+    title: "Altered expression of muscle- and cytoskeleton-related genes in a rat strain with inherited cryptorchidism",
     citation: "Barthold, Julia S.; Mccahan, Suzanne M.; Singh, Amar V.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, Thomas B.</a>; Si, Xiaoli; Campion, Liam; Akins, Robert E.. Altered expression of muscle- and cytoskeleton-related genes in a rat strain with inherited cryptorchidism. JOURNAL OF ANDROLOGY. 29(3), (2008).",
     publication_type_id: 1,
     publication_url: "http://comptox.ag.epa.gov/impact/api/publications/17"
@@ -860,6 +877,7 @@ Publication.create!(
     publication_id: 18,
     doi: "10.1080/00498250600821292",
     published_date: "2006-09-1",
+    title: "Metabolism of myclobutanil and triadimefon by human and rat cytochrome P450 enzymes and liver microsomes",
     citation: "Barton, H. A.; Tang, J.; Sey, Y. M.; Stanko, J. P.; Murrell, R. N.; Rockett, J. C.; Dix, D. J.. Metabolism of myclobutanil and triadimefon by human and rat cytochrome P450 enzymes and liver microsomes. XENOBIOTICA. 36(9), (2006).",
     publication_type_id: 1,
     publication_url: "http://comptox.ag.epa.gov/impact/api/publications/18"
@@ -869,6 +887,7 @@ Publication.create!(
     publication_id: 19,
     doi: "10.1021/sc400024a",
     published_date: "2013-07-1",
+    title: " Green Synthesized and Coated Nanosilver Alters the Membrane Permeability of Barrier (Intestinal, Brain Endothelial) Cells and Stimulates Oxidative Stress Pathways in Neurons",
     citation: "Baruwati, Babita; <a href=\"http://comptox.ag.epa.gov/impact/scientists/19\">Simmons, Steven O.</a>; Varma, Rajendar S.; Veronesi, Bellina. Green Synthesized and Coated Nanosilver Alters the Membrane Permeability of Barrier (Intestinal, Brain Endothelial) Cells and Stimulates Oxidative Stress Pathways in Neurons. ACS SUSTAINABLE CHEMISTRY &amp; ENGINEERING. 1(7), (2013).",
     publication_type_id: 1,
     publication_url: "http://comptox.ag.epa.gov/impact/api/publications/19"
@@ -884,6 +903,7 @@ Publication.create!(
     publication_id: 20,
     doi: "10.14573/altex.2012.1.003",
     published_date: "2012-01-1",
+    title: " t(4) Report A Roadmap for the Development of Alternative (Non-Animal) Methods for Systemic Toxicity Testing",
     citation: "Basketter, David A.; Clewell, Harvey; Kimber, Ian; Rossi, Annamaria; Blaauboer, Bas; Burrier, Robert; Daneshian, Mardas; Eskes, Chantra; Goldberg, Alan; Hasiwa, Nina; Hoffmann, Sebastian; Jaworska, Joanna; <a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, Thomas B.</a>; Landsiedel, Robert; Leist, Marcel; Locke, Paul; Maxwell, Gavin; McKim, James; McVey, Emily A.; Ouedraogo, Gladys; <a href=\"http://comptox.ag.epa.gov/impact/scientists/8\">Patlewicz, Grace</a>; Pelkonen, Olavi; Roggen, Erwin; Rovida, Costanza; Ruhdel, Irmela; Schwarz, Michael; Schepky, Andreas; Schoeters, Greet; Skinner, Nigel; Trentz, Kerstin; Turner, Marian; Vanparys, Philippe; Yager, James; Zurlo, Joanne; Hartung, Thomas. t(4) Report A Roadmap for the Development of Alternative (Non-Animal) Methods for Systemic Toxicity Testing. ALTEX-ALTERNATIVES TO ANIMAL EXPERIMENTATION. 29(1), (2012).",
     publication_type_id: 1,
     publication_url: "http://comptox.ag.epa.gov/impact/api/publications/20"
@@ -905,6 +925,7 @@ Publication.create!(
     publication_id: 21,
     doi: "10.1016/j.actbio.2016.05.020",
     published_date: "2016-07-15",
+    title: "Human iPSC-derived endothelial cell sprouting assay in synthetic hydrogel arrays",
     citation: "Belair, David G.; Schwartz, Michael P.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, Thomas</a>; Murphy, William L.. Human iPSC-derived endothelial cell sprouting assay in synthetic hydrogel arrays. ACTA BIOMATERIALIA. 39(), (2016).",
     project: "Virtual Tissues, vEmbryo",
     publication_type_id: 1,
@@ -921,6 +942,7 @@ Publication.create!(
     publication_id: 22,
     doi: "10.1074/jbc.M109.013862",
     published_date: "2009-08-21",
+    title: "Modulation of TLR2 Protein Expression by miR-105 in Human Oral Keratinocytes",
     citation: "Benakanakere, Manjunatha R.; Li, Qiyan; Eskan, Mehmet A.; Singh, Amar V.; Zhao, Jiawei; Galicia, Johnah C.; Stathopoulou, Panagiota; <a href=\"http://comptox.ag.epa.gov/impact/scientists/20\">Knudsen, Thomas B.</a>; Kinane, Denis F.. Modulation of TLR2 Protein Expression by miR-105 in Human Oral Keratinocytes. JOURNAL OF BIOLOGICAL CHEMISTRY. 284(34), (2009).",
     publication_type_id: 1,
     publication_url: "http://comptox.ag.epa.gov/impact/api/publications/22"
@@ -936,6 +958,7 @@ Publication.create!(
     publication_id: 23,
     doi: "10.1080/10590500902885593",
     published_date: "2009-01-1",
+    title: "Predictive Models for Carcinogenicity and Mutagenicity: Frameworks, State-of-the-Art, and Perspectives",
     citation: "Benfenati, E.; Benigni, R.; DeMarini, D. M.; Helma, C.; Kirkland, D.; Martin, T. M.; Mazzatorta, P.; Ouedraogo-Arras, G.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/1\">Richard, A. M.</a>; Schilter, B.; Schoonen, W. G. E. J.; Snyder, R. D.; Yang, C.. Predictive Models for Carcinogenicity and Mutagenicity: Frameworks, State-of-the-Art, and Perspectives. JOURNAL OF ENVIRONMENTAL SCIENCE AND HEALTH PART C-ENVIRONMENTAL CARCINOGENESIS &amp; ECOTOXICOLOGY REVIEWS. 27(2), (2009).",
     publication_type_id: 1,
     publication_url: "http://comptox.ag.epa.gov/impact/api/publications/23"
@@ -950,6 +973,7 @@ ScientistPublication.create!(
 Publication.create!(
     publication_id: 24,
     published_date: "2008-01-1",
+    title: "A novel approach: chemical relational databases, and the role of the ISSCAN database on assessing chemical carcinogenicity",
     citation: "Benigni, Romualdo; Bossa, Cecilia; <a href=\"http://comptox.ag.epa.gov/impact/scientists/1\">Richard, Ann M.</a>; Yang, Chihae. A novel approach: chemical relational databases, and the role of the ISSCAN database on assessing chemical carcinogenicity. ANNALI DELL ISTITUTO SUPERIORE DI SANITA. 44(1), (2008).",
     publication_type_id: 1,
     publication_url: "http://comptox.ag.epa.gov/impact/api/publications/24"
@@ -965,6 +989,7 @@ Publication.create!(
     publication_id: 25,
     doi: "10.1080/10590500701201828",
     published_date: "2007-01-1",
+    title: "The expanding role of predictive toxicology: An update on the (Q) SAR models for mutagens and carcinogens",
     citation: "Benigni, Romualdo; Netzeva, Tatiana I.; Benfenati, Emilio; Bossa, Cecilia; Franke, Rainer; Helma, Christoph; Hulzebos, Etje; Marchant, Carol; <a href=\"http://comptox.ag.epa.gov/impact/scientists/1\">Richard, Ann</a>; Woo, Yin-Tak; Yang, Chihae. The expanding role of predictive toxicology: An update on the (Q) SAR models for mutagens and carcinogens. JOURNAL OF ENVIRONMENTAL SCIENCE AND HEALTH PART C-ENVIRONMENTAL CARCINOGENESIS &amp; ECOTOXICOLOGY REVIEWS. 25(1), (2007).",
     publication_type_id: 1,
     publication_url: "http://comptox.ag.epa.gov/impact/api/publications/25"
@@ -980,6 +1005,7 @@ Publication.create!(
     publication_id: 26,
     doi: "10.1289/ehp.1409342",
     published_date: "2015-12-1",
+    title: "Chemical Safety Assessment Using Read-Across: Assessing the Use of Novel Testing Methods to Strengthen the Evidence Base for Decision Making",
     citation: "Berggren, Elisabet; Amcoff, Patric; Benigni, Romualdo; Blackburn, Karen; Carney, Edward; Cronin, Mark; Deluyker, Hubert; Gautier, Francoise; <a href=\"http://comptox.ag.epa.gov/impact/scientists/16\">Judson, Richard S.</a>; Kass, Georges E. N.; Keller, Detlef; Knight, Derek; Lilienblum, Werner; Mahony, Catherine; Rusyn, Ivan; Schultz, Terry; Schwarz, Michael; Schueuermann, Gerrit; White, Andrew; Burton, Julien; Lostia, Alfonso M.; Munn, Sharon; Worth, Andrew. Chemical Safety Assessment Using Read-Across: Assessing the Use of Novel Testing Methods to Strengthen the Evidence Base for Decision Making. ENVIRONMENTAL HEALTH PERSPECTIVES. 123(12), (2015).",
     publication_type_id: 1,
     publication_url: "http://comptox.ag.epa.gov/impact/api/publications/26"
@@ -995,6 +1021,7 @@ Publication.create!(
     publication_id: 27,
     doi: "10.1093/toxsci/kfq035",
     published_date: "2010-05-1",
+    title: "A Bistable Switch Underlying B-Cell Differentiation and Its Disruption by the Environmental Contaminant 2,3,7,8-Tetrachlorodibenzo-p-dioxin",
     citation: "Bhattacharya, Sudin; Conolly, Rory B.; Kaminski, Norbert E.; <a href=\"http://comptox.ag.epa.gov/impact/scientists/17\">Thomas, Russell S.</a>; Andersen, Melvin E.; Zhang, Qiang. A Bistable Switch Underlying B-Cell Differentiation and Its Disruption by the Environmental Contaminant 2,3,7,8-Tetrachlorodibenzo-p-dioxin. TOXICOLOGICAL SCIENCES. 115(1), (2010).",
     publication_type_id: 1,
     publication_url: "http://comptox.ag.epa.gov/impact/api/publications/27"
@@ -1009,6 +1036,7 @@ ScientistPublication.create!(
 Publication.create!(
     publication_id: 28,
     published_date: "2013-09-8",
+    title: "Chemotype approach to mapping the chemical landscape and exploring chemical-biological interactions within EPA's ToxCast project",
     citation: "Bienstock, Rochelle J.; Yang, Chihae; Rathman, Jim; <a href=\"http://comptox.ag.epa.gov/impact/scientists/1\">Richard, Ann M.</a>. Chemotype approach to mapping the chemical landscape and exploring chemical-biological interactions within EPA's ToxCast project. ABSTRACTS OF PAPERS OF THE AMERICAN CHEMICAL SOCIETY. 246(), (2013).",
     publication_type_id: 1,
     publication_url: "http://comptox.ag.epa.gov/impact/api/publications/28"
@@ -1024,6 +1052,7 @@ Publication.create!(
     publication_id: 29,
     doi: "10.1289/ehp.9061",
     published_date: "2006-11-1",
+    title: "Polybrominated diphenyl ethers: A case study for using biomonitoring data to address risk assessment questions",
     citation: "Birnbaum, Linda S.; Hubal, Elaine A. Cohen. Polybrominated diphenyl ethers: A case study for using biomonitoring data to address risk assessment questions. ENVIRONMENTAL HEALTH PERSPECTIVES. 114(11), (2006).",
     publication_type_id: 1,
     publication_url: "http://comptox.ag.epa.gov/impact/api/publications/29"
