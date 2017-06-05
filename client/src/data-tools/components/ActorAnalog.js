@@ -4,7 +4,7 @@ import moment from 'moment'
 import { connect } from 'react-redux';
 
 let analogStart = moment('9-1-2009')
-let analogEnd = moment()
+let analogEnd = moment().subtract(2, 'days')
 let dates = []
 let months = []
 let year = {}

@@ -4,7 +4,7 @@
  */
 import React from 'react';
 import moment from 'moment';
-import { Line } from 'react-chartjs-2';
+import { Bar } from 'react-chartjs-2';
 
 const LineChart = ({ data }) => {
 
@@ -14,51 +14,109 @@ const LineChart = ({ data }) => {
 
   let thisyear = moment().year();
   let years = [];
-  let colors = ['rgba(166,206,227,1)', 'rgba(31,120,180,1)', 'rgba(178,223,138,1)', 'rgba(51,160,44,1)'];
+  let colors = ['rgba(166,206,227,', 'rgba(31,120,180,', 'rgba(178,223,138,', 'rgba(51,160,44,'];
   for(let i = 0; i < 4; i++) {
-    years.push({ year: thisyear - i, points: new Array(12), color: colors[i]});
+    years.push({ year: thisyear - i, weeks: new Array(53), months: new Array(53), color: colors[i]});
   }
-  let labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  let labels = new Array(53).fill(0).map((v,i) => moment().dayOfYear(i * 7 + 1));
 
+  let weeksum = 0;
+  let monthsum = 0;
   data.rows.forEach(row => {
-    const rowYear = parseInt(row[0].slice(0,4));
-    const rowMonth = parseInt(row[0].slice(4));
-    const currentYear = years.filter((year) => year.year === rowYear)[0];
-    if(currentYear) {
-      currentYear.points[rowMonth - 1] = row[1];
+    const date = moment(row[0]);
+    const day = date.dayOfYear();
+    let dateYear = years.filter((year) => year.year === date.year())[0];
+    if (dateYear) {
+      weeksum += parseInt(row[1]);
+      monthsum += parseInt(row[1]);
+      if (day % 7 === 0) {
+        dateYear.weeks[(day / 7) - 1] = weeksum;
+        weeksum = 0;
+      } else if (day === 365 + date.isLeapYear()) {
+        weeksum = 0;
+      }
+      if (date.date() === date.daysInMonth()) {
+        dateYear.months[parseInt(date.month() * 4.3) + 2] = monthsum;
+        monthsum = 0;
+      }
     }
   });
 
-  const options = {
-    labels: labels,
-    datasets: years.map(function(year) {
+  const relevantyears = years.filter((year) => year.weeks.some((count) => count > 0));
+
+  const weekPoints = relevantyears.map(function(year) {
       return {
-        label: year.year,
+        label: year.year + " (week)",
         fill: false,
         lineTension: 0.1,
-        backgroundColor: year.color,
-        borderColor: year.color,
+        backgroundColor: year.color + '1)',
+        borderColor: year.color + '1)',
         borderCapStyle: 'butt',
         borderDash: [],
         borderDashOffset: 0.0,
         borderJoinStyle: 'miter',
-        pointBorderColor: year.color,
+        pointBorderColor: year.color + '1)',
         pointBackgroundColor: '#fff',
         pointBorderWidth: 1,
-        pointHoverRadius: 5,
-        pointHoverBackgroundColor: year.color,
+        pointHoverRadius: 1,
+        pointHoverBackgroundColor: year.color + '1)',
         pointHoverBorderColor: 'rgba(220,220,220,1)',
         pointHoverBorderWidth: 1,
         pointRadius: 2,
-        pointHitRadius: 10,
-        data: year.points
+        pointHitRadius: 3,
+        spanGaps: true,
+        data: year.weeks,
+        type: 'line'
       };
-    })
+  });
+  const monthBars = relevantyears.map(function(year) {
+    return {
+      label: year.year + " (month)",
+      backgroundColor: year.color + '.4)',
+      borderColor: year.color + '.4)',
+      borderWidth: 1,
+      hoverBackgroundColor: year.color + '.4)',
+      hoverBorderColor: year.color + '.4)',
+      data: year.months,
+      type: 'bar',
+      options: {
+        legend: {
+          display: false
+        }
+      }
+    };
+  });
+
+  const linedata = {
+    labels: labels,
+    datasets: weekPoints.concat(monthBars)
+  };
+  const options = {
+    scales: {
+      xAxes: [{
+        type: 'time',
+        time: {
+          tooltipFormat: "MMM",
+          unit: "month",
+          displayFormats: {
+            'millisecond': 'MMM',
+            'second': 'MMM',
+            'minute': 'MMM',
+            'hour': 'MMM',
+            'day': 'MMM',
+            'week': 'MMM',
+            'month': 'MMM',
+            'quarter': 'MMM',
+            'year': 'MMM'
+          }
+        }
+      }]
+    }
   };
 
   return (
     <div>
-    <Line data={options}/>
+    <Bar data={linedata} options={options}/>
     </div>
   )
 };
