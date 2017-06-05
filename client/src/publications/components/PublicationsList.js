@@ -73,7 +73,7 @@ export class PublicationsList extends React.Component {
         let newlyFiltered = this.state.publications.filter(
             (publication) => {
                 return (
-                    (publication.doi ? publication.doi.includes(event.target.value) : false) ||
+                    // (publication.doi ? publication.doi.includes(event.target.value) : false) ||
                     (publication.citation ? publication.citation.toLowerCase().includes(event.target.value.toLowerCase()) : false)
                 )
             }
@@ -138,7 +138,7 @@ export class PublicationsList extends React.Component {
                                         </InputGroup.Addon>
                                         <FormControl
                                             type="text"
-                                            placeholder="Authors, Publication Title, DOI"
+                                            placeholder="Authors, Publication Title, Year"
                                             onChange={this.handleInputChange} />
                                     </InputGroup>
                                 </FormGroup>
