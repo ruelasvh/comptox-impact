@@ -306,7 +306,10 @@ class DataToolsIndex extends React.Component {
                     </Tab.Pane>
                     <Tab.Pane eventKey="type-users">
                       {props.self.state.isFetching ?
-                        ' ' : <DoughnutChart data={props.tab.data.usage.domainYear} label="Type Of Users By Domain"/>
+                        ' ' : <DoughnutChart data={props.tab.data.usage.domainYear} />
+                      }
+                      {props.self.state.isFetching ?
+                        ' ' : <DoughnutChart data={props.tab.data.usage.domainMonth} />
                       }
                     </Tab.Pane>
                   </Tab.Content>
@@ -325,7 +328,10 @@ class DataToolsIndex extends React.Component {
                     </Tab.Pane>
                     <Tab.Pane eventKey="drupal-type-users">
                       {props.self.state.isFetching ?
-                        ' ' : <DoughnutChart data={props.tab.data.datadownloads.domainYear} label="Type Of Users By Domain"/>
+                        ' ' : <DoughnutChart data={props.tab.data.datadownloads.domainYear} />
+                      }
+                      {props.self.state.isFetching ?
+                        ' ' : <DoughnutChart data={props.tab.data.datadownloads.domainMonth} />
                       }
                     </Tab.Pane>
                   </Tab.Content>
