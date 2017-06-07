@@ -3,7 +3,9 @@
  * US EPA National Center for Computational Toxicology
  */
 
-const State = {
+const Model = {
+    analytics: {},
+    lastUpdated: Date.now()
 };
 
-export default State;
+export default Model;

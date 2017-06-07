@@ -16,6 +16,7 @@ import VisiblePublications from './publications/container/VisiblePublications';
 import VisibleScientists from './scientists/containers/VisibleScientists';
 import ScientistProfile from './scientist/ScientistProfile';
 import DataToolsIndex from './data-tools/components/DataToolsMain';
+import DataTools from './data-tools/containers/DataTools';
 import NotFound from './notfound/NotFound';
 
 const store = configureStore();
@@ -48,7 +49,7 @@ const routes = {
         { path: 'publications', component: VisiblePublications },
         { path: 'scientists', component: VisibleScientists },
         { path: 'scientists/:scientistId', component: ScientistProfile },
-        { path: 'data-tools', component: DataToolsIndex },
+        { path: 'data-tools', component: DataTools },
         { path: '*', component: NotFound }
     ]
 };
