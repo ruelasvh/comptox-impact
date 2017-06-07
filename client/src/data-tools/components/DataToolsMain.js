@@ -266,6 +266,8 @@ class DataToolsIndex extends React.Component {
                       <NavItem eventKey="page-views">Page Views</NavItem>
                       <NavItem eventKey="unique-page-views">Unique Page Views</NavItem>
                       <NavItem eventKey="type-users">Types of Users</NavItem>
+                      <NavItem eventKey="geo-us">Geographics - US</NavItem>
+                      <NavItem eventKey="geo-intl">Geographics - International</NavItem>
                     </Nav>
                   </Panel>
                     : ' ' }
@@ -275,6 +277,8 @@ class DataToolsIndex extends React.Component {
                       <NavItem eventKey="drupal-page-views">Page Views</NavItem>
                       <NavItem eventKey="drupal-unique-page-views">Unique Page Views</NavItem>
                       <NavItem eventKey="drupal-type-users">Types of Users</NavItem>
+                      <NavItem eventKey="drupal-geo-us">Geographics - US</NavItem>
+                      <NavItem eventKey="drupal-geo-intl">Geographics - International</NavItem>
                     </Nav>
                   </Panel>
                     : ' ' }
@@ -312,6 +316,22 @@ class DataToolsIndex extends React.Component {
                         ' ' : <DoughnutChart data={props.tab.data.usage.domainMonth} />
                       }
                     </Tab.Pane>
+                    <Tab.Pane eventKey="geo-us">
+                      {props.self.state.isFetching ?
+                        ' ' : <DoughnutChart data={props.tab.data.usage.stateYear} />
+                      }
+                      {props.self.state.isFetching ?
+                        ' ' : <DoughnutChart data={props.tab.data.usage.stateMonth} />
+                      }
+                    </Tab.Pane>
+                    <Tab.Pane eventKey="geo-intl">
+                      {props.self.state.isFetching ?
+                        ' ' : <DoughnutChart data={props.tab.data.usage.countryYear} />
+                      }
+                      {props.self.state.isFetching ?
+                        ' ' : <DoughnutChart data={props.tab.data.usage.countryMonth} />
+                      }
+                    </Tab.Pane>
                   </Tab.Content>
                   : ' ' }
                 { props.tab.data.hasOwnProperty('datadownloads') ?
@@ -332,6 +352,22 @@ class DataToolsIndex extends React.Component {
                       }
                       {props.self.state.isFetching ?
                         ' ' : <DoughnutChart data={props.tab.data.datadownloads.domainMonth} />
+                      }
+                    </Tab.Pane>
+                    <Tab.Pane eventKey="drupal-geo-us">
+                      {props.self.state.isFetching ?
+                        ' ' : <DoughnutChart data={props.tab.data.datadownloads.stateYear} />
+                      }
+                      {props.self.state.isFetching ?
+                        ' ' : <DoughnutChart data={props.tab.data.datadownloads.stateMonth} />
+                      }
+                    </Tab.Pane>
+                    <Tab.Pane eventKey="drupal-geo-intl">
+                      {props.self.state.isFetching ?
+                        ' ' : <DoughnutChart data={props.tab.data.datadownloads.countryYear} />
+                      }
+                      {props.self.state.isFetching ?
+                        ' ' : <DoughnutChart data={props.tab.data.datadownloads.countryMonth} />
                       }
                     </Tab.Pane>
                   </Tab.Content>
