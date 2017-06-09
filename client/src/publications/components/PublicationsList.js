@@ -124,12 +124,7 @@ export class PublicationsList extends React.Component {
                         <Col md={5}>
                             <h1>Publications</h1>
                         </Col>
-                        <Col md={3}>
-                            <div className="search-title" style={{paddingTop: '25px'}}>
-                                <h4>Search CompTox Publications</h4>
-                            </div>
-                        </Col>
-                        <Col md={4}>
+                        <Col md={7}>
                             <div className="search-box">
                                 <FormGroup>
                                     <InputGroup>
@@ -138,7 +133,7 @@ export class PublicationsList extends React.Component {
                                         </InputGroup.Addon>
                                         <FormControl
                                             type="text"
-                                            placeholder="Authors, Publication Title, Year"
+                                            placeholder="Search Authors, Publication Title, Year"
                                             onChange={this.handleInputChange} />
                                     </InputGroup>
                                 </FormGroup>
