@@ -3,6 +3,7 @@
  * US EPA National Center for Computational Toxicology
  */
 import { queryGAApi } from '../utils/Client';
+import moment from 'moment';
 
 // Actions, functions that return instructions and data payload to the reducers.
 // Reducers change the sate of the app.
@@ -103,120 +104,140 @@ function fetchAnalytics() {
     }
 }
 
+function sliceTime(data) {
+  if(!data.hasOwnProperty('rows') || data.rows.length === 0) {
+    return {};
+  }
+  let times = {};
+  data.rows.forEach(row => {
+    if(times.hasOwnProperty(row[1])) {
+      times[row[1]].push({ name: row[0], count: parseInt(row[2]) });
+    } else {
+      times[row[1]] = [ { name: row[0], count: parseInt(row[2]) } ];
+    }
+  });
+
+  let timekeys = Object.keys(times).sort();
+  let time = timekeys.length > 1 ? timekeys[timekeys.length - 2] : timekeys[0];
+  const timeperiod = time.length > 4 ? moment(time + '01').format('MMM YYYY') : time;
+  
+  return { data: times[time], timeperiod };
+}
+
 function normalize(results) {
-   let  analytics = {
-            comptoxdashboard: {
-                usage: {},
-                datadownloads: {}
-            },
-            actor: {
-                usage: {},
-                analog: {}
-            },
-            cpcat: {
-                usage: {}
-            },
-            edsp21: {
-                usage: {}
-            },
-            toxcast: {
-                usage: {},
-                datadownloads: {},
-                softwaredownloads: {}
-            },
-            dsstox: {
-                datadownloads: {}
-            }
-        };
-    let comptoxdashboard = analytics.comptoxdashboard;
-    let actor = analytics.actor;
-    let cpcat = analytics.cpcat;
-    let edsp21 = analytics.edsp21;
-    let toxcast = analytics.toxcast;
-    let dsstox = analytics.dsstox;
+  let analytics = {
+    comptoxdashboard: {
+      usage: {},
+      datadownloads: {}
+    },
+    actor: {
+      usage: {},
+      analog: {}
+    },
+    cpcat: {
+      usage: {}
+    },
+    edsp21: {
+      usage: {}
+    },
+    toxcast: {
+      usage: {},
+      datadownloads: {},
+      softwaredownloads: {}
+    },
+    dsstox: {
+      datadownloads: {}
+    }
+  };
+  let comptoxdashboard = analytics.comptoxdashboard;
+  let actor = analytics.actor;
+  let cpcat = analytics.cpcat;
+  let edsp21 = analytics.edsp21;
+  let toxcast = analytics.toxcast;
+  let dsstox = analytics.dsstox;
 
-    comptoxdashboard.usage = {
-        pageViews: results[0],
-        uniquePageViews: results[1],
-        countryMonth: results[2],
-        countryYear: results[3],
-        domainMonth: results[4],
-        domainYear: results[5],
-        stateMonth: results[6],
-        stateYear: results[7]
-    };
-    actor.usage = {
-        pageViews: results[8],
-        uniquePageViews: results[9],
-        countryMonth: results[10],
-        countryYear: results[11],
-        domainMonth: results[12],
-        domainYear: results[13],
-        stateMonth: results[14],
-        stateYear: results[15]
-    };
-    cpcat.usage = {
-        pageViews: results[16],
-        uniquePageViews: results[17],
-        countryMonth: results[18],
-        countryYear: results[19],
-        domainMonth: results[20],
-        domainYear: results[21],
-        stateMonth: results[22],
-        stateYear: results[23]
-    };
-    edsp21.usage = {
-        pageViews: results[24],
-        uniquePageViews: results[25],
-        countryMonth: results[26],
-        countryYear: results[27],
-        domainMonth: results[28],
-        domainYear: results[29],
-        stateMonth: results[30],
-        stateYear: results[31]
-    };
-    toxcast.usage = {
-        pageViews: results[32],
-        uniquePageViews: results[33],
-        countryMonth: results[34],
-        countryYear: results[35],
-        domainMonth: results[36],
-        domainYear: results[37],
-        stateMonth: results[38],
-        stateYear: results[39]
-    };
-    comptoxdashboard.datadownloads = {
-        pageViews: results[40],
-        uniquePageViews: results[41],
-        countryMonth: results[42],
-        countryYear: results[43],
-        domainMonth: results[44],
-        domainYear: results[45],
-        stateMonth: results[46],
-        stateYear: results[47]
-    };
-    toxcast.datadownloads = {
-        pageViews: results[48],
-        uniquePageViews: results[49],
-        countryMonth: results[50],
-        countryYear: results[51],
-        domainMonth: results[52],
-        domainYear: results[53],
-        stateMonth: results[54],
-        stateYear: results[55]
-    };
-    dsstox.datadownloads = {
-        pageViews: results[56],
-        uniquePageViews: results[57],
-        countryMonth: results[58],
-        countryYear: results[59],
-        domainMonth: results[60],
-        domainYear: results[61],
-        stateMonth: results[62],
-        stateYear: results[63]
-    };
+  comptoxdashboard.usage = {
+    pageViews: results[0],
+    uniquePageViews: results[1],
+    countryMonth: sliceTime(results[2]),
+    countryYear: sliceTime(results[3]),
+    domainMonth: sliceTime(results[4]),
+    domainYear: sliceTime(results[5]),
+    stateMonth: sliceTime(results[6]),
+    stateYear: sliceTime(results[7])
+  };
+  actor.usage = {
+    pageViews: results[8],
+    uniquePageViews: results[9],
+    countryMonth: sliceTime(results[10]),
+    countryYear: sliceTime(results[11]),
+    domainMonth: sliceTime(results[12]),
+    domainYear: sliceTime(results[13]),
+    stateMonth: sliceTime(results[14]),
+    stateYear: sliceTime(results[15])
+  };
+  cpcat.usage = {
+    pageViews: results[16],
+    uniquePageViews: results[17],
+    countryMonth: sliceTime(results[18]),
+    countryYear: sliceTime(results[19]),
+    domainMonth: sliceTime(results[20]),
+    domainYear: sliceTime(results[21]),
+    stateMonth: sliceTime(results[22]),
+    stateYear: sliceTime(results[23])
+  };
+  edsp21.usage = {
+    pageViews: results[24],
+    uniquePageViews: results[25],
+    countryMonth: sliceTime(results[26]),
+    countryYear: sliceTime(results[27]),
+    domainMonth: sliceTime(results[28]),
+    domainYear: sliceTime(results[29]),
+    stateMonth: sliceTime(results[30]),
+    stateYear: sliceTime(results[31])
+  };
+  toxcast.usage = {
+    pageViews: results[32],
+    uniquePageViews: results[33],
+    countryMonth: sliceTime(results[34]),
+    countryYear: sliceTime(results[35]),
+    domainMonth: sliceTime(results[36]),
+    domainYear: sliceTime(results[37]),
+    stateMonth: sliceTime(results[38]),
+    stateYear: sliceTime(results[39])
+  };
+  comptoxdashboard.datadownloads = {
+    pageViews: results[40],
+    uniquePageViews: results[41],
+    countryMonth: sliceTime(results[42]),
+    countryYear: sliceTime(results[43]),
+    domainMonth: sliceTime(results[44]),
+    domainYear: sliceTime(results[45]),
+    stateMonth: sliceTime(results[46]),
+    stateYear: sliceTime(results[47])
+  };
+  toxcast.datadownloads = {
+    pageViews: results[48],
+    uniquePageViews: results[49],
+    countryMonth: sliceTime(results[50]),
+    countryYear: sliceTime(results[51]),
+    domainMonth: sliceTime(results[52]),
+    domainYear: sliceTime(results[53]),
+    stateMonth: sliceTime(results[54]),
+    stateYear: sliceTime(results[55])
+  };
+  dsstox.datadownloads = {
+    pageViews: results[56],
+    uniquePageViews: results[57],
+    countryMonth: sliceTime(results[58]),
+    countryYear: sliceTime(results[59]),
+    domainMonth: sliceTime(results[60]),
+    domainYear: sliceTime(results[61]),
+    stateMonth: sliceTime(results[62]),
+    stateYear: sliceTime(results[63])
+  };
 
-    return analytics;
+  return analytics;
 }
 
 function shouldFetchAnalytics(state) {

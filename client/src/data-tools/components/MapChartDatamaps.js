@@ -13,28 +13,25 @@ export default class MapView extends React.Component {
 
     let data = props.data
     let scope = props.scope
-    if(data.hasOwnProperty('rows') && data.rows.length !== 0) {
-      var dataset = {};
-      var onlyValues = data.rows.map(function(obj) {
-        return obj[2];
+    if(data.length !== 0) {
+      var onlyValues = data.map(function(obj) {
+        return obj.count;
       });
       var minValue = Math.min.apply(null, onlyValues),
         maxValue = Math.max.apply(null, onlyValues);
 
+      let dataset = {};
       var paletteScale = d3.scale.linear().domain([minValue, maxValue]).range(["#ffe0cc", "#ff471a"]);
-      data.rows.forEach(function(item) {
+      data.forEach(function(item) {
         let iso;
         if(scope === 'usa') {
-          iso = item[0].slice(3)
+          iso = item.name.slice(3)
         } else if (scope === 'world') {
-          iso = iso3166['2to3'][item[0]]
+          iso = iso3166['2to3'][item.name]
         }
-          let year = item[1],
-          value = item[2];
         dataset[iso] = {
-          numberOfThings: value,
-          fillColor: paletteScale(value),
-          year: year
+          numberOfThings: item.count,
+          fillColor: paletteScale(item.count),
         };
       });
       this.state = {
