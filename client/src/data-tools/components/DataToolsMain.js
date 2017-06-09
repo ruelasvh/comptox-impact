@@ -7,6 +7,7 @@ import { Grid, Row, Col, Nav, NavItem, Tab, Accordion, Panel } from 'react-boots
 import LineChart from './LineChart';
 import BarChart from './BarChart';
 import DoughnutChart from './DoughnutChart';
+import MapChart from './MapChartDatamaps';
 import ActorAnalog from './ActorAnalog';
 import { queryGAApi } from '../../utils/Client';
 import '../styles/datatoolsmain.css';
@@ -43,8 +44,7 @@ class DataToolsIndex extends React.Component {
                       <NavItem eventKey="page-views">Page Views</NavItem>
                       <NavItem eventKey="unique-page-views">Unique Page Views</NavItem>
                       <NavItem eventKey="type-users">Types of Users</NavItem>
-                      <NavItem eventKey="geo-us">Geographics - US</NavItem>
-                      <NavItem eventKey="geo-intl">Geographics - International</NavItem>
+                      <NavItem eventKey="geographics">Geographics</NavItem>
                     </Nav>
                   </Panel>
                     : ' ' }
@@ -54,8 +54,7 @@ class DataToolsIndex extends React.Component {
                       <NavItem eventKey="drupal-page-views">Page Views</NavItem>
                       <NavItem eventKey="drupal-unique-page-views">Unique Page Views</NavItem>
                       <NavItem eventKey="drupal-type-users">Types of Users</NavItem>
-                      <NavItem eventKey="drupal-geo-us">Geographics - US</NavItem>
-                      <NavItem eventKey="drupal-geo-intl">Geographics - International</NavItem>
+                      <NavItem eventKey="drupal-geographics">Geographics</NavItem>
                     </Nav>
                   </Panel>
                     : ' ' }
@@ -87,27 +86,70 @@ class DataToolsIndex extends React.Component {
                     </Tab.Pane>
                     <Tab.Pane eventKey="type-users">
                       {props.isFetching ?
-                        ' ' : <DoughnutChart data={props.tab.data.usage.domainYear} />
-                      }
-                      {props.isFetching ?
                         ' ' : <DoughnutChart data={props.tab.data.usage.domainMonth} />
                       }
-                    </Tab.Pane>
-                    <Tab.Pane eventKey="geo-us">
                       {props.isFetching ?
-                        ' ' : <DoughnutChart data={props.tab.data.usage.stateYear} />
-                      }
-                      {props.isFetching ?
-                        ' ' : <DoughnutChart data={props.tab.data.usage.stateMonth} />
+                        ' ' : <DoughnutChart data={props.tab.data.usage.domainYear} />
                       }
                     </Tab.Pane>
-                    <Tab.Pane eventKey="geo-intl">
-                      {props.isFetching ?
-                        ' ' : <DoughnutChart data={props.tab.data.usage.countryYear} />
-                      }
-                      {props.isFetching ?
-                        ' ' : <DoughnutChart data={props.tab.data.usage.countryMonth} />
-                      }
+                    <Tab.Pane eventKey="geographics">
+                      <Tab.Container id="geographics-tabs" defaultActiveKey="world">
+                        <div>
+                        Region:
+                        <Nav bsStyle="pills">
+                          <NavItem eventKey="usa">USA</NavItem>
+                          <NavItem eventKey="world">World</NavItem>
+                        </Nav>
+                        <Tab.Content animation>
+                          <Tab.Pane eventKey="usa">
+                            <Tab.Container id="geographics-usa-subtabs" defaultActiveKey="month">
+                              <div>
+                              Time Period:
+                              <Nav bsStyle="pills">
+                                <NavItem eventKey="month">Month</NavItem>
+                                <NavItem eventKey="year">Year</NavItem>
+                              </Nav>
+                              <Tab.Content animation>
+                                <Tab.Pane eventKey="month">
+                                  {props.isFetching ?
+                                    ' ' : <MapChart data={props.tab.data.usage.stateMonth} scope={'usa'} />
+                                  }
+                                </Tab.Pane>
+                                <Tab.Pane eventKey="year">
+                                  {props.isFetching ?
+                                    ' ' : <MapChart data={props.tab.data.usage.stateYear} scope={'usa'} />
+                                  }
+                                </Tab.Pane>
+                              </Tab.Content>
+                              </div>
+                            </Tab.Container>
+                          </Tab.Pane>
+                          <Tab.Pane eventKey="world">
+                            <Tab.Container id="geographics-world-subtabs" defaultActiveKey="month">
+                              <div>
+                              Time Period:
+                              <Nav bsStyle="pills">
+                                <NavItem eventKey="month">Month</NavItem>
+                                <NavItem eventKey="year">Year</NavItem>
+                              </Nav>
+                              <Tab.Content animation>
+                                <Tab.Pane eventKey="month">
+                                  {props.isFetching ?
+                                    ' ' : <MapChart data={props.tab.data.usage.countryMonth} scope={'world'} />
+                                  }
+                                </Tab.Pane>
+                                <Tab.Pane eventKey="year">
+                                  {props.isFetching ?
+                                    ' ' : <MapChart data={props.tab.data.usage.countryYear} scope={'world'} />
+                                  }
+                                </Tab.Pane>
+                              </Tab.Content>
+                              </div>
+                            </Tab.Container>
+                          </Tab.Pane>
+                        </Tab.Content>
+                        </div>
+                      </Tab.Container>
                     </Tab.Pane>
                   </Tab.Content>
                   : ' ' }
@@ -125,27 +167,70 @@ class DataToolsIndex extends React.Component {
                     </Tab.Pane>
                     <Tab.Pane eventKey="drupal-type-users">
                       {props.isFetching ?
-                        ' ' : <DoughnutChart data={props.tab.data.datadownloads.domainYear} />
-                      }
-                      {props.isFetching ?
                         ' ' : <DoughnutChart data={props.tab.data.datadownloads.domainMonth} />
                       }
-                    </Tab.Pane>
-                    <Tab.Pane eventKey="drupal-geo-us">
                       {props.isFetching ?
-                        ' ' : <DoughnutChart data={props.tab.data.datadownloads.stateYear} />
-                      }
-                      {props.isFetching ?
-                        ' ' : <DoughnutChart data={props.tab.data.datadownloads.stateMonth} />
+                        ' ' : <DoughnutChart data={props.tab.data.datadownloads.domainYear} />
                       }
                     </Tab.Pane>
-                    <Tab.Pane eventKey="drupal-geo-intl">
-                      {props.isFetching ?
-                        ' ' : <DoughnutChart data={props.tab.data.datadownloads.countryYear} />
-                      }
-                      {props.isFetching ?
-                        ' ' : <DoughnutChart data={props.tab.data.datadownloads.countryMonth} />
-                      }
+                    <Tab.Pane eventKey="drupal-geographics">
+                      <Tab.Container id="geographics-tabs" defaultActiveKey="world">
+                        <div>
+                        Region:
+                        <Nav bsStyle="pills">
+                          <NavItem eventKey="usa">USA</NavItem>
+                          <NavItem eventKey="world">World</NavItem>
+                        </Nav>
+                        <Tab.Content animation>
+                          <Tab.Pane eventKey="usa">
+                            <Tab.Container id="geographics-usa-subtabs" defaultActiveKey="month">
+                              <div>
+                              Time Period:
+                              <Nav bsStyle="pills">
+                                <NavItem eventKey="month">Month</NavItem>
+                                <NavItem eventKey="year">Year</NavItem>
+                              </Nav>
+                              <Tab.Content animation>
+                                <Tab.Pane eventKey="month">
+                                  {props.isFetching ?
+                                    ' ' : <MapChart data={props.tab.data.datadownloads.stateMonth} scope={'usa'} />
+                                  }
+                                </Tab.Pane>
+                                <Tab.Pane eventKey="year">
+                                  {props.isFetching ?
+                                    ' ' : <MapChart data={props.tab.data.datadownloads.stateYear} scope={'usa'} />
+                                  }
+                                </Tab.Pane>
+                              </Tab.Content>
+                              </div>
+                            </Tab.Container>
+                          </Tab.Pane>
+                          <Tab.Pane eventKey="world">
+                            <Tab.Container id="geographics-world-subtabs" defaultActiveKey="month">
+                              <div>
+                              Time Period:
+                              <Nav bsStyle="pills">
+                                <NavItem eventKey="month">Month</NavItem>
+                                <NavItem eventKey="year">Year</NavItem>
+                              </Nav>
+                              <Tab.Content animation>
+                                <Tab.Pane eventKey="month">
+                                  {props.isFetching ?
+                                    ' ' : <MapChart data={props.tab.data.datadownloads.countryMonth} scope={'world'} />
+                                  }
+                                </Tab.Pane>
+                                <Tab.Pane eventKey="year">
+                                  {props.isFetching ?
+                                    ' ' : <MapChart data={props.tab.data.datadownloads.countryYear} scope={'world'} />
+                                  }
+                                </Tab.Pane>
+                              </Tab.Content>
+                              </div>
+                            </Tab.Container>
+                          </Tab.Pane>
+                        </Tab.Content>
+                        </div>
+                      </Tab.Container>
                     </Tab.Pane>
                   </Tab.Content>
                   : ' ' }
