@@ -126,7 +126,7 @@ export class PublicationsList extends React.Component {
                         </Col>
                         <Col md={3}>
                             <div className="search-title" style={{paddingTop: '25px'}}>
-                                <h4>Search NCCT Publications</h4>
+                                <h4>Search CompTox Publications</h4>
                             </div>
                         </Col>
                         <Col md={4}>
