@@ -1,4 +1,6 @@
 import React from 'react';
+import DatamapsUS from 'datamaps/dist/datamaps.usa.min'
+import DatamapsWorld from 'datamaps/dist/datamaps.world.hires.min'
 
 export default class Datamap extends React.Component {
 
@@ -48,8 +50,7 @@ export default class Datamap extends React.Component {
 
   drawMap = () => {
     if(this.props.scope) {
-      const scope = this.props.scope === 'world' ? 'world.hires' : this.props.scope
-      let Datamaps = require('datamaps/dist/datamaps.' + scope + '.min.js');
+      let Datamaps = this.props.scope === 'usa' ? DatamapsUS : DatamapsWorld;
       var map = new Datamaps(Object.assign({}, {
         ...this.props
       }, {
