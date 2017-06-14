@@ -1,15 +1,15 @@
 fs = require('fs')
 let foo = []
 const readDSS = (cb) => {
-  fs.readFile('/home/jander03/Projects/vue/ftp-stats/static/dsstoxFTP.TXT', 'utf8', function(err, data) {
+  fs.readFile('./logfiles/CompTox\ Report\ 2017\-04\-06.csv', 'utf8', function(err, data) {
     if(err) {
       return console.log(err);
     }
     cb(data);
     let out = foo.reduce(reduceFoo, { name: 'Tree', children: [], ips: [], uniqueIPs: [] });
-    fs.writeFile('foo.out', JSON.stringify(out), function (err) {
+    fs.writeFile('bar.out', JSON.stringify(out), function (err) {
       if(err) { return console.log(err); }
-      console.log('foo > foo.out');
+      console.log('bar > bar.out');
     });
   });
 };

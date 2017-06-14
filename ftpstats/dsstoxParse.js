@@ -1,18 +1,23 @@
 fs = require('fs')
 let foo = []
 const readDSS = (cb) => {
-  fs.readFile('/home/jander03/Projects/vue/ftp-stats/static/dsstoxFTP.TXT', 'utf8', function(err, data) {
+  fs.readFile('./logfiles/dsstoxFTP.TXT', 'utf8', function(err, data) {
     if(err) {
       return console.log(err);
     }
     cb(data);
-    let out = foo.reduce(reduceFoo, { name: 'Tree', children: [], ips: [], uniqueIPs: [] });
-    fs.writeFile('foo.out', JSON.stringify(out), function (err) {
+    let tree = foo.reduce(reduceFoo, { name: 'Tree', children: [], ips: [], uniqueIPs: [] });
+    let array = walkTree(tree);
+    array.shift();
+    let headers = 'id,parent_id,name,count,unique_count\n';
+    let csv = array.reduce(arrayToCSV, headers);
+    fs.writeFile('dss.csv', csv, function (err) {
       if(err) { return console.log(err); }
-      console.log('foo > foo.out');
+      console.log('dss.csv');
     });
   });
 };
+
 function reduceFoo(acc, obj) {
   let fileArray = obj.file.split('/');
   fileArray.shift();
@@ -32,6 +37,29 @@ function reduceFoo(acc, obj) {
   return acc;
 }
 
+function walkTree(tree) {
+  let id = 0;
+  let folderArray = [];
+  convertFolder({id}, tree, folderArray, -1);
+  return folderArray;
+}
+
+function convertFolder(id, tree, folderArray, parentId) {
+  let thisId = id.id + 0;
+  folderArray.push({
+    id: thisId,
+    parentId: parentId,
+    name: tree.name,
+    count: tree.ips.length,
+    uniqueCount: tree.uniqueIPs.length
+  });
+  id.id++;
+  tree.children.forEach(child => convertFolder(id, child, folderArray, thisId));
+}
+
+function arrayToCSV(acc, obj) {
+  return acc + obj.id + ',' + obj.parentId + ',' + obj.name + ',' + obj.count + ',' + obj.uniqueCount + '\n';
+}
 function callback(data) {
   let dataArray = data.split(/\n/);
   dataArray.pop();
