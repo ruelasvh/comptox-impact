@@ -55,6 +55,7 @@ class DataToolsIndex extends React.Component {
                       <NavItem eventKey="drupal-unique-page-views">Unique Page Views</NavItem>
                       <NavItem eventKey="drupal-type-users">Types of Users</NavItem>
                       <NavItem eventKey="drupal-geographics">Geographics</NavItem>
+                      <NavItem eventKey="ftp-stats">FTP Stats</NavItem>
                     </Nav>
                   </Panel>
                     : ' ' }
@@ -285,6 +286,11 @@ class DataToolsIndex extends React.Component {
                         </Tab.Content>
                         </div>
                       </Tab.Container>
+                    </Tab.Pane>
+                    <Tab.Pane eventKey="ftp-stats">
+                      {props.isFetching ?
+                        ' ' : "FTP Stats"
+                      }
                     </Tab.Pane>
                   </Tab.Content>
                   : ' ' }
