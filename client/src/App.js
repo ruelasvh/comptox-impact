@@ -15,7 +15,9 @@ import Home from './home/components/HomeIndex';
 import VisiblePublications from './publications/container/VisiblePublications';
 import VisibleScientists from './scientists/containers/VisibleScientists';
 import ScientistProfile from './scientist/ScientistProfile';
-import DataToolsIndex from './data-tools/components/DataToolsMain';
+import AdminMainScientists from './admin/components/Main';
+import AdminScientist from './admin/components/Scientist';
+import AdminNewScientist from './admin/components/NewScientist';
 import DataTools from './data-tools/containers/DataTools';
 import NotFound from './notfound/NotFound';
 
@@ -50,6 +52,9 @@ const routes = {
         { path: 'scientists', component: VisibleScientists },
         { path: 'scientists/:scientistId', component: ScientistProfile },
         { path: 'data-tools', component: DataTools },
+        { path: 'admin/scientists', component: AdminMainScientists },
+        { path: 'admin/scientists/new', component: AdminNewScientist },
+        { path: 'admin/scientists/:scientistId', component: AdminScientist },
         { path: '*', component: NotFound }
     ]
 };

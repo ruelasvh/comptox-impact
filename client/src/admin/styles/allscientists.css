@@ -1,0 +1,24 @@
+.admin-list-container {
+    font-family: "Helvetica Neue", "Arial", sans-serif;
+    max-width: 100%;
+    min-height: 100%;
+    position: relative;
+    /* Firefox */
+    min-height: -moz-calc(100% - 30px);
+    /* WebKit */
+    min-height: -webkit-calc(100% - 30px);
+    /* Standard */
+    min-height: calc(100% - 30px);
+}
+
+.admin-list-toolbar {
+    float: right;
+}
+
+.admin-scientist-item {
+    margin-top: 3%;
+    margin-left: 0%;
+    display: inline-block;
+    float: left;
+    width: 33%;// could be 100px for example
+}

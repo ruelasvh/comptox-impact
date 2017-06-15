@@ -20,15 +20,18 @@ class ScientistProfile extends React.Component {
         super(props);
 
         let scientistDetailsFromProps = {};
+        let isLoading = true;
 
         if (this.props.location) {
             if (this.props.location.state) {
                 scientistDetailsFromProps = this.props.location.state.scientist;
+                isLoading = false;
             }
         }
 
         this.state = {
             scientistDetails: scientistDetailsFromProps,
+            isLoading: isLoading
         };
 
         // Bind functions
@@ -40,8 +43,7 @@ class ScientistProfile extends React.Component {
         const scientistId = this.props.params.scientistId;
 
         Client.searchScientist(scientistId, (scientist) => {
-            this.setState({ scientistDetails: scientist.data },
-                () => console.log(this.state.scientistDetails))
+            this.setState({ scientistDetails: scientist.data, isLoading: false })
         });
     }
 
@@ -74,51 +76,55 @@ class ScientistProfile extends React.Component {
 
         return (
             <div className="scientist-container">
-                <Grid>
-                    <Breadcrumb>
-                        <Breadcrumb.Item>
-                            <Link to="/">Home</Link>
-                        </Breadcrumb.Item>
-                        <Breadcrumb.Item>
-                            <Link to="/scientists">Scientists</Link>
-                        </Breadcrumb.Item>
-                        <Breadcrumb.Item active>
-                            {scientistDetails.firstName + ' ' + scientistDetails.lastName}
-                        </Breadcrumb.Item>
-                    </Breadcrumb>
-                    <div className="scientist-grid">
-                        <Grid>
-                            <Row>
-                                <Col md={3}>
-                                    <Row>
-                                        <br/>
-                                        <h2><strong>{scientistDetails.firstName + ' ' + scientistDetails.lastName}</strong></h2>
-                                        <h4 style={{color: 'grey'}}>{scientistDetails.title}</h4>
-                                        <a href="#mailto">{scientistDetails.email}</a>
-                                        <br/><br/>
-                                        <Image
-                                            className="scientist-photo"
-                                            src={scientistPhotoURL}
-                                            thumbnail/>
-                                    </Row>
-                                    <Row>
-                                        <ScientistProfileLinks
-                                            scientistDetails={scientistDetails}
-                                            linkIdPrefix="scientist-profile-links"/>
-                                    </Row>
-                                </Col>
-                                <Col md={9}>
-                                    <ScientistProfileBio scientistBio={scientistDetails.bio}/>
-                                </Col>
-                            </Row>
-                            <br/><br/><br/>
-                            <Row>
-                                <ScientistProfileTabs
-                                    scientistData={scientistDetails}/>
-                            </Row>
-                        </Grid>
-                    </div>
-                </Grid>
+                {this.state.isLoading ? <div></div> :
+                    <Grid>
+                        <Breadcrumb>
+                            <Breadcrumb.Item>
+                                <Link to="/">Home</Link>
+                            </Breadcrumb.Item>
+                            <Breadcrumb.Item>
+                                <Link to="/scientists">Scientists</Link>
+                            </Breadcrumb.Item>
+                            <Breadcrumb.Item active>
+                                {scientistDetails.firstName + ' ' + scientistDetails.lastName}
+                            </Breadcrumb.Item>
+                        </Breadcrumb>
+                        <div className="scientist-grid">
+                            <Grid>
+                                <Row>
+                                    <Col md={3}>
+                                        <Row>
+                                            <br/>
+                                            <h2>
+                                                <strong>{scientistDetails.firstName + ' ' + scientistDetails.lastName}</strong>
+                                            </h2>
+                                            <h4 style={{color: 'grey'}}>{scientistDetails.title}</h4>
+                                            <a href="#mailto">{scientistDetails.email}</a>
+                                            <br/><br/>
+                                            <Image
+                                                className="scientist-photo"
+                                                src={scientistPhotoURL}
+                                                thumbnail/>
+                                        </Row>
+                                        <Row>
+                                            <ScientistProfileLinks
+                                                scientistDetails={scientistDetails}
+                                                linkIdPrefix="scientist-profile-links"/>
+                                        </Row>
+                                    </Col>
+                                    <Col md={9}>
+                                        <ScientistProfileBio scientistBio={scientistDetails.bio}/>
+                                    </Col>
+                                </Row>
+                                <br/><br/><br/>
+                                <Row>
+                                    <ScientistProfileTabs
+                                        scientistData={scientistDetails}/>
+                                </Row>
+                            </Grid>
+                        </div>
+                    </Grid>
+                }
             </div>
         );
     }

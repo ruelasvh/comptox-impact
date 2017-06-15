@@ -20,7 +20,7 @@ function searchHomeData(callback) {
         .then(callback);
 }
 
-function searchScientists(callback) {
+export function searchScientists(callback) {
     return fetch(`${absolutePath + relativePath}/api/scientists`, {
         accept: 'application/json',
     }).then(checkStatus)
@@ -28,7 +28,7 @@ function searchScientists(callback) {
         .then(callback);
 }
 
-function searchScientist(id, callback) {
+export function searchScientist(id, callback) {
     return fetch(`${absolutePath + relativePath}/api/scientists/${id}`, {
         accept: 'application/json',
     }).then(checkStatus)

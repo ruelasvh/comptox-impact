@@ -1,0 +1,16 @@
+.admin-new-scientist-container {
+    font-family: "Helvetica Neue", "Arial", sans-serif;
+    max-width: 100%;
+    min-height: 100%;
+    position: relative;
+    /* Firefox */
+    min-height: -moz-calc(100% - 30px);
+    /* WebKit */
+    min-height: -webkit-calc(100% - 30px);
+    /* Standard */
+    min-height: calc(100% - 30px);
+}
+
+.admin-new-scientist-form {
+    text-align: left;
+}

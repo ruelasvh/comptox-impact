@@ -1,16 +1,13 @@
 class ScientistsController < ApplicationController
-  before_action :validate_params
+  before_action :validate_params, only: [:index, :show, :show_photo, :show_publications]
 
   # GET /api/scientists
   def index
     render(
-        status: 200,
+        status: :ok,
         json: {
             meta: {
-                status: "success",
-                success: true,
-                message: nil,
-                warnings: nil,
+                success: 200,
                 selfUrl: "http://comptox.ag.epa.gov/impact/api/scientists"
             },
             data: Scientist.order(:lastName),
@@ -23,20 +20,44 @@ class ScientistsController < ApplicationController
 
   # GET /api/scientists/1
   def show
-    scientistId = params[:scientistId]
     render(
-        status: 200,
+        status: :ok,
         json: {
             meta: {
-                status: "success",
-                success: true,
-                message: nil,
-                warnings: nil,
-                selfUrl: "http://comptox.ag.epa.gov/impact/api/scientists/"+scientistId
+                success: 200,
+                selfUrl: "http://comptox.ag.epa.gov/impact/api/scientists/" + params[:scientistId]
             },
-            data: Scientist.find(scientistId)
+            data: Scientist.find(params[:scientistId])
         }
     )
+
+  end
+
+  def create # save new record
+    @scientist = Scientist.create(scientist_params)
+      if @scientist.save
+        render json: @scientist, status: :created
+      else
+        render json: @scientist.errors, status: :unprocessable_entity
+      end
+  end
+
+  def update # save changes
+    @scientist = Scientist.find(params[:scientistId])
+    if @scientist.update_attributes(scientist_params)
+      render json: @scientist, status: :ok
+    else
+      render json: @scientist.errors, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @scientist = Scientist.find(params[:scientistId])
+    if @scientist.destroy
+      render json: @scientist, status: :ok
+    else
+      render json: @scientist.errors, status: :unprocessable_entity
+    end
   end
 
   # GET /api/scientists/1/photo/1.jpg
@@ -53,29 +74,24 @@ class ScientistsController < ApplicationController
     scientistImage = params[:scientistImage] + '.' + params[:format]
       send_file(
           Rails.root.join('app', 'assets', 'images', 'api', 'staff', scientistImage),
-          :type => 'image/jpeg',
-          :disposition => 'inline'
+          type: 'image/jpeg',
+          disposition: 'inline'
       )
     end
   end
 
   # GET /api/scientists/1/publications
   def show_publications
-    scientistId = params[:scientistId]
-
     render(
-        status: 200,
+        status: :ok,
         json: {
             meta: {
-                status: "success",
                 success: true,
-                message: nil,
-                warnings: nil,
-                selfUrl: "http://comptox.ag.epa.gov/impact/api/scientists/"+scientistId+"/publications"
+                selfUrl: "http://comptox.ag.epa.gov/impact/api/scientists/" + params[:scientistId] + "/publications"
             },
-            data: Scientist.find(scientistId).publications.all,
+            data: Scientist.find(params[:scientistId]).publications.all,
             pagination: {
-                totalItems: Scientist.find(scientistId).publications.all.size
+                totalItems: Scientist.find(params[:scientistId]).publications.all.size
             }
         }
       )
@@ -92,5 +108,9 @@ class ScientistsController < ApplicationController
             error: activity.errors
         }, status: :bad_request
       end
+    end
+
+    def scientist_params
+      params.require(:scientist).permit(:scientistId, :firstName, :lastName)
     end
 end

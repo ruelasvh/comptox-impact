@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     # scientists
     scope '/scientists' do
       get '/' => 'scientists#index'
+      post '/' => 'scientists#create'
+      delete ':scientistId' => 'scientists#destroy'
       get ':scientistId' => 'scientists#show'
       get ':scientistId/photo/:scientistImage.:format' => 'scientists#show_photo'
       get ':scientistId/publications' => 'scientists#show_publications'
@@ -23,8 +25,8 @@ Rails.application.routes.draw do
     end
   end
 
+  root to: 'application#index'
   get '*path', to: 'application#index'
-  root 'application#index'
 
 #  get 'scientists' => 'scientists#index' #, as: link_to_scientists_index
 
