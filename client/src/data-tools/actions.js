@@ -214,7 +214,8 @@ function normalize(results) {
     domainMonth: sliceTime(results[44]),
     domainYear: sliceTime(results[45]),
     stateMonth: sliceTime(results[46]),
-    stateYear: sliceTime(results[47])
+    stateYear: sliceTime(results[47]),
+    filedownloads: { name: 'foo', count: 3, children: [ { name: 'bar', count: 2, children: [ { name: 'baz', count: 2, children: [] }, { name: 'foh', count: 2, children: [] } ] }, { name: 'bat', count: 1, children: [] } ] }
   };
   toxcast.datadownloads = {
     pageViews: results[48],
@@ -224,7 +225,8 @@ function normalize(results) {
     domainMonth: sliceTime(results[52]),
     domainYear: sliceTime(results[53]),
     stateMonth: sliceTime(results[54]),
-    stateYear: sliceTime(results[55])
+    stateYear: sliceTime(results[55]),
+    filedownloads: { name: 'foo', count: 3, children: [ { name: 'bar', count: 2, children: [ { name: 'baz', count: 2, children: [] }, { name: 'foh', count: 2, children: [] } ] }, { name: 'bat', count: 1, children: [] } ] }
   };
   dsstox.datadownloads = {
     pageViews: results[56],
@@ -234,7 +236,8 @@ function normalize(results) {
     domainMonth: sliceTime(results[60]),
     domainYear: sliceTime(results[61]),
     stateMonth: sliceTime(results[62]),
-    stateYear: sliceTime(results[63])
+    stateYear: sliceTime(results[63]),
+    filedownloads: { name: 'foo', count: 3, children: [ { name: 'bar', count: 2, children: [ { name: 'baz', count: 2, children: [] }, { name: 'foh', count: 2, children: [] } ] }, { name: 'bat', count: 1, children: [] } ] }
   };
 
   return analytics;
