@@ -41,3 +41,5 @@ node_modules/
 # Ignore output of ftp logfile parsing
 ftpstats/output
 
+# Ignore debug (npm) log
+npm-debug.log
