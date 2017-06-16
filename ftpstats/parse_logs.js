@@ -17,14 +17,14 @@ const comptox_out = 'comptox_ftp_folders.csv'
 const comptox_ips = 'comptox_ips.csv'
 const comptox_helpers = {
   getDate: line => new Date(line.split(/,/)[1]),
-  getIP: line => line.split(/,/)[3],
-  getFile: line => line.split(/,/)[2],
+  getIP: line => { if(line.includes('\"')) { return line.split(/",/)[1] } else { return line.split(/,/)[3] } },
+  getFile: line => { if(line.includes('\"')) { return line.split(/"/)[1] } else { return line.split(/,/)[2] } },
 }
 
-parseLog(dsstox_log, dsstox_out, dsstox_ips, false, dsstox_helpers)
-parseLog(comptox_log, comptox_out, comptox_ips, true, comptox_helpers)
+parseLog(dsstox_log, dsstox_out, dsstox_ips, false, true, dsstox_helpers)
+parseLog(comptox_log, comptox_out, comptox_ips, true, false, comptox_helpers)
 
-function parseLog(inputFilename, outputFilename, outputIPFilename, inputheaders, helpers) {
+function parseLog(inputFilename, outputFilename, outputIPFilename, inputheaders, includeFiles, helpers) {
   fs.readFile(inputFilename, 'utf8', function(err, data) {
     if(err) { return console.log(err); }
 
@@ -37,6 +37,7 @@ function parseLog(inputFilename, outputFilename, outputIPFilename, inputheaders,
     let tree = fileHits.reduce(buildTree, trunk); // json tree
     let array = walkTree(tree); // array of individual files/folders with counts
     array.folders.shift(); // shift off the trunk
+    if(!includeFiles) { array.folders = array.folders.filter(folder => folder.folder) }
     let headers = 'id,parent_id,name,count,unique_count\n'; // headers for csv
     let csv = array.folders.reduce(arrayToCSV, headers); // comma-separated string
     let ip_csv = array.ips.sort().reduce((acc, ip) => acc + ip + '\n', ''); // string of all ips
@@ -81,7 +82,8 @@ function convertFolder(id, tree, folderArray, ipArray, parentId) {
     parentId: parentId,
     name: tree.name,
     count: tree.ips.length,
-    uniqueCount: tree.uniqueIPs.length
+    uniqueCount: tree.uniqueIPs.length,
+    folder: tree.children.length > 0
   });
   id.id++;
   tree.children.forEach(child => convertFolder(id, child, folderArray, ipArray, thisId));
