@@ -85,7 +85,7 @@ ActiveRecord::Schema.define(version: 20170614192605) do
   create_table "scientists", primary_key: "scientistId", force: :cascade do |t|
     t.string   "firstName",         limit: 255,   null: false
     t.string   "lastName",          limit: 255,   null: false
-    t.string   "title",             limit: 255,   null: false
+    t.string   "title",             limit: 255
     t.string   "email",             limit: 255
     t.string   "photoUrl",          limit: 255
     t.string   "orcid",             limit: 255
