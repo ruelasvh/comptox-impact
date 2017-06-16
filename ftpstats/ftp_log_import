@@ -1,0 +1,2 @@
+mysqlimport --ignore-lines=1 --fields-terminated-by=, -h au.epa.gov -u app_impact -p sbox_jander03_comptox_impact --columns id,parent_id,name,count,unique_count --local ./output/dsstox_ftp_folders.csv
+mysqlimport --ignore-lines=1 --fields-terminated-by=, -h au.epa.gov -u app_impact -p sbox_jander03_comptox_impact --columns id,parent_id,name,count,unique_count --local ./output/comptox_ftp_folders.csv
