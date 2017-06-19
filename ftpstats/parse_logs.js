@@ -28,7 +28,7 @@ function parseLog(inputFilename, outputFilename, outputIPFilename, inputheaders,
   fs.readFile(inputFilename, 'utf8', function(err, data) {
     if(err) { return console.log(err); }
 
-    let dataArray = data.split(/\n/); // array of lines
+    let dataArray = data.split(/\n/).map(line => line.trim()); // array of lines
     dataArray.pop(); // pop the empty last line
     if(inputheaders) { dataArray.shift() } // shift off headers
     let fileHits = dataArray.map(line => ({ ip: helpers.getIP(line), file: helpers.getFile(line) })); // array of objects
