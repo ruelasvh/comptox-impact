@@ -6,6 +6,7 @@ import React from 'react';
 import { Grid, Row, Col, Nav, NavItem, Tab, Accordion, Panel } from 'react-bootstrap';
 import LineChart from './LineChart';
 import BarChart from './BarChart';
+import TreeChart from './TreeChart';
 import DoughnutChart from './DoughnutChart';
 import MapChart from './MapChartDatamaps';
 import ActorAnalog from './ActorAnalog';
@@ -55,12 +56,14 @@ class DataToolsIndex extends React.Component {
                       <NavItem eventKey="drupal-unique-page-views">Unique Page Views</NavItem>
                       <NavItem eventKey="drupal-type-users">Types of Users</NavItem>
                       <NavItem eventKey="drupal-geographics">Geographics</NavItem>
-                      <NavItem eventKey="ftp-stats">FTP Stats</NavItem>
                     </Nav>
                   </Panel>
                     : ' ' }
-                  { props.tab.data.hasOwnProperty('ftpdownloads') ?
+                  { props.tab.data.hasOwnProperty('filedownloads') ?
                   <Panel header={props.tab.name + " FTP Downloads"} eventKey="3">
+                    <Nav bsStyle="pills" stacked>
+                      <NavItem eventKey="ftp-stats">Download Counts</NavItem>
+                    </Nav>
                   </Panel>
                     : ' ' }
                   { props.tab.data.hasOwnProperty('analog') ?
@@ -287,9 +290,13 @@ class DataToolsIndex extends React.Component {
                         </div>
                       </Tab.Container>
                     </Tab.Pane>
+                  </Tab.Content>
+                  : ' ' }
+                { props.tab.data.hasOwnProperty('filedownloads') ?
+                  <Tab.Content animation>
                     <Tab.Pane eventKey="ftp-stats">
-                      {props.isFetching ?
-                        ' ' : "FTP Stats"
+                      {!props.isFetching ?
+                        <TreeChart data={props.tab.data.filedownloads} /> : ' '
                       }
                     </Tab.Pane>
                   </Tab.Content>

@@ -128,7 +128,8 @@ function normalize(results) {
   let analytics = {
     comptoxdashboard: {
       usage: {},
-      datadownloads: {}
+      datadownloads: {},
+      filedownloads: {}
     },
     actor: {
       usage: {},
@@ -143,10 +144,11 @@ function normalize(results) {
     toxcast: {
       usage: {},
       datadownloads: {},
-      softwaredownloads: {}
+      softwaredownloads: {},
     },
     dsstox: {
-      datadownloads: {}
+      datadownloads: {},
+      filedownloads: {}
     }
   };
   let comptoxdashboard = analytics.comptoxdashboard;
@@ -215,7 +217,43 @@ function normalize(results) {
     domainYear: sliceTime(results[45]),
     stateMonth: sliceTime(results[46]),
     stateYear: sliceTime(results[47]),
-    filedownloads: { name: 'foo', count: 3, children: [ { name: 'bar', count: 2, children: [ { name: 'baz', count: 2, children: [] }, { name: 'foh', count: 2, children: [] } ] }, { name: 'bat', count: 1, children: [] } ] }
+  };
+  comptoxdashboard.filedownloads = {
+    name: '/',
+    count: 'Count',
+    uniqueCount: 'Unique Count',
+    children: [ {
+      id: 1,
+      filename: 'foo',
+      uniqueCount: 3,
+      count: 3,
+      children: [ {
+        id: 2,
+        filename: 'bar',
+        uniqueCount: 3,
+        count: 2,
+        children: [ {
+          id: 3,
+          filename: 'baz',
+          uniqueCount: 3,
+          count: 2,
+          children: []
+        }, {
+          id: 4,
+          filename: 'foh',
+          uniqueCount: 3,
+          count: 2,
+          children: []
+        } ]
+      }, {
+        id: 5,
+        filename: 'bat',
+        uniqueCount: 3,
+        count: 1,
+        children: []
+      }
+      ]
+    } ]
   };
   toxcast.datadownloads = {
     pageViews: results[48],
@@ -226,7 +264,6 @@ function normalize(results) {
     domainYear: sliceTime(results[53]),
     stateMonth: sliceTime(results[54]),
     stateYear: sliceTime(results[55]),
-    filedownloads: { name: 'foo', count: 3, children: [ { name: 'bar', count: 2, children: [ { name: 'baz', count: 2, children: [] }, { name: 'foh', count: 2, children: [] } ] }, { name: 'bat', count: 1, children: [] } ] }
   };
   dsstox.datadownloads = {
     pageViews: results[56],
@@ -237,8 +274,44 @@ function normalize(results) {
     domainYear: sliceTime(results[61]),
     stateMonth: sliceTime(results[62]),
     stateYear: sliceTime(results[63]),
-    filedownloads: { name: 'foo', count: 3, children: [ { name: 'bar', count: 2, children: [ { name: 'baz', count: 2, children: [] }, { name: 'foh', count: 2, children: [] } ] }, { name: 'bat', count: 1, children: [] } ] }
   };
+  dsstox.filedownloads = {
+    name: '/',
+    count: 'Count',
+    uniqueCount: 'Unique Count',
+    children: [ {
+      id: 11,
+      filename: 'foo',
+      uniqueCount: 3,
+      count: 3,
+      children: [ {
+        id: 12,
+        filename: 'bar',
+        uniqueCount: 3,
+        count: 2,
+        children: [ {
+          id: 13,
+          filename: 'baz',
+          uniqueCount: 3,
+          count: 2,
+          children: []
+        }, {
+          id: 14,
+          filename: 'foh',
+          uniqueCount: 3,
+          count: 2,
+          children: []
+        } ]
+      }, {
+        id: 15,
+        filename: 'bat',
+        uniqueCount: 3,
+        count: 1,
+        children: []
+      }
+      ]
+    } ]
+  }
 
   return analytics;
 }
