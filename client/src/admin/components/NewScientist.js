@@ -3,6 +3,7 @@
  * US EPA National Center for Computational Toxicology
  */
 import React from 'react';
+import { withRouter } from 'react-router';
 import { ButtonToolbar, Button, PageHeader, Grid, Col, Form, FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
 import $ from 'jquery';
 import fetch from 'isomorphic-fetch';
@@ -36,9 +37,12 @@ class NewScientist extends React.Component {
             type: 'POST',
             data: { scientist: { firstName: firstName, lastName: lastName }},
             success: (scientist) => {
+                // Clear the input fields
                 this.inputFirstName.value = "";
                 this.inputLastName.value = "";
-                alert('Succesfully Added New Record')
+                // alert('Succesfully Added New Record')
+                // Redirect to profile
+                this.props.router.replace(`/admin/scientists/${scientist.scientistId}`)
             }
         });
 
@@ -88,6 +92,7 @@ class NewScientist extends React.Component {
     }
 
     render() {
+        console.log('props', this.props);
         return (
             <div className="admin-new-scientist-container">
                 <Grid>
@@ -100,4 +105,4 @@ class NewScientist extends React.Component {
     }
 }
 
-export default NewScientist;
+export default withRouter(NewScientist);
