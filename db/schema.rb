@@ -11,7 +11,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170623154336) do
+ActiveRecord::Schema.define(version: 20170623200844) do
+
+  create_table "ftp_ip_infos", force: :cascade do |t|
+    t.string   "ip",           limit: 255,                         null: false
+    t.string   "ip_as",        limit: 255
+    t.string   "zip",          limit: 255
+    t.string   "city",         limit: 255
+    t.string   "region",       limit: 255
+    t.string   "regionname",   limit: 255
+    t.string   "country",      limit: 255
+    t.string   "countrycode",  limit: 255
+    t.decimal  "latitude",                 precision: 8, scale: 5
+    t.decimal  "longitude",                precision: 8, scale: 5
+    t.string   "timezone",     limit: 255
+    t.string   "isp",          limit: 255
+    t.string   "organization", limit: 255
+    t.datetime "created_at",                                       null: false
+    t.datetime "updated_at",                                       null: false
+  end
+
+  create_table "ftp_ips", force: :cascade do |t|
+    t.string   "app",        limit: 255, null: false
+    t.string   "ip",         limit: 255, null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "ftp_metrics", force: :cascade do |t|
     t.integer  "parent_id",    limit: 4,   null: false
@@ -22,6 +47,14 @@ ActiveRecord::Schema.define(version: 20170623154336) do
     t.integer  "unique_count", limit: 4,   null: false
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+  end
+
+  create_table "ftp_metrics_by_months", force: :cascade do |t|
+    t.integer  "file_id",    limit: 4,   null: false
+    t.string   "month",      limit: 255, null: false
+    t.integer  "count",      limit: 4,   null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "homes", force: :cascade do |t|

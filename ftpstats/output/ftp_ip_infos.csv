@@ -1,4 +1,4 @@
-ip;hostname;zip;city;region;regionname;country;countrycode;latitude;longitude;timezone;isp;org
+ip;as;zip;city;region;regionname;country;countrycode;latitude;longitude;timezone;isp;org
 1.23.243.131;AS45528 Tikona Digital Networks Pvt Ltd.;500076;Hyderabad;TG;Telangana;India;IN;17.3753;78.4744;Asia/Kolkata;Tikona Digital Networks Pvt.;Tikona Digital Networks Pvt
 10.204.131.36
 103.38.17.132;AS133633 MultiTech Online;1207;Dhaka;C;Dhaka Division;Bangladesh;BD;23.7701;90.3628;Asia/Dhaka;MultiTech Online;MultiTech Online

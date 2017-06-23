@@ -1,5 +1,8 @@
 fs = require('fs')
 
+// global id
+let id = { id: 0 }
+
 // dsstox FTP
 const dsstox_log = './logfiles/dsstoxFTP.TXT'
 const dsstox_helpers = {
@@ -37,17 +40,17 @@ Promise.all([
   parseLog(dsstox_log, false, true, dsstox_helpers),
   parseLog(comptox_log, true, false, comptox_helpers)
 ]).then(res => {
-  res[1].ips.forEach(ip => { if(!res[0].ips.includes(ip)) { res[0].ips.push(ip) } }) // merge IP lists
+  res[0].ips = res[0].ips.concat(res[1].ips) // merge IP lists
 
   let headers = 'id,parent_id,app,name,folder,count,unique_count\n' // headers for csv
   let monthHeaders = 'fileId,month,count\n' // headers for month count
   let csv = res[0].folders.concat(res[1].folders).reduce(arrayToCSV, headers) // comma-separated string
-  let ip_csv = res[0].ips.sort().reduce((acc, ip) => acc + ip + '\n', '') // string of all ips
+  let ip_csv = res[0].ips.reduce((acc, ip) => acc + ip.app + ',' + ip.ip + '\n', 'app,ip\n') // string of all ips
   let month_csv = res[0].months.concat(res[1].months).reduce((acc, row) => acc + row.fileId  + ',' + row.month + ',' + row.count + '\n', monthHeaders) // string of all file month counts
 
-  outputFile('./output/ftp_folders.csv', csv)
-  outputFile('./output/ftp_folder_ips.csv', ip_csv)
-  outputFile('./output/ftp_folder_month_counts.csv', month_csv)
+  outputFile('./output/ftp_metrics.csv', csv)
+  outputFile('./output/ftp_ips.csv', ip_csv)
+  outputFile('./output/ftp_metrics_by_month.csv', month_csv)
 })
 
 function parseLog(inputFilename, inputheaders, includeFiles, helpers) {
@@ -69,10 +72,11 @@ function parseLog(inputFilename, inputheaders, includeFiles, helpers) {
       let tree = fileHits.reduce(buildTree, trunk) // json tree
       let array = walkTree(tree) // array of individual files/folders with counts
       array.folders.shift() // shift off the trunk
-      array.ips.sort()
+      let ips = []
+      Object.keys(array.ipObj).forEach(app => { ips = ips.concat(array.ipObj[app].map(ip => ({ app, ip })) ) })
 
       let apps = array.folders.reduce((acc, obj) => { if(!acc.includes(obj.app) && obj.app.length > 0) { acc.push(obj.app) } return acc }, [])
-      let returnObj = { folders: [], ips: array.ips, months: [] }
+      let returnObj = { folders: [], ips, months: [] }
       apps.forEach(app => {
         let appFolders = array.folders.filter(obj => obj.app === app)
         let monthCounts = appFolders.filter(folder => !folder.folder).reduce((acc,file) => {
@@ -113,16 +117,16 @@ function buildTree(acc, obj) {
 }
 
 function walkTree(tree) {
-  let id = 0
   let folderArray = []
-  let ipArray = []
-  convertFolder({id}, tree, folderArray, ipArray, -1)
-  return { folders: folderArray, ips: ipArray }
+  let ipObj = {}
+  convertFolder(id, tree, folderArray, ipObj, -1)
+  return { folders: folderArray, ipObj }
 }
 
-function convertFolder(id, tree, folderArray, ipArray, parentId) {
+function convertFolder(id, tree, folderArray, ipObj, parentId) {
   let thisId = id.id + 0
-  tree.uniqueIPs.forEach(ip => { if(!ipArray.includes(ip)) { return ipArray.push(ip); } })
+  if(!ipObj.hasOwnProperty(tree.app)) { ipObj[tree.app] = [] }
+  tree.uniqueIPs.forEach(ip => { if(!ipObj[tree.app].includes(ip)) { return ipObj[tree.app].push(ip) } })
   folderArray.push({
     id: thisId,
     parentId: parentId,
@@ -130,11 +134,11 @@ function convertFolder(id, tree, folderArray, ipArray, parentId) {
     name: tree.name,
     count: tree.ips.length,
     uniqueCount: tree.uniqueIPs.length,
-    folder: tree.children.length > 0,
+    folder: (tree.children.length > 0) + 0,
     months: tree.months.reduce((acc, month) => { if(acc.hasOwnProperty(month)) { acc[month]++ } else { acc[month] = 1 } return acc }, {})
   })
   id.id++
-  tree.children.forEach(child => convertFolder(id, child, folderArray, ipArray, thisId))
+  tree.children.forEach(child => convertFolder(id, child, folderArray, ipObj, thisId))
 }
 
 function arrayToCSV(acc, obj) {

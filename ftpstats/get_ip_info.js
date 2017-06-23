@@ -2,23 +2,21 @@ fs = require('fs')
 http = require('http')
 nodeAsync = require('async')
 
-const dsstox_input = './output/dsstox_ips.csv'
-const comptox_input = './output/comptox_ips.csv'
+const input = './output/ftp_ips.csv'
 
-Promise.all([getIPs(dsstox_input), getIPs(comptox_input)]).then(res => {
+getIPs(input).then(res => {
   let uniqueIPs = []
 
-  res[0].forEach(ip => { if(!uniqueIPs.includes(ip)) { uniqueIPs.push(ip) } })
-  res[1].forEach(ip => { if(!uniqueIPs.includes(ip)) { uniqueIPs.push(ip) } })
+  res.forEach(ip => { if(!uniqueIPs.includes(ip)) { uniqueIPs.push(ip) } })
 
   let ip_csv = uniqueIPs.sort().reduce((acc, ip) => acc + ip + '\n', ''); // string of all ips
   outputFile('./output/ips.csv', ip_csv)
 
   let ipInfo = { info: [] }
   getInfoFromIPs(uniqueIPs, ipInfo).then(res => {
-    let headers = 'ip;hostname;zip;city;region;regionname;country;countrycode;latitude;longitude;timezone;isp;org\n'; // headers for csv
+    let headers = 'ip;as;zip;city;region;regionname;country;countrycode;latitude;longitude;timezone;isp;org\n'; // headers for csv
     let csv = res.info.reduce(arrayToCSV, headers); // comma-separated string
-    outputFile('./output/ip_info.csv', csv)
+    outputFile('./output/ftp_ip_infos.csv', csv)
   });
 })
 
@@ -30,7 +28,9 @@ function getIPs(filename) {
 
       let dataArray = data.split(/\n/) // array of lines
       dataArray.pop() // pop the empty last line
-      resolve(dataArray)
+      dataArray.shift() // shift the header
+      let ips = dataArray.map(ip => ip.split(/,/)[1])
+      resolve(ips)
     })
   })
 }
