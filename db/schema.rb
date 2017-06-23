@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170622184622) do
+ActiveRecord::Schema.define(version: 20170623154336) do
 
   create_table "ftp_metrics", force: :cascade do |t|
     t.integer  "parent_id",    limit: 4,   null: false
