@@ -55,12 +55,12 @@ function parseLog(inputFilename, inputheaders, includeFiles, helpers) {
     let array = walkTree(tree) // array of individual files/folders with counts
     array.folders.shift() // shift off the trunk
 
-    let headers = 'id,parent_id,app,name,count,unique_count\n' // headers for csv
+    let headers = 'id,parent_id,app,name,folder,count,unique_count\n' // headers for csv
     let apps = array.folders.reduce((acc, obj) => { if(!acc.includes(obj.app) && obj.app.length > 0) { acc.push(obj.app) } return acc }, [])
     apps.forEach(app => {
       let appFolders = array.folders.filter(obj => obj.app === app)
       let monthCounts = appFolders.filter(folder => !folder.folder).reduce((acc,file) => {
-        let fileMonths = Object.keys(file.months).forEach(month => {
+        Object.keys(file.months).forEach(month => {
           acc.push({ month, fileId: file.id, file: file.name, count: file.months[month] })
         })
         return acc
@@ -124,7 +124,7 @@ function convertFolder(id, tree, folderArray, ipArray, parentId) {
 }
 
 function arrayToCSV(acc, obj) {
-  return acc + obj.id + ',' + obj.parentId + ',' + obj.app + ',' + obj.name + ',' + obj.count + ',' + obj.uniqueCount + '\n'
+  return acc + obj.id + ',' + obj.parentId + ',' + obj.app + ',' + obj.name + ',' + obj.folder + ',' + obj.count + ',' + obj.uniqueCount + '\n'
 }
 
 function outputFile(filename, string) {

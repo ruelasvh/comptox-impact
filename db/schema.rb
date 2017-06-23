@@ -11,20 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170614192605) do
+ActiveRecord::Schema.define(version: 20170622184622) do
 
-  create_table "comptox_ftp_folders", force: :cascade do |t|
+  create_table "ftp_metrics", force: :cascade do |t|
     t.integer  "parent_id",    limit: 4,   null: false
+    t.string   "app",          limit: 255, null: false
     t.string   "name",         limit: 255, null: false
-    t.integer  "count",        limit: 4,   null: false
-    t.integer  "unique_count", limit: 4,   null: false
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-  end
-
-  create_table "dsstox_ftp_folders", force: :cascade do |t|
-    t.integer  "parent_id",    limit: 4,   null: false
-    t.string   "name",         limit: 255, null: false
+    t.boolean  "folder",       limit: 1,   null: false
     t.integer  "count",        limit: 4,   null: false
     t.integer  "unique_count", limit: 4,   null: false
     t.datetime "created_at",               null: false
