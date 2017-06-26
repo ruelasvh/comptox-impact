@@ -22,11 +22,11 @@ const Scientist = ({ scientist }) => {
     return (
     <div className="scientists-item">
         <Link to={{ pathname: `/scientists/${scientist.scientistId}`, state: { scientist }}}>
-            <Thumbnail
-                src={scientistPhotoURL}
-                alt="Scientist_Image">
+            <Thumbnail src={scientistPhotoURL} alt="Scientist_Image">
+                <div style={{height: 75}}>
                 <h4>{scientist.firstName + ' '}<span className="last-name">{scientist.lastName}</span></h4>
                 <p>{scientist.title}</p>
+                </div>
             </Thumbnail>
         </Link>
     </div>
