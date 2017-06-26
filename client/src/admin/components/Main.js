@@ -7,10 +7,10 @@
  * US EPA National Center for Computational Toxicology
  */
 import React from 'react';
-import { ButtonToolbar, Button, PageHeader, Grid, Form, FormGroup, FormControl, Modal } from 'react-bootstrap';
-import { Link } from 'react-router';
+import { Button, PageHeader, Grid, Col, Row, FormGroup, InputGroup, FormControl, Glyphicon } from 'react-bootstrap';
+import { withRouter } from 'react-router';
 import $ from 'jquery';
-import ScientistsList from './AllScientists';
+import AllScientists from './AllScientists';
 import { searchScientists } from '../../utils/Client';
 import '../styles/allscientists.css'
 
@@ -18,17 +18,23 @@ class Main extends React.Component {
     constructor(props) {
         super(props);
 
+        // Component's state
         this.state = {
             scientists: [],
+            currentlyDisplayed: [],
             isLoading: true,
+            searchTerm: ''
         };
 
+        // Bindings
         this.removeScientist = this.removeScientist.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
+        this.handleCreate = this.handleCreate.bind(this);
+        this.handleInputChange = this.handleInputChange.bind(this);
     }
 
     componentDidMount() {
-        searchScientists((result) => this.setState({ scientists: result.data, isLoading: false }));
+        searchScientists((result) => this.setState({ scientists: result.data, currentlyDisplayed: result.data, isLoading: false }));
     }
 
     handleDelete(id) {
@@ -49,13 +55,60 @@ class Main extends React.Component {
         this.setState({ scientists: newScientists })
     }
 
+    handleUpdate(scientist) {
+        $.ajax({
+            url: `/api/scientists/${scientist.scientistId}`,
+            type: 'PUT',
+            data: { scientist: scientist },
+            success: (response) => {}
+        })
+    }
+
+    handleCreate() {
+        this.props.router.push("/admin/scientists/new");
+    }
+
+    handleInputChange(event) {
+        let newlyDisplayed = this.state.scientists.filter(
+            (scientist) => {
+                return (
+                    scientist.firstName.toLowerCase().includes(event.target.value.toLowerCase()) ||
+                    scientist.lastName.toLowerCase().includes(event.target.value.toLowerCase())
+                )
+            }
+        );
+
+        this.setState({
+            searchTerm: event.target.value,
+            currentlyDisplayed: newlyDisplayed
+        })
+    }
+
     renderToolbar() {
         return (
-            <div className="admin-list-toolbar">
-                <Link to="/admin/scientists/new">
-                    <Button bsStyle="success" >Add Scientist</Button>
-                </Link>
-            </div>
+            <Row>
+                <Col xs={12} md={8}>
+                    <div style={{width: 350, float: 'left'}}>
+                        <FormGroup>
+                            <InputGroup>
+                                <InputGroup.Addon>
+                                    <Glyphicon glyph="glyphicon glyphicon-search"/>
+                                </InputGroup.Addon>
+                                <FormControl
+                                    type="text"
+                                    placeholder="Search Scientists"
+                                    onChange={this.handleInputChange}/>
+                            </InputGroup>
+                        </FormGroup>
+                    </div>
+                    <div style={{float: 'left', paddingLeft: 10, paddingTop: 6}}><p style={{fontSize: 16}}>Showing {this.state.currentlyDisplayed.length} results</p></div>
+                </Col>
+                <Col xs={6} md={4}>
+                    <div className="admin-list-toolbar-add-scientist">
+                        <Button bsStyle="success" onClick={this.handleCreate}>Add Scientist</Button>
+                    </div>
+                </Col>
+            </Row>
         )
     }
 
@@ -66,8 +119,7 @@ class Main extends React.Component {
                     <div>
                         <PageHeader>NCCT Scientists and Postdocs</PageHeader>
                         {this.renderToolbar()}
-                        <br/>
-                        <ScientistsList scientists={this.state.scientists} handleDelete={this.handleDelete}/>
+                        <AllScientists scientists={this.state.currentlyDisplayed} handleDelete={this.handleDelete} handleUpdate={this.handleUpdate}/>
                     </div>
                 }
             </Grid>
@@ -75,4 +127,4 @@ class Main extends React.Component {
     }
 }
 
-export default Main;
+export default withRouter(Main);
