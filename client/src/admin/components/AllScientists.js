@@ -3,8 +3,8 @@
  * US EPA National Center for Computational Toxicology
  */
 import React from 'react';
-import { ButtonToolbar, Button, PageHeader, Grid, Form, FormGroup, FormControl, Modal } from 'react-bootstrap';
-import { Link } from 'react-router';
+import { ButtonToolbar, Button, Modal } from 'react-bootstrap';
+import { withRouter } from 'react-router';
 import '../styles/allscientists.css'
 
 class AllScientists extends React.Component {
@@ -27,6 +27,15 @@ class AllScientists extends React.Component {
     removeScientist() {
         this.props.handleDelete(this.state.id);
         this.setState({ showDeleteModal: false })
+    }
+
+    handleEdit(scientist) {
+        var navigate = {
+            pathname: `/admin/scientists/${scientist.scientistId}`,
+            state: { scientist, isEditable: true, handleUpdate: this.props.handleUpdate }
+        };
+
+        this.props.router.push(navigate);
     }
 
     renderDeleteModal(){
@@ -54,12 +63,7 @@ class AllScientists extends React.Component {
                 <div key={scientist.scientistId} className="admin-scientist-item">
                     <h3>{scientist.lastName + ', ' + scientist.firstName}</h3>
                     <ButtonToolbar>
-                        <Link to={{
-                            pathname: `/admin/scientists/${scientist.scientistId}`,
-                            state: { scientist }
-                        }}>
-                            <Button bsSize="xsmall">Edit</Button>
-                        </Link>
+                        <Button bsSize="xsmall" onClick={this.handleEdit.bind(this, scientist)}>Edit</Button>
                         <Button type="submit" bsStyle="danger" bsSize="xsmall" onClick={this.handleDeleteModal.bind(this, scientist.scientistId)}>Delete</Button>
                     </ButtonToolbar>
                 </div>
@@ -78,4 +82,4 @@ class AllScientists extends React.Component {
     }
 }
 
-export default AllScientists;
+export default withRouter(AllScientists);
