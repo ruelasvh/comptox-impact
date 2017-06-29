@@ -119,7 +119,6 @@ export class PublicationsList extends React.Component {
         return (
             <div>
                 <div className="publications-container">
-                    <Grid>
                     <Row>
                         <Col md={5}>
                             <h1>Publications</h1>
@@ -133,7 +132,7 @@ export class PublicationsList extends React.Component {
                                         </InputGroup.Addon>
                                         <FormControl
                                             type="text"
-                                            placeholder="Search Authors, Publication Title, Year"
+                                            placeholder="Search Authors, Title, Year"
                                             onChange={this.handleInputChange} />
                                     </InputGroup>
                                 </FormGroup>
@@ -196,10 +195,6 @@ export class PublicationsList extends React.Component {
                         {/*</Col>*/}
                     {/*</Row>*/}
 
-                    {/**
-                     * Spacing between filter dropdowns and publications.
-                     **/}
-                    <div style={{padding: '25px'}}/>
 
                     {/**
                      * Publications go start here.
@@ -226,7 +221,7 @@ export class PublicationsList extends React.Component {
                     <div className="publications-item-grid">
                         {renderPublications}
                     </div>
-                </Grid>
+
                 </div>
                 <div className="publications-pagination">
                     <Pagination

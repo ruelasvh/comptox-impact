@@ -13,6 +13,7 @@ import Header from './header/HeaderIndex';
 import Footer from './footer/FooterIndex';
 import Home from './home/components/HomeIndex';
 import VisiblePublications from './publications/container/VisiblePublications';
+import PublicationsPresentationsMain from './publications-presentations/components/PublicationsPresentationsMain';
 import VisibleScientists from './scientists/containers/VisibleScientists';
 import ScientistProfile from './scientist/ScientistProfile';
 import AdminMainScientists from './admin/components/Main';
@@ -48,7 +49,7 @@ const routes = {
     component: Root,
     indexRoute: { component: Home },
     childRoutes: [
-        { path: 'publications', component: VisiblePublications },
+        { path: 'publications-presentations', component: PublicationsPresentationsMain },
         { path: 'scientists', component: VisibleScientists },
         { path: 'scientists/:scientistId', component: ScientistProfile },
         { path: 'data-tools', component: DataTools },

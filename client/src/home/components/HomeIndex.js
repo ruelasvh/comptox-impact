@@ -55,7 +55,7 @@ export class HomeIndex extends React.Component {
                                 </Link>
                             </Col>
                             <Col xs={12} md={3}>
-                                <Link to="/publications">
+                                <Link to="/publications-presentations">
                                     <Thumbnail src={publications} alt="Publications_Presentations">
                                         <h3>Publications and Presentations</h3>
                                     </Thumbnail>
