@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170623200844) do
+ActiveRecord::Schema.define(version: 20170629161457) do
 
   create_table "ftp_ip_infos", force: :cascade do |t|
     t.string   "ip",           limit: 255,                         null: false
@@ -101,8 +101,10 @@ ActiveRecord::Schema.define(version: 20170623200844) do
     t.integer  "scientist_id",      limit: 4
     t.integer  "publication_id",    limit: 4
     t.boolean  "is_primary_author", limit: 1
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.string   "scientist_name",    limit: 255
+    t.integer  "order",             limit: 4
   end
 
   add_index "scientist_publications", ["publication_id"], name: "fk_rails_4bee69e443", using: :btree
