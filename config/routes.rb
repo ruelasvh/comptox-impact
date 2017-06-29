@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     scope '/scientists' do
       get '/' => 'scientists#index'
       post '/' => 'scientists#create'
+      put ':scientistId' => 'scientists#update'
       delete ':scientistId' => 'scientists#destroy'
       get ':scientistId' => 'scientists#show'
       get ':scientistId/photo/:scientistImage.:format' => 'scientists#show_photo'

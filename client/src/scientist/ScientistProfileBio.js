@@ -3,20 +3,76 @@
  * US EPA National Center for Computational Toxicology
  */
 import React, { PropTypes } from 'react';
-import { Row, Col } from 'react-bootstrap';
+import { Col, Button, FormGroup, ControlLabel, FormControl, Glyphicon } from 'react-bootstrap';
 import './styles/scientistprofile.css';
 
 
-const ScientistProfileBio = ( { scientistBio } ) => (
-    <div className="scientist-bio">
-        <br/><br/><br/><br/><br/><br/><br/>
-        {scientistBio ?
-        <Col>
-            <h4 className="headline"><strong>Bio</strong></h4>
-            <div dangerouslySetInnerHTML={{__html: scientistBio}}/>
-        </Col> : ''}
-    </div>
-);
+class ScientistProfileBio extends React.Component {
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            educationList: [<p><FormControl type="text"/></p>],
+            isEditing: false
+        }
+
+        this.handleEdit = this.handleEdit.bind(this)
+        this.handleAddEducationItem = this.handleAddEducationItem.bind(this)
+    }
+
+    handleEdit() {
+        this.setState({ isEditing: !this.state.isEditing })
+    }
+
+    handleAddEducationItem() {
+        const educationList = this.state.educationList
+        this.setState({
+            educationList: educationList.concat(<p><FormControl type="text"/></p>)
+        })
+    }
+
+    render() {
+
+        const BioForm = () => (
+            <form>
+                <FormGroup controlId="formScientistBioExpertise">
+                    <ControlLabel>Enter Area of Expertise</ControlLabel>
+                    <FormControl componentClass="textarea"/>
+                </FormGroup>
+                <br/>
+                <FormGroup controlId="formScientistBioEducation">
+                    <ControlLabel>Enter Education</ControlLabel>
+                    <br/>
+                  {this.state.educationList}
+                    <div style={{ float: 'right' }}>
+                        <Button bsStyle="link" onClick={this.handleAddEducationItem}>
+                            <p><Glyphicon glyph="plus"/> Add more</p>
+                        </Button>
+                    </div>
+                </FormGroup>
+            </form>
+        )
+
+        return (
+            <div className="scientist-bio">
+                <br/><br/><br/><br/><br/><br/><br/>
+                <Col>
+                    {
+                        this.props.isEditable ?
+                        <Button
+                            bsStyle={this.state.isEditing ? "success" : "info"}
+                            onClick={this.handleEdit}>{this.state.isEditing ? "Submit" : "Edit Section"}
+                        </Button>
+                        :
+                        <div/>
+                    }
+                    <h4 className="headline"><strong>Bio</strong></h4>
+                    {this.state.isEditing ?  <BioForm/> : <div dangerouslySetInnerHTML={{__html: this.props.scientistDetails.bio}}/>}
+                </Col>
+            </div>
+        )
+    }
+}
 
 ScientistProfileBio.propTypes = {
     scientistBio: PropTypes.string.isRequired

@@ -18,6 +18,7 @@ class AllScientists extends React.Component {
 
         this.removeScientist = this.removeScientist.bind(this);
         this.handleDeleteModal = this.handleDeleteModal.bind(this);
+        this.handleEdit = this.handleEdit.bind(this);
     }
 
     handleDeleteModal(id) {

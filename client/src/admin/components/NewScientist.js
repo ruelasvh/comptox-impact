@@ -4,9 +4,8 @@
  */
 import React from 'react';
 import { withRouter } from 'react-router';
-import { ButtonToolbar, Button, PageHeader, Grid, Col, Form, FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
+import { Button, PageHeader, Grid, Col, Form, FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
 import $ from 'jquery';
-import fetch from 'isomorphic-fetch';
 import '../styles/newscientist.css';
 
 class NewScientist extends React.Component {
@@ -42,7 +41,12 @@ class NewScientist extends React.Component {
                 this.inputLastName.value = "";
                 // alert('Succesfully Added New Record')
                 // Redirect to profile
-                this.props.router.replace(`/admin/scientists/${scientist.scientistId}`)
+                var navigate = {
+                    pathname: `/admin/scientists/${scientist.scientistId}`,
+                        state: { scientist, isEditable: true }
+                };
+
+                this.props.router.replace(navigate);
             }
         });
 
@@ -92,7 +96,6 @@ class NewScientist extends React.Component {
     }
 
     render() {
-        console.log('props', this.props);
         return (
             <div className="admin-new-scientist-container">
                 <Grid>

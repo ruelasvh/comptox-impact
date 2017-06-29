@@ -44,7 +44,7 @@ class ScientistsController < ApplicationController
 
   def update # save changes
     @scientist = Scientist.find(params[:scientistId])
-    if @scientist.update_attributes(scientist_params)
+    if @scientist.update(scientist_params)
       render json: @scientist, status: :ok
     else
       render json: @scientist.errors, status: :unprocessable_entity
@@ -111,6 +111,6 @@ class ScientistsController < ApplicationController
     end
 
     def scientist_params
-      params.require(:scientist).permit(:scientistId, :firstName, :lastName)
+      params.require(:scientist).permit(:scientistId, :firstName, :lastName, :title, :email)
     end
 end
