@@ -47,7 +47,7 @@ class PublicationsController < ApplicationController
     end
 
     if @limit == '0'
-      @publications = Publication.all.order("published_date DESC")
+      @publications = Publication.all
       render(
           status: 200,
           json: {
@@ -65,7 +65,7 @@ class PublicationsController < ApplicationController
           }
       )
     elsif @page.nil?
-      @publications = Publication.order("published_date DESC").offset(@offset).limit(@limit)
+      @publications = Publication.offset(@offset).limit(@limit)
       render(
           status: 200,
           json: {
@@ -85,7 +85,7 @@ class PublicationsController < ApplicationController
           }
       )
     elsif !@page.nil?
-      @publications = Publication.order("published_date DESC").offset(@offset).limit(@limit)
+      @publications = Publication.offset(@offset).limit(@limit)
       render(
           status: 200,
           json: {

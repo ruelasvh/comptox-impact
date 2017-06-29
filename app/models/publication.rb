@@ -1,5 +1,6 @@
 class Publication < ActiveRecord::Base
   self.primary_key = "publication_id"
+  default_scope { order('published_date desc') }
   belongs_to :publication_type
   has_many :scientist_publications
   has_many :scientists, through: :scientist_publications
