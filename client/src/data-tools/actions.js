@@ -2,7 +2,7 @@
  * Created by Victor H. Ruelas-Rivera on 4/26/17.
  * US EPA National Center for Computational Toxicology
  */
-import { queryGAApi } from '../utils/Client';
+import { queryGAApi, ftpMetrics } from '../utils/Client';
 import moment from 'moment';
 
 // Actions, functions that return instructions and data payload to the reducers.
@@ -98,7 +98,11 @@ function fetchAnalytics() {
             queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgMCo6NMIDA'), // Domain Month
             queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICZ58MKDA'), // Domain Year
             queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICEtMoIDA'), // State Month
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgIC63N8KDA')  // State Year
+            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgIC63N8KDA'), // State Year
+            /* Internal FTP Metrics API */
+          ftpMetrics('comptox'),
+          ftpMetrics('toxcast'),
+          ftpMetrics('dsstox')
         ])
             .then(results => dispatch(receiveAnalytics(results)))
     }
@@ -144,7 +148,7 @@ function normalize(results) {
     toxcast: {
       usage: {},
       datadownloads: {},
-      softwaredownloads: {},
+      filedownloads: {},
     },
     dsstox: {
       datadownloads: {},
@@ -222,38 +226,7 @@ function normalize(results) {
     name: '/',
     count: 'Count',
     uniqueCount: 'Unique Count',
-    children: [ {
-      id: 1,
-      filename: 'foo',
-      uniqueCount: 3,
-      count: 3,
-      children: [ {
-        id: 2,
-        filename: 'bar',
-        uniqueCount: 3,
-        count: 2,
-        children: [ {
-          id: 3,
-          filename: 'baz',
-          uniqueCount: 3,
-          count: 2,
-          children: []
-        }, {
-          id: 4,
-          filename: 'foh',
-          uniqueCount: 3,
-          count: 2,
-          children: []
-        } ]
-      }, {
-        id: 5,
-        filename: 'bat',
-        uniqueCount: 3,
-        count: 1,
-        children: []
-      }
-      ]
-    } ]
+    children: [ results[64] ]
   };
   toxcast.datadownloads = {
     pageViews: results[48],
@@ -275,42 +248,17 @@ function normalize(results) {
     stateMonth: sliceTime(results[62]),
     stateYear: sliceTime(results[63]),
   };
+  toxcast.filedownloads = {
+    name: '/',
+    count: 'Count',
+    uniqueCount: 'Unique Count',
+    children: [ results[65] ]
+  }
   dsstox.filedownloads = {
     name: '/',
     count: 'Count',
     uniqueCount: 'Unique Count',
-    children: [ {
-      id: 11,
-      filename: 'foo',
-      uniqueCount: 3,
-      count: 3,
-      children: [ {
-        id: 12,
-        filename: 'bar',
-        uniqueCount: 3,
-        count: 2,
-        children: [ {
-          id: 13,
-          filename: 'baz',
-          uniqueCount: 3,
-          count: 2,
-          children: []
-        }, {
-          id: 14,
-          filename: 'foh',
-          uniqueCount: 3,
-          count: 2,
-          children: []
-        } ]
-      }, {
-        id: 15,
-        filename: 'bat',
-        uniqueCount: 3,
-        count: 1,
-        children: []
-      }
-      ]
-    } ]
+    children: [ results[66] ]
   }
 
   return analytics;

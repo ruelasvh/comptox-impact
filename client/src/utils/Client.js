@@ -64,6 +64,13 @@ export function queryGAApi(queryId) {
         .then(parseJSON)
 }
 
+export function ftpMetrics(app) {
+  return fetch(`${absolutePath + relativePath}/api/ftpmetrics/tree/${app}`, {
+    accept: 'application/json',
+  }).then(checkStatus)
+    .then(parseJSON)
+}
+
 function checkStatus(response) {
     if (response.status >= 200 && response.status < 300) {
         return response;

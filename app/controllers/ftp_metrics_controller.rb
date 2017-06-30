@@ -17,11 +17,12 @@ class FtpMetricsController < ApplicationController
     root = list[0]
 
     tree = {
-      n: root.name,
-      f: root.folder,
-      d: root.count,
-      u: root.unique_count,
-      c: root.children.where(:app => app).map { |e| make_tree(e) }
+      id: root.id,
+      filename: root.name,
+      folder: root.folder,
+      count: root.count,
+      uniqueCount: root.unique_count,
+      children: root.children.where(:app => app).order(count: :desc).map { |e| make_tree(e) }
     }
     render(
       status: 200,
@@ -30,11 +31,12 @@ class FtpMetricsController < ApplicationController
   end
 
   def make_tree(element)
-    obj = { n: element.name,
-            f: element.folder,
-            d: element.count,
-            u: element.unique_count,
-            c: element.children.map { |e| make_tree(e) }
+    obj = { id: element.id,
+            filename: element.name,
+            folder: element.folder,
+            count: element.count,
+            uniqueCount: element.unique_count,
+            children: element.children.order(count: :desc).map { |e| make_tree(e) }
     }
     return obj
   end
