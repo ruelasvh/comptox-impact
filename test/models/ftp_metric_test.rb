@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class DsstoxFtpFolderTest < ActiveSupport::TestCase
+class FtpMetricTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
