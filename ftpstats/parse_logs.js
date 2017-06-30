@@ -50,7 +50,7 @@ Promise.all([
 
   outputFile('./output/ftp_metrics.csv', csv)
   outputFile('./output/ftp_ips.csv', ip_csv)
-  outputFile('./output/ftp_metrics_by_month.csv', month_csv)
+  outputFile('./output/ftp_metrics_by_months.csv', month_csv)
 })
 
 function parseLog(inputFilename, inputheaders, includeFiles, helpers) {

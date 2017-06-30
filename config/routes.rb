@@ -24,6 +24,11 @@ Rails.application.routes.draw do
     scope '/data-tools' do
       get '/gtoken' => 'data_tools#get_google_token'
     end
+    # ftp metrics
+    scope '/ftpmetrics' do
+      get '/' => 'ftp_metrics#index'
+      get '/tree/:app' => 'ftp_metrics#tree'
+    end
   end
 
   root to: 'application#index'
