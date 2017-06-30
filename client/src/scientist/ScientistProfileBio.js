@@ -2,7 +2,8 @@
  * Created by Victor H. Ruelas-Rivera on 2/14/17.
  * US EPA National Center for Computational Toxicology
  */
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { Col, Button, FormGroup, ControlLabel, FormControl, Glyphicon } from 'react-bootstrap';
 import './styles/scientistprofile.css';
 
@@ -75,7 +76,8 @@ class ScientistProfileBio extends React.Component {
 }
 
 ScientistProfileBio.propTypes = {
-    scientistBio: PropTypes.string.isRequired
+    isEditable: PropTypes.bool,
+    scientistDetails: PropTypes.object
 };
 
 export default ScientistProfileBio;

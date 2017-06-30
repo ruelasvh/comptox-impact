@@ -1,7 +1,8 @@
 /**
  * Created by vruelasr on 9/28/16.
  */
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import $ from 'jquery';
 import AltmetricWidget from './AltmetricWidget';
 import PlumxWidget from './PlumxWidget';

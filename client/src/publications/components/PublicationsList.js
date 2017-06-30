@@ -2,7 +2,8 @@
  * Created by Victor H. Ruelas-Rivera on 3/29/17.
  * US EPA National Center for Computational Toxicology
  */
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { Grid, Row, Col, FormControl, InputGroup, FormGroup, Glyphicon, Pagination } from 'react-bootstrap';
 import PublicationItem from './PublicationItem';
 import Isotope from 'isotope-layout';
@@ -243,7 +244,10 @@ export class PublicationsList extends React.Component {
 }
 
 PublicationsList.propTypes = {
-    publications: PropTypes.object.isRequired
+    publications: PropTypes.oneOfType([
+        PropTypes.object,
+        PropTypes.array
+    ])
 };
 
 

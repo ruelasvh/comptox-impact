@@ -1,7 +1,8 @@
 /**
  * Created by vruelasr on 6/28/17.
  */
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { Grid, Row, Col, Image, Breadcrumb, Button, FormControl, FormGroup, ControlLabel } from 'react-bootstrap';
 import { Link } from 'react-router';
 import $ from 'jquery';
@@ -91,6 +92,11 @@ class ScientistProfileBasicInfo extends React.Component {
         )
     }
 
+}
+
+ScientistProfileBasicInfo.propTypes = {
+    isEditable: PropTypes.bool,
+    details: PropTypes.object
 }
 
 export default ScientistProfileBasicInfo;

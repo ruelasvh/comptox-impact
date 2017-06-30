@@ -2,7 +2,8 @@
  * Created by Victor H. Ruelas-Rivera on 2/16/17.
  * US EPA National Center for Computational Toxicology
  */
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import './styles/scientistprofile.css';
 
 const PresentationsTabPresentationItem = ( {userUrl} ) => (

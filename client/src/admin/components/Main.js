@@ -7,6 +7,7 @@
  * US EPA National Center for Computational Toxicology
  */
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Button, PageHeader, Grid, Col, Row, FormGroup, InputGroup, FormControl, Glyphicon } from 'react-bootstrap';
 import { withRouter } from 'react-router';
 import $ from 'jquery';
@@ -125,6 +126,10 @@ class Main extends React.Component {
             </Grid>
         )
     }
+}
+
+Main.propTypes = {
+    router: PropTypes.object
 }
 
 export default withRouter(Main);

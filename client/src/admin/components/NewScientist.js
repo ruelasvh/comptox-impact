@@ -3,6 +3,7 @@
  * US EPA National Center for Computational Toxicology
  */
 import React from 'react';
+import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
 import { Button, PageHeader, Grid, Col, Form, FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
 import $ from 'jquery';
@@ -106,6 +107,10 @@ class NewScientist extends React.Component {
             </div>
         )
     }
+}
+
+NewScientist.propTypes = {
+    router: PropTypes.object
 }
 
 export default withRouter(NewScientist);

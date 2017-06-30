@@ -2,7 +2,8 @@
  * Created by Victor H. Ruelas-Rivera on 2/14/17.
  * US EPA National Center for Computational Toxicology
  */
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { Tooltip, OverlayTrigger} from 'react-bootstrap';
 import orcid from './img/ocrid.gif';
 import plumx from './img/plumx.png';

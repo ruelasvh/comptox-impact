@@ -3,6 +3,7 @@
  * US EPA National Center for Computational Toxicology
  */
 import React from 'react';
+import PropTypes from 'prop-types';
 import { ButtonToolbar, Button, Modal } from 'react-bootstrap';
 import { withRouter } from 'react-router';
 import '../styles/allscientists.css'
@@ -81,6 +82,12 @@ class AllScientists extends React.Component {
             </div>
         )
     }
+}
+
+AllScientists.propTypes = {
+    handleDelete: PropTypes.func,
+    router: PropTypes.object,
+    scientists: PropTypes.array
 }
 
 export default withRouter(AllScientists);

@@ -2,7 +2,8 @@
  * Created by Victor H. Ruelas-Rivera on 3/15/17.
  * US EPA National Center for Computational Toxicology
  */
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { Grid, Row, Col } from 'react-bootstrap';
 import Waypoint from 'react-waypoint';
 import PublicationItem from '../publications/components/PublicationItem';
@@ -129,7 +130,7 @@ class PublicationsTabContent extends React.Component {
 }
 
 PublicationsTabContent.propTypes = {
-    selectedPublications: PropTypes.object,
+    selectedPublications: PropTypes.array,
     onEnter: PropTypes.func, // function called when waypoint enters viewport
     onLeave: PropTypes.func, // function called when waypoint leaves viewport
 };
