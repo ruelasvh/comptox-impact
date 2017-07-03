@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170629161457) do
+ActiveRecord::Schema.define(version: 20170703183102) do
 
   create_table "ftp_ip_infos", force: :cascade do |t|
     t.string   "ip",           limit: 255,                         null: false
@@ -80,19 +80,20 @@ ActiveRecord::Schema.define(version: 20170629161457) do
   end
 
   create_table "publications", primary_key: "publication_id", force: :cascade do |t|
-    t.string   "title",               limit: 2048
-    t.string   "doi",                 limit: 128
+    t.string   "title",                  limit: 2048
+    t.string   "doi",                    limit: 128
     t.date     "published_date"
-    t.text     "citation",            limit: 65535
-    t.text     "abstract",            limit: 65535
-    t.integer  "publication_type_id", limit: 4
-    t.string   "publication_url",     limit: 2048
-    t.string   "external_url",        limit: 2048
-    t.string   "created_by",          limit: 256,   default: "System", null: false
-    t.string   "updated_by",          limit: 256
-    t.datetime "created_at",                                           null: false
-    t.datetime "updated_at",                                           null: false
-    t.string   "project",             limit: 255
+    t.text     "citation",               limit: 65535
+    t.text     "abstract",               limit: 65535
+    t.integer  "publication_type_id",    limit: 4
+    t.string   "publication_url",        limit: 2048
+    t.string   "external_url",           limit: 2048
+    t.string   "created_by",             limit: 256,   default: "System", null: false
+    t.string   "updated_by",             limit: 256
+    t.datetime "created_at",                                              null: false
+    t.datetime "updated_at",                                              null: false
+    t.string   "project",                limit: 255
+    t.string   "scientist_publications", limit: 255
   end
 
   add_index "publications", ["publication_type_id"], name: "fk_PubPubTypes", using: :btree
@@ -105,6 +106,7 @@ ActiveRecord::Schema.define(version: 20170629161457) do
     t.datetime "updated_at",                    null: false
     t.string   "scientist_name",    limit: 255
     t.integer  "order",             limit: 4
+    t.string   "scientist_alias",   limit: 255
   end
 
   add_index "scientist_publications", ["publication_id"], name: "fk_rails_4bee69e443", using: :btree
