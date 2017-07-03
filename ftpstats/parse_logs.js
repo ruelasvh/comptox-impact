@@ -37,8 +37,8 @@ const comptox_helpers = {
 }
 
 Promise.all([
-  parseLog(dsstox_log, false, true, dsstox_helpers),
-  parseLog(comptox_log, true, false, comptox_helpers)
+  parseLog(dsstox_log, false, dsstox_helpers),
+  parseLog(comptox_log, true, comptox_helpers)
 ]).then(res => {
   res[0].ips = res[0].ips.concat(res[1].ips) // merge IP lists
 
@@ -53,7 +53,7 @@ Promise.all([
   outputFile('./output/ftp_metrics_by_months.csv', month_csv)
 })
 
-function parseLog(inputFilename, inputheaders, includeFiles, helpers) {
+function parseLog(inputFilename, inputheaders, helpers) {
   return new Promise(function (resolve, reject) {
     fs.readFile(inputFilename, 'utf8', function(err, data) {
       if(err) { return console.log(err) }
@@ -85,7 +85,6 @@ function parseLog(inputFilename, inputheaders, includeFiles, helpers) {
           })
           return acc
         }, [])
-        if(!includeFiles) { appFolders = appFolders.filter(folder => folder.folder) }
 
         returnObj.folders = returnObj.folders.concat(appFolders)
         returnObj.months = returnObj.months.concat(monthCounts)
