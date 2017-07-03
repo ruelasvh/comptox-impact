@@ -78,18 +78,18 @@ class DataToolsIndex extends React.Component {
               </Col>
               <Col sm={9}>
                 { props.tab.data.hasOwnProperty('usage') ?
-                  <Tab.Content animation>
-                    <Tab.Pane eventKey="page-views">
+                  <Tab.Content unmountOnExit={true} mountOnEnter={true} animation>
+                    <Tab.Pane unmountOnExit={true} mountOnEnter={true} eventKey="page-views">
                       {props.isFetching ?
                         ' ' : <BarChart data={props.tab.data.usage.pageViews}/>
                       }
                     </Tab.Pane>
-                    <Tab.Pane eventKey="unique-page-views">
+                    <Tab.Pane unmountOnExit={true} mountOnEnter={true} eventKey="unique-page-views">
                       {props.isFetching ?
                         ' ' : <LineChart data={props.tab.data.usage.uniquePageViews}/>
                       }
                     </Tab.Pane>
-                    <Tab.Pane eventKey="type-users">
+                    <Tab.Pane unmountOnExit={true} mountOnEnter={true} eventKey="type-users">
                       <Tab.Container id="users-tabs" defaultActiveKey="month">
                         <div>
                           Time Period:
@@ -101,13 +101,13 @@ class DataToolsIndex extends React.Component {
                               <NavItem eventKey="year">{props.tab.data.usage.domainYear.timeperiod}</NavItem> : ' '
                             }
                           </Nav>
-                          <Tab.Content animation>
-                            <Tab.Pane eventKey="month">
+                          <Tab.Content unmountOnExit={true} mountOnEnter={true} animation>
+                            <Tab.Pane unmountOnExit={true} mountOnEnter={true} eventKey="month">
                               {!props.isFetching && props.tab.data.usage.domainMonth.hasOwnProperty('data') ?
                                 <DoughnutChart data={props.tab.data.usage.domainMonth.data} /> : ' '
                               }
                             </Tab.Pane>
-                            <Tab.Pane eventKey="year">
+                            <Tab.Pane unmountOnExit={true} mountOnEnter={true} eventKey="year">
                               {!props.isFetching && props.tab.data.usage.domainYear.hasOwnProperty('data') ?
                                 <DoughnutChart data={props.tab.data.usage.domainYear.data} /> : ' '
                               }
@@ -116,7 +116,7 @@ class DataToolsIndex extends React.Component {
                         </div>
                       </Tab.Container>
                     </Tab.Pane>
-                    <Tab.Pane eventKey="geographics">
+                    <Tab.Pane unmountOnExit={true} mountOnEnter={true} eventKey="geographics">
                       <Tab.Container id="geographics-tabs" defaultActiveKey="usa">
                         <div>
                         Region:
@@ -124,8 +124,8 @@ class DataToolsIndex extends React.Component {
                           <NavItem eventKey="usa">USA</NavItem>
                           <NavItem eventKey="world">World</NavItem>
                         </Nav>
-                        <Tab.Content animation>
-                          <Tab.Pane eventKey="usa">
+                        <Tab.Content unmountOnExit={true} mountOnEnter={true} animation>
+                          <Tab.Pane unmountOnExit={true} mountOnEnter={true} eventKey="usa">
                             <Tab.Container id="geographics-usa-subtabs" defaultActiveKey="month">
                               <div>
                               Time Period:
@@ -137,13 +137,13 @@ class DataToolsIndex extends React.Component {
                                   <NavItem eventKey="year">{props.tab.data.usage.stateYear.timeperiod}</NavItem> : ' '
                                 }
                               </Nav>
-                              <Tab.Content animation>
-                                <Tab.Pane eventKey="month">
+                              <Tab.Content unmountOnExit={true} mountOnEnter={true} animation>
+                                <Tab.Pane unmountOnExit={true} mountOnEnter={true} eventKey="month">
                                   {!props.isFetching && props.tab.data.usage.stateMonth.hasOwnProperty('data') ?
                                     <MapChart data={props.tab.data.usage.stateMonth.data} scope={'usa'} /> : ' '
                                   }
                                 </Tab.Pane>
-                                <Tab.Pane eventKey="year">
+                                <Tab.Pane unmountOnExit={true} mountOnEnter={true} eventKey="year">
                                   {!props.isFetching && props.tab.data.usage.stateYear.hasOwnProperty('data') ?
                                     <MapChart data={props.tab.data.usage.stateYear.data} scope={'usa'} /> : ' '
                                   }
@@ -152,7 +152,7 @@ class DataToolsIndex extends React.Component {
                               </div>
                             </Tab.Container>
                           </Tab.Pane>
-                          <Tab.Pane eventKey="world">
+                          <Tab.Pane unmountOnExit={true} mountOnEnter={true} eventKey="world">
                             <Tab.Container id="geographics-world-subtabs" defaultActiveKey="month">
                               <div>
                               Time Period:
@@ -164,13 +164,13 @@ class DataToolsIndex extends React.Component {
                                   <NavItem eventKey="year">{props.tab.data.usage.countryYear.timeperiod}</NavItem> : ' '
                                 }
                               </Nav>
-                              <Tab.Content animation>
-                                <Tab.Pane eventKey="month">
+                              <Tab.Content unmountOnExit={true} mountOnEnter={true} animation>
+                                <Tab.Pane unmountOnExit={true} mountOnEnter={true} eventKey="month">
                                   {!props.isFetching && props.tab.data.usage.countryMonth.hasOwnProperty('data') ?
                                     <MapChart data={props.tab.data.usage.countryMonth.data} scope={'world'} /> : ' '
                                   }
                                 </Tab.Pane>
-                                <Tab.Pane eventKey="year">
+                                <Tab.Pane unmountOnExit={true} mountOnEnter={true} eventKey="year">
                                   {!props.isFetching && props.tab.data.usage.countryYear.hasOwnProperty('data') ?
                                     <MapChart data={props.tab.data.usage.countryYear.data} scope={'world'} /> : ' '
                                   }
@@ -186,18 +186,18 @@ class DataToolsIndex extends React.Component {
                   </Tab.Content>
                   : ' ' }
                 { props.tab.data.hasOwnProperty('datadownloads') ?
-                  <Tab.Content animation>
-                    <Tab.Pane eventKey="drupal-page-views">
+                  <Tab.Content unmountOnExit={true} mountOnEnter={true} animation>
+                    <Tab.Pane unmountOnExit={true} mountOnEnter={true} eventKey="drupal-page-views">
                       {props.isFetching ?
                         ' ' : <LineChart data={props.tab.data.datadownloads.pageViews}/>
                       }
                     </Tab.Pane>
-                    <Tab.Pane eventKey="drupal-unique-page-views">
+                    <Tab.Pane unmountOnExit={true} mountOnEnter={true} eventKey="drupal-unique-page-views">
                       {props.isFetching ?
                         ' ' : <LineChart data={props.tab.data.datadownloads.uniquePageViews}/>
                       }
                     </Tab.Pane>
-                    <Tab.Pane eventKey="drupal-type-users">
+                    <Tab.Pane unmountOnExit={true} mountOnEnter={true} eventKey="drupal-type-users">
                       <Tab.Container id="users-tabs" defaultActiveKey="month">
                         <div>
                           Time Period:
@@ -209,13 +209,13 @@ class DataToolsIndex extends React.Component {
                               <NavItem eventKey="year">{props.tab.data.datadownloads.domainYear.timeperiod}</NavItem> : ' '
                             }
                           </Nav>
-                          <Tab.Content animation>
-                            <Tab.Pane eventKey="month">
+                          <Tab.Content unmountOnExit={true} mountOnEnter={true} animation>
+                            <Tab.Pane unmountOnExit={true} mountOnEnter={true} eventKey="month">
                               {!props.isFetching && props.tab.data.datadownloads.domainMonth.hasOwnProperty('data') ?
                                 <DoughnutChart data={props.tab.data.datadownloads.domainMonth.data} /> : ' '
                               }
                             </Tab.Pane>
-                            <Tab.Pane eventKey="year">
+                            <Tab.Pane unmountOnExit={true} mountOnEnter={true} eventKey="year">
                               {!props.isFetching && props.tab.data.datadownloads.domainYear.hasOwnProperty('data') ?
                                 <DoughnutChart data={props.tab.data.datadownloads.domainYear.data} /> : ' '
                               }
@@ -224,7 +224,7 @@ class DataToolsIndex extends React.Component {
                         </div>
                       </Tab.Container>
                     </Tab.Pane>
-                    <Tab.Pane eventKey="drupal-geographics">
+                    <Tab.Pane unmountOnExit={true} mountOnEnter={true} eventKey="drupal-geographics">
                       <Tab.Container id="geographics-tabs" defaultActiveKey="world">
                         <div>
                         Region:
@@ -232,8 +232,8 @@ class DataToolsIndex extends React.Component {
                           <NavItem eventKey="usa">USA</NavItem>
                           <NavItem eventKey="world">World</NavItem>
                         </Nav>
-                        <Tab.Content animation>
-                          <Tab.Pane eventKey="usa">
+                        <Tab.Content unmountOnExit={true} mountOnEnter={true} animation>
+                          <Tab.Pane unmountOnExit={true} mountOnEnter={true} eventKey="usa">
                             <Tab.Container id="geographics-usa-subtabs" defaultActiveKey="month">
                               <div>
                                 Time Period:
@@ -245,13 +245,13 @@ class DataToolsIndex extends React.Component {
                                     <NavItem eventKey="year">{props.tab.data.datadownloads.stateYear.timeperiod}</NavItem> : ' '
                                   }
                                 </Nav>
-                                <Tab.Content animation>
-                                  <Tab.Pane eventKey="month">
+                                <Tab.Content unmountOnExit={true} mountOnEnter={true} animation>
+                                  <Tab.Pane unmountOnExit={true} mountOnEnter={true} eventKey="month">
                                     {!props.isFetching && props.tab.data.datadownloads.stateMonth.hasOwnProperty('data') ?
                                       <MapChart data={props.tab.data.datadownloads.stateMonth.data} scope={'usa'} /> : ' '
                                     }
                                   </Tab.Pane>
-                                  <Tab.Pane eventKey="year">
+                                  <Tab.Pane unmountOnExit={true} mountOnEnter={true} eventKey="year">
                                     {!props.isFetching && props.tab.data.datadownloads.stateMonth.hasOwnProperty('data') ?
                                       <MapChart data={props.tab.data.datadownloads.stateYear.data} scope={'usa'} /> : ' '
                                     }
@@ -260,7 +260,7 @@ class DataToolsIndex extends React.Component {
                               </div>
                             </Tab.Container>
                           </Tab.Pane>
-                          <Tab.Pane eventKey="world">
+                          <Tab.Pane unmountOnExit={true} mountOnEnter={true} eventKey="world">
                             <Tab.Container id="geographics-world-subtabs" defaultActiveKey="month">
                               <div>
                                 Time Period:
@@ -272,13 +272,13 @@ class DataToolsIndex extends React.Component {
                                     <NavItem eventKey="year">{props.tab.data.datadownloads.countryYear.timeperiod}</NavItem> : ' '
                                   }
                                 </Nav>
-                                <Tab.Content animation>
-                                  <Tab.Pane eventKey="month">
+                                <Tab.Content unmountOnExit={true} mountOnEnter={true} animation>
+                                  <Tab.Pane unmountOnExit={true} mountOnEnter={true} eventKey="month">
                                     {!props.isFetching && props.tab.data.datadownloads.stateMonth.hasOwnProperty('data') ?
                                       <MapChart data={props.tab.data.datadownloads.countryMonth.data} scope={'world'} /> : ' '
                                     }
                                   </Tab.Pane>
-                                  <Tab.Pane eventKey="year">
+                                  <Tab.Pane unmountOnExit={true} mountOnEnter={true} eventKey="year">
                                     {!props.isFetching && props.tab.data.datadownloads.stateMonth.hasOwnProperty('data') ?
                                       <MapChart data={props.tab.data.datadownloads.countryYear.data} scope={'world'} /> : ' '
                                     }
@@ -294,8 +294,8 @@ class DataToolsIndex extends React.Component {
                   </Tab.Content>
                   : ' ' }
                 { props.tab.data.hasOwnProperty('filedownloads') ?
-                  <Tab.Content animation>
-                    <Tab.Pane eventKey="ftp-stats">
+                  <Tab.Content unmountOnExit={true} mountOnEnter={true} animation>
+                    <Tab.Pane unmountOnExit={true} mountOnEnter={true} eventKey="ftp-stats">
                       {!props.isFetching ?
                         <TreeChart data={props.tab.data.filedownloads.tree} /> : ' '
                       }
@@ -308,8 +308,8 @@ class DataToolsIndex extends React.Component {
                     </Tab.Pane>
                   </Tab.Content>
                   : ' ' }
-                  <Tab.Content animation>
-                    <Tab.Pane eventKey="analog">
+                  <Tab.Content unmountOnExit={true} mountOnEnter={true} animation>
+                    <Tab.Pane unmountOnExit={true} mountOnEnter={true} eventKey="analog">
                       <ActorAnalog />
                     </Tab.Pane>
                   </Tab.Content>
@@ -318,7 +318,7 @@ class DataToolsIndex extends React.Component {
           </Tab.Container>
         );
       }
-      const pages = tablist.map((tab) => <Tab.Pane key={tab.name} eventKey={tab.eventKey}><br/>{tab.description}<br/><br/><Subtab tab={tab} self={this.props.analytics}/></Tab.Pane>);
+      const pages = tablist.map((tab) => <Tab.Pane unmountOnExit={true} mountOnEnter={true} key={tab.name} eventKey={tab.eventKey}><br/>{tab.description}<br/><br/><Subtab tab={tab} self={this.props.analytics}/></Tab.Pane>);
 
         const dataDomainTabInstance = (
             <Tab.Container defaultActiveKey="first">
@@ -329,7 +329,7 @@ class DataToolsIndex extends React.Component {
                         </Nav>
                     </Col>
                     <Col sm={12}>
-                        <Tab.Content animation>
+                        <Tab.Content unmountOnExit={true} mountOnEnter={true} animation>
                           {pages}
                         </Tab.Content>
                     </Col>
