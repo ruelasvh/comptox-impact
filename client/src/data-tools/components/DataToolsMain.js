@@ -7,6 +7,7 @@ import { Grid, Row, Col, Nav, NavItem, Tab, Accordion, Panel } from 'react-boots
 import LineChart from './LineChart';
 import BarChart from './BarChart';
 import TreeChart from './TreeChart';
+import Top10Chart from './Top10Chart';
 import DoughnutChart from './DoughnutChart';
 import MapChart from './MapChartDatamaps';
 import ActorAnalog from './ActorAnalog';
@@ -296,7 +297,13 @@ class DataToolsIndex extends React.Component {
                   <Tab.Content animation>
                     <Tab.Pane eventKey="ftp-stats">
                       {!props.isFetching ?
-                        <TreeChart data={props.tab.data.filedownloads} /> : ' '
+                        <TreeChart data={props.tab.data.filedownloads.tree} /> : ' '
+                      }
+                      {!props.isFetching ?
+                        <Top10Chart {...props.tab.data.filedownloads.month} /> : ' '
+                      }
+                      {!props.isFetching ?
+                        <Top10Chart {...props.tab.data.filedownloads.year} /> : ' '
                       }
                     </Tab.Pane>
                   </Tab.Content>

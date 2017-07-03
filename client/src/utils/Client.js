@@ -64,8 +64,22 @@ export function queryGAApi(queryId) {
         .then(parseJSON)
 }
 
-export function ftpMetrics(app) {
+export function ftpTreeMetrics(app) {
   return fetch(`${absolutePath + relativePath}/api/ftpmetrics/tree/${app}`, {
+    accept: 'application/json',
+  }).then(checkStatus)
+    .then(parseJSON)
+}
+
+export function ftpMonthTop10(app) {
+  return fetch(`${absolutePath + relativePath}/api/ftpmetricsby/month/${app}`, {
+    accept: 'application/json',
+  }).then(checkStatus)
+    .then(parseJSON)
+}
+
+export function ftpYearTop10(app) {
+  return fetch(`${absolutePath + relativePath}/api/ftpmetricsby/year/${app}`, {
     accept: 'application/json',
   }).then(checkStatus)
     .then(parseJSON)

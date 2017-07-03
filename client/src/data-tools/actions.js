@@ -2,7 +2,7 @@
  * Created by Victor H. Ruelas-Rivera on 4/26/17.
  * US EPA National Center for Computational Toxicology
  */
-import { queryGAApi, ftpMetrics } from '../utils/Client';
+import { queryGAApi, ftpTreeMetrics, ftpMonthTop10, ftpYearTop10 } from '../utils/Client';
 import moment from 'moment';
 
 // Actions, functions that return instructions and data payload to the reducers.
@@ -99,10 +99,16 @@ function fetchAnalytics() {
             queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICZ58MKDA'), // Domain Year
             queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICEtMoIDA'), // State Month
             queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgIC63N8KDA'), // State Year
-            /* Internal FTP Metrics API */
-          ftpMetrics('comptox'),
-          ftpMetrics('toxcast'),
-          ftpMetrics('dsstox')
+          /* Internal FTP Metrics API */
+          ftpTreeMetrics('comptox'),
+          ftpMonthTop10('comptox'),
+          ftpYearTop10('comptox'),
+          ftpTreeMetrics('toxcast'),
+          ftpMonthTop10('toxcast'),
+          ftpYearTop10('toxcast'),
+          ftpTreeMetrics('dsstox'),
+          ftpMonthTop10('dsstox'),
+          ftpYearTop10('dsstox')
         ])
             .then(results => dispatch(receiveAnalytics(results)))
     }
@@ -223,10 +229,20 @@ function normalize(results) {
     stateYear: sliceTime(results[47]),
   };
   comptoxdashboard.filedownloads = {
-    name: '/',
-    count: 'Count',
-    uniqueCount: 'Unique Count',
-    children: [ results[64] ]
+    tree: {
+      name: '/',
+      count: 'Count',
+      uniqueCount: 'Unique Count',
+      children: [ results[64] ]
+    },
+    month: {
+      data: results[65].data,
+      timeperiod: moment(results[65].month + '01').format('MMM YYYY')
+    },
+    year: {
+      data: results[66].data,
+      timeperiod: results[66].year
+    }
   };
   toxcast.datadownloads = {
     pageViews: results[48],
@@ -249,16 +265,36 @@ function normalize(results) {
     stateYear: sliceTime(results[63]),
   };
   toxcast.filedownloads = {
-    name: '/',
-    count: 'Count',
-    uniqueCount: 'Unique Count',
-    children: [ results[65] ]
+    tree: {
+      name: '/',
+      count: 'Count',
+      uniqueCount: 'Unique Count',
+      children: [ results[67] ]
+    },
+    month: {
+      data: results[68].data,
+      timeperiod: moment(results[68].month + '01').format('MMM YYYY')
+    },
+    year: {
+      data: results[69].data,
+      timeperiod: results[69].year
+    }
   }
   dsstox.filedownloads = {
-    name: '/',
-    count: 'Count',
-    uniqueCount: 'Unique Count',
-    children: [ results[66] ]
+    tree: {
+      name: '/',
+      count: 'Count',
+      uniqueCount: 'Unique Count',
+      children: [ results[70] ]
+    },
+    month: {
+      data: results[71].data,
+      timeperiod: moment(results[71].month + '01').format('MMM YYYY')
+    },
+    year: {
+      data: results[72].data,
+      timeperiod: results[72].year
+    }
   }
 
   return analytics;
