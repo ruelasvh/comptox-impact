@@ -9,20 +9,14 @@ import DataToolsMain from '../components/DataToolsMain';
 import { fetchAnalyticsIfNeeded } from '../actions';
 
 function mapStateToProps(state) {
-    const {
-        analytics
-    } = state.entities.datasets || {
-        analytics: {}
-    };
+  const analytics = state.entities.datasets.analytics || {}
 
-    return {
-        analytics: analytics
-    }
+  return { analytics }
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        getDatasets: () => dispatch(fetchAnalyticsIfNeeded())
+        getDatasets: () => dispatch(fetchAnalyticsIfNeeded('comptoxdashboard', 'usage'))
     }
 }
 
