@@ -28,77 +28,77 @@ function fetchAnalytics() {
         dispatch(requestAnalytics());
         Promise.all([
             /* CompTox Dashboard */
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICA5JEKDA'), // Page Views
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgIDa44YKDA'), // Unique Page Views
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgIDA-pMKDA'), // Country Month
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgMCoppsJDA'), // Country Year
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgID8qZ8KDA'), // Domain Month
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICZ0oUKDA'), // Domain Year
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgID4-4IKDA'), // State Month
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgMCoppsKDA'), // State Year
+            queryGAApi('ICA5JEKDA'), // Page Views
+            queryGAApi('IDa44YKDA'), // Unique Page Views
+            queryGAApi('IDA-pMKDA'), // Country Month
+            queryGAApi('MCoppsJDA'), // Country Year
+            queryGAApi('ID8qZ8KDA'), // Domain Month
+            queryGAApi('ICZ0oUKDA'), // Domain Year
+            queryGAApi('ID4-4IKDA'), // State Month
+            queryGAApi('MCoppsKDA'), // State Year
             /* ACToR */
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgIDruI8KDA'), // Page Views
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgMCo_IoJDA'), // Unique Page Views
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgID8vYEKDA'), // Country Month
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICv9YQKDA'), // Country Year
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgIC-8YsKDA'), // Domain Month
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgID8qZ8JDA'), // Domain Year
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgIC63J8JDA'), // State Month
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICEtIoKDA'), // State Year
+            queryGAApi('IDruI8KDA'), // Page Views
+            queryGAApi('MCo_IoJDA'), // Unique Page Views
+            queryGAApi('ID8vYEKDA'), // Country Month
+            queryGAApi('ICv9YQKDA'), // Country Year
+            queryGAApi('IC-8YsKDA'), // Domain Month
+            queryGAApi('ID8qZ8JDA'), // Domain Year
+            queryGAApi('IC63J8JDA'), // State Month
+            queryGAApi('ICEtIoKDA'), // State Year
             /* CPCat */
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgIDrop4KDA'), // Page Views
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgIDZ8JILDA'), // Unique Page Views
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgIDAnIILDA'), // Country Month
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgMCosYYKDA'), // Country Year
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICEypsKDA'), // Domain Month
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICE3oYKDA'), // Domain Year
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgID89o4JDA'), // State Month
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICZ54MJDA'), // State Year
+            queryGAApi('IDrop4KDA'), // Page Views
+            queryGAApi('IDZ8JILDA'), // Unique Page Views
+            queryGAApi('IDAnIILDA'), // Country Month
+            queryGAApi('MCosYYKDA'), // Country Year
+            queryGAApi('ICEypsKDA'), // Domain Month
+            queryGAApi('ICE3oYKDA'), // Domain Year
+            queryGAApi('ID89o4JDA'), // State Month
+            queryGAApi('ICZ54MJDA'), // State Year
             /* EDSP21 */
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgMCo_IoLDA'), // Page Views
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgIDruI8JDA'), // Unique Page Views
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgIDrop4JDA'), // Country Month
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgIDZ8NIIDA'), // Country Year
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgIDAnMIIDA'), // Domain Month
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgMCosYYJDA'), // Domain Year
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgID8vYEJDA'), // State Month
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICv9YQJDA'), // State Year
+            queryGAApi('MCo_IoLDA'), // Page Views
+            queryGAApi('IDruI8JDA'), // Unique Page Views
+            queryGAApi('IDrop4JDA'), // Country Month
+            queryGAApi('IDZ8NIIDA'), // Country Year
+            queryGAApi('IDAnMIIDA'), // Domain Month
+            queryGAApi('MCosYYJDA'), // Domain Year
+            queryGAApi('ID8vYEJDA'), // State Month
+            queryGAApi('ICv9YQJDA'), // State Year
             /* ToxCast */
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgIDA-pMJDA'), // Page Views
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgMCoppsLDA'), // Unique Page Views
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgIDZrIsJDA'), // Country Month
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICEtIoJDA'), // Country Year
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgIC63J8LDA'), // Domain Month
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgIDZ8NIKDA'), // Domain Year
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgIDAnMIKDA'), // State Month
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgMCosYYLDA'), // State Year
+            queryGAApi('IDA-pMJDA'), // Page Views
+            queryGAApi('MCoppsLDA'), // Unique Page Views
+            queryGAApi('IDZrIsJDA'), // Country Month
+            queryGAApi('ICEtIoJDA'), // Country Year
+            queryGAApi('IC63J8LDA'), // Domain Month
+            queryGAApi('IDZ8NIKDA'), // Domain Year
+            queryGAApi('IDAnMIKDA'), // State Month
+            queryGAApi('MCosYYLDA'), // State Year
             /* CompTox Download Drupal */
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgMCo6JMJDA'), // Page Views
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICZ54MLDA'), // Unique Page Views
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgIC-7ZoKDA'), // Country Month
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICv4ZkLDA'), // Country Year
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICdlIcKDA'), // Domain Month
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgIC-8YsJDA'), // Domain Year
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICv9YQLDA'), // State Month
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgID8vYELDA'), // State Year
+            queryGAApi('MCo6JMJDA'), // Page Views
+            queryGAApi('ICZ54MLDA'), // Unique Page Views
+            queryGAApi('IC-7ZoKDA'), // Country Month
+            queryGAApi('ICv4ZkLDA'), // Country Year
+            queryGAApi('ICdlIcKDA'), // Domain Month
+            queryGAApi('IC-8YsJDA'), // Domain Year
+            queryGAApi('ICv9YQLDA'), // State Month
+            queryGAApi('ID8vYELDA'), // State Year
             /* ToxCast Download Drupal */
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICv4dkIDA'), // Page Views
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICdwJoJDA'), // Unique Page Views
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICdipYKDA'), // Country Month
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgMCo6JMLDA'), // Country Year
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICZ58MIDA'), // Domain Month
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICEtIoLDA'), // Domain Year
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgIC63N8IDA'), // State Month
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgID8qZ8LDA'), // State Year
+            queryGAApi('ICv4dkIDA'), // Page Views
+            queryGAApi('ICdwJoJDA'), // Unique Page Views
+            queryGAApi('ICdipYKDA'), // Country Month
+            queryGAApi('MCo6JMLDA'), // Country Year
+            queryGAApi('ICZ58MIDA'), // Domain Month
+            queryGAApi('ICEtIoLDA'), // Domain Year
+            queryGAApi('IC63N8IDA'), // State Month
+            queryGAApi('ID8qZ8LDA'), // State Year
             /* DSSTox Download Drupal */
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgIC6qI4JDA'), // Page Views
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICEoJMJDA'), // Unique Page Views
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICdwJoLDA'), // Country Month
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICdipYJDA'), // Country Year
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgMCo6NMIDA'), // Domain Month
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICZ58MKDA'), // Domain Year
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgICEtMoIDA'), // State Month
-            queryGAApi('ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAgIC63N8KDA'), // State Year
+            queryGAApi('IC6qI4JDA'), // Page Views
+            queryGAApi('ICEoJMJDA'), // Unique Page Views
+            queryGAApi('ICdwJoLDA'), // Country Month
+            queryGAApi('ICdipYJDA'), // Country Year
+            queryGAApi('MCo6NMIDA'), // Domain Month
+            queryGAApi('ICZ58MKDA'), // Domain Year
+            queryGAApi('ICEtMoIDA'), // State Month
+            queryGAApi('IC63N8KDA'), // State Year
           /* Internal FTP Metrics API */
           ftpTreeMetrics('comptox'),
           ftpMonthTop10('comptox'),

@@ -58,7 +58,7 @@ function searchPublications(limit, offset, callback) {
 }
 
 export function queryGAApi(queryId) {
-    return fetch('https://impact-152019.appspot.com/query?id=' + queryId, {
+    return fetch('https://impact-152019.appspot.com/query?id=ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAg' + queryId, {
         accept: 'application/json',
     }).then(checkStatus)
         .then(parseJSON)

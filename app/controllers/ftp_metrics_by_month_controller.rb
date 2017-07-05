@@ -22,7 +22,7 @@ class FtpMetricsByMonthController < ApplicationController
     render(
         status: 200,
         json: { data: topten,
-                year: highYear }
+                year: highYear.to_s }
     )
   end
 end

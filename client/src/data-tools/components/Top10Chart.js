@@ -37,7 +37,8 @@ const Top10Chart = ({ data, timeperiod }) => {
 }
 
 Top10Chart.propTypes = {
-    data: React.PropTypes.object.isRequired,
+    data: React.PropTypes.array.isRequired,
+    timeperiod: React.PropTypes.string.isRequired,
 }
 
 export default Top10Chart
