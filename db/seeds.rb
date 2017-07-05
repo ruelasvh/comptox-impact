@@ -8063,3 +8063,10 @@ ScientistPublication.create!(
     publication_id: "429",
     is_primary_author: false
 )
+
+ScientistPublication.create!(
+    publication_id: "429",
+    is_primary_author: true,
+    scientist_alias: "Zorrilla, Leah M.",
+    order: 1
+)

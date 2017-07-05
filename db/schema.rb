@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170703183102) do
+ActiveRecord::Schema.define(version: 20170705203726) do
 
   create_table "ftp_ip_infos", force: :cascade do |t|
     t.string   "ip",           limit: 255,                         null: false
