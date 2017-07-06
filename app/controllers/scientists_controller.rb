@@ -111,6 +111,6 @@ class ScientistsController < ApplicationController
     end
 
     def scientist_params
-      params.require(:scientist).permit(:scientistId, :firstName, :lastName, :title, :email)
+      params.require(:scientist).permit(:scientistId, :firstName, :lastName, :title, :email, :bio)
     end
 end

@@ -49,12 +49,14 @@ class ScientistProfileBasicInfo extends React.Component {
                 }
                 {this.state.isEditing ?
                     <FormGroup controlId="formScientistName">
-                        <ControlLabel>First and Last Name</ControlLabel>
+                        <br/>
+                        <ControlLabel>First Name</ControlLabel>
                         <FormControl
                             inputRef={ref => { this.inputFirstName = ref }}
                             type="text"
                             defaultValue={this.props.details.firstName}
                             placeholder="Enter first name"/>
+                        <ControlLabel>Last Name</ControlLabel>
                         <FormControl
                             inputRef={ref => { this.inputLastName = ref }}
                             type="text"
@@ -71,7 +73,7 @@ class ScientistProfileBasicInfo extends React.Component {
                             inputRef={ref => { this.inputTitle = ref }}
                             type="text"
                             defaultValue={this.props.details.title}
-                            placeHolder="Enter title"/>
+                            placeholder="Enter title"/>
                     </FormGroup>
                     :
                     <h4 style={{color: 'grey'}}>{this.props.details.title}</h4>
@@ -83,7 +85,7 @@ class ScientistProfileBasicInfo extends React.Component {
                             inputRef={ref => { this.inputEmail = ref }}
                             type="text"
                             defaultValue={this.props.details.email}
-                            placeHolder="Enter email"/>
+                            placeholder="Enter email"/>
                     </FormGroup>
                     :
                     <a href="#mailto">{this.props.details.email}</a>

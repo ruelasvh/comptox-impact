@@ -92,8 +92,6 @@ class PublicationsTabContent extends React.Component {
     }
 
     render() {
-        console.log('selectedPublications', this.props.selectedPublications);
-
         return (
             <div className="infinite-scroll-example">
                 {/*For debugging*/}

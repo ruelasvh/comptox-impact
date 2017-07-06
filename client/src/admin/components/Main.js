@@ -53,7 +53,7 @@ class Main extends React.Component {
             return scientist.scientistId != id;
         });
 
-        this.setState({ scientists: newScientists })
+        this.setState({ currentlyDisplayed: newScientists })
     }
 
     handleUpdate(scientist) {

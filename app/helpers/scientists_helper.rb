@@ -2,7 +2,7 @@ module ScientistsHelper
   class Activity
     include ActiveModel::Validations
 
-    attr_accessor :scientistId, :firstName, :lastName, :title, :email, :image, :format
+    attr_accessor :scientistId, :firstName, :lastName, :title, :email, :bio, :image, :format
 
     validates :scientistId, allow_blank: true, numericality: true
 
@@ -17,9 +17,10 @@ module ScientistsHelper
       @lastName = params[:lastName]
       @title = params[:title]
       @email = params[:email]
+      @bio = params[:bio]
       @format = params[:format]
       @scientistImage = params[:scientistImage]
-      ActionController::Parameters.new(params).permit(:scientistId,:firstName,:lastName,:title,:email,:scientistImage,:format)
+      ActionController::Parameters.new(params).permit(:scientistId,:firstName,:lastName,:title,:email,:bio,:scientistImage,:format)
     end
   end
 end

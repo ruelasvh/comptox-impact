@@ -73,7 +73,9 @@ class ScientistProfile extends React.Component {
             url: `/api/scientists/${scientistDetails.scientistId}`,
             type: 'PUT',
             data: { scientist: scientistDetails },
-            success: (response) => { this.setState({ scientistDetails: response }) }
+            success: (response) => {
+                this.setState({ scientistDetails: response })
+            }
         })
     }
 
@@ -124,7 +126,7 @@ class ScientistProfile extends React.Component {
                                     <Col md={9}>
                                         <ScientistProfileBio
                                             isEditable={this.state.isEditable}
-                                            scientistDetails={scientistDetails}
+                                            details={scientistDetails}
                                             updateDetails={this.updateScientistDetails}>
                                         </ScientistProfileBio>
                                     </Col>

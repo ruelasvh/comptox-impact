@@ -15,7 +15,7 @@ gem 'mysql2', '~> 0.3.18'
 gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library - API only, not needed
-# gem 'jquery-rails'
+ gem 'jquery-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
