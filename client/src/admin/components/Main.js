@@ -10,9 +10,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, PageHeader, Grid, Col, Row, FormGroup, InputGroup, FormControl, Glyphicon } from 'react-bootstrap';
 import { withRouter } from 'react-router';
-import $ from 'jquery';
+import { navigate } from '../../utils/Router';
 import AllScientists from './AllScientists';
-import { searchScientists } from '../../utils/Client';
+import { searchScientists, deleteScientist } from '../../utils/Client';
 import '../styles/allscientists.css'
 
 class Main extends React.Component {
@@ -39,34 +39,21 @@ class Main extends React.Component {
     }
 
     handleDelete(id) {
-        $.ajax({
-            url: `/api/scientists/${id}`,
-            type: 'DELETE',
-            success: (response) => {
-                this.removeScientist(id);
-            }
-        });
+        deleteScientist(id, (result) => this.removeScientist(result.scientistId))
     }
 
     removeScientist(id) {
         var newScientists = this.state.scientists.filter((scientist) => {
             return scientist.scientistId != id;
         });
-
         this.setState({ currentlyDisplayed: newScientists })
     }
 
-    handleUpdate(scientist) {
-        $.ajax({
-            url: `/api/scientists/${scientist.scientistId}`,
-            type: 'PUT',
-            data: { scientist: scientist },
-            success: (response) => {}
-        })
-    }
-
     handleCreate() {
-        this.props.router.push("/admin/scientists/new");
+        navigate({
+            path: "/admin/scientists/new",
+            routerAction: this.props.router.push
+        })
     }
 
     handleInputChange(event) {
@@ -120,7 +107,7 @@ class Main extends React.Component {
                     <div>
                         <PageHeader>NCCT Scientists and Postdocs</PageHeader>
                         {this.renderToolbar()}
-                        <AllScientists scientists={this.state.currentlyDisplayed} handleDelete={this.handleDelete} handleUpdate={this.handleUpdate}/>
+                        <AllScientists scientists={this.state.currentlyDisplayed} handleDelete={this.handleDelete}/>
                     </div>
                 }
             </Grid>

@@ -5,8 +5,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
+import { navigate } from '../../utils/Router';
 import { Button, PageHeader, Grid, Col, Form, FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
-import $ from 'jquery';
+import { createScientist } from '../../utils/Client';
 import '../styles/newscientist.css';
 
 class NewScientist extends React.Component {
@@ -17,41 +18,21 @@ class NewScientist extends React.Component {
     }
 
     handleFormSubmit() {
-        var firstName = this.inputFirstName.value;
-        var lastName = this.inputLastName.value;
-
-        // var payload = { firstName: firstName, lastName: lastName };
-        // var data = new FormData();
-        // data.append("json", JSON.stringify(payload));
-        //
-        // fetch("/api/scientists",
-        //     {
-        //         method: 'POST',
-        //         body: data
-        //     })
-        //     .then(response => response.json())
-        //     .then(data => alert( JSON.stringify(data)))
-
-        $.ajax({
-            url: '/api/scientists',
-            type: 'POST',
-            data: { scientist: { firstName: firstName, lastName: lastName }},
-            success: (scientist) => {
-                // Clear the input fields
-                this.inputFirstName.value = "";
-                this.inputLastName.value = "";
-                // alert('Succesfully Added New Record')
-                // Redirect to profile
-                var navigate = {
-                    pathname: `/admin/scientists/${scientist.scientistId}`,
-                        state: { scientist, isEditable: true }
-                };
-
-                this.props.router.replace(navigate);
-            }
-        });
-
-
+        var scientist = {
+            firstName: this.inputFirstName.value,
+            lastName: this.inputLastName.value
+        };
+        createScientist(scientist, (scientist) => {
+            // Clear the input fields
+            this.inputFirstName.value = "";
+            this.inputLastName.value = "";
+            // Redirect to profile
+            navigate({
+                path: `/admin/scientists/${scientist.scientistId}`,
+                state: { scientist, isEditable: true },
+                routerAction: this.props.router.replace
+            })
+        })
     }
 
     renderForm() {

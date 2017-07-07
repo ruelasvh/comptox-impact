@@ -4,12 +4,9 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Grid, Row, Col, Image, Breadcrumb, Button, FormControl, FormGroup, ControlLabel } from 'react-bootstrap';
-import { Link } from 'react-router';
-import $ from 'jquery';
-
-// http client
-import Client from '../utils/Client';
+import { Grid, Row, Col, Image } from 'react-bootstrap';
+import { updateScientist, searchScientist } from '../utils/Client';
+import Router from '../utils/Router';
 // components
 import ScientistProfileBasicInfo from './ScientistProfileBasicInfo';
 import ScientistProfileLinks from './ScientistProfileLinks';
@@ -49,8 +46,7 @@ class ScientistProfile extends React.Component {
 
     handleFetchScientist() {
         const scientistId = this.props.params.scientistId;
-
-        Client.searchScientist(scientistId, (scientist) => {
+        searchScientist(scientistId, (scientist) => {
             this.setState({ scientistDetails: scientist.data, isLoading: false })
         });
     }
@@ -69,13 +65,8 @@ class ScientistProfile extends React.Component {
     }
 
     updateScientistDetails(scientistDetails) {
-        $.ajax({
-            url: `/api/scientists/${scientistDetails.scientistId}`,
-            type: 'PUT',
-            data: { scientist: scientistDetails },
-            success: (response) => {
-                this.setState({ scientistDetails: response })
-            }
+        updateScientist(scientistDetails, (updatedScientist) => {
+            this.setState({ scientistDetails:  updatedScientist })
         })
     }
 
@@ -85,11 +76,11 @@ class ScientistProfile extends React.Component {
         if (process.env.NODE_ENV === "production") {
             scientistPhotoURL = this.state.scientistDetails.photoUrl ?
                 this.state.scientistDetails.photoUrl :
-                'http://comptox.ag.epa.gov/impact/assets/api/staff/person_thumbnail.jpg';
+                `${Router.appPath()}/assets/api/staff/person_thumbnail.jpg`;
         } else {
             scientistPhotoURL = this.state.scientistDetails.photoUrl ?
-                `/api/scientists/${scientistDetails.scientistId}/photo/${scientistDetails.scientistId}.jpg` :
-                'http://comptox.ag.epa.gov/impact/assets/api/staff/person_thumbnail.jpg';
+                `${Router.appPath()}/assets/api/staff/${scientistDetails.scientistId}.jpg` :
+                `${Router.appPath()}/assets/api/staff/person_thumbnail.jpg`;
         }
 
 

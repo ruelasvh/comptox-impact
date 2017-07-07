@@ -5,6 +5,7 @@
 /* eslint-disable no-undef */
 import { relativePath } from '../App';
 import fetch from 'isomorphic-fetch';
+import $ from 'jquery';
 
 const absolutePath = (process.env.NODE_ENV === "production" ? "http://comptox.ag.epa.gov" : "http://localhost:3000");
 
@@ -12,7 +13,7 @@ if (process.env.NODE_ENV !== "production") {
     console.log("Hitting API at http://localhost:3000")
 }
 
-function searchHomeData(callback) {
+export function searchHomeData(callback) {
     return fetch(`${absolutePath + relativePath}/api/home`, {
         accept: 'application/json',
     }).then(checkStatus)
@@ -36,7 +37,33 @@ export function searchScientist(id, callback) {
         .then(callback)
 }
 
-function searchScientistPhoto(imageURL, callback) {
+export function createScientist(scientist, callback) {
+    $.ajax({
+        url: `${relativePath}/api/scientists`,
+        type: 'POST',
+        data: { scientist: scientist },
+        success: callback
+    });
+}
+
+export function deleteScientist(id, callback) {
+    $.ajax({
+        url: `${relativePath}/api/scientists/${id}`,
+        type: 'DELETE',
+        success: callback
+    });
+}
+
+export function updateScientist(scientist, callback) {
+    $.ajax({
+        url: `${relativePath}/api/scientists/${scientist.scientistId}`,
+        type: 'PUT',
+        data: { scientist: scientist },
+        success: callback
+    })
+}
+
+export function searchScientistPhoto(imageURL, callback) {
     return fetch(imageURL)
         .then(function (response) {
             checkStatus(response);
@@ -46,7 +73,7 @@ function searchScientistPhoto(imageURL, callback) {
         .then(callback)
 }
 
-function searchPublications(limit, offset, callback) {
+export function searchPublications(limit, offset, callback) {
     let queryUrl = (typeof limit !== 'undefined') && (typeof offset !== 'undefined') ?
         `${absolutePath + relativePath}/api/publications?limit=${limit}&offset=${offset}` :
         `${absolutePath + relativePath}/api/publications?limit=0`;
@@ -109,8 +136,15 @@ const Client = {
     searchHomeData,
     searchScientists,
     searchScientist,
+    createScientist,
+    deleteScientist,
+    updateScientist,
     searchScientistPhoto,
-    searchPublications
+    searchPublications,
+    queryGAApi,
+    ftpTreeMetrics,
+    ftpMonthTop10,
+    ftpYearTop10
 };
 
 export default Client;

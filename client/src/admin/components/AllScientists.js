@@ -6,6 +6,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ButtonToolbar, Button, Modal } from 'react-bootstrap';
 import { withRouter } from 'react-router';
+import { navigate } from '../../utils/Router';
 import '../styles/allscientists.css'
 
 class AllScientists extends React.Component {
@@ -32,12 +33,11 @@ class AllScientists extends React.Component {
     }
 
     handleEdit(scientist) {
-        var navigate = {
-            pathname: `/admin/scientists/${scientist.scientistId}`,
-            state: { scientist, isEditable: true, handleUpdate: this.props.handleUpdate }
-        };
-
-        this.props.router.push(navigate);
+        navigate({
+            path: `/admin/scientists/${scientist.scientistId}`,
+            state: { scientist, isEditable: true },
+            routerAction: this.props.router.push
+        })
     }
 
     renderDeleteModal(){
