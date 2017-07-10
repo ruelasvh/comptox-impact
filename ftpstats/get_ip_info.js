@@ -1,6 +1,6 @@
 fs = require('fs')
 http = require('http')
-nodeAsync = require('async')
+nodeAsync = require('../client/node_modules/async')
 
 const input = './output/ftp_ips.csv'
 
