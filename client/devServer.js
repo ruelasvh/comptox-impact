@@ -12,9 +12,6 @@ new WebpackDevServer(webpack(config), {
     hot: true,
     headers: { "Access-Control-Allow-Origin": "*" },
     historyApiFallback: true,
-    proxy: {
-        "*": "http://localhost:3002"
-    },
     quiet: false,
     noInfo: false,
     watchOptions: {
