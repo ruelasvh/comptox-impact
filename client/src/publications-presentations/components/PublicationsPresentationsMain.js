@@ -4,7 +4,7 @@
 import React from 'react'
 import {Tabs, Tab, Grid} from 'react-bootstrap'
 import VisiblePublications from '../../publications/container/VisiblePublications'
-import PresentationsList from '../../presentations/components/PresentationsList'
+import VisiblePresentations from '../../presentations/containers/VisiblePresentations'
 
 class PublicationsPresentationsMain extends React.Component {
     constructor(props) {
@@ -38,7 +38,7 @@ class PublicationsPresentationsMain extends React.Component {
                         </Tab>
                         <Tab eventKey="presentations-tab" title="Presentations" mountOnEnter={true} unmountOnExit={true}>
                             <div className="tab-frame">
-                                <PresentationsList collection={12345}/>
+                                <VisiblePresentations/>
                             </div>
                         </Tab>
                     </Tabs>
