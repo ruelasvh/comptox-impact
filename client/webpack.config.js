@@ -1,5 +1,5 @@
 /**
- * Created by vruelasr on 12/16/16.
+ * Created by vruelasr on 07/10/2017.
  */
 var webpack = require("webpack");
 
@@ -9,7 +9,7 @@ const os = require("os");
 var url = require('url');
 var path = require("path");
 
-const PUBLIC_DEV_SERVER = `http://${os.hostname()}:4000/`;
+const PUBLIC_DEV_SERVER = `http://localhost:4000/`;
 // Initial point where Webpack will start bundling;
 // All React components must be included in this file.
 const ENTRY = __dirname + "/src/index.js";
@@ -25,7 +25,8 @@ const NODE_ENV_PLUGIN = new webpack.DefinePlugin({
 
 const config = {
     entry: [
-        "webpack-hot-middleware/client?path=" + PUBLIC_DEV_SERVER + "__webpack_hmr",
+        "webpack-dev-server/client?" + PUBLIC_DEV_SERVER,
+        'webpack/hot/only-dev-server', // "only" prevents reload on syntax errors
         ENTRY
     ],
     output: {

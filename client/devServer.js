@@ -1,26 +1,34 @@
 /**
- * Created by vruelasr on 12/15/16.
+ * Created by vruelasr on 07/10/2017.
  */
-var path = require("path");
-var express = require("express");
-var webpack = require("webpack");
-var config = require("./webpack.config");
+var webpack = require('webpack');
+var WebpackDevServer = require('webpack-dev-server');
+var config = require('./webpack.config');
 
-var app = express();
-var compiler = webpack(config);
-
-app.use(require("webpack-dev-middleware")(compiler, {
-    noInfo: true,
+new WebpackDevServer(webpack(config), {
     publicPath: config.output.publicPath,
-}));
-
-app.use(require("webpack-hot-middleware")(compiler));
-
-app.listen(4000, "0.0.0.0", function(err) {
+    inline: true,
+    contentBase: config.output.publicPath,
+    hot: true,
+    headers: { "Access-Control-Allow-Origin": "*" },
+    historyApiFallback: true,
+    proxy: {
+        "*": "http://localhost:3002"
+    },
+    quiet: false,
+    noInfo: false,
+    watchOptions: {
+        aggregateTimeout: 300,
+        poll: 1000
+    },
+    stats: { colors: true },
+}).listen(4000, 'localhost', function (err, result) {
     if (err) {
-        console.log(err);
-        return;
+        return console.log(err);
     }
 
-    console.log("Listening at http://0.0.0.0:4000");
+    console.log('Listening at http://localhost:4000/');
 });
+
+
+
