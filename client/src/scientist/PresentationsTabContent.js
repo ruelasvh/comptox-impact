@@ -6,6 +6,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './styles/scientistprofile.css';
 
+import '../presentations/components/PresentationsList';
+import PresentationsList from "../presentations/components/PresentationsList";
+
 const PresentationsTabPresentationItem = ( {userUrl} ) => (
     <div className="slide-share-item">
 
@@ -15,6 +18,8 @@ const PresentationsTabPresentationItem = ( {userUrl} ) => (
             {/*height="426px"*/}
             {/*frameBorder="0">*/}
         {/*</iframe>*/}
+
+        <PresentationsList author={3}/>
 
     </div>
 );

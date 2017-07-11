@@ -91,8 +91,9 @@ class ScientistProfileTabs extends React.Component {
                         <Publications selectedPublications={this.props.scientistData.publications}/>
                     </div>
                 </Tab>
-                <Tab eventKey={2} title="Presentations" disabled={this.props.scientistData.presentations === null ? true : false}>
-                    <div className="tab-frame">
+                {/*<Tab eventKey={2} title="Presentations" disabled={this.props.scientistData.presentations === null ? true : false}>*/}
+                <Tab eventKey={2} title="Presentations" disabled={false}>
+                <div className="tab-frame">
                         <SlideShare userUrl="empty for now"/>
                     </div>
                 </Tab>
