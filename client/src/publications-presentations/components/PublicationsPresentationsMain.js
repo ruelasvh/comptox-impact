@@ -10,18 +10,18 @@ class PublicationsPresentationsMain extends React.Component {
     constructor(props) {
         super(props);
 
-        const publicationsTab = 1
-        const presentationsTab = 2
+        const publicationsTab = "publications-tab"
+        const presentationsTab = "presentations-tab"
 
         this.state = {
-            selectedTab: presentationsTab,
+            selectedTab: presentationsTab
         };
 
         // Bind functions
-        this.handleSelect = this.handleSelect.bind(this)
+        this.handleSelectPubsPresTabs = this.handleSelectPubsPresTabs.bind(this)
     }
 
-    handleSelect( key ) {
+    handleSelectPubsPresTabs(key ) {
         this.setState({ selectedTab: key });
     }
 
@@ -30,15 +30,15 @@ class PublicationsPresentationsMain extends React.Component {
         return (
             <div style={{paddingTop: '2%'}}>
                 <Grid>
-                    <Tabs activeKey={this.state.selectedTab} onSelect={this.handleSelect} id="controlled-tabs">
-                        <Tab eventKey={1} title="Publications" mountOnEnter={true}>
+                    <Tabs activeKey={this.state.selectedTab} onSelect={this.handleSelectPubsPresTabs} id="controlled-tabs-pubs-pres">
+                        <Tab eventKey="publications-tab" title="Publications" mountOnEnter={true} unmountOnExit={true}>
                             <div className="tab-frame" style={{marginBottom: '8em'}}>
                                 <VisiblePublications/>
                             </div>
                         </Tab>
-                        <Tab eventKey={2} title="Presentations" mountOnEnter={true}>
+                        <Tab eventKey="presentations-tab" title="Presentations" mountOnEnter={true} unmountOnExit={true}>
                             <div className="tab-frame">
-                                <PresentationsList/>
+                                <PresentationsList collection={12345}/>
                             </div>
                         </Tab>
                     </Tabs>
