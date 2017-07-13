@@ -84,6 +84,24 @@ export function searchPublications(limit, offset, callback) {
         .then(callback)
 }
 
+export function searchPresentations(callback) {
+    let queryUrl = 'https://api.figshare.com/v2/projects/22852/articles?page_size=1000&order=published_date&order_direction=desc';
+    return fetch(queryUrl, {
+        accept: 'application/json',
+    }).then(checkStatus)
+        .then(parseJSON)
+        .then(callback)
+}
+
+export function searchPosters(callback) {
+    let queryUrl = 'https://api.figshare.com/v2/projects/22852/articles?page_size=1000&order=published_date&order_direction=desc';
+    return fetch(queryUrl, {
+        accept: 'application/json',
+    }).then(checkStatus)
+        .then(parseJSON)
+        .then(callback)
+}
+
 export function queryGAApi(queryId) {
     return fetch('https://impact-152019.appspot.com/query?id=ag9kfmltcGFjdC0xNTIwMTlyFQsSCEFwaVF1ZXJ5GICAg' + queryId, {
         accept: 'application/json',
@@ -141,6 +159,8 @@ const Client = {
     updateScientist,
     searchScientistPhoto,
     searchPublications,
+    searchPresentations,
+    searchPosters,
     queryGAApi,
     ftpTreeMetrics,
     ftpMonthTop10,
