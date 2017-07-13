@@ -3,6 +3,8 @@
  */
 import React from 'react'
 import {Tabs, Tab, Grid} from 'react-bootstrap'
+
+import PresentationsPostersSubtabs from '../../presentations/components/PresentationPostersSubtabs'
 import VisiblePublications from '../../publications/container/VisiblePublications'
 import VisiblePresentations from '../../presentations/containers/VisiblePresentations'
 
@@ -14,7 +16,7 @@ class PublicationsPresentationsMain extends React.Component {
         const presentationsTab = "presentations-tab"
 
         this.state = {
-            selectedTab: presentationsTab
+            selectedTab: publicationsTab
         };
 
         // Bind functions
@@ -38,7 +40,8 @@ class PublicationsPresentationsMain extends React.Component {
                         </Tab>
                         <Tab eventKey="presentations-tab" title="Presentations" mountOnEnter={true} unmountOnExit={true}>
                             <div className="tab-frame">
-                                <VisiblePresentations/>
+                                {/*<VisiblePresentations/>*/}
+                                <PresentationsPostersSubtabs/>
                             </div>
                         </Tab>
                     </Tabs>

@@ -7,6 +7,7 @@ import simpleHomeData from './home/reducers';
 import scientists from './scientists/reducers/scientists';
 import publications from './publications/reducers/publications';
 import presentations from './presentations/reducers/presentations';
+import posters from './presentations/reducers/posters';
 import datasets from './data-tools/reducers/datasets';
 
 function entities(state = {}, action) {
@@ -14,6 +15,7 @@ function entities(state = {}, action) {
         scientists: scientists(state.scientists, action),
         publications: publications(state.publications, action),
         presentations: presentations(state.presentations, action),
+        posters: posters(state.posters, action),
         datasets: datasets(state.datasets, action)
     }
 }

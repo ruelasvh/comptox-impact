@@ -1,5 +1,5 @@
 /**
- * Created by vruelasr on 6/29/17.
+ * Created by vruelasr on 7/12/17.
  */
 import React from 'react';
 import {Pagination} from 'react-bootstrap'
@@ -8,16 +8,16 @@ import PresentationItem from './PresentationItem'
 import '../styles/presentations-list.css'
 
 
-class PresentationsList extends React.Component {
+class PostersList extends React.Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            allPresentations: this.props.presentations,
-            filteredPresentations: this.props.presentations,
+            allPosters: this.props.posters,
+            filteredPosters: this.props.posters,
             searchTerm: '',
             activePage: 1,
-            presentationsPerPage: 12,
+            postersPerPage: 12,
             savedPage: 1
         }
 
@@ -53,7 +53,7 @@ class PresentationsList extends React.Component {
         // Scroll up
         window.scrollTo(0,0);
 
-        let newlyFiltered = this.state.presentations.filter(
+        let newlyFiltered = this.state.posters.filter(
             (presentation) => {
                 return (
                     // (presentation.doi ? presentation.doi.includes(event.target.value) : false) ||
@@ -64,7 +64,7 @@ class PresentationsList extends React.Component {
 
         this.setState({
             searchTerm: event.target.value,
-            filteredPresentations: newlyFiltered,
+            filteredPosters: newlyFiltered,
             activePage: 1
         });
     }
@@ -81,20 +81,20 @@ class PresentationsList extends React.Component {
     }
 
     render() {
-        const { filteredPresentations, activePage, searchTerm, savedPage, presentationsPerPage } = this.state;
+        const { filteredPosters, activePage, searchTerm, savedPage, postersPerPage } = this.state;
         const currentPage = searchTerm == '' ? savedPage : activePage;
         // Logic for displaying current publications
-        const indexOfLastPresentation = currentPage * presentationsPerPage;
-        const indexOfFistPresentation = indexOfLastPresentation - presentationsPerPage;
-        const currentPresentations = filteredPresentations.slice(indexOfFistPresentation, indexOfLastPresentation);
-        // Render presentations
-        const renderAllPresentations = currentPresentations.map(presentation => {
-                return <PresentationItem attributes={presentation}/>
-            })
+        const indexOfLastPresentation = currentPage * postersPerPage;
+        const indexOfFistPresentation = indexOfLastPresentation - postersPerPage;
+        const currentPosters = filteredPosters.slice(indexOfFistPresentation, indexOfLastPresentation);
+        // Render posters
+        const renderAllPosters = currentPosters.map(presentation => {
+            return <PresentationItem attributes={presentation}/>
+        })
 
         return (
             <div>
-                {renderAllPresentations}
+                {renderAllPosters}
                 <div className="presentations-list-pagination">
                     <Pagination
                         prev
@@ -103,7 +103,7 @@ class PresentationsList extends React.Component {
                         last
                         ellipsis
                         boundaryLinks
-                        items={Math.ceil(filteredPresentations.length / presentationsPerPage)}
+                        items={Math.ceil(filteredPosters.length / postersPerPage)}
                         maxButtons={5}
                         activePage={currentPage}
                         onSelect={this.handleSelectPage} />
@@ -113,4 +113,4 @@ class PresentationsList extends React.Component {
     }
 }
 
-export default PresentationsList
+export default PostersList
