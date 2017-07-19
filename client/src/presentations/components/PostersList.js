@@ -88,8 +88,9 @@ class PostersList extends React.Component {
         const indexOfFistPresentation = indexOfLastPresentation - postersPerPage;
         const currentPosters = filteredPosters.slice(indexOfFistPresentation, indexOfLastPresentation);
         // Render posters
+        // console.log('Current posters', currentPosters)
         const renderAllPosters = currentPosters.map(presentation => {
-            return <PresentationItem attributes={presentation}/>
+            return <PresentationItem attributes={presentation} key={presentation.id}/>
         })
 
         return (

@@ -89,7 +89,7 @@ class PresentationsList extends React.Component {
         const currentPresentations = filteredPresentations.slice(indexOfFistPresentation, indexOfLastPresentation);
         // Render presentations
         const renderAllPresentations = currentPresentations.map(presentation => {
-                return <PresentationItem attributes={presentation}/>
+                return <PresentationItem attributes={presentation} key={presentation.id}/>
             })
 
         return (

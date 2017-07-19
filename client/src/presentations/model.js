@@ -3,10 +3,10 @@
  */
 
 const State = {
-    isFetching: false,
+    isFetching: true,
     lastUpdated: Date.now(),
     all: [],
-    byAuthor: []
+    byAuthor: {}
 };
 
 export default State;

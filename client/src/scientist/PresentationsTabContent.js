@@ -6,26 +6,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './styles/scientistprofile.css';
 
-import '../presentations/components/PresentationsList';
-import PresentationsList from "../presentations/components/PresentationsList";
+import PresentationPostersSubtabs from "../presentations/components/PresentationPostersSubtabs";
 
-const PresentationsTabPresentationItem = ( {userUrl} ) => (
-    <div className="slide-share-item">
-
-        {/*<iframe*/}
-            {/*src="https://widgets.figshare.com/articles/4679824/embed?show_title=1"*/}
-            {/*width="568px"*/}
-            {/*height="426px"*/}
-            {/*frameBorder="0">*/}
-        {/*</iframe>*/}
-
-        <PresentationsList author={3}/>
-
-    </div>
+const PresentationsTabPresentationItem = ( {scientistName, scientistId} ) => (
+        <PresentationPostersSubtabs options={{filter: 'BY_AUTHOR', scientistName: scientistName, scientistId: scientistId}}/>
 );
 
 PresentationsTabPresentationItem.propTypes = {
-    userUrl: PropTypes.string.isRequired
+    scientistName: PropTypes.string,
+    scientistId: PropTypes.number
 };
 
 export default PresentationsTabPresentationItem;

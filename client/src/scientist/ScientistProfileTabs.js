@@ -9,7 +9,7 @@ import { Tabs, Tab, Row } from 'react-bootstrap';
 // components
 import Link from './LinkedProfilesTabLink';
 import { linkTypes } from './LinkedProfilesTabLink';
-import SlideShare from './PresentationsTabContent';
+import Presentations from './PresentationsTabContent';
 import Publications from './PublicationsTabContent';
 import './styles/scientistprofile.css';
 
@@ -86,23 +86,23 @@ class ScientistProfileTabs extends React.Component {
 
         return (
             <Tabs activeKey={this.state.selectedTab} onSelect={this.handleSelect} id="controlled-tabs">
-                <Tab eventKey={1} title="Publications" disabled={this.props.scientistData.publications.length === 0 ? true : false}>
+                <Tab eventKey={1} title="Publications" disabled={this.props.scientistData.publications.length === 0 ? true : false} mountOnEnter={true} unmountOnExit={true}>
                     <div className="tab-frame" style={{marginBottom: '8em'}}>
                         <Publications selectedPublications={this.props.scientistData.publications}/>
                     </div>
                 </Tab>
                 {/*<Tab eventKey={2} title="Presentations" disabled={this.props.scientistData.presentations === null ? true : false}>*/}
-                <Tab eventKey={2} title="Presentations" disabled={false}>
+                <Tab eventKey={2} title="Presentations" disabled={false} mountOnEnter={true} unmountOnExit={true}>
                 <div className="tab-frame">
-                        <SlideShare userUrl="empty for now"/>
+                        <Presentations scientistName={this.props.scientistData.firstName + ' ' + this.props.scientistData.lastName} scientistId={this.props.scientistData.scientistId}/>
                     </div>
                 </Tab>
-                <Tab eventKey={3} title="Linked Profiles">
+                <Tab eventKey={3} title="Linked Profiles" mountOnEnter={true} unmountOnExit={true}>
                     <div className="tab-frame" style={{marginBottom: '8em'}}>
                         {LinkedProfilesTabLinks}
                     </div>
                 </Tab>
-                <Tab eventKey={4} title="Projects" disabled={projects.length === 0 ? true : false}>
+                <Tab eventKey={4} title="Projects" disabled={projects.length === 0 ? true : false} mountOnEnter={true} unmountOnExit={true}>
                     <div className="tab-frame projects-tab">
                         {renderProjects()}
                     </div>

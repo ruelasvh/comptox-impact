@@ -6,7 +6,6 @@ import {Tabs, Tab, Grid} from 'react-bootstrap'
 
 import PresentationsPostersSubtabs from '../../presentations/components/PresentationPostersSubtabs'
 import VisiblePublications from '../../publications/container/VisiblePublications'
-import VisiblePresentations from '../../presentations/containers/VisiblePresentations'
 
 class PublicationsPresentationsMain extends React.Component {
     constructor(props) {
@@ -40,8 +39,7 @@ class PublicationsPresentationsMain extends React.Component {
                         </Tab>
                         <Tab eventKey="presentations-tab" title="Presentations" mountOnEnter={true} unmountOnExit={true}>
                             <div className="tab-frame">
-                                {/*<VisiblePresentations/>*/}
-                                <PresentationsPostersSubtabs/>
+                                <PresentationsPostersSubtabs options={{filter: 'ALL'}}/>
                             </div>
                         </Tab>
                     </Tabs>

@@ -19,72 +19,135 @@ function requestPosters() {
     }
 }
 
-export const RECEIVE_PRESENTATIONS = 'RECEIVE_PRESENTATIONS';
+export const RECEIVE_ALL_PRESENTATIONS = 'RECEIVE_ALL_PRESENTATIONS';
 function receivePresentations(json) {
     return {
-        type: RECEIVE_PRESENTATIONS,
+        type: RECEIVE_ALL_PRESENTATIONS,
         data: json,
         receivedAt: Date.now()
     }
 }
 
-export const RECEIVE_POSTERS = 'RECEIVE_POSTERS';
+export const RECEIVE_PRESENTATIONS_BY_AUTHOR = 'RECEIVE_PRESENTATIONS_BY_AUTHOR';
+function receivePresentationsByAuthor(scientistId,json) {
+    return {
+        type: RECEIVE_PRESENTATIONS_BY_AUTHOR,
+        data: json,
+        scientistId: scientistId,
+        receivedAt: Date.now()
+    }
+}
+
+export const RECEIVE_ALL_POSTERS = 'RECEIVE_ALL_POSTERS';
 function receivePosters(json) {
     return {
-        type: RECEIVE_POSTERS,
+        type: RECEIVE_ALL_POSTERS,
         data: json,
         receivedAt: Date.now()
     }
 }
 
-function fetchPresentations() {
+export const RECEIVE_POSTERS_BY_AUTHOR = 'RECEIVE_POSTERS_BY_AUTHOR';
+function receivePostersByAuthor(scientistId, json) {
+    return {
+        type: RECEIVE_POSTERS_BY_AUTHOR,
+        data: json,
+        scientistId: scientistId,
+        receivedAt: Date.now()
+    }
+}
+
+function fetchPresentations(options) {
     return dispatch => {
         dispatch(requestPresentations());
-        return Client.searchPresentations(json => dispatch(receivePresentations(json)))
+        function getPresentations(options) {
+            switch (options.filter) {
+                case 'ALL':
+                    return Client.searchPresentations(json => dispatch(receivePresentations(json)))
+                case 'BY_AUTHOR':
+                    return Client.searchPresentationsByAuthor(options.scientistName, json => dispatch(receivePresentationsByAuthor(options.scientistId, json)))
+                default:
+            }
+        }
+        return getPresentations(options)
+
     }
 }
 
-function fetchPosters() {
+function fetchPosters(options) {
     return dispatch => {
         dispatch(requestPosters());
-        return Client.searchPosters(json => dispatch(receivePosters(json)))
+        function getPosters(options) {
+            switch (options.filter) {
+                case 'ALL':
+                    return Client.searchPosters(json => dispatch(receivePosters(json)))
+                case 'BY_AUTHOR':
+                    return Client.searchPostersByAuthor(options.scientistName, json => dispatch(receivePostersByAuthor(options.scientistId, json)))
+                default:
+            }
+        }
+        return getPosters(options)
     }
 }
 
-function shouldFetchPresentations(state) {
-    const { all } = state.entities.presentations;
-    if (typeof all !== 'undefined' && all.length === 0) {
-        return true;
-    } else if (state.entities.presentations.isFetching) {
-        return false;
-    } else {
-        return false;
+function shouldFetchPresentations(options, state) {
+    const { all, byAuthor } = state.entities.presentations;
+    switch (options.filter) {
+        case 'ALL':
+            if (typeof all !== 'undefined' && all.length === 0) {
+                return true;
+            } else if (state.entities.presentations.isFetching) {
+                return false;
+            } else {
+                return false;
+            }
+        case 'BY_AUTHOR':
+            if (typeof byAuthor[options.scientistId] === 'undefined') {
+                return true;
+            } else if (state.entities.presentations.isFetching) {
+                return false;
+            } else {
+                return false;
+            }
     }
+
 }
 
-function shouldFetchPosters(state) {
-    const { all } = state.entities.posters;
-    if (typeof all !== 'undefined' && all.length === 0) {
-        return true;
-    } else if (state.entities.posters.isFetching) {
-        return false;
-    } else {
-        return false;
+function shouldFetchPosters(options, state) {
+    const { all, byAuthor } = state.entities.posters;
+    switch (options.filter) {
+        case 'ALL':
+            if (typeof all !== 'undefined' && all.length === 0) {
+                return true;
+            } else if (state.entities.posters.isFetching) {
+                return false;
+            } else {
+                return false;
+            }
+        case 'BY_AUTHOR':
+            if (typeof byAuthor[options.scientistId] === 'undefined') {
+                return true;
+            } else if (state.entities.posters.isFetching) {
+                return false;
+            } else {
+                return false;
+            }
     }
+
 }
 
-export function fetchPresentationsIfNeeded() {
+export function fetchPresentationsIfNeeded(options) {
     return (dispatch, getState) => {
-        if (shouldFetchPresentations(getState())) {
-            return dispatch(fetchPresentations())
+        if (shouldFetchPresentations(options, getState())) {
+            return dispatch(fetchPresentations(options))
         }
     }
 }
 
-export function fetchPostersIfNeeded() {
+export function fetchPostersIfNeeded(options) {
     return (dispatch, getState) => {
-        if (shouldFetchPosters(getState())) {
-            return dispatch(fetchPosters())
+        if (shouldFetchPosters(options, getState())) {
+            return dispatch(fetchPosters(options))
         }
     }
 }

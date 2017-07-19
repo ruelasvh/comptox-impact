@@ -93,13 +93,49 @@ export function searchPresentations(callback) {
         .then(callback)
 }
 
+export function searchPresentationsByAuthor(authorName, callback) {
+    $.ajax({
+        url: 'https://api.figshare.com/v2/articles/search',
+        type: 'POST',
+        data: JSON.stringify({
+            "search_for": `:author:${authorName}`,
+            "item_type": 7,
+            "limit": 1000,
+            "offset": 1,
+            "order": "published_date",
+            "order_direction": "desc"
+        }),
+        contentType:"application/json; charset=utf-8",
+        dataType:"json",
+        success: callback
+    })
+}
+
 export function searchPosters(callback) {
-    let queryUrl = 'https://api.figshare.com/v2/projects/22852/articles?page_size=1000&order=published_date&order_direction=desc';
+    let queryUrl = 'https://api.figshare.com/v2/projects/23335/articles?page_size=1000&order=published_date&order_direction=desc';
     return fetch(queryUrl, {
         accept: 'application/json',
     }).then(checkStatus)
         .then(parseJSON)
         .then(callback)
+}
+
+export function searchPostersByAuthor(authorName, callback) {
+    $.ajax({
+        url: 'https://api.figshare.com/v2/articles/search',
+        type: 'POST',
+        data: JSON.stringify({
+            "search_for": `:author:${authorName}`,
+            "item_type": 5,
+            "limit": 1000,
+            "offset": 1,
+            "order": "published_date",
+            "order_direction": "desc"
+        }),
+        contentType:"application/json; charset=utf-8",
+        dataType:"json",
+        success: callback
+    })
 }
 
 export function queryGAApi(queryId) {
@@ -161,6 +197,9 @@ const Client = {
     searchPublications,
     searchPresentations,
     searchPosters,
+    searchPresentationsByAuthor,
+    searchPosters,
+    searchPostersByAuthor,
     queryGAApi,
     ftpTreeMetrics,
     ftpMonthTop10,

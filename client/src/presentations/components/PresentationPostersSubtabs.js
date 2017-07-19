@@ -36,12 +36,12 @@ class PresentationPostersSubtabs extends React.Component {
                         <Tab.Content animation>
                             <Tab.Pane eventKey={presentationsKey} mountOnEnter={true} unmountOnExit={true}>
                                 <div className="presentations-list-container">
-                                    <VisiblePresentations/>
+                                    <VisiblePresentations options={this.props.options}/>
                                 </div>
                             </Tab.Pane>
                             <Tab.Pane eventKey={postersKey} mountOnEnter={true} unmountOnExit={true}>
                                 <div className="presentations-list-container">
-                                    <VisiblePosters/>
+                                    <VisiblePosters options={this.props.options}/>
                                 </div>
                             </Tab.Pane>
                         </Tab.Content>

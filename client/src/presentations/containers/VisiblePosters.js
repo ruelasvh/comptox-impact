@@ -8,31 +8,40 @@ import PostersList from '../components/PostersList'
 import { fetchPostersIfNeeded } from '../actions'
 
 const mapStateToProps = (state) => {
-    const {isFetching, all} = state.entities.posters || {isFetching: false, all: []}
+    const {isFetching, all, byAuthor} = state.entities.posters || {isFetching: false, all: [], byAuthor: {}}
 
     return {
         isFetching,
-        posters: all
+        posters: all,
+        postersByAuthor: byAuthor
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getPosters: () => {
-            dispatch(fetchPostersIfNeeded())
+        getPosters: (options) => {
+            dispatch(fetchPostersIfNeeded(options))
         }
     }
 }
 
 export class VisiblePosters extends React.Component {
     componentDidMount() {
-        this.props.getPosters()
+        this.props.getPosters(this.props.options)
     }
 
     render() {
+        const {filter, scientistId} = this.props.options
+        const posters = filter === 'ALL' ? this.props.posters : this.props.postersByAuthor[scientistId]
+        // console.log('Passed props to VisiblePosters', this.props.options)
+        // console.log('List of posters', posters.length)
         return (
             <Loader loaded={!this.props.isFetching}>
-                <PostersList posters={this.props.posters}/>
+                {
+                    typeof posters !== 'undefined' && posters.length === 0 ?
+                        <p style={{textAlign: 'center'}}>No posters found.</p> :
+                        <PostersList posters={posters} type={"paginated or infiniteScroll"}/>
+                }
             </Loader>
         )
     }
