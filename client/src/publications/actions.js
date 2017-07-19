@@ -27,11 +27,11 @@ function receivePublications(json) {
 }
 
 function normalizeData(jsonArr) {
-    let publications = jsonArr;
-    let allPublicationsIds = jsonArr.map(pub => pub.publication_id);
+    let all = jsonArr;
+    let allIds = jsonArr.map(pub => pub.publication_id);
     return {
-        publications,
-        allPublicationsIds
+        all,
+        allIds
     };
 }
 
@@ -43,8 +43,8 @@ function fetchPublications(limit, offset) {
 }
 
 function shouldFetchPublications(state) {
-    const { byId } = state.entities.publications;
-    if (Object.keys(byId).length === 0 && byId.constructor === Object) {
+    const { all } = state.entities.publications;
+    if (typeof all !== 'undefined' && all.length === 0) {
         return true;
     } else  if (state.entities.publications.isFetching) {
         return false;

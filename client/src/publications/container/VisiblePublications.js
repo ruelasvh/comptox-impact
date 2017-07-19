@@ -11,12 +11,12 @@ import { fetchPublicationsIfNeeded } from '../actions';
 const mapStateToProps = (state) => {
     const {
         isFetching,
-        byId,
+        all,
         limit,
         offset
     } = state.entities.publications || {
         isFetching: false,
-        byId: {},
+        all: [],
         visibilityFilter: 'SHOW_ALL',
         limit: null,
         offset: null
@@ -24,7 +24,7 @@ const mapStateToProps = (state) => {
 
     return {
         isFetching,
-        publications: byId,
+        publications: all,
         limit,
         offset
     }
