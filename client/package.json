@@ -9,7 +9,7 @@
     "test": "jest",
     "test:watch": "npm test -- --watch",
     "start": "node devServer.js",
-    "build": "npm install; NODE_ENV=production webpack --config ./webpack.config.js --progress --colors"
+    "build": "npm install && NODE_ENV=production webpack --config ./webpack.config.js --progress --colors"
   },
   "repository": {
     "type": "git",
