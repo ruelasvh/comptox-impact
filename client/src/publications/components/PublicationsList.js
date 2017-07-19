@@ -4,30 +4,32 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Grid, Row, Col, FormControl, InputGroup, FormGroup, Glyphicon, Pagination } from 'react-bootstrap';
+import { Row, Col, FormControl, InputGroup, FormGroup, Glyphicon, Pagination } from 'react-bootstrap';
 import PublicationItem from './PublicationItem';
 import Isotope from 'isotope-layout';
+import Waypoint from 'react-waypoint';
 import '../styles/publications.css';
+import '../styles/intinite-scroll.css';
 
 export class PublicationsList extends React.Component {
     constructor(props) {
         super(props);
 
-        // Convert to array from nomalized state
-        const publicationsArr = this.props.publications;
-
         this.state = {
-            publications: publicationsArr,
-            filteredPublications: publicationsArr,
+            publications: this.props.publications,
+            filteredPublications: this.props.publications,
             searchTerm: '',
-            activePage: 1,
-            publicationsPerPage: 10,
-            savedPage: 1
+            activePage: 1, // pagination
+            publicationsPerPage: 10, // pagination
+            savedPage: 1, // pagination
+            limit: 0, // infinite scroll
+            isLoading: true // infinite scroll
         };
 
         //Bindings
         this.handleSelectPage = this.handleSelectPage.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
+        this.handlePublicationsInfiniteScroll = this.handlePublicationsInfiniteScroll.bind(this);
     }
 
     appendPlumxScript() {
@@ -66,6 +68,62 @@ export class PublicationsList extends React.Component {
         });
     }
 
+    // To be used with infinite scroll
+    handlePublicationsInfiniteScroll() {
+        let step = 8;
+        let currLimit = this.state.limit;
+
+        this.setState({
+            limit: currLimit + step,
+            isLoading: false
+        }, () => {
+            window.__plumX.widgets.popup.wireUp();
+            window._altmetric.embed_init();
+        });
+    }
+
+    // To be used with infinite scroll
+    renderWaypointInfiniteScroll() {
+        return (
+            <Waypoint
+                onEnter={this.handlePublicationsInfiniteScroll}
+            />
+        )
+
+    }
+
+    renderPublicationsPaginated(publications) {
+        return (
+            <div>
+                {publications.map((publication) => {
+                    return (
+                        <PublicationItem
+                            id={publication.publication_id.toString()}
+                            key={publication.publication_id}
+                            publication={publication}
+                            centerWide={true} />
+                    )
+                })}
+            </div>
+        )
+    }
+
+    renderPublicationsInfiniteScroll(publications, limit) {
+        return (
+            <div>
+                {publications.slice(0, limit).map(function (publication) {
+                    return (
+                        <PublicationItem
+                            id={publication.publication_id.toString()}
+                            key={publication.publication_id}
+                            publication={publication}
+                            centerWide={true} />
+                    );
+                })}
+            </div>
+        )
+    }
+
     // Handle search bar input behaviour
     handleInputChange(event) {
         // Scroll up
@@ -98,6 +156,7 @@ export class PublicationsList extends React.Component {
     }
 
     render() {
+        console.log('Props passed to PublicationsList', this.props)
         const { filteredPublications, activePage, searchTerm, savedPage, publicationsPerPage } = this.state;
 
         const currentPage = searchTerm == '' ? savedPage : activePage;
@@ -107,24 +166,11 @@ export class PublicationsList extends React.Component {
         const indexOfFistPublication = indexOfLastPublication - publicationsPerPage;
         const currentPublications = filteredPublications.slice(indexOfFistPublication, indexOfLastPublication);
 
-        const renderPublications = currentPublications.map((publication) => {
-            return (
-                <PublicationItem
-                    id={publication.publication_id.toString()}
-                    key={publication.publication_id}
-                    publication={publication}
-                    centerWide={true} />
-            )
-        });
-
         return (
-            <div>
-                <div className="publications-container">
+            <div className={this.props.infiniteScroll ? 'infinite-scroll' : ''}>
+                <div className={this.props.paginated ? 'publications-container' : ''}>
                     <Row>
                         <Col md={5}>
-                            <h1>Publications</h1>
-                        </Col>
-                        <Col md={7}>
                             <div className="search-box">
                                 <FormGroup>
                                     <InputGroup>
@@ -137,6 +183,11 @@ export class PublicationsList extends React.Component {
                                             onChange={this.handleInputChange} />
                                     </InputGroup>
                                 </FormGroup>
+                            </div>
+                        </Col>
+                        <Col md={3}>
+                            <div style={{paddingTop: '35'}}>
+                                Showing {this.state.filteredPublications.length} results
                             </div>
                         </Col>
                     </Row>
@@ -217,26 +268,44 @@ export class PublicationsList extends React.Component {
                             <strong>Kudos</strong>
                         </Col>
                     </Row>
-
-
-                    <div className="publications-item-grid">
-                        {renderPublications}
-                    </div>
+                    {
+                        this.props.paginated ?
+                            <div className="publications-item-grid">
+                                {this.renderPublicationsPaginated(currentPublications)}
+                            </div>
+                            : ''
+                    }
+                    {
+                        this.props.infiniteScroll ?
+                            this.renderPublicationsInfiniteScroll(this.state.filteredPublications, this.state.limit)
+                            : ''
+                    }
 
                 </div>
-                <div className="publications-pagination">
-                    <Pagination
-                        prev
-                        next
-                        first
-                        last
-                        ellipsis
-                        boundaryLinks
-                        items={Math.ceil(filteredPublications.length / publicationsPerPage)}
-                        maxButtons={5}
-                        activePage={currentPage}
-                        onSelect={this.handleSelectPage} />
-                </div>
+                {
+                    this.props.paginated ?
+                        <div className="publications-pagination">
+                            <Pagination
+                                prev
+                                next
+                                first
+                                last
+                                ellipsis
+                                boundaryLinks
+                                items={Math.ceil(filteredPublications.length / publicationsPerPage)}
+                                maxButtons={5}
+                                activePage={currentPage}
+                                onSelect={this.handleSelectPage} />
+                        </div>
+                        : ''
+                }
+                {
+                    this.props.infiniteScroll ?
+                        <div className="infinite-scroll__waypoint">
+                            {this.state.limit < this.state.filteredPublications.length ? this.renderWaypointInfiniteScroll() : ' '}
+                        </div>
+                        : ''
+                }
             </div>
         );
     }
@@ -247,7 +316,9 @@ PublicationsList.propTypes = {
     publications: PropTypes.oneOfType([
         PropTypes.object,
         PropTypes.array
-    ])
+    ]),
+    onEnter: PropTypes.func, // function called when waypoint enters viewport
+    onLeave: PropTypes.func, // function called when waypoint leaves viewport
 };
 
 

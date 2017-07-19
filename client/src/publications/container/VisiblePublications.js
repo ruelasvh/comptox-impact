@@ -46,7 +46,7 @@ export class VisiblePublications extends React.Component {
     render() {
         return (
             <Loader loaded={!this.props.isFetching}>
-                <PublicationsList publications={this.props.publications}/>
+                <PublicationsList publications={this.props.publications} paginated/>
             </Loader>
         )
     }
