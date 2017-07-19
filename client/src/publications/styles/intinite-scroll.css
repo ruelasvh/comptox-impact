@@ -1,0 +1,57 @@
+.infinite-scroll {
+    position: relative;
+}
+
+.infinite-scroll__scrollable-parent {
+    height: 500px;
+    margin: 0 auto;
+    max-width: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    position: relative;
+}
+
+.infinite-scroll__loading-message,
+.infinite-scroll__count {
+    background-color: #0e6993;
+    color: #fff;
+    padding: 10px;
+    pointer-events: none;
+    position: relative;
+    z-index: 1000;
+}
+
+.infinite-scroll__arrow {
+    background-color: #fff;
+    bottom: 0;
+    color: #000;
+    font-size: 40px;
+    line-height: 50px;
+    opacity: 0.75;
+    pointer-events: none;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    z-index: 1000;
+}
+
+.infinite-scroll__arrow:before {
+    content: 'â–¼';
+}
+
+.infinite-scroll__count {
+    right: 0;
+    top: 0;
+}
+
+.infinite-scroll__loading-message {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.infinite-scroll__waypoint {
+    color: #cccccc;
+    margin: 10px 4px 20px;
+    text-align: left;
+}
