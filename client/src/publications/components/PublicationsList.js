@@ -18,6 +18,7 @@ export class PublicationsList extends React.Component {
             publications: this.props.publications,
             filteredPublications: this.props.publications,
             searchTerm: '',
+            searchTermValidation: null, // validation for search box
             activePage: 1, // pagination
             publicationsPerPage: 10, // pagination
             savedPage: 1, // pagination
@@ -27,9 +28,17 @@ export class PublicationsList extends React.Component {
 
         //Bindings
         this.handleSelectPage = this.handleSelectPage.bind(this);
-        this.handleInputChange = this.handleInputChange.bind(this);
         this.handlePublicationsInfiniteScroll = this.handlePublicationsInfiniteScroll.bind(this);
         this.handleSearchSubmit = this.handleSearchSubmit.bind(this);
+
+        //Define function to check empty objects
+        Object.prototype.isEmpty = function () {
+            for (var key in this) {
+                if (this.hasOwnProperty(key))
+                    return false;
+            }
+            return true;
+        }
     }
 
     appendPlumxScript() {
@@ -62,12 +71,11 @@ export class PublicationsList extends React.Component {
 
     // To be used with the Pagination widget.
     handleSelectPage(eventKey) {
+        // Scroll up
+        window.scrollTo(0,0);
         this.setState({
             activePage: eventKey,
             savedPage: eventKey
-        }, () => {
-            this.appendAltmetricScript();
-            this.appendPlumxScript();
         });
     }
 
@@ -79,9 +87,6 @@ export class PublicationsList extends React.Component {
         this.setState({
             limit: currLimit + step,
             isLoading: false
-        }, () => {
-            this.appendAltmetricScript();
-            this.appendPlumxScript();
         });
     }
 
@@ -127,28 +132,26 @@ export class PublicationsList extends React.Component {
         )
     }
 
-    // Handle search bar input behaviour
-    handleInputChange(event) {
-        // Scroll up
-        window.scrollTo(0,0);
-
-        this.setState({
-            searchTerm: event.target.value
-        });
-    }
-
     handleSearchSubmit() {
-        // Scroll up
-        window.scrollTo(0,0);
 
-        if (this.state.searchTerm === "") {
+        if (this.state.searchTermValidation === 'error') {
+            this.searchBoxInput.value = "";
             this.setState({
-                filteredPublications: this.state.publications
+                searchTermValidation: null
             });
             return;
         }
 
-        let searchTerms = this.state.searchTerm.split(':').map(term => {
+        // Reset publications if search box is cleared
+        if (this.searchBoxInput.value === "") {
+            this.setState({
+                filteredPublications: this.state.publications,
+                searchTermValidation: null
+            });
+            return;
+        }
+
+        let searchTerms = this.searchBoxInput.value.split(':').map(term => {
             return term.trim()
         });
         searchTerms.shift(); // Remove first empty string
@@ -176,7 +179,13 @@ export class PublicationsList extends React.Component {
            }
         })
 
-        console.log('Filter', filter)
+        // Validate search terms
+        if (filter.isEmpty()) {
+            this.setState({
+                searchTermValidation: 'error'
+            })
+            return;
+        }
 
         let newlyFiltered = this.state.publications.filter(publication => {
             for (var key in filter) {
@@ -187,6 +196,7 @@ export class PublicationsList extends React.Component {
         })
 
         this.setState({
+            searchTermValidation: null,
             filteredPublications: newlyFiltered,
             activePage: 1
         });
@@ -197,10 +207,10 @@ export class PublicationsList extends React.Component {
         this.appendAltmetricScript();
     }
 
-    // componentDidUpdate() {
-    //     this.appendPlumxScript();
-    //     this.appendAltmetricScript();
-    // }
+    componentDidUpdate() {
+        this.appendPlumxScript();
+        this.appendAltmetricScript();
+    }
 
     render() {
         // console.log('Props passed to PublicationsList', this.props)
@@ -219,18 +229,27 @@ export class PublicationsList extends React.Component {
                     <Row>
                         <Col md={5}>
                             <div className="search-box">
-                                <FormGroup>
+                                <FormGroup controlId="formSearchPublications" validationState={this.state.searchTermValidation}>
                                     <InputGroup>
                                         <FormControl
                                             type="text"
                                             placeholder="Search by Author, Year, Project and DOI. e.g. :author: John Doe"
-                                            onChange={this.handleInputChange} />
+                                            //onChange={this.handleInputChange}
+                                            inputRef={ref => { this.searchBoxInput = ref }}/>
                                         <InputGroup.Button>
-                                            <Button bsStyle="primary" onClick={this.handleSearchSubmit}>
-                                                <Glyphicon glyph="glyphicon glyphicon-search" />
+                                            <Button
+                                                bsStyle={this.state.searchTermValidation === 'error' ? "danger" : "primary"}
+                                                onClick={this.handleSearchSubmit}>
+                                                <Glyphicon
+                                                    glyph={this.state.searchTermValidation === 'error' ?
+                                                        "glyphicon glyphicon-remove" : "glyphicon glyphicon-search"} />
                                             </Button>
                                         </InputGroup.Button>
                                     </InputGroup>
+                                    {
+                                        this.state.searchTermValidation === 'error' ?
+                                            <p className="search-instructions-wrap">The format is :author: John Doe :year: 2014 :project: Sustainable Chemistry :doi: 10.1002/ieam.1923</p> : ''
+                                    }
                                 </FormGroup>
                             </div>
                         </Col>
