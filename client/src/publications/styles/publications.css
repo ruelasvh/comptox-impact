@@ -32,6 +32,10 @@
     color: grey;
 }
 
+.search-instructions-wrap {
+    color: red;
+}
+
 
 .title {
     position: absolute;
