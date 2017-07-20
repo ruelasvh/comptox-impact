@@ -18,6 +18,11 @@
     padding: 28px 0;
 }
 
+.results-wrap {
+    float: left;
+    padding-top: 35px;
+}
+
 .search-title {
     padding: 10px 0;
     float: right;
