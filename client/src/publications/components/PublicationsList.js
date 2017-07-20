@@ -4,9 +4,8 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Row, Col, FormControl, InputGroup, FormGroup, Glyphicon, Pagination } from 'react-bootstrap';
+import { Row, Col, FormControl, InputGroup, FormGroup, Glyphicon, Pagination, Button } from 'react-bootstrap';
 import PublicationItem from './PublicationItem';
-import Isotope from 'isotope-layout';
 import Waypoint from 'react-waypoint';
 import '../styles/publications.css';
 import '../styles/intinite-scroll.css';
@@ -30,6 +29,7 @@ export class PublicationsList extends React.Component {
         this.handleSelectPage = this.handleSelectPage.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handlePublicationsInfiniteScroll = this.handlePublicationsInfiniteScroll.bind(this);
+        this.handleSearchSubmit = this.handleSearchSubmit.bind(this);
     }
 
     appendPlumxScript() {
@@ -65,6 +65,9 @@ export class PublicationsList extends React.Component {
         this.setState({
             activePage: eventKey,
             savedPage: eventKey
+        }, () => {
+            this.appendAltmetricScript();
+            this.appendPlumxScript();
         });
     }
 
@@ -77,8 +80,8 @@ export class PublicationsList extends React.Component {
             limit: currLimit + step,
             isLoading: false
         }, () => {
-            window.__plumX.widgets.popup.wireUp();
-            window._altmetric.embed_init();
+            this.appendAltmetricScript();
+            this.appendPlumxScript();
         });
     }
 
@@ -129,17 +132,61 @@ export class PublicationsList extends React.Component {
         // Scroll up
         window.scrollTo(0,0);
 
-        let newlyFiltered = this.state.publications.filter(
-            (publication) => {
-                return (
-                    // (publication.doi ? publication.doi.includes(event.target.value) : false) ||
-                    (publication.citation ? publication.citation.toLowerCase().includes(event.target.value.toLowerCase()) : false)
-                )
+        this.setState({
+            searchTerm: event.target.value
+        });
+    }
+
+    handleSearchSubmit() {
+        // Scroll up
+        window.scrollTo(0,0);
+
+        if (this.state.searchTerm === "") {
+            this.setState({
+                filteredPublications: this.state.publications
+            });
+            return;
+        }
+
+        let searchTerms = this.state.searchTerm.split(':').map(term => {
+            return term.trim()
+        });
+        searchTerms.shift(); // Remove first empty string
+        let filter = {};
+        searchTerms.forEach(function(term, index, searchTerms) {
+           if (term === 'author') {
+               filter = Object.assign({}, filter, {
+                   author: searchTerms[index + 1]
+               })
+           }
+            if (term === 'year') {
+                filter = Object.assign({}, filter, {
+                    published_date: searchTerms[index + 1]
+                })
             }
-        );
+            if (term === 'project') {
+                filter = Object.assign({}, filter, {
+                    project: searchTerms[index + 1]
+                })
+            }
+           if (term === 'doi') {
+               filter = Object.assign({}, filter, {
+                   doi: searchTerms[index + 1]
+               })
+           }
+        })
+
+        console.log('Filter', filter)
+
+        let newlyFiltered = this.state.publications.filter(publication => {
+            for (var key in filter) {
+                if (publication[key] === undefined || publication[key] !== filter[key])
+                    return false;
+            }
+            return true;
+        })
 
         this.setState({
-            searchTerm: event.target.value,
             filteredPublications: newlyFiltered,
             activePage: 1
         });
@@ -150,13 +197,13 @@ export class PublicationsList extends React.Component {
         this.appendAltmetricScript();
     }
 
-    componentDidUpdate() {
-        this.appendPlumxScript();
-        this.appendAltmetricScript();
-    }
+    // componentDidUpdate() {
+    //     this.appendPlumxScript();
+    //     this.appendAltmetricScript();
+    // }
 
     render() {
-        console.log('Props passed to PublicationsList', this.props)
+        // console.log('Props passed to PublicationsList', this.props)
         const { filteredPublications, activePage, searchTerm, savedPage, publicationsPerPage } = this.state;
 
         const currentPage = searchTerm == '' ? savedPage : activePage;
@@ -174,20 +221,22 @@ export class PublicationsList extends React.Component {
                             <div className="search-box">
                                 <FormGroup>
                                     <InputGroup>
-                                        <InputGroup.Addon>
-                                            <Glyphicon glyph="glyphicon glyphicon-search" />
-                                        </InputGroup.Addon>
                                         <FormControl
                                             type="text"
-                                            placeholder="Search Authors, Title, Year"
+                                            placeholder="Search by Author, Year, Project and DOI. e.g. :author: John Doe"
                                             onChange={this.handleInputChange} />
+                                        <InputGroup.Button>
+                                            <Button bsStyle="primary" onClick={this.handleSearchSubmit}>
+                                                <Glyphicon glyph="glyphicon glyphicon-search" />
+                                            </Button>
+                                        </InputGroup.Button>
                                     </InputGroup>
                                 </FormGroup>
                             </div>
                         </Col>
                         <Col md={3}>
-                            <div style={{paddingTop: '35'}}>
-                                Showing {this.state.filteredPublications.length} results
+                            <div className="results-wrap">
+                                Showing {this.state.filteredPublications.length} {this.state.filteredPublications.length === 1 ? 'result' : 'results'}
                             </div>
                         </Col>
                     </Row>

@@ -6,7 +6,7 @@
 const State = {
     isFetching: false,
     lastUpdated: Date.now(),
-    byId: {},
+    all: [],
     allIds: [],
 };
 
