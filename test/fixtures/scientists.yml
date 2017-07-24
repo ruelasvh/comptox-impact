@@ -1,54 +1,18 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  scientistId: 
-  firstName: MyString
-  lastName: MyString
-  title: MyString
-  email: MyString
-  photoUrl: MyString
-  orcid: MyString
-  researchGate: MyString
-  googleScholar: MyString
-  linkedIn: MyString
-  plumx: MyString
-  publons: MyString
-  europePmc: MyString
-  bio: MyText
-  createdBy: MyString
-  updatedBy: MyString
-  publications: MyString
-  presentations: MyString
-  projects: MyString
-  selfUrl: MyString
-
-two:
-  scientistId: 
-  firstName: MyString
-  lastName: MyString
-  title: MyString
-  email: MyString
-  photoUrl: MyString
-  orcid: MyString
-  researchGate: MyString
-  googleScholar: MyString
-  linkedIn: MyString
-  plumx: MyString
-  publons: MyString
-  europePmc: MyString
-  bio: MyText
-  createdBy: MyString
-  updatedBy: MyString
-  publications: MyString
-  presentations: MyString
-  projects: MyString
-  selfUrl: MyString
-
-ann:
-  scientistId: 1
-  firstName: Ann
+# This model initially had no columns defined.  If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+one: {
+  firstName: Ann,
   lastName: Richard
-  title: Research Chemist
-  email: richard.ann@epa.gov
-  photoUrl: richard_ann.jpg
-  orcid: 0000-0003-2116-2300
+}
+# column: value
+#
+two: {
+  firstName: John,
+  lastName: Oliver
+}
+#  column: value
+

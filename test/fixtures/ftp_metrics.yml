@@ -4,8 +4,22 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
+one: {
+  parent_id: 1,
+  app: comptox,
+  name: publications.pdf,
+  folder: 1,
+  count: 98,
+  unique_count: 22
+}
 # column: value
 #
-two: {}
+two: {
+  parent_id: 2,
+  app: dsstox,
+  name: dsstoxftp,
+  folder: 0,
+  count: 8,
+  unique_count: 7
+}
 #  column: value
