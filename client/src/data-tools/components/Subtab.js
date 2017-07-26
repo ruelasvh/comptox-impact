@@ -42,6 +42,7 @@ const Subtab = (props) => (
                         <Panel header={props.tab.name + " FTP Downloads"} eventKey="3">
                             <Nav bsStyle="pills" stacked>
                                 <NavItem eventKey="ftp-stats">Download Counts</NavItem>
+                                <NavItem eventKey="ftp-geographics">Geographics</NavItem>
                             </Nav>
                         </Panel>
                         : ' ' }
@@ -283,6 +284,29 @@ const Subtab = (props) => (
                             {!props.isFetching ?
                                 <Top10Chart {...props.tab.data.filedownloads.year} /> : ' '
                             }
+                        </Tab.Pane>
+                        <Tab.Pane unmountOnExit={true} mountOnEnter={true} eventKey="ftp-geographics">
+                            <Tab.Container id="ftp-geographics-tabs" defaultActiveKey="usa">
+                                <div>
+                                    Region:
+                                    <Nav bsStyle="pills">
+                                        <NavItem eventKey="usa">USA</NavItem>
+                                        <NavItem eventKey="world">World</NavItem>
+                                    </Nav>
+                                    <Tab.Content unmountOnExit={true} mountOnEnter={true} animation>
+                                        <Tab.Pane unmountOnExit={true} mountOnEnter={true} eventKey="usa">
+                                            {!props.isFetching && props.tab.data.filedownloads.stateYear.hasOwnProperty('data') ?
+                                                <MapChart data={props.tab.data.filedownloads.stateYear.data} scope={'usa'} /> : ' '
+                                            }
+                                        </Tab.Pane>
+                                        <Tab.Pane unmountOnExit={true} mountOnEnter={true} eventKey="world">
+                                            {!props.isFetching && props.tab.data.filedownloads.countryYear.hasOwnProperty('data') ?
+                                                <MapChart data={props.tab.data.filedownloads.countryYear.data} scope={'world'} /> : ' '
+                                            }
+                                        </Tab.Pane>
+                                    </Tab.Content>
+                                </div>
+                            </Tab.Container>
                         </Tab.Pane>
                     </Tab.Content>
                     : ' ' }

@@ -6,9 +6,10 @@ module FtpIpInfoHelper
 
     validates :app, allow_blank: false, numericality: false
     validates :country, allow_blank: true, numericality: false
+    validates :count, allow_blank: true, numericality: false
 
     def initialize(params={})
-      ActionController::Parameters.new(params).permit(:app, :country)
+      ActionController::Parameters.new(params).permit(:app, :country, :count)
     end
   end
 end
