@@ -2,7 +2,7 @@
  * Created by Victor H. Ruelas-Rivera on 4/26/17.
  * US EPA National Center for Computational Toxicology
  */
-import { queryGAApi, ftpTreeMetrics, ftpMonthTop10, ftpYearTop10 } from '../utils/Client';
+import { queryGAApi, ftpTreeMetrics, ftpMonthTop10, ftpYearTop10, ftpMetricsInfoCountCountry, ftpMetricsInfoCountState } from '../utils/Client';
 import moment from 'moment';
 
 // Actions, functions that return instructions and data payload to the reducers.
@@ -108,7 +108,13 @@ function fetchAnalytics() {
           ftpYearTop10('toxcast'),
           ftpTreeMetrics('dsstox'),
           ftpMonthTop10('dsstox'),
-          ftpYearTop10('dsstox')
+          ftpYearTop10('dsstox'),
+            ftpMetricsInfoCountState('comptox'),
+            ftpMetricsInfoCountCountry('comptox'),
+            ftpMetricsInfoCountState('toxcast'),
+            ftpMetricsInfoCountCountry('toxcast'),
+            ftpMetricsInfoCountState('dsstox'),
+            ftpMetricsInfoCountCountry('dsstox')
         ])
             .then(results => dispatch(receiveAnalytics(results)))
     }
@@ -242,7 +248,15 @@ function normalize(results) {
     year: {
       data: results[66].data,
       timeperiod: results[66].year
-    }
+    },
+    stateYear: {
+        data: results[73],
+        timeperiod: moment(results[65].month + '01').format('MMM YYYY')
+    },
+    countryYear: {
+        data: results[74],
+        timeperiod: moment(results[65].month + '01').format('MMM YYYY')
+      }
   };
   toxcast.datadownloads = {
     pageViews: results[48],
@@ -278,7 +292,15 @@ function normalize(results) {
     year: {
       data: results[69].data,
       timeperiod: results[69].year
-    }
+    },
+      stateYear: {
+        data: results[75],
+          timeperiod: moment(results[68].month + '01').format('MMM YYYY')
+      },
+      countryYear: {
+        data: results[76],
+          timeperiod: moment(results[68].month + '01').format('MMM YYYY')
+      }
   }
   dsstox.filedownloads = {
     tree: {
@@ -294,7 +316,15 @@ function normalize(results) {
     year: {
       data: results[72].data,
       timeperiod: results[72].year
-    }
+    },
+      stateYear: {
+        data: results[77],
+          timeperiod: moment(results[71].month + '01').format('MMM YYYY')
+      },
+      countryYear: {
+        data: results[78],
+          timeperiod: moment(results[71].month + '01').format('MMM YYYY')
+      }
   }
 
   return analytics;

@@ -28,6 +28,7 @@ Rails.application.routes.draw do
     scope '/ftpmetrics' do
       get '/' => 'ftp_metrics#index'
       get '/tree/:app' => 'ftp_metrics#tree'
+      get '/ipinfo' => 'ftp_ip_info#show'
     end
     # ftp metrics by month
     scope '/ftpmetricsby' do

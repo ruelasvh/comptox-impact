@@ -1,25 +1,21 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  doi: MyString
+  title: Publication1
+  doi: 00.00.00
   published_date: 2017-03-08
   citation: MyText
   abstract: MyText
   publication_url: MyString
-  science_inventory_url: MyString
-  web_of_science_url: MyString
   created_by: MyString
   updated_by: MyString
 
 two:
-  title: MyString
-  doi: MyString
+  title: Publication2
+  doi: NULL
   published_date: 2017-03-08
   citation: MyText
   abstract: MyText
   publication_url: MyString
-  science_inventory_url: MyString
-  web_of_science_url: MyString
   created_by: MyString
   updated_by: MyString

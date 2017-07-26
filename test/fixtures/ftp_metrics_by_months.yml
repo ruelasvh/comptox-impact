@@ -4,8 +4,16 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
+one: {
+  file_id: 3,
+  month: 201500,
+  count: 3
+}
 # column: value
 #
-two: {}
+two: {
+  file_id: 5,
+  month: 201508,
+  count: 1
+}
 #  column: value
