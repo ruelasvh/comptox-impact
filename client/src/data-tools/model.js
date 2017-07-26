@@ -4,8 +4,33 @@
  */
 
 const Model = {
-    analytics: {},
-    lastUpdated: Date.now()
+  analytics: {
+    comptoxdashboard: {
+      usage: {},
+      datadownloads: {},
+      filedownloads: {}
+    },
+    actor: {
+      usage: {},
+      analog: {}
+    },
+    cpcat: {
+      usage: {}
+    },
+    edsp21: {
+      usage: {}
+    },
+    toxcast: {
+      usage: {},
+      datadownloads: {},
+      filedownloads: {},
+    },
+    dsstox: {
+      datadownloads: {},
+      filedownloads: {}
+    }
+  },
+  lastUpdated: Date.now()
 };
 
 export default Model;

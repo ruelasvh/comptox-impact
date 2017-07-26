@@ -4,38 +4,24 @@
  */
 import React from 'react';
 import { connect } from 'react-redux';
-import Loader from 'react-loader';
 import DataToolsMain from '../components/DataToolsMain';
-import { fetchAnalyticsIfNeeded } from '../actions';
 
 function mapStateToProps(state) {
-    const {
-        analytics
-    } = state.entities.datasets || {
-        analytics: {}
-    };
+  const analytics = state.entities.datasets.analytics || {}
 
-    return {
-        analytics: analytics
-    }
+  return { analytics }
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        getDatasets: () => dispatch(fetchAnalyticsIfNeeded())
     }
 }
 
 class DataTools extends React.Component {
-    componentDidMount() {
-        this.props.getDatasets();
-    }
 
     render() {
         return (
-            <Loader loaded={!this.props.analytics.isFetching}>
-                <DataToolsMain analytics={this.props.analytics}/>
-            </Loader>
+            <DataToolsMain analytics={this.props.analytics}/>
         )
     }
 }

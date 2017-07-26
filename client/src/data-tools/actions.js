@@ -8,110 +8,71 @@ import moment from 'moment';
 // Actions, functions that return instructions and data payload to the reducers.
 // Reducers change the sate of the app.
 export const REQUEST_ANALYTICS = 'REQUEST_ANALYTICS';
-function requestAnalytics() {
+function requestAnalytics(app, section) {
     return {
-        type: REQUEST_ANALYTICS
+        type: REQUEST_ANALYTICS,
+        app: app,
+        section: section
     }
 }
 
 export const RECEIVE_ANALYTICS = 'RECEIVE_ANALYTICS';
-function receiveAnalytics(json) {
-    return {
-        type: RECEIVE_ANALYTICS,
-        analytics: normalize(json),
-        receivedAt: Date.now()
-    }
+function receiveAnalytics(json, app, section) {
+  const action = {
+    type: RECEIVE_ANALYTICS,
+    receivedAt: Date.now(),
+    analytics: {}
+  }
+  action.analytics[app] = {}
+  action.analytics[app][section] = normalize(json)
+  return action
 }
 
-function fetchAnalytics() {
-    return dispatch => {
-        dispatch(requestAnalytics());
-        Promise.all([
-            /* CompTox Dashboard */
-            queryGAApi('ICA5JEKDA'), // Page Views
-            queryGAApi('IDa44YKDA'), // Unique Page Views
-            queryGAApi('IDA-pMKDA'), // Country Month
-            queryGAApi('MCoppsJDA'), // Country Year
-            queryGAApi('ID8qZ8KDA'), // Domain Month
-            queryGAApi('ICZ0oUKDA'), // Domain Year
-            queryGAApi('ID4-4IKDA'), // State Month
-            queryGAApi('MCoppsKDA'), // State Year
-            /* ACToR */
-            queryGAApi('IDruI8KDA'), // Page Views
-            queryGAApi('MCo_IoJDA'), // Unique Page Views
-            queryGAApi('ID8vYEKDA'), // Country Month
-            queryGAApi('ICv9YQKDA'), // Country Year
-            queryGAApi('IC-8YsKDA'), // Domain Month
-            queryGAApi('ID8qZ8JDA'), // Domain Year
-            queryGAApi('IC63J8JDA'), // State Month
-            queryGAApi('ICEtIoKDA'), // State Year
-            /* CPCat */
-            queryGAApi('IDrop4KDA'), // Page Views
-            queryGAApi('IDZ8JILDA'), // Unique Page Views
-            queryGAApi('IDAnIILDA'), // Country Month
-            queryGAApi('MCosYYKDA'), // Country Year
-            queryGAApi('ICEypsKDA'), // Domain Month
-            queryGAApi('ICE3oYKDA'), // Domain Year
-            queryGAApi('ID89o4JDA'), // State Month
-            queryGAApi('ICZ54MJDA'), // State Year
-            /* EDSP21 */
-            queryGAApi('MCo_IoLDA'), // Page Views
-            queryGAApi('IDruI8JDA'), // Unique Page Views
-            queryGAApi('IDrop4JDA'), // Country Month
-            queryGAApi('IDZ8NIIDA'), // Country Year
-            queryGAApi('IDAnMIIDA'), // Domain Month
-            queryGAApi('MCosYYJDA'), // Domain Year
-            queryGAApi('ID8vYEJDA'), // State Month
-            queryGAApi('ICv9YQJDA'), // State Year
-            /* ToxCast */
-            queryGAApi('IDA-pMJDA'), // Page Views
-            queryGAApi('MCoppsLDA'), // Unique Page Views
-            queryGAApi('IDZrIsJDA'), // Country Month
-            queryGAApi('ICEtIoJDA'), // Country Year
-            queryGAApi('IC63J8LDA'), // Domain Month
-            queryGAApi('IDZ8NIKDA'), // Domain Year
-            queryGAApi('IDAnMIKDA'), // State Month
-            queryGAApi('MCosYYLDA'), // State Year
-            /* CompTox Download Drupal */
-            queryGAApi('MCo6JMJDA'), // Page Views
-            queryGAApi('ICZ54MLDA'), // Unique Page Views
-            queryGAApi('IC-7ZoKDA'), // Country Month
-            queryGAApi('ICv4ZkLDA'), // Country Year
-            queryGAApi('ICdlIcKDA'), // Domain Month
-            queryGAApi('IC-8YsJDA'), // Domain Year
-            queryGAApi('ICv9YQLDA'), // State Month
-            queryGAApi('ID8vYELDA'), // State Year
-            /* ToxCast Download Drupal */
-            queryGAApi('ICv4dkIDA'), // Page Views
-            queryGAApi('ICdwJoJDA'), // Unique Page Views
-            queryGAApi('ICdipYKDA'), // Country Month
-            queryGAApi('MCo6JMLDA'), // Country Year
-            queryGAApi('ICZ58MIDA'), // Domain Month
-            queryGAApi('ICEtIoLDA'), // Domain Year
-            queryGAApi('IC63N8IDA'), // State Month
-            queryGAApi('ID8qZ8LDA'), // State Year
-            /* DSSTox Download Drupal */
-            queryGAApi('IC6qI4JDA'), // Page Views
-            queryGAApi('ICEoJMJDA'), // Unique Page Views
-            queryGAApi('ICdwJoLDA'), // Country Month
-            queryGAApi('ICdipYJDA'), // Country Year
-            queryGAApi('MCo6NMIDA'), // Domain Month
-            queryGAApi('ICZ58MKDA'), // Domain Year
-            queryGAApi('ICEtMoIDA'), // State Month
-            queryGAApi('IC63N8KDA'), // State Year
-          /* Internal FTP Metrics API */
-          ftpTreeMetrics('comptox'),
-          ftpMonthTop10('comptox'),
-          ftpYearTop10('comptox'),
-          ftpTreeMetrics('toxcast'),
-          ftpMonthTop10('toxcast'),
-          ftpYearTop10('toxcast'),
-          ftpTreeMetrics('dsstox'),
-          ftpMonthTop10('dsstox'),
-          ftpYearTop10('dsstox')
-        ])
-            .then(results => dispatch(receiveAnalytics(results)))
-    }
+const appGoogleAPI_ids = {
+  // Page Views, Unique Page Views, Country Month, Country Year
+  // Domain Month, Domain Year, State Month, State Year
+  comptoxdashboard: {
+    usage: [
+      'ICA5JEKDA', 'IDa44YKDA', 'IDA-pMKDA', 'MCoppsJDA',
+      'ID8qZ8KDA', 'ICZ0oUKDA', 'ID4-4IKDA', 'MCoppsKDA'
+    ],
+    datadownloads: [
+      'MCo6JMJDA','ICZ54MLDA','IC-7ZoKDA','ICv4ZkLDA',
+      'ICdlIcKDA','IC-8YsJDA','ICv9YQLDA','ID8vYELDA',
+    ]
+  },
+  actor: { usage: [
+    'IDruI8KDA','MCo_IoJDA','ID8vYEKDA','ICv9YQKDA',
+    'IC-8YsKDA','ID8qZ8JDA','IC63J8JDA','ICEtIoKDA',
+  ] },
+  cpcat: { usage: [
+    'IDrop4KDA','IDZ8JILDA','IDAnIILDA','MCosYYKDA',
+    'ICEypsKDA','ICE3oYKDA','ID89o4JDA','ICZ54MJDA',
+  ] },
+  edsp21: { usage: [
+    'MCo_IoLDA','IDruI8JDA','IDrop4JDA','IDZ8NIIDA',
+    'IDAnMIIDA','MCosYYJDA','ID8vYEJDA','ICv9YQJDA',
+  ] },
+  toxcast: {
+    usage: [
+      'IDA-pMJDA','MCoppsLDA','IDZrIsJDA','ICEtIoJDA',
+      'IC63J8LDA','IDZ8NIKDA','IDAnMIKDA','MCosYYLDA',
+    ],
+    datadownloads: [
+      'ICv4dkIDA','ICdwJoJDA','ICdipYKDA','MCo6JMLDA',
+      'ICZ58MIDA','ICEtIoLDA','IC63N8IDA','ID8qZ8LDA',
+    ]
+  },
+  dsstox: { datadownloads: [
+    'IC6qI4JDA','ICEoJMJDA','ICdwJoLDA','ICdipYJDA',
+    'MCo6NMIDA','ICZ58MKDA','ICEtMoIDA','IC63N8KDA',
+  ] }
+}
+function fetchAnalytics(app, section) {
+  return dispatch => {
+    dispatch(requestAnalytics(app, section));
+    return  Promise.all(appGoogleAPI_ids[app][section].map(id => queryGAApi(id))).then(results => dispatch(receiveAnalytics(results, app, section)))
+  }
 }
 
 function sliceTime(data) {
@@ -135,40 +96,7 @@ function sliceTime(data) {
 }
 
 function normalize(results) {
-  let analytics = {
-    comptoxdashboard: {
-      usage: {},
-      datadownloads: {},
-      filedownloads: {}
-    },
-    actor: {
-      usage: {},
-      analog: {}
-    },
-    cpcat: {
-      usage: {}
-    },
-    edsp21: {
-      usage: {}
-    },
-    toxcast: {
-      usage: {},
-      datadownloads: {},
-      filedownloads: {},
-    },
-    dsstox: {
-      datadownloads: {},
-      filedownloads: {}
-    }
-  };
-  let comptoxdashboard = analytics.comptoxdashboard;
-  let actor = analytics.actor;
-  let cpcat = analytics.cpcat;
-  let edsp21 = analytics.edsp21;
-  let toxcast = analytics.toxcast;
-  let dsstox = analytics.dsstox;
-
-  comptoxdashboard.usage = {
+  return {
     pageViews: results[0],
     uniquePageViews: results[1],
     countryMonth: sliceTime(results[2]),
@@ -177,57 +105,28 @@ function normalize(results) {
     domainYear: sliceTime(results[5]),
     stateMonth: sliceTime(results[6]),
     stateYear: sliceTime(results[7])
-  };
-  actor.usage = {
-    pageViews: results[8],
-    uniquePageViews: results[9],
-    countryMonth: sliceTime(results[10]),
-    countryYear: sliceTime(results[11]),
-    domainMonth: sliceTime(results[12]),
-    domainYear: sliceTime(results[13]),
-    stateMonth: sliceTime(results[14]),
-    stateYear: sliceTime(results[15])
-  };
-  cpcat.usage = {
-    pageViews: results[16],
-    uniquePageViews: results[17],
-    countryMonth: sliceTime(results[18]),
-    countryYear: sliceTime(results[19]),
-    domainMonth: sliceTime(results[20]),
-    domainYear: sliceTime(results[21]),
-    stateMonth: sliceTime(results[22]),
-    stateYear: sliceTime(results[23])
-  };
-  edsp21.usage = {
-    pageViews: results[24],
-    uniquePageViews: results[25],
-    countryMonth: sliceTime(results[26]),
-    countryYear: sliceTime(results[27]),
-    domainMonth: sliceTime(results[28]),
-    domainYear: sliceTime(results[29]),
-    stateMonth: sliceTime(results[30]),
-    stateYear: sliceTime(results[31])
-  };
-  toxcast.usage = {
-    pageViews: results[32],
-    uniquePageViews: results[33],
-    countryMonth: sliceTime(results[34]),
-    countryYear: sliceTime(results[35]),
-    domainMonth: sliceTime(results[36]),
-    domainYear: sliceTime(results[37]),
-    stateMonth: sliceTime(results[38]),
-    stateYear: sliceTime(results[39])
-  };
-  comptoxdashboard.datadownloads = {
-    pageViews: results[40],
-    uniquePageViews: results[41],
-    countryMonth: sliceTime(results[42]),
-    countryYear: sliceTime(results[43]),
-    domainMonth: sliceTime(results[44]),
-    domainYear: sliceTime(results[45]),
-    stateMonth: sliceTime(results[46]),
-    stateYear: sliceTime(results[47]),
-  };
+  }
+}
+
+function shouldFetchAnalytics(state, app, section) {
+  const analytics = state.entities.datasets.analytics;
+  if (Object.keys(analytics[app][section]).length === 0 && analytics[app][section].constructor === Object) {
+    return true
+  } else if (analytics[app][section].isFetching) {
+    return false
+  } else {
+    return false
+  }
+}
+
+export function fetchAnalyticsIfNeeded(app, section) {
+  return (dispatch, getState) => {
+    if (shouldFetchAnalytics(getState(), app, section)) {
+      return dispatch(fetchAnalytics(app, section));
+    }
+  }
+}
+/*
   comptoxdashboard.filedownloads = {
     tree: {
       name: '/',
@@ -243,26 +142,6 @@ function normalize(results) {
       data: results[66].data,
       timeperiod: results[66].year
     }
-  };
-  toxcast.datadownloads = {
-    pageViews: results[48],
-    uniquePageViews: results[49],
-    countryMonth: sliceTime(results[50]),
-    countryYear: sliceTime(results[51]),
-    domainMonth: sliceTime(results[52]),
-    domainYear: sliceTime(results[53]),
-    stateMonth: sliceTime(results[54]),
-    stateYear: sliceTime(results[55]),
-  };
-  dsstox.datadownloads = {
-    pageViews: results[56],
-    uniquePageViews: results[57],
-    countryMonth: sliceTime(results[58]),
-    countryYear: sliceTime(results[59]),
-    domainMonth: sliceTime(results[60]),
-    domainYear: sliceTime(results[61]),
-    stateMonth: sliceTime(results[62]),
-    stateYear: sliceTime(results[63]),
   };
   toxcast.filedownloads = {
     tree: {
@@ -296,25 +175,16 @@ function normalize(results) {
       timeperiod: results[72].year
     }
   }
-
-  return analytics;
-}
-
-function shouldFetchAnalytics(state) {
-    const analytics = state.entities.datasets.analytics;
-    if (Object.keys(analytics).length === 0 && analytics.constructor === Object) {
-            return true;
-    } else if (analytics.isFetching) {
-        return false;
-    } else {
-        return false;
-    }
-}
-
-export function fetchAnalyticsIfNeeded() {
-    return (dispatch, getState) => {
-        if (shouldFetchAnalytics(getState())) {
-            return dispatch(fetchAnalytics());
-        }
-    }
-}
+  */
+/*
+// Internal FTP Metrics API
+ftpTreeMetrics('comptox'),
+ftpMonthTop10('comptox'),
+ftpYearTop10('comptox'),
+ftpTreeMetrics('toxcast'),
+ftpMonthTop10('toxcast'),
+ftpYearTop10('toxcast'),
+ftpTreeMetrics('dsstox'),
+ftpMonthTop10('dsstox'),
+ftpYearTop10('dsstox')
+*/
