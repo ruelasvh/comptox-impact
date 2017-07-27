@@ -2,7 +2,7 @@
  * Created by Victor H. Ruelas-Rivera on 4/26/17.
  * US EPA National Center for Computational Toxicology
  */
-import { queryGAApi, ftpTreeMetrics, ftpMonthTop10, ftpYearTop10, ftpMetricsInfoCountCountry, ftpMetricsInfoCountState } from '../utils/Client';
+import { queryGAApi, ftpTreeMetrics, ftpMonthTop10, ftpYearTop10, ftpMetricsInfoCountCountry, ftpMetricsInfoCountState, ftpMetricsInfoDomain } from '../utils/Client';
 import moment from 'moment';
 
 // Actions, functions that return instructions and data payload to the reducers.
@@ -114,7 +114,10 @@ function fetchAnalytics() {
             ftpMetricsInfoCountState('toxcast'),
             ftpMetricsInfoCountCountry('toxcast'),
             ftpMetricsInfoCountState('dsstox'),
-            ftpMetricsInfoCountCountry('dsstox')
+            ftpMetricsInfoCountCountry('dsstox'),
+            ftpMetricsInfoDomain('comptox'),
+            ftpMetricsInfoDomain('toxcast'),
+            ftpMetricsInfoDomain('dsstox')
         ])
             .then(results => dispatch(receiveAnalytics(results)))
     }
@@ -251,12 +254,16 @@ function normalize(results) {
     },
     stateYear: {
         data: results[73],
-        timeperiod: moment(results[65].month + '01').format('MMM YYYY')
+        timeperiod: 'All'
     },
     countryYear: {
         data: results[74],
-        timeperiod: moment(results[65].month + '01').format('MMM YYYY')
-      }
+        timeperiod: 'All'
+      },
+    domain: {
+        data: results[79].sort((a,b) => b.count - a.count),
+        timeperiod: 'All'
+    }
   };
   toxcast.datadownloads = {
     pageViews: results[48],
@@ -295,11 +302,15 @@ function normalize(results) {
     },
       stateYear: {
         data: results[75],
-          timeperiod: moment(results[68].month + '01').format('MMM YYYY')
+          timeperiod: 'All'
       },
       countryYear: {
         data: results[76],
-          timeperiod: moment(results[68].month + '01').format('MMM YYYY')
+          timeperiod: 'All'
+      },
+      domain: {
+        data: results[80].sort((a,b) => b.count - a.count),
+          timeperiod: 'All'
       }
   }
   dsstox.filedownloads = {
@@ -319,11 +330,15 @@ function normalize(results) {
     },
       stateYear: {
         data: results[77],
-          timeperiod: moment(results[71].month + '01').format('MMM YYYY')
+          timeperiod: 'All'
       },
       countryYear: {
         data: results[78],
-          timeperiod: moment(results[71].month + '01').format('MMM YYYY')
+          timeperiod: 'All'
+      },
+      domain: {
+        data: results[81].sort((a,b) => b.count - a.count),
+          timeperiod: 'All'
       }
   }
 
