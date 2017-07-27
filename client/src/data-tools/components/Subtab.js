@@ -43,6 +43,7 @@ const Subtab = (props) => (
                             <Nav bsStyle="pills" stacked>
                                 <NavItem eventKey="ftp-stats">Download Counts</NavItem>
                                 <NavItem eventKey="ftp-geographics">Geographics</NavItem>
+                                <NavItem eventKey="ftp-type-users">Types of Users</NavItem>
                             </Nav>
                         </Panel>
                         : ' ' }
@@ -307,6 +308,11 @@ const Subtab = (props) => (
                                     </Tab.Content>
                                 </div>
                             </Tab.Container>
+                        </Tab.Pane>
+                        <Tab.Pane unmountOnExit={true} mountOnEnter={true} eventKey="ftp-type-users">
+                            {!props.isFetching && props.tab.data.filedownloads.domain.hasOwnProperty('data') ?
+                                <DoughnutChart data={props.tab.data.filedownloads.domain.data} /> : ' '
+                            }
                         </Tab.Pane>
                     </Tab.Content>
                     : ' ' }

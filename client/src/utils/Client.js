@@ -167,14 +167,21 @@ export function ftpYearTop10(app) {
 }
 
 export function ftpMetricsInfoCountState(app) {
-    return fetch(`${absolutePath + relativePath}/api/ftpmetrics/ipinfo?app=${app}&country=US&count`, {
+    return fetch(`${absolutePath + relativePath}/api/ftpmetrics/ipinfo/counts?app=${app}&country=US`, {
         accept: 'application/json',
     }).then(checkStatus)
-    .then(parseJSON)
+        .then(parseJSON)
 }
 
 export function ftpMetricsInfoCountCountry(app) {
-    return fetch(`${absolutePath + relativePath}/api/ftpmetrics/ipinfo?app=${app}&count`, {
+    return fetch(`${absolutePath + relativePath}/api/ftpmetrics/ipinfo/counts?app=${app}`, {
+        accept: 'application/json',
+    }).then(checkStatus)
+        .then(parseJSON)
+}
+
+export function ftpMetricsInfoDomain(app) {
+    return fetch(`${absolutePath + relativePath}/api/ftpmetrics/ipinfo/domain?app=${app}`, {
         accept: 'application/json',
     }).then(checkStatus)
         .then(parseJSON)
@@ -219,7 +226,8 @@ const Client = {
     ftpMonthTop10,
     ftpYearTop10,
     ftpMetricsInfoCountState,
-    ftpMetricsInfoCountCountry
+    ftpMetricsInfoCountCountry,
+    ftpMetricsInfoDomain
 };
 
 export default Client;
