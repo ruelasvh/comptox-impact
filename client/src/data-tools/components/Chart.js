@@ -27,7 +27,7 @@ const Chart = ({ data, type, label }) => {
     if (dateYear) {
         monthsum += parseInt(row[1]);
         // Check if date is end of month and store total counts for that month
-        if (date.date() === date.daysInMonth() || date.format('YYYYMMDD') === moment().format('YYYYMMDD')) {
+        if (date.date() === date.daysInMonth()) {
             dateYear.months[date.month()] = monthsum;
             monthsum = 0;
         }
