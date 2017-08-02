@@ -117,7 +117,12 @@ function fetchAnalytics() {
             ftpMetricsInfoCountCountry('dsstox'),
             ftpMetricsInfoDomain('comptox'),
             ftpMetricsInfoDomain('toxcast'),
-            ftpMetricsInfoDomain('dsstox')
+            ftpMetricsInfoDomain('dsstox'), // 81st element
+            /* CompTox New vs Returning users */
+            queryGAApi('IC5x5UKDA'), // New vs Returning users for 2016
+            queryGAApi('MCYkZIKDA'), // New vs Returning users for 2017
+            /* CompTox Active Users */
+            queryGAApi('IDdjYwKDA'),
         ])
             .then(results => dispatch(receiveAnalytics(results)))
     }
@@ -185,7 +190,19 @@ function normalize(results) {
     domainMonth: sliceTime(results[4]),
     domainYear: sliceTime(results[5]),
     stateMonth: sliceTime(results[6]),
-    stateYear: sliceTime(results[7])
+    stateYear: sliceTime(results[7]),
+    newReturning: [
+      {
+          data: results[82],
+          timeperiod: '2016'
+      },
+      {
+          data: results[83],
+          timeperiod: '2017'
+      }
+    ],
+    activeUsers: results[84]
+
   };
   actor.usage = {
     pageViews: results[8],
