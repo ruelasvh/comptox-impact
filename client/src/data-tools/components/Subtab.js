@@ -78,7 +78,7 @@ const Subtab = (props) => (
                             {!props.isFetching && props.tab.data.usage.hasOwnProperty('newReturning') ?
                                 <Table data={props.tab.data.usage.newReturning}/> : ' '
                             }
-                            <br/><br/>
+                            <br/>
                             <Tab.Container id="users-domains-tabs" defaultActiveKey="month">
                                 <div style={{paddingBottom: '100'}}>
                                     Time Period:

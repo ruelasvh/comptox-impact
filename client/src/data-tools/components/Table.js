@@ -7,7 +7,7 @@ import { Table } from 'react-bootstrap';
 
 const UsersTable = ({ data }) => {
     return (
-        <Table>
+        <Table striped bordered condensed hover>
             <thead>
                 <tr>
                     <th>Year</th>
