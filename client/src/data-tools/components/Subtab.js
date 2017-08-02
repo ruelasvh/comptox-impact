@@ -4,9 +4,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col, Nav, NavItem, Tab, Accordion, Panel } from 'react-bootstrap';
-import LineChart from './LineChart';
-import BarChart from './BarChart';
+import BarLineChart from './BarLineChart';
+import Chart from './Chart';
 import TreeChart from './TreeChart';
+import Table from './Table';
 import Top10Chart from './Top10Chart';
 import DoughnutChart from './DoughnutChart';
 import MapChart from './MapChartDatamaps';
@@ -23,7 +24,7 @@ const Subtab = (props) => (
                             <Nav bsStyle="pills" stacked>
                                 <NavItem eventKey="page-views">Page Views</NavItem>
                                 <NavItem eventKey="unique-page-views">Unique Page Views</NavItem>
-                                <NavItem eventKey="type-users">Types of Users</NavItem>
+                                <NavItem eventKey="type-users">Users</NavItem>
                                 <NavItem eventKey="geographics">Geographics</NavItem>
                             </Nav>
                         </Panel>
@@ -61,17 +62,25 @@ const Subtab = (props) => (
                     <Tab.Content unmountOnExit={true} mountOnEnter={true} animation>
                         <Tab.Pane unmountOnExit={true} mountOnEnter={true} eventKey="page-views">
                             {props.isFetching ?
-                                ' ' : <BarChart data={props.tab.data.usage.pageViews}/>
+                                ' ' : <Chart data={props.tab.data.usage.pageViews}/>
                             }
                         </Tab.Pane>
                         <Tab.Pane unmountOnExit={true} mountOnEnter={true} eventKey="unique-page-views">
                             {props.isFetching ?
-                                ' ' : <LineChart data={props.tab.data.usage.uniquePageViews}/>
+                                ' ' : <BarLineChart data={props.tab.data.usage.uniquePageViews}/>
                             }
                         </Tab.Pane>
                         <Tab.Pane unmountOnExit={true} mountOnEnter={true} eventKey="type-users">
-                            <Tab.Container id="users-tabs" defaultActiveKey="month">
-                                <div>
+                            {!props.isFetching && props.tab.data.usage.hasOwnProperty('activeUsers') ?
+                                <Chart type="line" label="Active Users" data={props.tab.data.usage.activeUsers}/> : ' '
+                            }
+                            <br/><br/>
+                            {!props.isFetching && props.tab.data.usage.hasOwnProperty('newReturning') ?
+                                <Table data={props.tab.data.usage.newReturning}/> : ' '
+                            }
+                            <br/><br/>
+                            <Tab.Container id="users-domains-tabs" defaultActiveKey="month">
+                                <div style={{paddingBottom: '100'}}>
                                     Time Period:
                                     <Nav bsStyle="pills">
                                         {props.tab.data.usage.domainMonth.hasOwnProperty('data') ?
@@ -169,12 +178,12 @@ const Subtab = (props) => (
                     <Tab.Content unmountOnExit={true} mountOnEnter={true} animation>
                         <Tab.Pane unmountOnExit={true} mountOnEnter={true} eventKey="drupal-page-views">
                             {props.isFetching ?
-                                ' ' : <LineChart data={props.tab.data.datadownloads.pageViews}/>
+                                ' ' : <BarLineChart data={props.tab.data.datadownloads.pageViews}/>
                             }
                         </Tab.Pane>
                         <Tab.Pane unmountOnExit={true} mountOnEnter={true} eventKey="drupal-unique-page-views">
                             {props.isFetching ?
-                                ' ' : <LineChart data={props.tab.data.datadownloads.uniquePageViews}/>
+                                ' ' : <BarLineChart data={props.tab.data.datadownloads.uniquePageViews}/>
                             }
                         </Tab.Pane>
                         <Tab.Pane unmountOnExit={true} mountOnEnter={true} eventKey="drupal-type-users">
