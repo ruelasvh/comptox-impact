@@ -25,19 +25,19 @@ const PresentationItem = ({ attributes }) => (
             <br/>
             <div className="stats-wrap">
                 <div className="divided">
-                    <strong>477</strong>
+                    <strong>N/A</strong>
                     <em>Views</em>
                 </div>
                 <div className="divided">
-                    <strong>101</strong>
+                    <strong>N/A</strong>
                     <em>Downloads</em>
                 </div>
                 <div className="divided">
-                    <strong>0</strong>
+                    <strong>N/A</strong>
                     <em>Citations</em>
                 </div>
             </div>
-            <div className="item-altmetric">
+            <div className="presentation-item-altmetric">
                 <AltmetricWidget doi={attributes.doi.split('.v1')[0]}/>
             </div>
         </div>
