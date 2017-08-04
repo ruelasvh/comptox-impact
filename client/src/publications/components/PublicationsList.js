@@ -30,15 +30,15 @@ export class PublicationsList extends React.Component {
         this.handleSelectPage = this.handleSelectPage.bind(this);
         this.handlePublicationsInfiniteScroll = this.handlePublicationsInfiniteScroll.bind(this);
         this.handleSearchSubmit = this.handleSearchSubmit.bind(this);
+    }
 
-        //Define function to check empty objects
-        Object.prototype.isEmpty = function () {
-            for (var key in this) {
-                if (this.hasOwnProperty(key))
-                    return false;
-            }
-            return true;
+    //Define function to check empty objects
+    isEmpty(obj) {
+        for (var key in obj) {
+            if (obj.hasOwnProperty(key))
+                return false;
         }
+        return true;
     }
 
     appendPlumxScript() {
@@ -180,7 +180,7 @@ export class PublicationsList extends React.Component {
         })
 
         // Validate search terms
-        if (filter.isEmpty()) {
+        if (this.isEmpty(filter)) {
             this.setState({
                 searchTermValidation: 'error'
             })
