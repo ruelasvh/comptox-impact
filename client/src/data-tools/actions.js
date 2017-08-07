@@ -152,7 +152,6 @@ function normalize(results) {
   let analytics = {
     comptoxdashboard: {
       usage: {},
-      datadownloads: {},
       filedownloads: {}
     },
     actor: {
@@ -173,6 +172,9 @@ function normalize(results) {
     dsstox: {
       datadownloads: {},
       filedownloads: {}
+    },
+    comptox: {
+        datadownloads: {}
     }
   };
   let comptoxdashboard = analytics.comptoxdashboard;
@@ -181,6 +183,7 @@ function normalize(results) {
   let edsp21 = analytics.edsp21;
   let toxcast = analytics.toxcast;
   let dsstox = analytics.dsstox;
+  let comptox = analytics.comptox;
 
   comptoxdashboard.usage = {
     pageViews: results[0],
@@ -244,44 +247,6 @@ function normalize(results) {
     stateMonth: sliceTime(results[38]),
     stateYear: sliceTime(results[39])
   };
-  comptoxdashboard.datadownloads = {
-    pageViews: results[40],
-    uniquePageViews: results[41],
-    countryMonth: sliceTime(results[42]),
-    countryYear: sliceTime(results[43]),
-    domainMonth: sliceTime(results[44]),
-    domainYear: sliceTime(results[45]),
-    stateMonth: sliceTime(results[46]),
-    stateYear: sliceTime(results[47]),
-  };
-  comptoxdashboard.filedownloads = {
-    tree: {
-      name: '/',
-      count: 'Count',
-      uniqueCount: 'Unique Count',
-      children: [ results[64] ]
-    },
-    month: {
-      data: results[65].data,
-      timeperiod: moment(results[65].month + '01').format('MMM YYYY')
-    },
-    year: {
-      data: results[66].data,
-      timeperiod: results[66].year
-    },
-    stateYear: {
-        data: results[73],
-        timeperiod: 'All'
-    },
-    countryYear: {
-        data: results[74],
-        timeperiod: 'All'
-      },
-    domain: {
-        data: results[79].sort((a,b) => b.count - a.count),
-        timeperiod: 'All'
-    }
-  };
   toxcast.datadownloads = {
     pageViews: results[48],
     uniquePageViews: results[49],
@@ -302,6 +267,44 @@ function normalize(results) {
     stateMonth: sliceTime(results[62]),
     stateYear: sliceTime(results[63]),
   };
+    comptox.datadownloads = {
+        pageViews: results[40],
+        uniquePageViews: results[41],
+        countryMonth: sliceTime(results[42]),
+        countryYear: sliceTime(results[43]),
+        domainMonth: sliceTime(results[44]),
+        domainYear: sliceTime(results[45]),
+        stateMonth: sliceTime(results[46]),
+        stateYear: sliceTime(results[47]),
+    };
+    comptoxdashboard.filedownloads = {
+        tree: {
+            name: '/',
+            count: 'Count',
+            uniqueCount: 'Unique Count',
+            children: [ results[64] ]
+        },
+        month: {
+            data: results[65].data,
+            timeperiod: moment(results[65].month + '01').format('MMM YYYY')
+        },
+        year: {
+            data: results[66].data,
+            timeperiod: results[66].year
+        },
+        stateYear: {
+            data: results[73],
+            timeperiod: 'All'
+        },
+        countryYear: {
+            data: results[74],
+            timeperiod: 'All'
+        },
+        domain: {
+            data: results[79].sort((a,b) => b.count - a.count),
+            timeperiod: 'All'
+        }
+    };
   toxcast.filedownloads = {
     tree: {
       name: '/',
