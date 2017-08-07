@@ -20,7 +20,7 @@ const Subtab = (props) => (
             <Col sm={3}>
                 <Accordion defaultActiveKey="1">
                     { props.tab.data.hasOwnProperty('usage') ?
-                        <Panel header={props.tab.name + (props.tab.name === 'CompTox Dashboard' ? " Usage" : " Dashboard Usage")} eventKey="1">
+                        <Panel header={props.tab.name + (props.tab.name.includes('Chemistry Dashboard')? " Usage" : " Dashboard Usage")} eventKey="1">
                             <Nav bsStyle="pills" stacked>
                                 <NavItem eventKey="page-views">Page Views</NavItem>
                                 <NavItem eventKey="unique-page-views">Unique Page Views</NavItem>
@@ -30,7 +30,7 @@ const Subtab = (props) => (
                         </Panel>
                         : ' ' }
                     { props.tab.data.hasOwnProperty('datadownloads') ?
-                        <Panel header={props.tab.name + " Data Download Website"} eventKey={ props.tab.data.hasOwnProperty('usage') ? '2' : '1'}>
+                        <Panel header={props.tab.name + (props.tab.name.includes('CompTox Data')? '' : " Data Download Website")} eventKey={ props.tab.data.hasOwnProperty('usage') ? '2' : '1'}>
                             <Nav bsStyle="pills" stacked>
                                 <NavItem eventKey="drupal-page-views">Page Views</NavItem>
                                 <NavItem eventKey="drupal-unique-page-views">Unique Page Views</NavItem>
