@@ -286,14 +286,15 @@ const Subtab = (props) => (
                     <Tab.Content unmountOnExit={true} mountOnEnter={true} animation>
                         <Tab.Pane unmountOnExit={true} mountOnEnter={true} eventKey="ftp-stats">
                             {!props.isFetching ?
-                                <TreeChart data={props.tab.data.filedownloads.tree} /> : ' '
-                            }
-                            {!props.isFetching ?
                                 <Top10Chart {...props.tab.data.filedownloads.month} /> : ' '
                             }
                             {!props.isFetching ?
                                 <Top10Chart {...props.tab.data.filedownloads.year} /> : ' '
                             }
+                            {!props.isFetching ?
+                                <TreeChart data={props.tab.data.filedownloads.tree} /> : ' '
+                            }
+                            <br/>
                         </Tab.Pane>
                         <Tab.Pane unmountOnExit={true} mountOnEnter={true} eventKey="ftp-geographics">
                             <Tab.Container id="ftp-geographics-tabs" defaultActiveKey="usa">
