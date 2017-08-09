@@ -332,34 +332,6 @@ function normalize(results) {
         stateMonth: sliceTime(results[46]),
         stateYear: sliceTime(results[47]),
     };
-    comptoxdashboard.filedownloads = {
-        tree: {
-            name: '/',
-            count: 'Count',
-            uniqueCount: 'Unique Count',
-            children: [ results[64] ]
-        },
-        month: {
-            data: results[65].data,
-            timeperiod: moment(results[65].month + '01').format('MMM YYYY')
-        },
-        year: {
-            data: results[66].data,
-            timeperiod: results[66].year
-        },
-        stateYear: {
-            data: results[73],
-            timeperiod: 'All'
-        },
-        countryYear: {
-            data: results[74],
-            timeperiod: 'All'
-        },
-        domain: {
-            data: results[79].sort((a,b) => b.count - a.count),
-            timeperiod: 'All'
-        }
-    };
   toxcast.filedownloads = {
     tree: {
       name: '/',
