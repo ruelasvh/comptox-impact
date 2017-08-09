@@ -2,7 +2,7 @@
  * Created by Victor H. Ruelas-Rivera on 4/26/17.
  * US EPA National Center for Computational Toxicology
  */
-import { queryGAApi, ftpTreeMetrics, ftpMonthTop10, ftpYearTop10, ftpMetricsInfoCountCountry, ftpMetricsInfoCountState, ftpMetricsInfoDomain } from '../utils/Client';
+import { queryGAApi, ftpTreeMetrics, ftpMonthTop10, ftpYearTop10, ftpMetricsInfoCountCountry, ftpMetricsInfoCountState, ftpMetricsInfoDomain, ftpMetricsAppVisits } from '../utils/Client';
 import moment from 'moment';
 
 // Actions, functions that return instructions and data payload to the reducers.
@@ -99,16 +99,16 @@ function fetchAnalytics() {
             queryGAApi('ICZ58MKDA'), // Domain Year
             queryGAApi('ICEtMoIDA'), // State Month
             queryGAApi('IC63N8KDA'), // State Year
-          /* Internal FTP Metrics API */
-          ftpTreeMetrics('comptox'),
-          ftpMonthTop10('comptox'),
-          ftpYearTop10('comptox'),
-          ftpTreeMetrics('toxcast'),
-          ftpMonthTop10('toxcast'),
-          ftpYearTop10('toxcast'),
-          ftpTreeMetrics('dsstox'),
-          ftpMonthTop10('dsstox'),
-          ftpYearTop10('dsstox'),
+            /* Internal FTP Metrics API */
+            ftpTreeMetrics('comptox'),
+            ftpMonthTop10('comptox'),
+            ftpYearTop10('comptox'),
+            ftpTreeMetrics('toxcast'),
+            ftpMonthTop10('toxcast'),
+            ftpYearTop10('toxcast'),
+            ftpTreeMetrics('dsstox'),
+            ftpMonthTop10('dsstox'),
+            ftpYearTop10('dsstox'),
             ftpMetricsInfoCountState('comptox'),
             ftpMetricsInfoCountCountry('comptox'),
             ftpMetricsInfoCountState('toxcast'),
@@ -123,6 +123,10 @@ function fetchAnalytics() {
             queryGAApi('MCYkZIKDA'), // New vs Returning users for 2017
             /* CompTox Active Users */
             queryGAApi('IDdjYwKDA'),
+            /* App visits from FTP Metrics API */
+            ftpMetricsAppVisits('comptox'), // 85th element
+            ftpMetricsAppVisits('toxcast'),
+            ftpMetricsAppVisits('dsstox'),
         ])
             .then(results => dispatch(receiveAnalytics(results)))
     }
@@ -146,6 +150,10 @@ function sliceTime(data) {
   const timeperiod = time.length > 4 ? moment(time + '01').format('MMM YYYY') : time;
   
   return { data: times[time], timeperiod };
+}
+
+function getReturningVisits(allVisits) {
+  return allVisits.reduce((counter,ip) => counter + ip.visits, 0) - allVisits.length;
 }
 
 function normalize(results) {
@@ -247,6 +255,53 @@ function normalize(results) {
     stateMonth: sliceTime(results[38]),
     stateYear: sliceTime(results[39])
   };
+  comptoxdashboard.datadownloads = {
+    pageViews: results[40],
+    uniquePageViews: results[41],
+    countryMonth: sliceTime(results[42]),
+    countryYear: sliceTime(results[43]),
+    domainMonth: sliceTime(results[44]),
+    domainYear: sliceTime(results[45]),
+    stateMonth: sliceTime(results[46]),
+    stateYear: sliceTime(results[47]),
+  };
+  comptoxdashboard.filedownloads = {
+    tree: {
+      name: '/',
+      count: 'Count',
+      uniqueCount: 'Unique Count',
+      children: [ results[64] ]
+    },
+    month: {
+      data: results[65].data,
+      timeperiod: moment(results[65].month + '01').format('MMM YYYY')
+    },
+    year: {
+      data: results[66].data,
+      timeperiod: results[66].year
+    },
+    stateYear: {
+        data: results[73],
+        timeperiod: 'All'
+    },
+    countryYear: {
+        data: results[74],
+        timeperiod: 'All'
+      },
+    domain: {
+        data: results[79].sort((a,b) => b.count - a.count),
+        timeperiod: 'All'
+    },
+    visits: [{
+      data: {
+        rows: [
+          ["New Visitor", results[87].length],
+          ["Returning Visitor", getReturningVisits(results[87])]
+        ]
+      },
+      timeperiod: 'All'
+    }]
+  };
   toxcast.datadownloads = {
     pageViews: results[48],
     uniquePageViews: results[49],
@@ -277,34 +332,6 @@ function normalize(results) {
         stateMonth: sliceTime(results[46]),
         stateYear: sliceTime(results[47]),
     };
-    comptoxdashboard.filedownloads = {
-        tree: {
-            name: '/',
-            count: 'Count',
-            uniqueCount: 'Unique Count',
-            children: [ results[64] ]
-        },
-        month: {
-            data: results[65].data,
-            timeperiod: moment(results[65].month + '01').format('MMM YYYY')
-        },
-        year: {
-            data: results[66].data,
-            timeperiod: results[66].year
-        },
-        stateYear: {
-            data: results[73],
-            timeperiod: 'All'
-        },
-        countryYear: {
-            data: results[74],
-            timeperiod: 'All'
-        },
-        domain: {
-            data: results[79].sort((a,b) => b.count - a.count),
-            timeperiod: 'All'
-        }
-    };
   toxcast.filedownloads = {
     tree: {
       name: '/',
@@ -331,8 +358,17 @@ function normalize(results) {
       domain: {
         data: results[80].sort((a,b) => b.count - a.count),
           timeperiod: 'All'
-      }
-  }
+      },
+    visits: [{
+      data: {
+        rows: [
+          ["New Visitor", results[86].length],
+          ["Returning Visitor", getReturningVisits(results[86])]
+        ]
+      },
+      timeperiod: 'All'
+    }]
+  };
   dsstox.filedownloads = {
     tree: {
       name: '/',
@@ -359,8 +395,17 @@ function normalize(results) {
       domain: {
         data: results[81].sort((a,b) => b.count - a.count),
           timeperiod: 'All'
-      }
-  }
+      },
+      visits: [{
+        data: {
+          rows: [
+            ["New Visitor", results[87].length],
+            ["Returning Visitor", getReturningVisits(results[87])]
+          ]
+        },
+        timeperiod: 'All'
+      }]
+  };
 
   return analytics;
 }

@@ -31,6 +31,7 @@ Rails.application.routes.draw do
       get '/ipinfo' => 'ftp_ip_info#show'
       get '/ipinfo/counts' => 'ftp_ip_info#counts'
       get '/ipinfo/domain' => 'ftp_ip_info#domain'
+      get '/visits' => 'ftp_app_visits#show'
     end
     # ftp metrics by month
     scope '/ftpmetricsby' do
