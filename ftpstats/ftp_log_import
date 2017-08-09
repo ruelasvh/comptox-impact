@@ -1,4 +1,5 @@
-mysqlimport --ignore-lines=1 --fields-terminated-by=, -h au.epa.gov -u app_impact -p sbox_vruelasr_comptox_impact --columns app,ip --delete --local ./output/ftp_ips.csv
-mysqlimport --ignore-lines=1 --fields-terminated-by=, -h au.epa.gov -u app_impact -p sbox_vruelasr_comptox_impact --columns id,parent_id,app,name,folder,count,unique_count --delete --local ./output/ftp_metrics.csv
-mysqlimport --ignore-lines=1 --fields-terminated-by=, -h au.epa.gov -u app_impact -p sbox_vruelasr_comptox_impact --columns file_id,month,count --delete --local ./output/ftp_metrics_by_months.csv
-mysqlimport --ignore-lines=1 --fields-terminated-by=\; -h au.epa.gov -u app_impact -p sbox_vruelasr_comptox_impact --columns ip,ip_as,zip,city,region,regionname,country,countrycode,latitude,longitude,timezone,isp,organization --delete --local ./output/ftp_ip_infos.csv
+mysqlimport --ignore-lines=1 --fields-terminated-by=, -h mysql-dev1.epa.gov -u app_impact -p sbox_vruelasr_comptox_impact --columns app,ip --delete --local ./output/ftp_ips.csv
+mysqlimport --ignore-lines=1 --fields-terminated-by=, -h mysql-dev1.epa.gov -u app_impact -p sbox_vruelasr_comptox_impact --columns id,parent_id,app,name,folder,count,unique_count --delete --local ./output/ftp_metrics.csv
+mysqlimport --ignore-lines=1 --fields-terminated-by=, -h mysql-dev1.epa.gov -u app_impact -p sbox_vruelasr_comptox_impact --columns file_id,month,count --delete --local ./output/ftp_metrics_by_months.csv
+mysqlimport --ignore-lines=1 --fields-terminated-by=\; -h mysql-dev1.epa.gov -u app_impact -p sbox_vruelasr_comptox_impact --columns ip,ip_as,zip,city,region,regionname,country,countrycode,latitude,longitude,timezone,isp,organization --delete --local ./output/ftp_ip_infos.csv
+mysqlimport --ignore-lines=1 --fields-terminated-by=, -h mysql-dev1.epa.gov -u app_impact -p sbox_vruelasr_comptox_impact --columns app,ip,timestamp --delete --local ./output/ftp_app_visits.csv

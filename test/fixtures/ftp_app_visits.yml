@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined.  If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+one: {
+  app: 'dsstox',
+  ip: '193.227.51.203',
+  timestamp: 'Mon Jan 05 2015 06:02:46 GMT-0500 (EST)'
+}
+# column: value
+#
+two: {
+  app: 'comptox',
+  ip: '10.204.130.163',
+  timestamp: 'Thu Aug 25 2016 20:00:00 GMT-0400 (EDT)'
+}
+#  column: value

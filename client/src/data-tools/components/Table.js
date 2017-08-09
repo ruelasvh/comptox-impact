@@ -10,7 +10,7 @@ const UsersTable = ({ data }) => {
         <Table striped bordered condensed hover>
             <thead>
                 <tr>
-                    <th>Year</th>
+                    <th>Years</th>
                     <th>New Users</th>
                     <th>Returning Users</th>
                 </tr>

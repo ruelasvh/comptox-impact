@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170705203726) do
+ActiveRecord::Schema.define(version: 20170809123241) do
+
+  create_table "ftp_app_visits", force: :cascade do |t|
+    t.string   "app",        limit: 128, null: false
+    t.string   "ip",         limit: 128, null: false
+    t.string   "timestamp",  limit: 255, null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "ftp_ip_infos", force: :cascade do |t|
     t.string   "ip",           limit: 255,                         null: false
@@ -30,6 +38,8 @@ ActiveRecord::Schema.define(version: 20170705203726) do
     t.datetime "created_at",                                       null: false
     t.datetime "updated_at",                                       null: false
   end
+
+  add_index "ftp_ip_infos", ["ip"], name: "index_on_ftp_ip_infos_ip", unique: true, using: :btree
 
   create_table "ftp_ips", force: :cascade do |t|
     t.string   "app",        limit: 255, null: false
@@ -115,6 +125,7 @@ ActiveRecord::Schema.define(version: 20170705203726) do
   create_table "scientists", primary_key: "scientistId", force: :cascade do |t|
     t.string   "firstName",         limit: 255,   null: false
     t.string   "lastName",          limit: 255,   null: false
+    t.boolean  "fed",               limit: 1
     t.string   "title",             limit: 255
     t.string   "email",             limit: 255
     t.string   "photoUrl",          limit: 255
