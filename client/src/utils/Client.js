@@ -194,6 +194,13 @@ export function ftpMetricsAppVisits(app) {
     .then(parseJSON)
 }
 
+export function ftpMetricsAppVisitsCount(app) {
+  return fetch(`${absolutePath + relativePath}/api/ftpmetrics/visits/count?app=${app}`, {
+    accept: 'application/json',
+  }).then(checkStatus)
+    .then(parseJSON)
+}
+
 function checkStatus(response) {
     if (response.status >= 200 && response.status < 300) {
         return response;
@@ -235,7 +242,8 @@ const Client = {
     ftpMetricsInfoCountState,
     ftpMetricsInfoCountCountry,
     ftpMetricsInfoDomain,
-    ftpMetricsAppVisits
+    ftpMetricsAppVisits,
+    ftpMetricsAppVisitsCount
 };
 
 export default Client;
