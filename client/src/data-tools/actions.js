@@ -100,7 +100,7 @@ function fetchAnalytics() {
             queryGAApi('ICEtMoIDA'), // State Month
             queryGAApi('IC63N8KDA'), // State Year
             /* Internal FTP Metrics API */
-            ftpTreeMetrics('comptox'),
+            ftpTreeMetrics('comptox'), // 64th element
             ftpMonthTop10('comptox'),
             ftpYearTop10('comptox'),
             ftpTreeMetrics('toxcast'),
@@ -118,15 +118,22 @@ function fetchAnalytics() {
             ftpMetricsInfoDomain('comptox'),
             ftpMetricsInfoDomain('toxcast'),
             ftpMetricsInfoDomain('dsstox'), // 81st element
-            /* CompTox New vs Returning users */
+            // CompTox New vs Returning users
             queryGAApi('IC5x5UKDA'), // New vs Returning users for 2016
             queryGAApi('MCYkZIKDA'), // New vs Returning users for 2017
-            /* CompTox Active Users */
+            // CompTox Active Users
             queryGAApi('IDdjYwKDA'),
-            /* App visits from FTP Metrics API */
-            ftpMetricsAppVisitsCount('comptox'), // 85th element
-            ftpMetricsAppVisitsCount('toxcast'),
-            ftpMetricsAppVisitsCount('dsstox'),
+            // App visits from FTP Metrics API */
+            ftpMetricsAppVisits('comptox'), // 85th element
+            ftpMetricsAppVisits('toxcast'),
+            ftpMetricsAppVisits('dsstox'),
+            // CompTox Data Website FTP metrics
+            ftpTreeMetrics('comptoxdata'), // 88th element
+            ftpMonthTop10('comptoxdata'),
+            ftpYearTop10('comptoxdata'),
+            ftpMetricsInfoCountState('comptoxdata'),
+            ftpMetricsInfoCountCountry('comptoxdata'),
+
         ])
             .then(results => dispatch(receiveAnalytics(results)))
     }
@@ -178,7 +185,8 @@ function normalize(results) {
       filedownloads: {}
     },
     comptox: {
-        datadownloads: {}
+        datadownloads: {},
+        filedownloads: {}
     }
   };
   let comptoxdashboard = analytics.comptoxdashboard;
@@ -318,16 +326,53 @@ function normalize(results) {
     stateMonth: sliceTime(results[62]),
     stateYear: sliceTime(results[63]),
   };
-    comptox.datadownloads = {
-        pageViews: results[40],
-        uniquePageViews: results[41],
-        countryMonth: sliceTime(results[42]),
-        countryYear: sliceTime(results[43]),
-        domainMonth: sliceTime(results[44]),
-        domainYear: sliceTime(results[45]),
-        stateMonth: sliceTime(results[46]),
-        stateYear: sliceTime(results[47]),
-    };
+  comptox.datadownloads = {
+      pageViews: results[40],
+      uniquePageViews: results[41],
+      countryMonth: sliceTime(results[42]),
+      countryYear: sliceTime(results[43]),
+      domainMonth: sliceTime(results[44]),
+      domainYear: sliceTime(results[45]),
+      stateMonth: sliceTime(results[46]),
+      stateYear: sliceTime(results[47]),
+  };
+  comptox.filedownloads = {
+    tree: {
+      name: '/',
+      count: 'Count',
+      uniqueCount: 'Unique Count',
+      children: [ results[88][0],results[88][1],results[88][2],results[88][3],results[88][4],results[88][5], ]
+    },
+    month: {
+      data: results[89].data,
+      timeperiod: moment(results[89].month + '01').format('MMM YYYY')
+    },
+    year: {
+      data: results[90].data,
+      timeperiod: results[90].year
+    },
+    stateYear: {
+      data: results[91],
+      timeperiod: 'All'
+    },
+    countryYear: {
+      data: results[92],
+      timeperiod: 'All'
+    },
+    domain: {
+      data: results[79].sort((a,b) => b.count - a.count),
+      timeperiod: 'All'
+    },
+    visits: [{
+      data: {
+        rows: [
+          ["New Visitor", results[87].length],
+          ["Returning Visitor", getReturningVisits(results[87])]
+        ]
+      },
+      timeperiod: 'All'
+    }]
+  };
   toxcast.filedownloads = {
     tree: {
       name: '/',
