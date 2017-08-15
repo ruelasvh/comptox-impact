@@ -343,7 +343,7 @@ function normalize(results) {
       name: '/',
       count: 'Count',
       uniqueCount: 'Unique Count',
-      children: [ results[88][0],results[88][1],results[88][2],results[88][3],results[88][4],results[88][5], ]
+      children: results[88]
     },
     month: {
       data: results[89].data,
