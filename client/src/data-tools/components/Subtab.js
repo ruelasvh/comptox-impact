@@ -20,7 +20,7 @@ const Subtab = (props) => (
             <Col sm={3}>
                 <Accordion defaultActiveKey="1">
                     { props.tab.data.hasOwnProperty('usage') ?
-                        <Panel header={props.tab.name + (props.tab.name.includes('Chemistry Dashboard')? " Usage" : " Dashboard Usage")} eventKey="1">
+                        <Panel header={props.tab.name + (props.tab.name.includes('Chemistry Dashboard') ? " Usage" : " Dashboard Usage")} eventKey="1">
                             <Nav bsStyle="pills" stacked>
                                 <NavItem eventKey="page-views">Page Views</NavItem>
                                 <NavItem eventKey="unique-page-views">Unique Page Views</NavItem>
@@ -30,7 +30,7 @@ const Subtab = (props) => (
                         </Panel>
                         : ' ' }
                     { props.tab.data.hasOwnProperty('datadownloads') ?
-                        <Panel header={props.tab.name + (props.tab.name.includes('CompTox Data')? '' : " Data Download Website")} eventKey={ props.tab.data.hasOwnProperty('usage') ? '2' : '1'}>
+                        <Panel header={props.tab.name + (props.tab.name.includes('CompTox Data') ? '' : " Data Download Website")} eventKey={ props.tab.data.hasOwnProperty('usage') ? '2' : '1'}>
                             <Nav bsStyle="pills" stacked>
                                 <NavItem eventKey="drupal-page-views">Page Views</NavItem>
                                 <NavItem eventKey="drupal-unique-page-views">Unique Page Views</NavItem>
@@ -40,7 +40,7 @@ const Subtab = (props) => (
                         </Panel>
                         : ' ' }
                     { props.tab.data.hasOwnProperty('filedownloads') ?
-                        <Panel header={props.tab.name + " FTP Data Downloads"} eventKey="3">
+                        <Panel header={props.tab.name.includes('Data Download') ? 'CompTox Data FTP Downloads' : props.tab.name + " FTP Data Downloads"} eventKey="3">
                             <Nav bsStyle="pills" stacked>
                                 <NavItem eventKey="ftp-stats">Download Counts</NavItem>
                                 <NavItem eventKey="ftp-geographics">Geographics</NavItem>
@@ -292,7 +292,7 @@ const Subtab = (props) => (
                                 <Top10Chart {...props.tab.data.filedownloads.year} /> : ' '
                             }
                             {!props.isFetching ?
-                                <TreeChart data={props.tab.data.filedownloads.tree} /> : ' '
+                                <TreeChart data={props.tab.data.filedownloads.tree} collapsed={props.tab.data.filedownloads.tree.children.length > 1}/> : ' '
                             }
                             <br/>
                         </Tab.Pane>

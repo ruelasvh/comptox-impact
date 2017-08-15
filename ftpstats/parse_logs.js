@@ -31,7 +31,7 @@ const comptox_helpers = {
     } else if(filename.startsWith('/COMPTOX/Sustainable_Chemistry_Data/Chemistry_Dashboard')) {
       return 'comptox'
     } else {
-      return ''
+      return 'other'
     }
   }
 }

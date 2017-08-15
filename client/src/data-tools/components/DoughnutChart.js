@@ -25,7 +25,8 @@ const DoughnutChart = ({ data }) => {
       'Telus Communications','Turk Telekom','Verizon Wireless','Versatel Deutschland','Windstream Communications','Zscaler Switzerland GmbH','Zscaler','Bluewin','CenturyLink',
       'China Telecom Sichuan','China Unicom Guangdong province','China Unicom Shanghai network','China Unicom Shanxi','Free SAS','FreeBit Co.,Ltd.','GTS Telecom SRL',
       'Jazz Telecom S.A.','Johnson & Johnson','Level 3 Communications','Merck KGaA','NFOrce Entertainment B.V.','Open Computer Network','PT Comunicacoes','Shaw Communications',
-      'Sify Limited','SolNet','ADISTA SAS']
+      'Sify Limited','SolNet','ADISTA SAS', 'Googlebot', 'Google', 'Vodafone Kabel Deutschland', 'Rogers Cable', 'Sky Broadband', 'TalkTalk', 'Scansafe', 'China Telecom Hangzhou',
+      'The Dow Chemical Company', 'Vodafone Italia DSL', 'Jio', 'NTT', 'KPN', 'NKN Core Network', 'WIND Telecomunicazioni S.p.A', 'Softbank BB']
 
   data.forEach(domain => domain.filter = blacklist.concat(blacklistFtpLogs).includes(domain.name))
 

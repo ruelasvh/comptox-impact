@@ -16,17 +16,28 @@ class FtpIpInfoController < ApplicationController
     render status: :ok, json: ip_infos
   end
 
+  #GET /api/ftpmetrics/ipinfo/counts?app=comptox&country=US
   def counts
     if params.has_key?(:app) && params.has_key?(:country)
-      sql = "SELECT COUNT(*) AS count, CONCAT(ftp_ip_infos.countrycode, '-', ftp_ip_infos.region) AS name FROM ftp_ips INNER JOIN ftp_ip_infos ON ftp_ips.ip = ftp_ip_infos.ip WHERE app='#{params[:app]}' AND countrycode='#{params[:country]}' GROUP BY ftp_ip_infos.region"
+      if params[:app] === 'comptoxdata'
+        sql = "SELECT COUNT(*) AS count, CONCAT(ftp_ip_infos.countrycode, '-', ftp_ip_infos.region) AS name FROM ftp_ips " +
+            "INNER JOIN ftp_ip_infos ON ftp_ips.ip = ftp_ip_infos.ip WHERE countrycode='#{params[:country]}' " +
+            "AND ftp_ip_infos.region IS NOT NULL AND ftp_ip_infos.region <> '' GROUP BY ftp_ip_infos.region"
+      else
+        sql = "SELECT COUNT(*) AS count, CONCAT(ftp_ip_infos.countrycode, '-', ftp_ip_infos.region) AS name FROM ftp_ips " +
+            "INNER JOIN ftp_ip_infos ON ftp_ips.ip = ftp_ip_infos.ip WHERE app='#{params[:app]}' AND countrycode='#{params[:country]}' " +
+            "AND ftp_ip_infos.region IS NOT NULL AND ftp_ip_infos.region <> '' GROUP BY ftp_ip_infos.region"
+      end
       ip_infos = FtpIp.connection.select_all(sql).to_hash
-      # Shave off first element as it comes null
-      ip_infos.shift
     elsif params.has_key?(:app)
-      sql = "SELECT COUNT(*) AS count, ftp_ip_infos.countrycode AS name FROM ftp_ips INNER JOIN ftp_ip_infos ON ftp_ips.ip = ftp_ip_infos.ip WHERE app='#{params[:app]}' GROUP BY ftp_ip_infos.countrycode"
+      if params[:app] === 'comptoxdata'
+        sql = "SELECT COUNT(*) AS count, ftp_ip_infos.countrycode AS name FROM ftp_ips INNER JOIN ftp_ip_infos ON ftp_ips.ip = ftp_ip_infos.ip " +
+            "WHERE ftp_ip_infos.countrycode IS NOT NULL AND ftp_ip_infos.countrycode <> '' GROUP BY ftp_ip_infos.countrycode"
+      else
+        sql = "SELECT COUNT(*) AS count, ftp_ip_infos.countrycode AS name FROM ftp_ips INNER JOIN ftp_ip_infos ON ftp_ips.ip = ftp_ip_infos.ip " +
+            "WHERE app='#{params[:app]}' AND ftp_ip_infos.countrycode IS NOT NULL AND ftp_ip_infos.countrycode <> '' GROUP BY ftp_ip_infos.countrycode"
+      end
       ip_infos = FtpIp.connection.select_all(sql).to_hash
-      # Shave off first element as it comes null
-      ip_infos.shift
     else
       raise MalformedRequestError.new('The request is malformed.')
     end
@@ -34,12 +45,17 @@ class FtpIpInfoController < ApplicationController
     render status: :ok, json: ip_infos
   end
 
+  #GET /api/ftpmetrics/ipinfo/domain?app=comptox&country=US
   def domain
     if params.has_key?(:app)
-      sql = "SELECT COUNT(*) AS count, ftp_ip_infos.organization AS name FROM ftp_ips INNER JOIN ftp_ip_infos ON ftp_ips.ip = ftp_ip_infos.ip WHERE app='#{params[:app]}' GROUP BY ftp_ip_infos.organization"
+      if params[:app] === 'comptoxdata'
+        sql = "SELECT COUNT(*) AS count, ftp_ip_infos.organization AS name FROM ftp_ips INNER JOIN ftp_ip_infos ON ftp_ips.ip = ftp_ip_infos.ip " +
+            "WHERE ftp_ip_infos.organization IS NOT NULL AND ftp_ip_infos.organization <> '' GROUP BY ftp_ip_infos.organization"
+      else
+        sql = "SELECT COUNT(*) AS count, ftp_ip_infos.organization AS name FROM ftp_ips INNER JOIN ftp_ip_infos ON ftp_ips.ip = ftp_ip_infos.ip " +
+            "WHERE app='#{params[:app]}' AND ftp_ip_infos.organization IS NOT NULL AND ftp_ip_infos.organization <> '' GROUP BY ftp_ip_infos.organization"
+      end
       ip_infos = FtpIp.connection.select_all(sql).to_hash
-      # Shave off first element as it comes null
-      ip_infos.shift
     else
       raise MalformedRequestError.new('The request is malformed. No parameters found')
     end

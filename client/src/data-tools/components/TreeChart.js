@@ -10,10 +10,11 @@ const TreeNode = ({ data }) => {
   );
 };
 
-const TreeChart = ({ data }) => {
+const TreeChart = ({ data, collapsed }) => {
   return (
     <div>
-      <TreeView nodeLabel={data.name} defaultCollapsed={false} count={data.count} uniqueCount={data.uniqueCount}>
+      FTP Files
+      <TreeView nodeLabel={data.name} defaultCollapsed={collapsed} count={data.count} uniqueCount={data.uniqueCount}>
         {data.children.map((node,index) => <TreeNode data={node} key={index}/>)}
       </TreeView>
     </div>
