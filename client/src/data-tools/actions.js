@@ -2,7 +2,7 @@
  * Created by Victor H. Ruelas-Rivera on 4/26/17.
  * US EPA National Center for Computational Toxicology
  */
-import { queryGAApi, ftpTreeMetrics, ftpMonthTop10, ftpYearTop10, ftpMetricsInfoCountCountry, ftpMetricsInfoCountState, ftpMetricsInfoDomain, ftpMetricsAppVisits } from '../utils/Client';
+import { queryGAApi, ftpTreeMetrics, ftpMonthTop10, ftpYearTop10, ftpMetricsInfoCountCountry, ftpMetricsInfoCountState, ftpMetricsInfoDomain, ftpMetricsAppVisitsCount } from '../utils/Client';
 import moment from 'moment';
 
 // Actions, functions that return instructions and data payload to the reducers.
@@ -124,9 +124,9 @@ function fetchAnalytics() {
             /* CompTox Active Users */
             queryGAApi('IDdjYwKDA'),
             /* App visits from FTP Metrics API */
-            ftpMetricsAppVisits('comptox'), // 85th element
-            ftpMetricsAppVisits('toxcast'),
-            ftpMetricsAppVisits('dsstox'),
+            ftpMetricsAppVisitsCount('comptox'), // 85th element
+            ftpMetricsAppVisitsCount('toxcast'),
+            ftpMetricsAppVisitsCount('dsstox'),
         ])
             .then(results => dispatch(receiveAnalytics(results)))
     }
@@ -150,10 +150,6 @@ function sliceTime(data) {
   const timeperiod = time.length > 4 ? moment(time + '01').format('MMM YYYY') : time;
   
   return { data: times[time], timeperiod };
-}
-
-function getReturningVisits(allVisits) {
-  return allVisits.reduce((counter,ip) => counter + ip.visits, 0) - allVisits.length;
 }
 
 function normalize(results) {
@@ -295,8 +291,8 @@ function normalize(results) {
     visits: [{
       data: {
         rows: [
-          ["New Visitor", results[87].length],
-          ["Returning Visitor", getReturningVisits(results[87])]
+          ["New Users", results[85]["New Users"]],
+          ["Returning Users", results[85]["Returning Users"]]
         ]
       },
       timeperiod: 'All'
@@ -362,8 +358,8 @@ function normalize(results) {
     visits: [{
       data: {
         rows: [
-          ["New Visitor", results[86].length],
-          ["Returning Visitor", getReturningVisits(results[86])]
+          ["New Users", results[86]["New Users"]],
+          ["Returning Users", results[86]["Returning Users"]]
         ]
       },
       timeperiod: 'All'
@@ -399,8 +395,8 @@ function normalize(results) {
       visits: [{
         data: {
           rows: [
-            ["New Visitor", results[87].length],
-            ["Returning Visitor", getReturningVisits(results[87])]
+            ["New Users", results[87]["New Users"]],
+            ["Returning Users", results[87]["Returning Users"]]
           ]
         },
         timeperiod: 'All'
