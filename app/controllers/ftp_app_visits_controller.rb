@@ -6,7 +6,11 @@ class FtpAppVisitsController < ApplicationController
   # GET /api/ftpmetrics/visits?app=comptox
   def show
     if params[:app].present?
-      visits_by_ip = FtpAppVisit.select(:ip,:timestamp).where(:app => params[:app]).group_by{|ip| ip.ip}.each{|_,v| v.map!{|h| h.timestamp}}
+      if params[:app] === 'comptoxdata'
+        visits_by_ip = FtpAppVisit.select(:ip,:timestamp).group_by{|ip| ip.ip}.each{|_,v| v.map!{|h| h.timestamp}}
+      else
+        visits_by_ip = FtpAppVisit.select(:ip,:timestamp).where(:app => params[:app]).group_by{|ip| ip.ip}.each{|_,v| v.map!{|h| h.timestamp}}
+      end
     else
       raise MalformedRequestError.new('No parameters or parameter values found')
     end
@@ -14,9 +18,14 @@ class FtpAppVisitsController < ApplicationController
     render status: :ok, json: visits_by_ip
   end
 
+  # GET /api/ftpmetrics/visits/count?app=comptox
   def count
     if params[:app].present?
-      visits_by_ip = FtpAppVisit.select(:ip,:timestamp).where(:app => params[:app]).group_by{|ip| ip.ip}.each{|_,v| v.map!{|h| h.timestamp}}
+      if params[:app] === 'comptoxdata'
+        visits_by_ip = FtpAppVisit.select(:ip,:timestamp).group_by{|ip| ip.ip}.each{|_,v| v.map!{|h| h.timestamp}}
+      else
+        visits_by_ip = FtpAppVisit.select(:ip,:timestamp).where(:app => params[:app]).group_by{|ip| ip.ip}.each{|_,v| v.map!{|h| h.timestamp}}
+      end
       app_visits = getTotalVisits(visits_by_ip)
     else
       raise MalformedRequestError.new('No parameters or parameter values found')

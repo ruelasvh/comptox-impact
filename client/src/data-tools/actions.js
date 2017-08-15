@@ -124,15 +124,17 @@ function fetchAnalytics() {
             // CompTox Active Users
             queryGAApi('IDdjYwKDA'),
             // App visits from FTP Metrics API */
-            ftpMetricsAppVisits('comptox'), // 85th element
-            ftpMetricsAppVisits('toxcast'),
-            ftpMetricsAppVisits('dsstox'),
+            ftpMetricsAppVisitsCount('comptox'), // 85th element
+            ftpMetricsAppVisitsCount('toxcast'),
+            ftpMetricsAppVisitsCount('dsstox'),
             // CompTox Data Website FTP metrics
             ftpTreeMetrics('comptoxdata'), // 88th element
             ftpMonthTop10('comptoxdata'),
             ftpYearTop10('comptoxdata'),
             ftpMetricsInfoCountState('comptoxdata'),
             ftpMetricsInfoCountCountry('comptoxdata'),
+            ftpMetricsInfoDomain('comptoxdata'),
+            ftpMetricsAppVisitsCount('comptoxdata'),
 
         ])
             .then(results => dispatch(receiveAnalytics(results)))
@@ -360,14 +362,14 @@ function normalize(results) {
       timeperiod: 'All'
     },
     domain: {
-      data: results[79].sort((a,b) => b.count - a.count),
+      data: results[93].sort((a,b) => b.count - a.count),
       timeperiod: 'All'
     },
     visits: [{
       data: {
         rows: [
-          ["New Visitor", results[87].length],
-          ["Returning Visitor", getReturningVisits(results[87])]
+          ["New Users", results[94]["New Users"]],
+          ["Returning Users", results[94]["Returning Users"]]
         ]
       },
       timeperiod: 'All'
