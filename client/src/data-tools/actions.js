@@ -32,7 +32,8 @@ function fetchAnalytics() {
             queryGAApi('IDa44YKDA'), // Unique Page Views
             queryGAApi('IDA-pMKDA'), // Country Month
             queryGAApi('MCoppsJDA'), // Country Year
-            queryGAApi('ID8qZ8KDA'), // Domain Month
+            // queryGAApi('ID8qZ8KDA'), // Domain Month
+            queryGAApi('IDBgIoKDA'), // Organization Month
             queryGAApi('ICZ0oUKDA'), // Domain Year
             queryGAApi('ID4-4IKDA'), // State Month
             queryGAApi('MCoppsKDA'), // State Year
