@@ -12,8 +12,9 @@ const DoughnutChart = ({ data }) => {
   if(data.length === 0) {
     return <div>There is no data. ¯\_(ツ)_/¯</div>;
   }
-  const blacklist = ['unknown.unknown', '(not set)', 'verizon.net', 'rr.com', 'comcastbusiness.net', 'comcast.net', 'com', 'cox.net', 'virginm.net', 'att.net'];
-  const blacklistFtpLogs = ['Comcast Cable', 'Time Warner Cable', 'AT&T U-verse', 'Comcast Business', 'Deutsche Telekom AG', 'Oi Internet', 'AT&T Wireless', 'Bell Canada',
+  const blacklistTerms = ['at&t', 'ipv4', 'comcast', 'time warner', 'internet service provider', 'verizon', 'telecom', 'broadband'];
+  const blacklist = ['unknown.unknown', '(not set)', 'verizon.net', 'rr.com', 'com', 'cox.net', 'virginm.net', 'att.net'];
+  const blacklistFtpLogs = ['AT&T U-verse', 'Deutsche Telekom AG', 'Oi Internet', 'AT&T Wireless', 'Bell Canada',
       'China Telecom jiangsu', 'China Unicom Shannxi', 'Forcepoint Cloud', 'NET Virtua', 'Spectrum', 'Verizon Fios', 'Verizon Fios Business', 'China Unicom Liaoning', 'BT',
       'China Telecom', 'M-net', 'Telecom Italia', 'Amazon.com', 'Cox Communications', 'Frontier Communications', 'Tata Communications', 'Telstra Internet', 'Virgin Media', 'HiNet',
       'Korea Telecom', 'NET Virtua','Orange','Symantec.cloud','Telmex','tw telecom holdings','Vivo','O2 Deutschland', 'A-STAR','Algar Telecom S/a','AT&T Data Communications Services',
@@ -27,8 +28,12 @@ const DoughnutChart = ({ data }) => {
       'Jazz Telecom S.A.','Johnson & Johnson','Level 3 Communications','Merck KGaA','NFOrce Entertainment B.V.','Open Computer Network','PT Comunicacoes','Shaw Communications',
       'Sify Limited','SolNet','ADISTA SAS', 'Googlebot', 'Google', 'Vodafone Kabel Deutschland', 'Rogers Cable', 'Sky Broadband', 'TalkTalk', 'Scansafe', 'China Telecom Hangzhou',
       'The Dow Chemical Company', 'Vodafone Italia DSL', 'Jio', 'NTT', 'KPN', 'NKN Core Network', 'WIND Telecomunicazioni S.p.A', 'Softbank BB']
-
-  data.forEach(domain => domain.filter = blacklist.concat(blacklistFtpLogs).includes(domain.name))
+  const aggregatedBlacklist = blacklist.concat(blacklistFtpLogs)
+  
+  // First filter out using SAFE blacklist terms
+  data.forEach(domain => domain.filter = blacklistTerms.some(item => domain.name.toLowerCase().includes(item)))
+  // Then further filter out with full organization names
+  data.forEach(domain => domain.filter = domain.filter || aggregatedBlacklist.includes(domain.name))
 
   let domains = data.slice(0, 36);
   let filtered = data.filter(domain => !domain.filter).slice(0, 36);
