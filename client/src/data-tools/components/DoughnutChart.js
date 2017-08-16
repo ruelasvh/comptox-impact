@@ -38,8 +38,6 @@ const DoughnutChart = ({ data }) => {
   
   data.forEach(domain => domain.filter = isInBlacklist(aggregatedBlacklist, domain.name))
   
-  // data.forEach(domain => domain.filter = blacklist.concat(blacklistFtpLogs).includes(domain.name))
-
   let domains = data.slice(0, 36);
   let filtered = data.filter(domain => !domain.filter).slice(0, 36);
   let other = data.filter(domain => domain.filter).slice(0, 36);
