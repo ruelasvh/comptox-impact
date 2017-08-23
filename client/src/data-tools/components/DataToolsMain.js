@@ -4,7 +4,7 @@
  */
 import React from 'react';
 import { Grid, Row, Col, Nav, NavItem, Tab } from 'react-bootstrap';
-import Subtab from './Subtab';
+import Tabcontent from './Tabcontent';
 import '../styles/datatoolsmain.css';
 
 
@@ -27,7 +27,7 @@ class DataToolsIndex extends React.Component {
       ];
 
       const tabs = tablist.map((tab) => <NavItem key={tab.name} eventKey={tab.eventKey}>{tab.name}</NavItem>);
-      const pages = tablist.map((tab) => <Tab.Pane unmountOnExit={true} mountOnEnter={true} key={tab.name} eventKey={tab.eventKey}><br/>{tab.description}<br/><br/><Subtab tab={tab} self={this.props.analytics}/></Tab.Pane>);
+      const pages = tablist.map((tab) => <Tab.Pane unmountOnExit={true} mountOnEnter={true} key={tab.name} eventKey={tab.eventKey}><br/>{tab.description}<br/><br/><Tabcontent tab={tab} self={this.props.analytics}/></Tab.Pane>);
 
         const dataDomainTabInstance = (
             <Tab.Container defaultActiveKey="comptoxdashboard">
