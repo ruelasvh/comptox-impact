@@ -2,6 +2,7 @@
  * Created by vruelasr on 8/22/17.
  */
 import React from 'react'
+import PropTypes from 'prop-types'
 import {
   Tab, Nav, NavItem
 } from 'react-bootstrap'
@@ -9,16 +10,16 @@ import DoughnutChart from './DoughnutChart'
 import BarLineChart from './BarLineChart'
 import MapChart from './MapChartDatamaps'
 
-const DataDownloadsWebsitePaneView = ({ props }) => (
+const DataDownloadsWebsitePaneView = ({ data }) => (
   <Tab.Content unmountOnExit={true} mountOnEnter={true} animation>
     <Tab.Pane unmountOnExit={true} mountOnEnter={true} eventKey="drupal-page-views">
-      {props.isFetching ?
-        ' ' : <BarLineChart data={props.tab.data.datadownloads.pageViews}/>
+      {data.datadownloads.hasOwnProperty('pageViews') ?
+        <BarLineChart data={data.datadownloads.pageViews}/> : ' '
       }
     </Tab.Pane>
     <Tab.Pane unmountOnExit={true} mountOnEnter={true} eventKey="drupal-unique-page-views">
-      {props.isFetching ?
-        ' ' : <BarLineChart data={props.tab.data.datadownloads.uniquePageViews}/>
+      {data.datadownloads.hasOwnProperty('uniquePageViews') ?
+        <BarLineChart data={data.datadownloads.uniquePageViews}/> : ' '
       }
     </Tab.Pane>
     <Tab.Pane unmountOnExit={true} mountOnEnter={true} eventKey="drupal-type-users">
@@ -26,22 +27,22 @@ const DataDownloadsWebsitePaneView = ({ props }) => (
         <div>
           Time Period:
           <Nav bsStyle="pills">
-            {props.tab.data.datadownloads.domainMonth.hasOwnProperty('data') ?
-              <NavItem eventKey="month">{props.tab.data.datadownloads.domainMonth.timeperiod}</NavItem> : ' '
+            {data.datadownloads.domainMonth.hasOwnProperty('data') ?
+              <NavItem eventKey="month">{data.datadownloads.domainMonth.timeperiod}</NavItem> : ' '
             }
-            {props.tab.data.datadownloads.domainYear.hasOwnProperty('data') ?
-              <NavItem eventKey="year">{props.tab.data.datadownloads.domainYear.timeperiod}</NavItem> : ' '
+            {data.datadownloads.domainYear.hasOwnProperty('data') ?
+              <NavItem eventKey="year">{data.datadownloads.domainYear.timeperiod}</NavItem> : ' '
             }
           </Nav>
           <Tab.Content unmountOnExit={true} mountOnEnter={true} animation>
             <Tab.Pane unmountOnExit={true} mountOnEnter={true} eventKey="month">
-              {!props.isFetching && props.tab.data.datadownloads.domainMonth.hasOwnProperty('data') ?
-                <DoughnutChart data={props.tab.data.datadownloads.domainMonth.data} /> : ' '
+              {data.datadownloads.domainMonth.hasOwnProperty('data') ?
+                <DoughnutChart data={data.datadownloads.domainMonth.data} /> : ' '
               }
             </Tab.Pane>
             <Tab.Pane unmountOnExit={true} mountOnEnter={true} eventKey="year">
-              {!props.isFetching && props.tab.data.datadownloads.domainYear.hasOwnProperty('data') ?
-                <DoughnutChart data={props.tab.data.datadownloads.domainYear.data} /> : ' '
+              {data.datadownloads.domainYear.hasOwnProperty('data') ?
+                <DoughnutChart data={data.datadownloads.domainYear.data} /> : ' '
               }
             </Tab.Pane>
           </Tab.Content>
@@ -62,22 +63,22 @@ const DataDownloadsWebsitePaneView = ({ props }) => (
                 <div>
                   Time Period:
                   <Nav bsStyle="pills">
-                    {props.tab.data.datadownloads.stateMonth.hasOwnProperty('data') ?
-                      <NavItem eventKey="month">{props.tab.data.datadownloads.stateMonth.timeperiod}</NavItem> : ' '
+                    {data.datadownloads.stateMonth.hasOwnProperty('data') ?
+                      <NavItem eventKey="month">{data.datadownloads.stateMonth.timeperiod}</NavItem> : ' '
                     }
-                    {props.tab.data.datadownloads.stateYear.hasOwnProperty('data') ?
-                      <NavItem eventKey="year">{props.tab.data.datadownloads.stateYear.timeperiod}</NavItem> : ' '
+                    {data.datadownloads.stateYear.hasOwnProperty('data') ?
+                      <NavItem eventKey="year">{data.datadownloads.stateYear.timeperiod}</NavItem> : ' '
                     }
                   </Nav>
                   <Tab.Content unmountOnExit={true} mountOnEnter={true} animation>
                     <Tab.Pane unmountOnExit={true} mountOnEnter={true} eventKey="month">
-                      {!props.isFetching && props.tab.data.datadownloads.stateMonth.hasOwnProperty('data') ?
-                        <MapChart data={props.tab.data.datadownloads.stateMonth.data} scope={'usa'} /> : ' '
+                      {data.datadownloads.stateMonth.hasOwnProperty('data') ?
+                        <MapChart data={data.datadownloads.stateMonth.data} scope={'usa'} /> : ' '
                       }
                     </Tab.Pane>
                     <Tab.Pane unmountOnExit={true} mountOnEnter={true} eventKey="year">
-                      {!props.isFetching && props.tab.data.datadownloads.stateMonth.hasOwnProperty('data') ?
-                        <MapChart data={props.tab.data.datadownloads.stateYear.data} scope={'usa'} /> : ' '
+                      {data.datadownloads.stateMonth.hasOwnProperty('data') ?
+                        <MapChart data={data.datadownloads.stateYear.data} scope={'usa'} /> : ' '
                       }
                     </Tab.Pane>
                   </Tab.Content>
@@ -89,22 +90,22 @@ const DataDownloadsWebsitePaneView = ({ props }) => (
                 <div>
                   Time Period:
                   <Nav bsStyle="pills">
-                    {props.tab.data.datadownloads.countryMonth.hasOwnProperty('data') ?
-                      <NavItem eventKey="month">{props.tab.data.datadownloads.countryMonth.timeperiod}</NavItem> : ' '
+                    {data.datadownloads.countryMonth.hasOwnProperty('data') ?
+                      <NavItem eventKey="month">{data.datadownloads.countryMonth.timeperiod}</NavItem> : ' '
                     }
-                    {props.tab.data.datadownloads.countryYear.hasOwnProperty('data') ?
-                      <NavItem eventKey="year">{props.tab.data.datadownloads.countryYear.timeperiod}</NavItem> : ' '
+                    {data.datadownloads.countryYear.hasOwnProperty('data') ?
+                      <NavItem eventKey="year">{data.datadownloads.countryYear.timeperiod}</NavItem> : ' '
                     }
                   </Nav>
                   <Tab.Content unmountOnExit={true} mountOnEnter={true} animation>
                     <Tab.Pane unmountOnExit={true} mountOnEnter={true} eventKey="month">
-                      {!props.isFetching && props.tab.data.datadownloads.stateMonth.hasOwnProperty('data') ?
-                        <MapChart data={props.tab.data.datadownloads.countryMonth.data} scope={'world'} /> : ' '
+                      {data.datadownloads.stateMonth.hasOwnProperty('data') ?
+                        <MapChart data={data.datadownloads.countryMonth.data} scope={'world'} /> : ' '
                       }
                     </Tab.Pane>
                     <Tab.Pane unmountOnExit={true} mountOnEnter={true} eventKey="year">
-                      {!props.isFetching && props.tab.data.datadownloads.stateMonth.hasOwnProperty('data') ?
-                        <MapChart data={props.tab.data.datadownloads.countryYear.data} scope={'world'} /> : ' '
+                      {data.datadownloads.stateMonth.hasOwnProperty('data') ?
+                        <MapChart data={data.datadownloads.countryYear.data} scope={'world'} /> : ' '
                       }
                     </Tab.Pane>
                   </Tab.Content>
@@ -117,5 +118,9 @@ const DataDownloadsWebsitePaneView = ({ props }) => (
     </Tab.Pane>
   </Tab.Content>
 )
+
+DataDownloadsWebsitePaneView.propTypes = {
+  data: PropTypes.object.isRequired,
+}
 
 export default DataDownloadsWebsitePaneView

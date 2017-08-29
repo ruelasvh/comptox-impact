@@ -19,7 +19,7 @@ import ScientistProfile from './scientist/ScientistProfile';
 import AdminMainScientists from './admin/components/Main';
 import AdminScientist from './admin/components/Scientist';
 import AdminNewScientist from './admin/components/NewScientist';
-import DataTools from './data-tools/containers/DataTools';
+import DataTools from './data-tools/components/DataToolsMain';
 import NotFound from './notfound/NotFound';
 
 const store = configureStore();

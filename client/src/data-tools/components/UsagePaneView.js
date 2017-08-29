@@ -2,6 +2,7 @@
  * Created by vruelasr on 8/22/17.
  */
 import React from 'react'
+import PropTypes from 'prop-types'
 import {
   Tab, Nav, NavItem
 } from 'react-bootstrap'
@@ -11,47 +12,47 @@ import BarLineChart from './BarLineChart'
 import Table from './Table'
 import MapChart from './MapChartDatamaps'
 
-const UsagePaneView = ({ props }) => (
+const UsagePaneView = ({ data }) => (
   <Tab.Content unmountOnExit={true} mountOnEnter={true} animation>
     <Tab.Pane unmountOnExit={true} mountOnEnter={true} eventKey="page-views">
-      {props.isFetching ?
-        ' ' : <Chart data={props.tab.data.usage.pageViews}/>
+      {data.usage.hasOwnProperty('pageViews') ?
+        <Chart data={data.usage.pageViews}/> : ' '
       }
     </Tab.Pane>
     <Tab.Pane unmountOnExit={true} mountOnEnter={true} eventKey="unique-page-views">
-      {props.isFetching ?
-        ' ' : <BarLineChart data={props.tab.data.usage.uniquePageViews}/>
+      {data.usage.hasOwnProperty('uniquePageViews') ?
+        <BarLineChart data={data.usage.uniquePageViews}/> : ' '
       }
     </Tab.Pane>
     <Tab.Pane unmountOnExit={true} mountOnEnter={true} eventKey="type-users">
-      {!props.isFetching && props.tab.data.usage.hasOwnProperty('activeUsers') ?
-        <Chart type="line" label="Active Users" data={props.tab.data.usage.activeUsers}/> : ' '
+      {data.usage.hasOwnProperty('activeUsers') ?
+        <Chart type="line" label="Active Users" data={data.usage.activeUsers}/> : ' '
       }
       <br/><br/>
-      {!props.isFetching && props.tab.data.usage.hasOwnProperty('newReturning') ?
-        <Table data={props.tab.data.usage.newReturning}/> : ' '
+      {!data.isFetching && data.usage.hasOwnProperty('newReturning') ?
+        <Table data={data.usage.newReturning}/> : ' '
       }
       <br/>
       <Tab.Container id="users-domains-tabs" defaultActiveKey="month">
         <div style={{paddingBottom: '100'}}>
           Time Period:
           <Nav bsStyle="pills">
-            {props.tab.data.usage.domainMonth.hasOwnProperty('data') ?
-              <NavItem eventKey="month">{props.tab.data.usage.domainMonth.timeperiod}</NavItem> : ' '
+            {data.usage.domainMonth.hasOwnProperty('data') ?
+              <NavItem eventKey="month">{data.usage.domainMonth.timeperiod}</NavItem> : ' '
             }
-            {props.tab.data.usage.domainYear.hasOwnProperty('data') ?
-              <NavItem eventKey="year">{props.tab.data.usage.domainYear.timeperiod}</NavItem> : ' '
+            {data.usage.domainYear.hasOwnProperty('data') ?
+              <NavItem eventKey="year">{data.usage.domainYear.timeperiod}</NavItem> : ' '
             }
           </Nav>
           <Tab.Content unmountOnExit={true} mountOnEnter={true} animation>
             <Tab.Pane unmountOnExit={true} mountOnEnter={true} eventKey="month">
-              {!props.isFetching && props.tab.data.usage.domainMonth.hasOwnProperty('data') ?
-                <DoughnutChart data={props.tab.data.usage.domainMonth.data} /> : ' '
+              {data.usage.domainMonth.hasOwnProperty('data') ?
+                <DoughnutChart data={data.usage.domainMonth.data} /> : ' '
               }
             </Tab.Pane>
             <Tab.Pane unmountOnExit={true} mountOnEnter={true} eventKey="year">
-              {!props.isFetching && props.tab.data.usage.domainYear.hasOwnProperty('data') ?
-                <DoughnutChart data={props.tab.data.usage.domainYear.data} /> : ' '
+              {data.usage.domainYear.hasOwnProperty('data') ?
+                <DoughnutChart data={data.usage.domainYear.data} /> : ' '
               }
             </Tab.Pane>
           </Tab.Content>
@@ -72,22 +73,22 @@ const UsagePaneView = ({ props }) => (
                 <div>
                   Time Period:
                   <Nav bsStyle="pills">
-                    {props.tab.data.usage.stateMonth.hasOwnProperty('data') ?
-                      <NavItem eventKey="month">{props.tab.data.usage.stateMonth.timeperiod}</NavItem> : ' '
+                    {data.usage.stateMonth.hasOwnProperty('data') ?
+                      <NavItem eventKey="month">{data.usage.stateMonth.timeperiod}</NavItem> : ' '
                     }
-                    {props.tab.data.usage.stateYear.hasOwnProperty('data') ?
-                      <NavItem eventKey="year">{props.tab.data.usage.stateYear.timeperiod}</NavItem> : ' '
+                    {data.usage.stateYear.hasOwnProperty('data') ?
+                      <NavItem eventKey="year">{data.usage.stateYear.timeperiod}</NavItem> : ' '
                     }
                   </Nav>
                   <Tab.Content unmountOnExit={true} mountOnEnter={true} animation>
                     <Tab.Pane unmountOnExit={true} mountOnEnter={true} eventKey="month">
-                      {!props.isFetching && props.tab.data.usage.stateMonth.hasOwnProperty('data') ?
-                        <MapChart data={props.tab.data.usage.stateMonth.data} scope={'usa'} /> : ' '
+                      {data.usage.stateMonth.hasOwnProperty('data') ?
+                        <MapChart data={data.usage.stateMonth.data} scope={'usa'} /> : ' '
                       }
                     </Tab.Pane>
                     <Tab.Pane unmountOnExit={true} mountOnEnter={true} eventKey="year">
-                      {!props.isFetching && props.tab.data.usage.stateYear.hasOwnProperty('data') ?
-                        <MapChart data={props.tab.data.usage.stateYear.data} scope={'usa'} /> : ' '
+                      {data.usage.stateYear.hasOwnProperty('data') ?
+                        <MapChart data={data.usage.stateYear.data} scope={'usa'} /> : ' '
                       }
                     </Tab.Pane>
                   </Tab.Content>
@@ -99,22 +100,22 @@ const UsagePaneView = ({ props }) => (
                 <div>
                   Time Period:
                   <Nav bsStyle="pills">
-                    {props.tab.data.usage.countryMonth.hasOwnProperty('data') ?
-                      <NavItem eventKey="month">{props.tab.data.usage.countryMonth.timeperiod}</NavItem> : ' '
+                    {data.usage.countryMonth.hasOwnProperty('data') ?
+                      <NavItem eventKey="month">{data.usage.countryMonth.timeperiod}</NavItem> : ' '
                     }
-                    {props.tab.data.usage.countryYear.hasOwnProperty('data') ?
-                      <NavItem eventKey="year">{props.tab.data.usage.countryYear.timeperiod}</NavItem> : ' '
+                    {data.usage.countryYear.hasOwnProperty('data') ?
+                      <NavItem eventKey="year">{data.usage.countryYear.timeperiod}</NavItem> : ' '
                     }
                   </Nav>
                   <Tab.Content unmountOnExit={true} mountOnEnter={true} animation>
                     <Tab.Pane unmountOnExit={true} mountOnEnter={true} eventKey="month">
-                      {!props.isFetching && props.tab.data.usage.countryMonth.hasOwnProperty('data') ?
-                        <MapChart data={props.tab.data.usage.countryMonth.data} scope={'world'} /> : ' '
+                      {data.usage.countryMonth.hasOwnProperty('data') ?
+                        <MapChart data={data.usage.countryMonth.data} scope={'world'} /> : ' '
                       }
                     </Tab.Pane>
                     <Tab.Pane unmountOnExit={true} mountOnEnter={true} eventKey="year">
-                      {!props.isFetching && props.tab.data.usage.countryYear.hasOwnProperty('data') ?
-                        <MapChart data={props.tab.data.usage.countryYear.data} scope={'world'} /> : ' '
+                      {data.usage.countryYear.hasOwnProperty('data') ?
+                        <MapChart data={data.usage.countryYear.data} scope={'world'} /> : ' '
                       }
                     </Tab.Pane>
                   </Tab.Content>
@@ -127,5 +128,9 @@ const UsagePaneView = ({ props }) => (
     </Tab.Pane>
   </Tab.Content>
 )
+
+UsagePaneView.propTypes = {
+  data: PropTypes.object.isRequired,
+}
 
 export default UsagePaneView

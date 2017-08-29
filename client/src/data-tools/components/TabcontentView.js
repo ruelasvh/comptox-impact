@@ -10,20 +10,14 @@ import DataDownlodsWebsitePaneView from './DataDownlodsWebsitePaneView'
 import FtpDownloadsPaneView from './FtpDownloadsPaneView'
 import '../styles/datatoolsmain.css';
 
-class Tabcontent extends Component {
-  // Make API calls here
-  
-  render() {
-    const props = this.props
-    
-    return (
-      <Tab.Container defaultActiveKey={ props.tab.data.hasOwnProperty('usage') ? "page-views" : "drupal-page-views"}>
+const TabcontentView = ({ tab }) => (
+      <Tab.Container defaultActiveKey={ tab.data.hasOwnProperty('usage') ? "page-views" : "drupal-page-views"}>
         <Row className="clearfix">
           <Col sm={3}>
             <Accordion defaultActiveKey="1">
-              { props.tab.data.hasOwnProperty('usage') ?
+              { tab.data.hasOwnProperty('usage') ?
                 <Panel
-                  header={props.tab.name + (props.tab.name.includes('Chemistry Dashboard') ? " Usage" : " Dashboard Usage")}
+                  header={tab.name + (tab.name.includes('Chemistry Dashboard') ? " Usage" : " Dashboard Usage")}
                   eventKey="1">
                   <Nav bsStyle="pills" stacked>
                     <NavItem eventKey="page-views">Page Views</NavItem>
@@ -33,10 +27,10 @@ class Tabcontent extends Component {
                   </Nav>
                 </Panel>
                 : ' ' }
-              { props.tab.data.hasOwnProperty('datadownloads') ?
+              { tab.data.hasOwnProperty('datadownloads') ?
                 <Panel
-                  header={props.tab.name + (props.tab.name.includes('CompTox Data') ? '' : " Data Download Website")}
-                  eventKey={ props.tab.data.hasOwnProperty('usage') ? '2' : '1'}>
+                  header={tab.name + (tab.name.includes('CompTox Data') ? '' : " Data Download Website")}
+                  eventKey={ tab.data.hasOwnProperty('usage') ? '2' : '1'}>
                   <Nav bsStyle="pills" stacked>
                     <NavItem eventKey="drupal-page-views">Page Views</NavItem>
                     <NavItem eventKey="drupal-unique-page-views">Unique Page Views</NavItem>
@@ -45,9 +39,9 @@ class Tabcontent extends Component {
                   </Nav>
                 </Panel>
                 : ' ' }
-              { props.tab.data.hasOwnProperty('filedownloads') ?
+              { tab.data.hasOwnProperty('filedownloads') ?
                 <Panel
-                  header={props.tab.name.includes('Data Download') ? 'CompTox Data FTP Downloads' : props.tab.name + " FTP Data Downloads"}
+                  header={tab.name.includes('Data Download') ? 'CompTox Data FTP Downloads' : tab.name + " FTP Data Downloads"}
                   eventKey="3">
                   <Nav bsStyle="pills" stacked>
                     <NavItem eventKey="ftp-stats">Download Counts</NavItem>
@@ -56,8 +50,8 @@ class Tabcontent extends Component {
                   </Nav>
                 </Panel>
                 : ' ' }
-              { props.tab.data.hasOwnProperty('analog') ?
-                <Panel header={props.tab.name + " Analog Stats"} eventKey="4">
+              { tab.data.hasOwnProperty('analog') ?
+                <Panel header={tab.name + " Analog Stats"} eventKey="4">
                   <Nav bsStyle="pills" stacked>
                     <NavItem eventKey="analog">Analog Stats</NavItem>
                   </Nav>
@@ -66,23 +60,21 @@ class Tabcontent extends Component {
             </Accordion>
           </Col>
           <Col sm={9}>
-            { props.tab.data.hasOwnProperty('usage') ? <UsagePaneView props={props}/> : ' ' }
-            { props.tab.data.hasOwnProperty('datadownloads') ? <DataDownlodsWebsitePaneView props={props}/> : ' ' }
-            { props.tab.data.hasOwnProperty('filedownloads') ? <FtpDownloadsPaneView props={props}/> : ' ' }
-            {/*<Tab.Content unmountOnExit={true} mountOnEnter={true} animation>*/}
-            {/*<Tab.Pane unmountOnExit={true} mountOnEnter={true} eventKey="analog">*/}
-            {/*<ActorAnalog />*/}
-            {/*</Tab.Pane>*/}
-            {/*</Tab.Content>*/}
+            { tab.data.hasOwnProperty('usage') ? <UsagePaneView data={tab.data}/> : ' ' }
+            { tab.data.hasOwnProperty('datadownloads') ? <DataDownlodsWebsitePaneView data={tab.data}/> : ' ' }
+            { tab.data.hasOwnProperty('filedownloads') ? <FtpDownloadsPaneView data={tab.data}/> : ' ' }
+            <Tab.Content unmountOnExit={true} mountOnEnter={true} animation>
+              <Tab.Pane unmountOnExit={true} mountOnEnter={true} eventKey="analog">
+                <ActorAnalog />
+              </Tab.Pane>
+            </Tab.Content>
           </Col>
         </Row>
       </Tab.Container>
     )
-  }
+
+TabcontentView.propTypes = {
+    tab: PropTypes.object.isRequired
 }
 
-Tabcontent.propTypes = {
-    props: PropTypes.object
-}
-
-export default Tabcontent;
+export default TabcontentView;
