@@ -166,6 +166,41 @@ export function ftpYearTop10(app) {
     .then(parseJSON)
 }
 
+export function ftpMetricsInfoCountState(app) {
+    return fetch(`${absolutePath + relativePath}/api/ftpmetrics/ipinfo/counts?app=${app}&country=US`, {
+        accept: 'application/json',
+    }).then(checkStatus)
+        .then(parseJSON)
+}
+
+export function ftpMetricsInfoCountCountry(app) {
+    return fetch(`${absolutePath + relativePath}/api/ftpmetrics/ipinfo/counts?app=${app}`, {
+        accept: 'application/json',
+    }).then(checkStatus)
+        .then(parseJSON)
+}
+
+export function ftpMetricsInfoDomain(app) {
+    return fetch(`${absolutePath + relativePath}/api/ftpmetrics/ipinfo/domain?app=${app}`, {
+        accept: 'application/json',
+    }).then(checkStatus)
+        .then(parseJSON)
+}
+
+export function ftpMetricsAppVisits(app) {
+  return fetch(`${absolutePath + relativePath}/api/ftpmetrics/visits?app=${app}`, {
+    accept: 'application/json',
+  }).then(checkStatus)
+    .then(parseJSON)
+}
+
+export function ftpMetricsAppVisitsCount(app) {
+  return fetch(`${absolutePath + relativePath}/api/ftpmetrics/visits/count?app=${app}`, {
+    accept: 'application/json',
+  }).then(checkStatus)
+    .then(parseJSON)
+}
+
 function checkStatus(response) {
     if (response.status >= 200 && response.status < 300) {
         return response;
@@ -203,7 +238,12 @@ const Client = {
     queryGAApi,
     ftpTreeMetrics,
     ftpMonthTop10,
-    ftpYearTop10
+    ftpYearTop10,
+    ftpMetricsInfoCountState,
+    ftpMetricsInfoCountCountry,
+    ftpMetricsInfoDomain,
+    ftpMetricsAppVisits,
+    ftpMetricsAppVisitsCount
 };
 
 export default Client;

@@ -14,10 +14,12 @@ const Top10Chart = ({ data, timeperiod }) => {
 
   const top10list = data.map((file, index) =>
     <tr key={file.name}>
-      <td>{index + 1}</td>
-      <td>{file.name}</td>
+        <td>{index + 1}</td>
+        <td>{file.name}</td>
+        <td>{file.count}</td>
     </tr>
   )
+
   return (
     <div>
       {'Top 10 downloads of ' + timeperiod }
@@ -26,6 +28,7 @@ const Top10Chart = ({ data, timeperiod }) => {
           <tr>
             <th>Rank</th>
             <th>Filename</th>
+            <th>Count</th>
           </tr>
         </thead>
         <tbody>

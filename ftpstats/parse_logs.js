@@ -31,7 +31,7 @@ const comptox_helpers = {
     } else if(filename.startsWith('/COMPTOX/Sustainable_Chemistry_Data/Chemistry_Dashboard')) {
       return 'comptox'
     } else {
-      return ''
+      return 'other'
     }
   }
 }
@@ -41,16 +41,18 @@ Promise.all([
   parseLog(comptox_log, true, comptox_helpers)
 ]).then(res => {
   res[0].ips = res[0].ips.concat(res[1].ips) // merge IP lists
-
+  
   let headers = 'id,parent_id,app,name,folder,count,unique_count\n' // headers for csv
   let monthHeaders = 'fileId,month,count\n' // headers for month count
   let csv = res[0].folders.concat(res[1].folders).reduce(arrayToCSV, headers) // comma-separated string
   let ip_csv = res[0].ips.reduce((acc, ip) => acc + ip.app + ',' + ip.ip + '\n', 'app,ip\n') // string of all ips
+  let app_visits = res[0].visits.concat(res[1].visits).reduce((acc, visit) => acc + visit.app + ',' + visit.ip + ',' + visit.timestamp + '\n', 'app,ip,timestamp\n')
   let month_csv = res[0].months.concat(res[1].months).reduce((acc, row) => acc + row.fileId  + ',' + row.month + ',' + row.count + '\n', monthHeaders) // string of all file month counts
 
   outputFile('./output/ftp_metrics.csv', csv)
   outputFile('./output/ftp_ips.csv', ip_csv)
   outputFile('./output/ftp_metrics_by_months.csv', month_csv)
+  outputFile('./output/ftp_app_visits.csv', app_visits)
 })
 
 function parseLog(inputFilename, inputheaders, helpers) {
@@ -67,7 +69,10 @@ function parseLog(inputFilename, inputheaders, helpers) {
         app: helpers.getApp(line),
         date: helpers.getDate(line)
       }))
-
+      // Go through fileHits and sort by date. Done by default.
+      // Logic for creating array of returning ips based on a 24hr-period
+      let users = fileHits.reduce(toUsers, {})
+      let visits = convertToVisits(users)
       const trunk = { name: 'Tree', children: [], ips: [], uniqueIPs: [], months: [] }
       let tree = fileHits.reduce(buildTree, trunk) // json tree
       let array = walkTree(tree) // array of individual files/folders with counts
@@ -76,7 +81,7 @@ function parseLog(inputFilename, inputheaders, helpers) {
       Object.keys(array.ipObj).forEach(app => { ips = ips.concat(array.ipObj[app].map(ip => ({ app, ip })) ) })
 
       let apps = array.folders.reduce((acc, obj) => { if(!acc.includes(obj.app) && obj.app.length > 0) { acc.push(obj.app) } return acc }, [])
-      let returnObj = { folders: [], ips, months: [] }
+      let returnObj = { folders: [], ips, months: [], visits }
       apps.forEach(app => {
         let appFolders = array.folders.filter(obj => obj.app === app)
         let monthCounts = appFolders.filter(folder => !folder.folder).reduce((acc,file) => {
@@ -92,6 +97,38 @@ function parseLog(inputFilename, inputheaders, helpers) {
       resolve(returnObj)
     })
   })
+}
+
+function toUsers(acc, hit) {
+  if(acc.hasOwnProperty(hit.app)) {
+    let foundIP = acc[hit.app].find(ip => ip.ip === hit.ip)
+    if(foundIP) {
+      // if foundIP.timestamps has no timestamp less than 24 hours before current hit
+      // add current hit timestamp to timestamps
+      if(!isWithin24hrs(foundIP.timestamps[foundIP.timestamps.length - 1],hit.date)) {
+        foundIP.timestamps.push(hit.date)
+      }
+    } else {
+      acc[hit.app].push({ip: hit.ip, timestamps: [hit.date]})
+    }
+  } else {
+    acc[hit.app] = [{ip: hit.ip, timestamps: [hit.date]}]
+  }
+  return acc
+}
+
+function isWithin24hrs(startDate, endDate) {
+  return endDate.getTime() - startDate.getTime() < 86400000 // in milliseconds
+}
+
+function convertToVisits(usersObj) {
+  let visits = [];
+  for (let app in  usersObj) {
+    usersObj[app].forEach(ip => {
+      ip.timestamps.forEach(timestamp => visits.push({ app, ip: ip.ip, timestamp}))
+    })
+  }
+  return visits
 }
 
 function buildTree(acc, obj) {
@@ -123,7 +160,7 @@ function walkTree(tree) {
 }
 
 function convertFolder(id, tree, folderArray, ipObj, parentId) {
-  let thisId = id.id + 0
+    let thisId = id.id + 0
   if(!ipObj.hasOwnProperty(tree.app)) { ipObj[tree.app] = [] }
   tree.uniqueIPs.forEach(ip => { if(!ipObj[tree.app].includes(ip)) { return ipObj[tree.app].push(ip) } })
   folderArray.push({

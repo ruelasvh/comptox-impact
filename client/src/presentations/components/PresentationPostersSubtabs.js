@@ -33,13 +33,13 @@ class PresentationPostersSubtabs extends React.Component {
                         </div>
                     </Col>
                     <Col sm={12}>
-                        <Tab.Content animation>
-                            <Tab.Pane eventKey={presentationsKey} mountOnEnter={true} unmountOnExit={true}>
+                        <Tab.Content unmountOnExit={true} mountOnEnter={true} animation>
+                            <Tab.Pane key={presentationsKey} eventKey={presentationsKey} mountOnEnter={true} unmountOnExit={true}>
                                 <div className="presentations-list-container">
                                     <VisiblePresentations options={this.props.options}/>
                                 </div>
                             </Tab.Pane>
-                            <Tab.Pane eventKey={postersKey} mountOnEnter={true} unmountOnExit={true}>
+                            <Tab.Pane key={postersKey} eventKey={postersKey} mountOnEnter={true} unmountOnExit={true}>
                                 <div className="presentations-list-container">
                                     <VisiblePosters options={this.props.options}/>
                                 </div>

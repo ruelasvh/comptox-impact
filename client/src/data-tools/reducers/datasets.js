@@ -8,22 +8,34 @@ import State from '../model';
 const initialState = State;
 
 function datasets(state = initialState, action) {
-    let returnState
-    switch (action.type) {
-        case REQUEST_ANALYTICS:
-            returnState = state
-            returnState.analytics.isFetching = true
-            return returnState
-        case RECEIVE_ANALYTICS:
-            const app = Object.keys(action.analytics)[0]
-            const section = Object.keys(action.analytics[app])[0]
-            returnState = Object.assign({}, state, {
-                lastUpdated: action.receivedAt,
-                analytics: Object.assign(state.analytics, action.analytics)
-            })
-            return returnState
-        default:
-            return state;
-    }
+  switch (action.type) {
+    case REQUEST_ANALYTICS:
+      return {
+        ...state,
+        analytics: {
+          ...state['analytics'],
+          [action.app]: {
+            ...state['analytics'][action.app],
+            isFetching: true
+          }
+        }
+      }
+    case RECEIVE_ANALYTICS:
+      const data = action.data
+      return {
+        ...state,
+        analytics: {
+          ...state['analytics'],
+          [action.app]: {
+            ...data,
+            isFetching: false,
+            staleData: false
+          }
+        }
+      }
+      default:
+          return state;
+  }
 }
+
 export default datasets;

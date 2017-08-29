@@ -1,7 +1,8 @@
 /**
  * Created by vruelasr on 11/2/16.
  */
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const PlumxWidget = ( { doi } ) => (
         <a
