@@ -14,9 +14,8 @@ const appApi_ids = {
     'IDa44YKDA', // Unique Page Views
     'IDA-pMKDA', // Country Month
     'MCoppsJDA', // Country Year
-    // 'ID8qZ8KDA'), // Domain Month
     'IDBgIoKDA', // Organization Month
-    'ICZ0oUKDA', // Domain Year
+    'ICZ0oUKDA', // Organization Year
     'ID4-4IKDA', // State Month
     'MCoppsKDA', // State Year
     'IC5x5UKDA', // New vs Returning users for 2016
@@ -38,8 +37,8 @@ const appApi_ids = {
     'MCo_IoJDA', // Unique Page Views
     'ID8vYEKDA', // Country Month
     'ICv9YQKDA', // Country Year
-    'IC-8YsKDA', // Domain Month
-    'ID8qZ8JDA', // Domain Year
+    'IC-8YsKDA', // Organization Month
+    'ID8qZ8JDA', // Organization Year
     'IC63J8JDA', // State Month
     'ICEtIoKDA', // State Year
     ]
@@ -51,8 +50,8 @@ const appApi_ids = {
     'IDZ8JILDA', // Unique Page Views
     'IDAnIILDA', // Country Month
     'MCosYYKDA', // Country Year
-    'ICEypsKDA', // Domain Month
-    'ICE3oYKDA', // Domain Year
+    'ICEypsKDA', // Organization Month
+    'ICE3oYKDA', // Organization Year
     'ID89o4JDA', // State Month
     'ICZ54MJDA', // State Year
     ]
@@ -64,8 +63,8 @@ const appApi_ids = {
     'IDruI8JDA', // Unique Page Views
     'IDrop4JDA', // Country Month
     'IDZ8NIIDA', // Country Year
-    'IDAnMIIDA', // Domain Month
-    'MCosYYJDA', // Domain Year
+    'IDAnMIIDA', // Organization Month
+    'MCosYYJDA', // Organization Year
     'ID8vYEJDA', // State Month
     'ICv9YQJDA', // State Year
     ]
@@ -77,8 +76,8 @@ const appApi_ids = {
     'MCoppsLDA', // Unique Page Views
     'IDZrIsJDA', // Country Month
     'ICEtIoJDA', // Country Year
-    'IC63J8LDA', // Domain Month
-    'IDZ8NIKDA', // Domain Year
+    'IC63J8LDA', // Organization Month
+    'IDZ8NIKDA', // Organization Year
     'IDAnMIKDA', // State Month
     'MCosYYLDA', // State Year
     /* ToxCast Download Drupal */
@@ -86,8 +85,8 @@ const appApi_ids = {
     'ICdwJoJDA', // Unique Page Views
     'ICdipYKDA', // Country Month
     'MCo6JMLDA', // Country Year
-    'ICZ58MIDA', // Domain Month
-    'ICEtIoLDA', // Domain Year
+    'ICZ58MIDA', // Organization Month
+    'ICEtIoLDA', // Organization Year
     'IC63N8IDA', // State Month
     'ID8qZ8LDA', // State Year
     ],
@@ -106,8 +105,8 @@ const appApi_ids = {
     'ICEoJMJDA', // Unique Page Views
     'ICdwJoLDA', // Country Month
     'ICdipYJDA', // Country Year
-    'MCo6NMIDA', // Domain Month
-    'ICZ58MKDA', // Domain Year
+    'MCo6NMIDA', // Organization Month
+    'ICZ58MKDA', // Organization Year
     'ICEtMoIDA', // State Month
     'IC63N8KDA', // State Year
     ],
@@ -126,8 +125,8 @@ const appApi_ids = {
     'ICZ54MLDA', // Unique Page Views
     'IC-7ZoKDA', // Country Month
     'ICv4ZkLDA', // Country Year
-    'ICdlIcKDA', // Domain Month
-    'IC-8YsJDA', // Domain Year
+    'ICdlIcKDA', // Organization Month
+    'IC-8YsJDA', // Organization Year
     'ICv9YQLDA', // State Month
     'ID8vYELDA', // State Year
     ],

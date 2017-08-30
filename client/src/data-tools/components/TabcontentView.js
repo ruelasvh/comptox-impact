@@ -34,7 +34,7 @@ const TabcontentView = ({ tab }) => (
                   <Nav bsStyle="pills" stacked>
                     <NavItem eventKey="drupal-page-views">Page Views</NavItem>
                     <NavItem eventKey="drupal-unique-page-views">Unique Page Views</NavItem>
-                    <NavItem eventKey="drupal-type-users">Types of Users</NavItem>
+                    <NavItem eventKey="drupal-type-users">Users</NavItem>
                     <NavItem eventKey="drupal-geographics">Geographics</NavItem>
                   </Nav>
                 </Panel>

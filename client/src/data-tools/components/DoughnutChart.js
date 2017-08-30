@@ -72,7 +72,7 @@ const DoughnutChart = ({ data }) => {
   const options = {
     title: {
       display: true,
-      text: 'User Domains'
+      text: 'Organizations Accessing Data'
     },
     legend: {
       display: false
