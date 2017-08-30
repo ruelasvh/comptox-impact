@@ -20,6 +20,7 @@ import AdminMainScientists from './admin/components/Main';
 import AdminScientist from './admin/components/Scientist';
 import AdminNewScientist from './admin/components/NewScientist';
 import DataTools from './data-tools/components/DataToolsMain';
+import ImpactMainView from './impact/components/ImpactMainView';
 import NotFound from './notfound/NotFound';
 
 const store = configureStore();
@@ -53,6 +54,7 @@ const routes = {
         { path: 'scientists', component: VisibleScientists },
         { path: 'scientists/:scientistId', component: ScientistProfile },
         { path: 'data-tools', component: DataTools },
+        { path: 'impact', component: ImpactMainView },
         { path: 'admin/scientists', component: AdminMainScientists },
         { path: 'admin/scientists/new', component: AdminNewScientist },
         { path: 'admin/scientists/:scientistId', component: AdminScientist },
