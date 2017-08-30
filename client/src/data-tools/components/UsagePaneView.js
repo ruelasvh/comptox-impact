@@ -7,6 +7,7 @@ import {
   Tab, Nav, NavItem
 } from 'react-bootstrap'
 import DoughnutChart from './DoughnutChart'
+import ActiveUsersChart from './ActiveUsersChart'
 import Chart from './Chart'
 import BarLineChart from './BarLineChart'
 import Table from './Table'
@@ -26,7 +27,7 @@ const UsagePaneView = ({ data }) => (
     </Tab.Pane>
     <Tab.Pane unmountOnExit={true} mountOnEnter={true} eventKey="type-users">
       {data.usage.hasOwnProperty('activeUsers') ?
-        <Chart type="line" label="Active Users" data={data.usage.activeUsers}/> : ' '
+        <ActiveUsersChart label="Active Users" data={data.usage.activeUsers}/> : ' '
       }
       <br/><br/>
       {!data.isFetching && data.usage.hasOwnProperty('newReturning') ?
