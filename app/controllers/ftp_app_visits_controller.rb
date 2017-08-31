@@ -6,54 +6,19 @@ class FtpAppVisitsController < ApplicationController
   # GET /api/ftpmetrics/visits?app=comptox
   def show
     if params[:app].present?
-      if params[:app] === 'comptoxdata'
-        visits_by_ip = FtpAppVisit.select(:ip,:timestamp).group_by{|ip| ip.ip}.each{|_,v| v.map!{|h| h.timestamp}}
-      else
-        visits_by_ip = FtpAppVisit.select(:ip,:timestamp).where(:app => params[:app]).group_by{|ip| ip.ip}.each{|_,v| v.map!{|h| h.timestamp}}
-      end
+      render status: :ok, json: { visits: FtpAppVisit.visits_by_ip(params[:app]) }
     else
       raise MalformedRequestError.new('No parameters or parameter values found')
     end
-
-    render status: :ok, json: visits_by_ip
   end
 
   # GET /api/ftpmetrics/visits/count?app=comptox
   def count
     if params[:app].present?
-      if params[:app] === 'comptoxdata'
-        visits_by_ip = FtpAppVisit.select(:ip,:timestamp).group_by{|ip| ip.ip}.each{|_,v| v.map!{|h| h.timestamp}}
-      else
-        visits_by_ip = FtpAppVisit.select(:ip,:timestamp).where(:app => params[:app]).group_by{|ip| ip.ip}.each{|_,v| v.map!{|h| h.timestamp}}
-      end
-      app_visits = getTotalVisits(visits_by_ip)
+      render status: :ok, json: FtpAppVisit.visits_by_ip_count(params[:app])
     else
       raise MalformedRequestError.new('No parameters or parameter values found')
     end
-
-    render status: :ok, json: app_visits
-  end
-
-  def isMoreThan2Years(endDate, startDate)
-    Date.parse(endDate).year - Date.parse(startDate).year > 2
-  end
-
-  def getTotalVisits(visits_by_ip)
-    new_returning_visits = 0
-    total_visits = 0
-    visits_by_ip.values.each{ |visits|
-      visits.each_with_index { |visit, index|
-        if ((index < visits.size - 1) && isMoreThan2Years(visits[index + 1], visit))
-          new_returning_visits += 1
-        end
-      }
-      total_visits += visits.count
-    }
-
-    total_new_visits = new_returning_visits + visits_by_ip.keys.count
-    total_returning_visits = total_visits - total_new_visits
-
-    {"New Users": total_new_visits, "Returning Users": total_returning_visits}
   end
 
   ActionController::Parameters.action_on_unpermitted_parameters = :raise
