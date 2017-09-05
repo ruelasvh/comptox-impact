@@ -4,12 +4,8 @@ class ScientistTest < ActiveSupport::TestCase
   fixtures :scientists
 
   test "scientist attributes must not be empty" do
-    scientist = Scientist.new
-    assert scientist.invalid?
-    assert scientist.errors[:scientistId].any?
-    assert scientist.errors[:firstName].any?
-    assert scientist.errors[:lastName].any?
-    assert scientist.errors[:title].any?
+    scientist = Scientist.new(firstName: 'Jesus', lastName: 'Christ')
+    assert scientist.valid?
   end
 
   def new_scientist(image_url)
@@ -32,7 +28,7 @@ class ScientistTest < ActiveSupport::TestCase
   end
 
   test "scientist is not valid without a unique scientistId" do
-    scientist = Scientist.new(  scientistId:          scientists(:ann).scientistId,
+    scientist = Scientist.new(  scientistId:          scientists(:one).scientistId,
                     firstName:            "Juan",
                     lastName:             "Perez",
                     title:                "Rocket Scientist",

@@ -5,14 +5,18 @@
 # below each fixture, per the syntax in the comments below
 #
 one: {
+  scientistId: 1,
   firstName: Ann,
-  lastName: Richard
+  lastName: Richard,
+  title: Scientist
 }
 # column: value
 #
 two: {
+  scientistId: 2,
   firstName: John,
-  lastName: Oliver
+  lastName: Oliver,
+  title: Comedian
 }
 #  column: value
 
