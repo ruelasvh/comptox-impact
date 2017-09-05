@@ -5,15 +5,27 @@
 # below each fixture, per the syntax in the comments below
 #
 one: {
-  file_id: 3,
+  file_id: 1,
   month: 201500,
   count: 3
 }
 # column: value
 #
 two: {
-  file_id: 5,
+  file_id: 2,
   month: 201508,
+  count: 1
+}
+#  column: value
+three: {
+  file_id: 3,
+  month: 201509,
+  count: 1
+}
+#  column: value
+four: {
+  file_id: 4,
+  month: 201510,
   count: 1
 }
 #  column: value

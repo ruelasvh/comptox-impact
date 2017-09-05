@@ -1,36 +1,12 @@
 class FtpMetricsByMonthController < ApplicationController
+
+  #GET /api/ftpmetricsby/month/:app
   def month
-    app = params[:app]
-    if app === 'comptoxdata'
-      list = FtpMetricsByMonth.joins("INNER JOIN ftp_metrics ON ftp_metrics.id = ftp_metrics_by_months.file_id")
-    else
-      list = FtpMetricsByMonth.joins("INNER JOIN ftp_metrics ON ftp_metrics.id = ftp_metrics_by_months.file_id AND ftp_metrics.app = '" + app + "'")
-    end
-    highMonth = list.max { |a, b| a.month <=> b.month }
-    secondMonth = list.where.not(:month => highMonth.month).max { |a, b| a.month <=> b.month }
-    toptenlist = list.where(:month => secondMonth.month).order(count: :desc).limit(10)
-    topten = toptenlist.map {|file| { name: file.ftp_metric.name, count: file.count } }
-    render(
-        status: 200,
-        json: { data: topten,
-                month: secondMonth.month }
-    )
+    render status: :ok, json: FtpMetricsByMonth.top_10_month(params[:app])
   end
+
+  #GET /api/ftpmetricsby/year/:app
   def year
-    app = params[:app]
-    if app === 'comptoxdata'
-      list = FtpMetricsByMonth.joins("INNER JOIN ftp_metrics ON ftp_metrics.id = ftp_metrics_by_months.file_id")
-    else
-      list = FtpMetricsByMonth.joins("INNER JOIN ftp_metrics ON ftp_metrics.id = ftp_metrics_by_months.file_id AND ftp_metrics.app = '" + app + "'")
-    end
-    highMonth = list.max { |a, b| a.month <=> b.month }
-    highYear = highMonth.month[0..3].to_i - 1
-    toptenlist = list.where("month like?", "#{highYear}%").group('ftp_metrics.name').sum(:count).sort_by { |id, count| -count }[0..9]
-    topten = toptenlist.map {|id, count| { name: id, count: count } }
-    render(
-        status: 200,
-        json: { data: topten,
-                year: highYear.to_s }
-    )
+    render status: :ok, json: FtpMetricsByMonth.top_10_year(params[:app])
   end
 end

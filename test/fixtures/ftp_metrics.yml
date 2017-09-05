@@ -5,6 +5,7 @@
 # below each fixture, per the syntax in the comments below
 #
 one: {
+  id: 1,
   parent_id: 1,
   app: comptox,
   name: publications.pdf,
@@ -15,11 +16,30 @@ one: {
 # column: value
 #
 two: {
+  id: 2,
   parent_id: 2,
-  app: dsstox,
+  app: comptox,
   name: dsstoxftp,
   folder: 0,
   count: 8,
   unique_count: 7
 }
 #  column: value
+three: {
+  id: 3,
+  parent_id: 2,
+  app: comptox,
+  name: comptoxftp,
+  folder: 3,
+  count: 8,
+  unique_count: 7
+}
+four: {
+  id: 4,
+  parent_id: 2,
+  app: comptox,
+  name: file.pdf,
+  folder: 0,
+  count: 8,
+  unique_count: 7
+}
