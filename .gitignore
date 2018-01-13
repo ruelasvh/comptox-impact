@@ -38,7 +38,8 @@ node_modules/
 *.swp
 *.swx
 
-# Ignore output of ftp logfile parsing
+# Ignore input/output of ftp logfile parsing
+ftpstats/logfiles/*
 ftpstats/output
 
 # Ignore debug (npm) log
