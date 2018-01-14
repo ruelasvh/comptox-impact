@@ -1,6 +1,6 @@
 == Project Scope
 
-Computational Toxicology (CompTox) research at the EPA was initiated in 2005. Since 2005, CompTox research efforts have made tremendous advanes in developing new approaches to evaluate thousands of chemicals for potential health effets.
+Computational Toxicology (CompTox) research at the EPA was initiated in 2005. Since 2005, CompTox research efforts have made tremendous advanes in developing new approaches to evaluate thousands of chemicals for potential health effects.
 
 The purpose of this project is to track impact metric trends for EPA's CompTox research products and evaluate the usefulness of the metrics. The goal is to identify approaches and online tools to use to gather metrics to showcase the impact of EPA's CompTox research efforts.
 
@@ -18,3 +18,26 @@ The purpose of this project is to track impact metric trends for EPA's CompTox r
 
 * Develop online application (this repository!)
 
+== Deployment Instructions
+
+Clone this repo. Then change directory, <tt>cd comptox-impact</tt>. Install the gems:
+
+<tt>bundle install</tt>
+
+Run the rails server:
+
+<tt>rails c development_webpack_dev_server</tt>
+
+Open a new terminal and change into the <tt>client</tt> directory:
+
+<tt>cd comptox-impact/client</tt>
+
+Install node modules:
+
+<tt>npm install</tt>
+
+Run the client dev server:
+
+<tt>npm run dev</tt>
+
+Finally, point browser to localhost <tt>http://localhost:3000</tt>.
