@@ -26,7 +26,7 @@ Clone this repo. Then change directory, <tt>cd comptox-impact</tt>. Install the 
 
 Run the rails server:
 
-<tt>rails c development_webpack_dev_server</tt>
+<tt>RAILS_ENV=development_webpack_dev_server rails s</tt>
 
 Open a new terminal and change into the <tt>client</tt> directory:
 
