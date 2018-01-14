@@ -1,28 +1,20 @@
-== README
+== Project Scope
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Computational Toxicology (CompTox) research at the EPA was initiated in 2005. Since 2005, CompTox research efforts have made tremendous advanes in developing new approaches to evaluate thousands of chemicals for potential health effets.
 
-Things you may want to cover:
+The purpose of this project is to track impact metric trends for EPA's CompTox research products and evaluate the usefulness of the metrics. The goal is to identify approaches and online tools to use to gather metrics to showcase the impact of EPA's CompTox research efforts.
 
-* Ruby version
+== Approach
 
-* System dependencies
+* Identify the research products of CompTox research
 
-* Configuration
+* Determine the appropriate and avaiable metrics for CompTox research products
 
-* Database creation
+* Investigate metric sources such as Web of Science, PlumX, AltMetric, GrowKudos
 
-* Database initialization
+* Gather metrics through APIs and other existing sources
 
-* How to run the test suite
+* Analyze FTP and server logs for trends
 
-* Services (job queues, cache servers, search engines, etc.)
+* Develop online application (this repository!)
 
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
