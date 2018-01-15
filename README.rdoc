@@ -1,14 +1,14 @@
 == Project Scope
 
-Computational Toxicology (CompTox) research at the EPA was initiated in 2005. Since 2005, CompTox research efforts have made tremendous advanes in developing new approaches to evaluate thousands of chemicals for potential health effects.
+Computational Toxicology (CompTox) research at the EPA was initiated in 2005. Since 2005, CompTox research efforts have made tremendous advances in developing new approaches to evaluate thousands of chemicals for potential health effects.
 
-The purpose of this project is to track impact metric trends for EPA's CompTox research products and evaluate the usefulness of the metrics. The goal is to identify approaches and online tools to use to gather metrics to showcase the impact of EPA's CompTox research efforts.
+The purpose of this project is to track impact metric trends for EPA's CompTox research products and evaluate the usefulness of the metrics. The goal is to identify approaches and online tools to gather metrics to showcase the impact of EPA's CompTox research efforts.
 
 == Approach
 
 * Identify the research products of CompTox research
 
-* Determine the appropriate and avaiable metrics for CompTox research products
+* Determine the appropriate and available metrics for CompTox research products
 
 * Investigate metric sources such as Web of Science, PlumX, AltMetric, GrowKudos
 
